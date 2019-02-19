@@ -1,7 +1,7 @@
 from flask import Flask
 import firebase_admin
 from firebase_admin import credentials, auth
-cred = credentials.Certificate("firebase-admin.json")
+cred = credentials.Certificate("firebase-config.json")
 app = Flask(__name__)
 firebase_app = firebase_admin.initialize_app(cred)
 
