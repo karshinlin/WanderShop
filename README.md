@@ -1,10 +1,12 @@
 # WanderShop
 
 # Run Server
-- Python3 is required
-- run python3 server.py to run the Server
+- virtualenv is used to maintain dependencies
+- To activate virtualenv, run `source venv/bin/activate` in project root
+- run python server.py to run the Server
 
 
-# Server Requirements
+# Server Requirements in virtualenv
 - Python3
 - firebase-admin
+- Flask
