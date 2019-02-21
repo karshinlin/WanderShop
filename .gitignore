@@ -1,3 +1,4 @@
 Server/firebase-config.json
+Server/config.py
 .idea
 .vscode/*
