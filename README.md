@@ -10,3 +10,9 @@
 - Python3
 - firebase-admin
 - Flask
+
+
+# To start the React Native App
+- cd ./WanderShopApp
+- npm install
+- react-native run-ios
