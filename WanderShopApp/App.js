@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, View, Text, StyleSheet, TextInput } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
+import TabViewPageHomeScreen from "./TabViewPage";
+import CartButton from "./CartButton";
 
 class WelcomeScreen extends React.Component {
   static navigationOptions = {
@@ -81,7 +83,7 @@ class LoginScreen extends React.Component {
       .then((response) => response.json())
       .then((responseJSON) => {
         if (responseJSON['success'] == 1) {
-          this.props.navigation.navigate('Welcome')
+          this.props.navigation.navigate('HomePage')
         } else {
           console.log(responseJSON)
           console.log("Login failed");
@@ -221,7 +223,14 @@ class CreateAccountScreen extends React.Component {
 const AppNavigator = createStackNavigator({
 	Welcome: WelcomeScreen,
 	Login: LoginScreen,
-	CreateAccount: CreateAccountScreen
+  CreateAccount: CreateAccountScreen,
+  HomePage: {
+    screen: TabViewPageHomeScreen,
+    navigationOptions: {
+      headerLeft: null,
+      headerRight: (<CartButton />),
+    },
+  },
 }
 );
 
