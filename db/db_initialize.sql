@@ -39,7 +39,7 @@ CREATE TABLE Restaurants (
 	restaurantId INT PRIMARY KEY,
     restaurantName varchar(50),
     address varchar(75),
-    phoneNumber varchar(30),
+    phoneNumber varchar(10),
     website varchar(75),
     restaurantType varchar(30),
     rating INT
