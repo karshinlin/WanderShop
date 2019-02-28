@@ -85,12 +85,19 @@ def register_page():
 @app.route('/flights/getByDate/', methods=["POST"])
 def flights_handler():
     ## Retrieve data from the request
+    jsonReq = request.get_json()
+    departDate = jsonReq['departDate'] # mm/dd/yyyy
+    returnDate = jsonReq['returnDate']
+    origin = jsonReq['origin']
+    destination = jsonReq['destination']
+    
+    # Query the db with the flight data request
     conn = mysql.connect()	
     cursor = conn.cursor()
-
-    # Query the db with the flight data request
-    cursor.execute("SELECT * from Flights")
-    print("done")
+    baseQuery = "SELECT DISTINCT * from Flights WHERE flightDate=%(fDate)s AND origin=%(fOrigin)s AND destination=%(fDestination)s"
+    params = {'fdate': departDate, 'fOrigin': origin, 'fDestination': destination}
+    cursor.execute(baseQuery, params)
+    print("Data queried from the database.")
     for row in cursor:
         print(row)
     

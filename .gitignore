@@ -1,5 +1,6 @@
 Server/firebase-config.json
 Server/config.py
+Server/__pycache__/
 .idea
 .vscode/*
 
