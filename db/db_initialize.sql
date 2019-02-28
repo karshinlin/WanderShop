@@ -12,7 +12,37 @@ CREATE TABLE Flights (
     depart_date DATE NOT NULL,
     depart_time time NOT NULL,
     airline varchar(30),
-    length varchar(30)
+    flightNum INT,
+    cost INT
+);
+
+CREATE TABLE Hotels (
+	hotelId INT PRIMARY KEY,
+	hotelName varchar(50),
+    address varchar(75),
+    phoneNumber varchar(10),
+    cost INT,
+    website varchar(75),
+    rating INT
+);
+
+CREATE TABLE Activities (
+	activityId INT PRIMARY KEY,
+	activityName varchar(75),
+    activityDescription varchar(500),
+    cost INT,
+    address varchar(75),
+    activityDate DATE NOT NULL
+);
+
+CREATE TABLE Restaurants (
+	restaurantId INT PRIMARY KEY,
+    restaurantName varchar(50),
+    address varchar(75),
+    phoneNumber varchar(30),
+    website varchar(75),
+    restaurantType varchar(30),
+    rating INT
 );
 
 CREATE TABLE Users (
@@ -28,10 +58,6 @@ CREATE TABLE Trips (
     foreign key (departFlight) references Flights(flightId),
     foreign key (returnFlight) references Flights(flightId)
 );
-
-INSERT into Flights
-	(flightID, origin, destination, depart_date, depart_time, airline, length)
-VALUES (1, "ATL", "SFO", STR_TO_DATE('03/10/2019', '%d/%m/%Y'), '11:00:00', "Delta", "5 hours")
 	
     
     
