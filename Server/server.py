@@ -1,13 +1,25 @@
 from flask import Flask, json, request
+from flaskext.mysql import MySQL
 import firebase_admin
 import requests
 from firebase_admin import credentials, auth
 import config
+import sys
 cred = credentials.Certificate("firebase-config.json")
 app = Flask(__name__)
 firebase_app = firebase_admin.initialize_app(cred)
 
+
+mysql = MySQL()
+# MySQL configurations
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'teamunit'
+app.config['MYSQL_DATABASE_DB'] = 'wander_shop'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+mysql.init_app(app)
+
 _verify_password_url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword'
+
 
 @app.route('/')
 def hello_world():
@@ -72,7 +84,23 @@ def register_page():
 ## Flights handling
 @app.route('/flights/getByDate/', methods=["POST"])
 def flights_handler():
+    ## Retrieve data from the request
+    conn = mysql.connect()	
+    cursor = conn.cursor()
+
+    # Query the db with the flight data request
+    cursor.execute("SELECT * from Flights")
+    print("done")
+    for row in cursor:
+        print(row)
     
+    
+
+    ## CODE BELOW IS FOR API IMPLEMENTATION
+    """ 
+    
+    # http://127.0.0.1:5000/flights/getByDate/?departDate=04/15/2019&returnDate=04/21/2019&origin=LHR&destination=ATL
+
     error = ''
     try:
         if request.method == "POST":
@@ -118,11 +146,6 @@ def flights_handler():
         #flash(e)
         print (e)
         print ("error")
-        return json.jsonify({'success':0})
-
-
-
-
-
+        return json.jsonify({'success':0}) """
 if __name__ == '__main__':
     app.run(debug=True)
