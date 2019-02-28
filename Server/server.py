@@ -68,5 +68,61 @@ def register_page():
         print ("error")
         return json.jsonify({'success':0})
 
+
+## Flights handling
+@app.route('/flights/getByDate/', methods=["POST"])
+def flights_handler():
+    
+    error = ''
+    try:
+        if request.method == "POST":
+            print("request was a post", file=sys.stderr)
+            jsonReq = request.get_json()
+            departDate = jsonReq['departDate'] # mm/dd/yyyy
+            returnDate = jsonReq['returnDate']
+            origin = jsonReq['origin']
+            destination = jsonReq['destination']
+
+            # We can allow to specify these through the app in the future 
+            numAdults = 1 
+            numChilds = 0 
+            numInfants = 0 
+            classType = "Economy"
+            currency = "USD"
+            flightsLimit = "30ITINS" # num of flights in response
+            tripType = "R" # O for one-way, R for round-trip
+
+            headers = {"apikey": config.AIRHOB_API_KEY, "mode": "sandbox", "Content-Type": "application/json"}
+
+            params = { 
+                "TripType": tripType, "NoOfAdults": numAdults, "NoOfChilds": numChilds, "NoOfInfants": numInfants, "ClassType": classType, "OriginDestination": 
+                    [ { "Origin": origin, "Destination": destination, "TravelDate": departDate }, 
+                    { "Origin": destination, "Destination": origin, "TravelDate": returnDate } ], 
+                "Currency": "USD" }
+
+            r = requests.post("https://dev-sandbox-api.airhob.com/sandboxapi/flights/v1.3/search", data = params, headers=headers)
+
+            
+            print(r.url)
+            
+
+            return str(r.json())
+
+
+            ##return json.jsonify({'success':1, 'token': token.decode('utf-8'), 'email': email, 'name': name, 'phone': phone})
+        
+        return json.jsonify({'success':0})
+
+
+    except Exception as e:
+        #flash(e)
+        print (e)
+        print ("error")
+        return json.jsonify({'success':0})
+
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
