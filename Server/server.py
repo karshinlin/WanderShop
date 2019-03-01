@@ -94,12 +94,25 @@ def flights_handler():
     # Query the db with the flight data request
     conn = mysql.connect()	
     cursor = conn.cursor()
-    baseQuery = "SELECT DISTINCT * from Flights WHERE flightDate=%(fDate)s AND origin=%(fOrigin)s AND destination=%(fDestination)s"
-    params = {'fdate': departDate, 'fOrigin': origin, 'fDestination': destination}
+    baseQuery = "SELECT DISTINCT * from Flights WHERE depart_date=%(fDate)s AND origin=%(fOrigin)s AND destination=%(fDestination)s"
+    params = {'fDate': departDate, 'fOrigin': origin, 'fDestination': destination}
     cursor.execute(baseQuery, params)
     print("Data queried from the database.")
+    flights = []
     for row in cursor:
         print(row)
+        print(str(row[4]))
+        flight = {  'flightId' : row[0],
+	                'origin' : row[1],
+	                'destination' : row[2],
+                    'departDate' : str(row[3]),
+                    'departTime' : str(row[4]),
+                    'airline' : row[5],
+                    'flightsNumber': row[6],
+                    'cost' : row[7]}
+        flights.append(flight)
+    return json.jsonify({'flights': flights})
+
     
     
 
