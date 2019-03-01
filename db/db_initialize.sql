@@ -42,6 +42,7 @@ CREATE TABLE Activities (
 CREATE TABLE Restaurants (
 	restaurantId INT PRIMARY KEY,
     restaurantName varchar(50),
+    city varchar(50),
     address varchar(75),
     phoneNumber varchar(10),
     website varchar(75),

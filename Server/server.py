@@ -172,7 +172,7 @@ def flights_handler():
 
 ## Flights handling
 @app.route('/hotels/getByCity/', methods=["POST"])
-def hotel_handler():
+def hotels_handler():
     ## Retrieve data from the request
     jsonReq = request.get_json()
     city = jsonReq['city'] # mm/dd/yyyy
@@ -198,6 +198,35 @@ def hotel_handler():
                     'rating': row[7]}
         hotels.append(hotel)
     return json.jsonify({'hotels': hotels})
+
+## Flights handling
+@app.route('/restaurants/getByCity/', methods=["POST"])
+def restaurants_handler():
+    ## Retrieve data from the request
+    jsonReq = request.get_json()
+    city = jsonReq['city'] # mm/dd/yyyy
+    
+    
+    # Query the db with the flight data request
+    conn = mysql.connect()	
+    cursor = conn.cursor()
+    baseQuery = "SELECT DISTINCT * from Restaurants WHERE city=%(rCity)s"
+    params = {'rCity': city}
+    cursor.execute(baseQuery, params)
+    print("Data queried from the database.")
+    restaurants = []
+    for row in cursor:
+        print(row) # We should probably add a cost field $ $$ $$$
+        restaurant = {  'restaurantId' : row[0],
+	                'restaurantName' : row[1],
+	                'address' : row[3],
+                    'phone' : row[4],
+                    'website' : row[5],
+                    'type': row[6],
+                    'rating': row[7]}
+        restaurants.append(restaurant)
+    return json.jsonify({'restaurants': restaurants})
+
 
 
 if __name__ == '__main__':

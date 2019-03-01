@@ -72,25 +72,25 @@ INSERT INTO Activities VALUES (5, "Hamilton - Broadway", "Hamilton: An American 
 
 
 
-INSERT INTO Restaurants VALUES (1, "Los Tacos No. 1", "75 9th Ave, New York, NY 10011", "2122560343", "https://www.lostacos1.com/", "Tacos", 5);
+INSERT INTO Restaurants VALUES (1, "Los Tacos No. 1", "New York", "75 9th Ave, New York, NY 10011", "2122560343", "https://www.lostacos1.com/", "Tacos", 5);
 
-INSERT INTO Restaurants VALUES (2, "Le Bernardin", "155 W 51st St, New York, NY 10019", "2125541515", "https://www.le-bernardin.com/", "Seafood", 4);
+INSERT INTO Restaurants VALUES (2, "Le Bernardin", "New York", "155 W 51st St, New York, NY 10019", "2125541515", "https://www.le-bernardin.com/", "Seafood", 4);
 
-INSERT INTO Restaurants VALUES (3, "Per Se", "10 Columbus Cir, New York, NY 10019", "2128239335", "https://www.thomaskeller.com/perseny", "French", 5);
+INSERT INTO Restaurants VALUES (3, "Per Se", "New York", "10 Columbus Cir, New York, NY 10019", "2128239335", "https://www.thomaskeller.com/perseny", "French", 5);
 
-INSERT INTO Restaurants VALUES (4, "Gramercy Tavern", "42 E 20th St, New York, NY 10003", "2124770777", "https://www.gramercytavern.com/", "American", 3);
+INSERT INTO Restaurants VALUES (4, "Gramercy Tavern", "New York", "42 E 20th St, New York, NY 10003", "2124770777", "https://www.gramercytavern.com/", "American", 3);
 
-INSERT INTO Restaurants VALUES (5, "Carmine's Italian Restaurant - Times Square", "200 W 44th St, New York, NY 10036", "2122213800", "https://www.carminesnyc.com/locations/times-square", "Italian", 5);
+INSERT INTO Restaurants VALUES (5, "Carmine's Italian Restaurant - Times Square", "New York", "200 W 44th St, New York, NY 10036", "2122213800", "https://www.carminesnyc.com/locations/times-square", "Italian", 5);
 
-INSERT INTO Restaurants VALUES (6, "Parkers' Lighthouse", "435 Shoreline Village Drive, Long Beach, CA 90802", "5624326500", "http://www.parkerslighthouse.com/", "Seafood", 4);
+INSERT INTO Restaurants VALUES (6, "Parkers' Lighthouse", "Long Beach", "435 Shoreline Village Drive, Long Beach, CA 90802", "5624326500", "http://www.parkerslighthouse.com/", "Seafood", 4);
 
-INSERT INTO Restaurants VALUES (7, "Nick's on 2nd Long Beach", "4901 E 2nd St, Long Beach, CA 90803", "5628569000", "http://www.parkerslighthouse.com/", "American", 4);
+INSERT INTO Restaurants VALUES (7, "Nick's on 2nd Long Beach", "Long Beach", "4901 E 2nd St, Long Beach, CA 90803", "5628569000", "http://www.parkerslighthouse.com/", "American", 4);
 
-INSERT INTO Restaurants VALUES (8, "Pier 76 Fish Grill", "95 Pine Ave, Long Beach, CA 90802", "5629831776", "https://www.pier76fishgrill.com/", "Seafood", 5);
+INSERT INTO Restaurants VALUES (8, "Pier 76 Fish Grill", "Long Beach", "95 Pine Ave, Long Beach, CA 90802", "5629831776", "https://www.pier76fishgrill.com/", "Seafood", 5);
 
-INSERT INTO Restaurants VALUES (9, "George's Greek Cafe", "135 Pine Ave, Long Beach, CA 90802", "5624371184", "https://www.georgesgreekcafe.com/", "Greek", 4);
+INSERT INTO Restaurants VALUES (9, "George's Greek Cafe", "Long Beach", "135 Pine Ave, Long Beach, CA 90802", "5624371184", "https://www.georgesgreekcafe.com/", "Greek", 4);
 
-INSERT INTO Restaurants VALUES (10, "Tantalum Restaurant", "6272 E Pacific Coast Hwy # J, Long Beach, CA 90803", "5624311414", "http://www.tantalumrestaurant.com/", "Everything", 2);
+INSERT INTO Restaurants VALUES (10, "Tantalum Restaurant", "Long Beach", "6272 E Pacific Coast Hwy # J, Long Beach, CA 90803", "5624311414", "http://www.tantalumrestaurant.com/", "Everything", 2);
 
 
 INSERT INTO Users Values (1, "trobinson80", "wandershop1");
