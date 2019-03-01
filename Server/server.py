@@ -167,5 +167,38 @@ def flights_handler():
         print (e)
         print ("error")
         return json.jsonify({'success':0}) """
+
+
+
+## Flights handling
+@app.route('/hotels/getByCity/', methods=["POST"])
+def hotel_handler():
+    ## Retrieve data from the request
+    jsonReq = request.get_json()
+    city = jsonReq['city'] # mm/dd/yyyy
+    
+    
+    # Query the db with the flight data request
+    conn = mysql.connect()	
+    cursor = conn.cursor()
+    baseQuery = "SELECT DISTINCT * from Hotels WHERE city=%(hCity)s"
+    params = {'hCity': city}
+    cursor.execute(baseQuery, params)
+    print("Data queried from the database.")
+    hotels = []
+    for row in cursor:
+        print(row)
+        print(str(row[4]))
+        hotel = {  'hotelId' : row[0],
+	                'hotelName' : row[1],
+	                'address' : row[3],
+                    'phoneNumber' : row[4],
+                    'cost' : row[5],
+                    'website' : row[6],
+                    'rating': row[7]}
+        hotels.append(hotel)
+    return json.jsonify({'hotels': hotels})
+
+
 if __name__ == '__main__':
     app.run(debug=True)
