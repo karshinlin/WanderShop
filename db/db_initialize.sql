@@ -22,6 +22,7 @@ CREATE TABLE Flights (
 CREATE TABLE Hotels (
 	hotelId INT PRIMARY KEY,
 	hotelName varchar(50),
+    city varChar(50),
     address varchar(75),
     phoneNumber varchar(10),
     cost INT,
