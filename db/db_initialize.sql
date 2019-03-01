@@ -4,6 +4,9 @@ use wander_shop;
 DROP TABLE if exists Users;
 DROP TABLE if exists Trips;
 DROP TABLE if exists Flights;
+DROP TABLE if exists Hotels;
+DROP TABLE if exists Activities;
+DROP TABLE if exists Restaurants;
 
 CREATE TABLE Flights (
 	flightId INT PRIMARY KEY,
