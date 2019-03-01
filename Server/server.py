@@ -170,7 +170,7 @@ def flights_handler():
 
 
 
-## Flights handling
+## Hotels handling
 @app.route('/hotels/getByCity/', methods=["POST"])
 def hotels_handler():
     ## Retrieve data from the request
@@ -199,7 +199,7 @@ def hotels_handler():
         hotels.append(hotel)
     return json.jsonify({'hotels': hotels})
 
-## Flights handling
+## Restaurants handling
 @app.route('/restaurants/getByCity/', methods=["POST"])
 def restaurants_handler():
     ## Retrieve data from the request
@@ -226,6 +226,34 @@ def restaurants_handler():
                     'rating': row[7]}
         restaurants.append(restaurant)
     return json.jsonify({'restaurants': restaurants})
+
+## Activities handling
+@app.route('/activities/getByCity/', methods=["POST"])
+def activities_handler():
+    ## Retrieve data from the request
+    jsonReq = request.get_json()
+    city = jsonReq['city'] # mm/dd/yyyy
+    
+    
+    # Query the db with the flight data request
+    conn = mysql.connect()	
+    cursor = conn.cursor()
+    baseQuery = "SELECT DISTINCT * from Activities WHERE city=%(aCity)s"
+    params = {'aCity': city}
+    cursor.execute(baseQuery, params)
+    print("Data queried from the database.")
+    activities = []
+    for row in cursor:
+        print(row)
+        print(str(row[4]))
+        activity = {  'activityId' : row[0],
+	                'activityName' : row[1],
+	                'description' : row[2],
+                    'cost' : row[3],
+                    'address' : row[5],
+                    'date' : str(row[6])}
+        activities.append(activity)
+    return json.jsonify({'activities': activities})
 
 
 

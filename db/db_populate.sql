@@ -60,15 +60,15 @@ INSERT INTO Hotels VALUES (9, "Embassy Suites", "Long Beach", "725 Annadale Stre
 INSERT INTO Hotels VALUES (10, "Hilton Garden Inn", "Long Beach", "43 Wood Street Long Beach, CA 21207", "5621100119", 175, "https://hiltongardeninn3.hilton.com", 1);
  
 
-INSERT INTO Activities VALUES (1, "Statue of Liberty National Monument", "Visit the Statue of Liberty National Monument and Ellis Island Immigration Museum.", 25, "New York, NY 10004", "2019-06-05");
+INSERT INTO Activities VALUES (1, "Statue of Liberty National Monument", "Visit the Statue of Liberty National Monument and Ellis Island Immigration Museum.", 25, "New York", "New York, NY 10004", "2019-06-05");
 
-INSERT INTO Activities VALUES (2, "Book of Mormon - Broadway", "The Book of Mormon is a musical comedy. First staged in 2011, the play makes light of various Mormon beliefs and practices, but ultimately endorses the positive power of love and service.", 110, "1681 Broadway New York, NY 10019", "2019-06-03");
+INSERT INTO Activities VALUES (2, "Book of Mormon - Broadway", "The Book of Mormon is a musical comedy. First staged in 2011, the play makes light of various Mormon beliefs and practices, but ultimately endorses the positive power of love and service.", 110, "New York", "1681 Broadway New York, NY 10019", "2019-06-03");
 
-INSERT INTO Activities VALUES (3, "Wicked - Broadway", "Wicked is a Broadway musical with music and lyrics by Stephen Schwartz and book by Winnie Holzman.", 89, "222 West 51st Street New York, NY 10019", "2019-06-03");
+INSERT INTO Activities VALUES (3, "Wicked - Broadway", "Wicked is a Broadway musical with music and lyrics by Stephen Schwartz and book by Winnie Holzman.", 89, "New York", "222 West 51st Street New York, NY 10019", "2019-06-03");
 
-INSERT INTO Activities VALUES (4, "New York Mets vs. San Francisco Giants", "The New York Mets are an American professional baseball team based in the New York City borough of Queens.", 19, "123-01 Roosevelt Ave, Flushing, NY 11368", "2019-06-04");
+INSERT INTO Activities VALUES (4, "New York Mets vs. San Francisco Giants", "The New York Mets are an American professional baseball team based in the New York City borough of Queens.", 19, "New York", "123-01 Roosevelt Ave, Flushing, NY 11368", "2019-06-04");
 
-INSERT INTO Activities VALUES (5, "Hamilton - Broadway", "Hamilton: An American Musical is a sung-and-rapped through musical about the life of American Founding Father Alexander Hamilton, with music, lyrics and book by Lin-Manuel Miranda, inspired by the 2004 biography Alexander Hamilton by historian Ron Chernow.", 450, "226 West 46th Street New York, NY 10036", "2019-06-02");
+INSERT INTO Activities VALUES (5, "Hamilton - Broadway", "Hamilton: An American Musical is a sung-and-rapped through musical about the life of American Founding Father Alexander Hamilton, with music, lyrics and book by Lin-Manuel Miranda, inspired by the 2004 biography Alexander Hamilton by historian Ron Chernow.", 450, "New York", "226 West 46th Street New York, NY 10036", "2019-06-02");
 
 
 

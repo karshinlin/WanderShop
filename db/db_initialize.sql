@@ -35,6 +35,7 @@ CREATE TABLE Activities (
 	activityName varchar(75),
     activityDescription varchar(500),
     cost INT,
+    city varchar(50),
     address varchar(75),
     activityDate DATE NOT NULL
 );
