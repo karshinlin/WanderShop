@@ -60,16 +60,16 @@ class CartScreen extends Component {
             <FlatList
             scrollEnabled={false}
             data={this.state.flights}
-            renderItem={({ item: { flightsNumber, airline, dLoc, aLoc, cost, departure, arrival } }) => (
-            <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
+            renderItem={({ item: { flightsNumber, airline, origin, destination, cost, departDate, departTime } }) => (
+              <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
                 <Text>Flight Number: {flightsNumber}</Text>
                 <Text>Airline: {airline}</Text>
-                <Text>Departure Airport: {dLoc}</Text>
-                <Text>Arrival Airport: {aLoc}</Text>
+                <Text>Departure Airport: {origin}</Text>
+                <Text>Arrival Airport: {destination}</Text>
                 <Text>Price Range: {cost}</Text>
-                <Text>Departure Date: {departure}</Text>
-                <Text>Arrival Date: {arrival}</Text>
-            </View>
+                <Text>Departure Date: {departDate}</Text>
+                <Text>Depart Time: {departTime}</Text>
+              </View>
             )}
             refreshing={this.state.refreshing}
             keyExtractor={({item: flightsNumber}) => flightsNumber}
