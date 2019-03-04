@@ -56,6 +56,7 @@ class HotelView extends Component {
     }
 
   async addToCart(hotelObj) {
+    await this.getCurrentCart();
     console.log(hotelObj);
     if (this.state.currentCart) {
       var currentCart = this.state.currentCart;
@@ -111,7 +112,7 @@ class HotelView extends Component {
             <Text>Rating: {rating}</Text>
             <Button title={'Add To Cart'} onPress={() => {
               console.log("Hi");
-              this.addToCart({type: "hotel", hotelName, hotelId, address, cost, phoneNumber, rating, website});
+              this.addToCart({category: "hotel", hotelName, hotelId, address, cost, phoneNumber, rating, website});
             }
             }/>
           </View>

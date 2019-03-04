@@ -56,6 +56,7 @@ class EventView extends Component {
     }
 
   async addToCart(eventObj) {
+    await this.getCurrentCart();
     console.log(eventObj);
     if (this.state.currentCart) {
       var currentCart = this.state.currentCart;
@@ -82,6 +83,7 @@ class EventView extends Component {
   }
 
   render() {
+    console.log(this.state.currentCart);
     if (this.state.error) {
         return (
             <View style={{ flex: 1, paddingTop: 25, alignSelf: "center" }}>
@@ -110,7 +112,7 @@ class EventView extends Component {
             <Text>Description: {description}</Text>
             <Button title={'Add To Cart'} onPress={() => {
               console.log("Hi");
-              this.addToCart({type: "event", activityName, activityId, address, date, cost, description });
+              this.addToCart({category: "event", activityName, activityId, address, date, cost, description });
             }
             }/>
           </View>

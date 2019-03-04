@@ -37,7 +37,6 @@ class FlightView extends Component {
         });
     }
     componentDidMount() {
-        //this.fetchFlights();
         this.getCurrentCart();
         this.setState({ isLoading: false });
     }
@@ -57,6 +56,7 @@ class FlightView extends Component {
     }
 
   async addToCart(flightObj) {
+    await this.getCurrentCart();
     console.log(flightObj);
     if (this.state.currentCart) {
       var currentCart = this.state.currentCart;
@@ -113,7 +113,7 @@ class FlightView extends Component {
             <Text>Depart Time: {departTime}</Text>
             <Button title={'Add To Cart'} onPress={() => {
               console.log("Hi");
-              this.addToCart({type: "flight", flightsNumber, airline, dLoc, aLoc, cost, departure, arrival });
+              this.addToCart({category: "flight", flightsNumber, airline, origin, destination, cost, departDate, departTime });
             }
             }/>
           </View>

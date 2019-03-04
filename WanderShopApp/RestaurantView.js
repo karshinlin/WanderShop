@@ -56,6 +56,7 @@ class RestaurantView extends Component {
     }
 
   async addToCart(restaurantObj) {
+    await this.getCurrentCart();
     console.log(restaurantObj);
     if (this.state.currentCart) {
       var currentCart = this.state.currentCart;
@@ -110,7 +111,7 @@ class RestaurantView extends Component {
             <Text>Website: {website}</Text>
             <Button title={'Add To Cart'} onPress={() => {
               console.log("Hi");
-              this.addToCart({ type: "food", restaurantId, restaurantName, address, phone, type, website, rating });
+              this.addToCart({ category: "food", restaurantId, restaurantName, address, phone, type, website, rating });
             }
             }/>
           </View>
