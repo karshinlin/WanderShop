@@ -4,6 +4,9 @@ use wander_shop;
 DROP TABLE if exists Users;
 DROP TABLE if exists Trips;
 DROP TABLE if exists Flights;
+DROP TABLE if exists Hotels;
+DROP TABLE if exists Activities;
+DROP TABLE if exists Restaurants;
 
 CREATE TABLE Flights (
 	flightId INT PRIMARY KEY,
@@ -19,6 +22,7 @@ CREATE TABLE Flights (
 CREATE TABLE Hotels (
 	hotelId INT PRIMARY KEY,
 	hotelName varchar(50),
+    city varChar(50),
     address varchar(75),
     phoneNumber varchar(10),
     cost INT,
@@ -31,6 +35,7 @@ CREATE TABLE Activities (
 	activityName varchar(75),
     activityDescription varchar(500),
     cost INT,
+    city varchar(50),
     address varchar(75),
     activityDate DATE NOT NULL
 );
@@ -38,8 +43,9 @@ CREATE TABLE Activities (
 CREATE TABLE Restaurants (
 	restaurantId INT PRIMARY KEY,
     restaurantName varchar(50),
+    city varchar(50),
     address varchar(75),
-    phoneNumber varchar(30),
+    phoneNumber varchar(10),
     website varchar(75),
     restaurantType varchar(30),
     rating INT

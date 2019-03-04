@@ -94,12 +94,25 @@ def flights_handler():
     # Query the db with the flight data request
     conn = mysql.connect()	
     cursor = conn.cursor()
-    baseQuery = "SELECT DISTINCT * from Flights WHERE flightDate=%(fDate)s AND origin=%(fOrigin)s AND destination=%(fDestination)s"
-    params = {'fdate': departDate, 'fOrigin': origin, 'fDestination': destination}
+    baseQuery = "SELECT DISTINCT * from Flights WHERE depart_date=%(fDate)s AND origin=%(fOrigin)s AND destination=%(fDestination)s"
+    params = {'fDate': departDate, 'fOrigin': origin, 'fDestination': destination}
     cursor.execute(baseQuery, params)
     print("Data queried from the database.")
+    flights = []
     for row in cursor:
         print(row)
+        print(str(row[4]))
+        flight = {  'flightId' : row[0],
+	                'origin' : row[1],
+	                'destination' : row[2],
+                    'departDate' : str(row[3]),
+                    'departTime' : str(row[4]),
+                    'airline' : row[5],
+                    'flightsNumber': row[6],
+                    'cost' : row[7]}
+        flights.append(flight)
+    return json.jsonify({'flights': flights})
+
     
     
 
@@ -154,5 +167,95 @@ def flights_handler():
         print (e)
         print ("error")
         return json.jsonify({'success':0}) """
+
+
+
+## Hotels handling
+@app.route('/hotels/getByCity/', methods=["POST"])
+def hotels_handler():
+    ## Retrieve data from the request
+    jsonReq = request.get_json()
+    city = jsonReq['city'] # mm/dd/yyyy
+    
+    
+    # Query the db with the flight data request
+    conn = mysql.connect()	
+    cursor = conn.cursor()
+    baseQuery = "SELECT DISTINCT * from Hotels WHERE city=%(hCity)s"
+    params = {'hCity': city}
+    cursor.execute(baseQuery, params)
+    print("Data queried from the database.")
+    hotels = []
+    for row in cursor:
+        print(row)
+        print(str(row[4]))
+        hotel = {  'hotelId' : row[0],
+	                'hotelName' : row[1],
+	                'address' : row[3],
+                    'phoneNumber' : row[4],
+                    'cost' : row[5],
+                    'website' : row[6],
+                    'rating': row[7]}
+        hotels.append(hotel)
+    return json.jsonify({'hotels': hotels})
+
+## Restaurants handling
+@app.route('/restaurants/getByCity/', methods=["POST"])
+def restaurants_handler():
+    ## Retrieve data from the request
+    jsonReq = request.get_json()
+    city = jsonReq['city'] # mm/dd/yyyy
+    
+    
+    # Query the db with the flight data request
+    conn = mysql.connect()	
+    cursor = conn.cursor()
+    baseQuery = "SELECT DISTINCT * from Restaurants WHERE city=%(rCity)s"
+    params = {'rCity': city}
+    cursor.execute(baseQuery, params)
+    print("Data queried from the database.")
+    restaurants = []
+    for row in cursor:
+        print(row) # We should probably add a cost field $ $$ $$$
+        restaurant = {  'restaurantId' : row[0],
+	                'restaurantName' : row[1],
+	                'address' : row[3],
+                    'phone' : row[4],
+                    'website' : row[5],
+                    'type': row[6],
+                    'rating': row[7]}
+        restaurants.append(restaurant)
+    return json.jsonify({'restaurants': restaurants})
+
+## Activities handling
+@app.route('/activities/getByCity/', methods=["POST"])
+def activities_handler():
+    ## Retrieve data from the request
+    jsonReq = request.get_json()
+    city = jsonReq['city'] # mm/dd/yyyy
+    
+    
+    # Query the db with the flight data request
+    conn = mysql.connect()	
+    cursor = conn.cursor()
+    baseQuery = "SELECT DISTINCT * from Activities WHERE city=%(aCity)s"
+    params = {'aCity': city}
+    cursor.execute(baseQuery, params)
+    print("Data queried from the database.")
+    activities = []
+    for row in cursor:
+        print(row)
+        print(str(row[4]))
+        activity = {  'activityId' : row[0],
+	                'activityName' : row[1],
+	                'description' : row[2],
+                    'cost' : row[3],
+                    'address' : row[5],
+                    'date' : str(row[6])}
+        activities.append(activity)
+    return json.jsonify({'activities': activities})
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
