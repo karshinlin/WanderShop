@@ -16,7 +16,7 @@ class EventView extends Component {
   }
 
   fetchEvents(){
-    return fetch('http://127.0.0.1:5000/activities/getByCity/')
+    return fetch('https://tobincolby.pythonanywhere.com/activities/getByCity/')
         .then((response) => response.json())
         .then((response) => {
             this.setState({

@@ -16,7 +16,7 @@ class RestaurantView extends Component {
   }
 
   fetchRestaurants(){
-    return fetch('http://127.0.0.1:5000/restaurants/getByCity/')
+    return fetch('https://tobincolby.pythonanywhere.com/restaurants/getByCity/')
         .then((response) => response.json())
         .then((response) => {
             this.setState({

@@ -16,7 +16,7 @@ class FlightView extends Component {
   }
 
   fetchFlights(){
-    return fetch('http://127.0.0.1:5000/flights/getByDate/')
+    return fetch('https://tobincolby.pythonanywhere.com/flights/getByDate/')
         .then((response) => response.json())
         .then((response) => {
             this.setState({

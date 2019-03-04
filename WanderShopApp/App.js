@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, View, Text, StyleSheet, TextInput } from "react-native";
+import { Button, View, Text, StyleSheet, TextInput, AsyncStorage } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import TabViewPageHomeScreen from "./TabViewPage";
 import CartButton from "./CartButton";
@@ -27,10 +27,14 @@ class WelcomeScreen extends React.Component {
 		</View>
     );
   }
+
+  componentDidMount() {
+    AsyncStorage.clear();
+  }
 }
 class LoginScreen extends React.Component {
 	render() {
-		const {navigate} = this.props.navigation;
+    const {navigate} = this.props.navigation;
 		return (
 			<View style={styles.container}>
         <View style={{flex:.2, flexDirection: 'column'}}></View>
@@ -59,17 +63,21 @@ class LoginScreen extends React.Component {
             onPress={() => this.login()}/>
         </View>
         <View style={{flex:.4, flexDirection: 'column'}}>
-          <Text style={styles.normal}>Nothing</Text>
+          <Text style={styles.normal}></Text>
         </View>
 		</View>
 		);
   };
   
+  componentDidMount() {
+    AsyncStorage.clear();
+  }
+
   login() {
     try {
       console.log(this.state.email)
       console.log(this.state.pass)
-      fetch('http://127.0.0.1:5000/login/', {
+      fetch('https://tobincolby.pythonanywhere.com/login/', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -161,7 +169,7 @@ class CreateAccountScreen extends React.Component {
             }}/>
         </View>
         <View style={{flex:.5, flexDirection: 'column'}}>
-          <Text style={styles.normal}>Nothing</Text>
+          <Text style={styles.normal}></Text>
         </View>
 		</View>
 		);
@@ -188,7 +196,7 @@ class CreateAccountScreen extends React.Component {
       return;
     }
     try {
-      fetch('http://127.0.0.1:5000/register/', {
+      fetch('https://tobincolby.pythonanywhere.com/register/', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

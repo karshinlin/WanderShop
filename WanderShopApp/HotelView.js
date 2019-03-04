@@ -16,7 +16,7 @@ class HotelView extends Component {
   }
 
   fetchHotels(){
-    return fetch('http://127.0.0.1:5000/hotels/getByCity/')
+    return fetch('https://tobincolby.pythonanywhere.com/hotels/getByCity/')
         .then((response) => response.json())
         .then((response) => {
             this.setState({
