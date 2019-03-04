@@ -12,8 +12,8 @@ firebase_app = firebase_admin.initialize_app(cred)
 
 mysql = MySQL()
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'teamunit'
+app.config['MYSQL_DATABASE_USER'] = 'wandershop'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'wandershoppass123'
 app.config['MYSQL_DATABASE_DB'] = 'wander_shop'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
@@ -82,21 +82,24 @@ def register_page():
 
 
 ## Flights handling
-@app.route('/flights/getByDate/', methods=["POST"])
+@app.route('/flights/getByDate/', methods=["GET"])
 def flights_handler():
     ## Retrieve data from the request
     jsonReq = request.get_json()
-    departDate = jsonReq['departDate'] # mm/dd/yyyy
-    returnDate = jsonReq['returnDate']
-    origin = jsonReq['origin']
-    destination = jsonReq['destination']
+    # TODO: USE ARGUMENTS FROM REQUEST TO CHOOSE DATA
+    # departDate = jsonReq['departDate'] # mm/dd/yyyy
+    # returnDate = jsonReq['returnDate']
+    # origin = jsonReq['origin']
+    # destination = jsonReq['destination']
     
     # Query the db with the flight data request
     conn = mysql.connect()	
     cursor = conn.cursor()
-    baseQuery = "SELECT DISTINCT * from Flights WHERE depart_date=%(fDate)s AND origin=%(fOrigin)s AND destination=%(fDestination)s"
-    params = {'fDate': departDate, 'fOrigin': origin, 'fDestination': destination}
-    cursor.execute(baseQuery, params)
+    # baseQuery = "SELECT DISTINCT * from Flights WHERE depart_date=%(fDate)s AND origin=%(fOrigin)s AND destination=%(fDestination)s"
+    baseQuery = "SELECT DISTINCT * from Flights"
+    # params = {'fDate': departDate, 'fOrigin': origin, 'fDestination': destination}
+    # cursor.execute(baseQuery, params)
+    cursor.execute(baseQuery)
     print("Data queried from the database.")
     flights = []
     for row in cursor:
@@ -171,19 +174,20 @@ def flights_handler():
 
 
 ## Hotels handling
-@app.route('/hotels/getByCity/', methods=["POST"])
+@app.route('/hotels/getByCity/', methods=["GET"])
 def hotels_handler():
     ## Retrieve data from the request
     jsonReq = request.get_json()
-    city = jsonReq['city'] # mm/dd/yyyy
+    # city = jsonReq['city'] # mm/dd/yyyy
     
     
     # Query the db with the flight data request
     conn = mysql.connect()	
     cursor = conn.cursor()
-    baseQuery = "SELECT DISTINCT * from Hotels WHERE city=%(hCity)s"
-    params = {'hCity': city}
-    cursor.execute(baseQuery, params)
+    # baseQuery = "SELECT DISTINCT * from Hotels WHERE city=%(hCity)s"
+    # params = {'hCity': city}
+    baseQuery = "SELECT DISTINCT * from Hotels"
+    cursor.execute(baseQuery)
     print("Data queried from the database.")
     hotels = []
     for row in cursor:
@@ -200,19 +204,20 @@ def hotels_handler():
     return json.jsonify({'hotels': hotels})
 
 ## Restaurants handling
-@app.route('/restaurants/getByCity/', methods=["POST"])
+@app.route('/restaurants/getByCity/', methods=["GET"])
 def restaurants_handler():
     ## Retrieve data from the request
     jsonReq = request.get_json()
-    city = jsonReq['city'] # mm/dd/yyyy
+    # city = jsonReq['city'] # mm/dd/yyyy
     
     
     # Query the db with the flight data request
     conn = mysql.connect()	
     cursor = conn.cursor()
-    baseQuery = "SELECT DISTINCT * from Restaurants WHERE city=%(rCity)s"
-    params = {'rCity': city}
-    cursor.execute(baseQuery, params)
+    # baseQuery = "SELECT DISTINCT * from Restaurants WHERE city=%(rCity)s"
+    # params = {'rCity': city}
+    baseQuery = "SELECT DISTINCT * from Restaurants"
+    cursor.execute(baseQuery)
     print("Data queried from the database.")
     restaurants = []
     for row in cursor:
@@ -228,19 +233,20 @@ def restaurants_handler():
     return json.jsonify({'restaurants': restaurants})
 
 ## Activities handling
-@app.route('/activities/getByCity/', methods=["POST"])
+@app.route('/activities/getByCity/', methods=["GET"])
 def activities_handler():
     ## Retrieve data from the request
     jsonReq = request.get_json()
-    city = jsonReq['city'] # mm/dd/yyyy
+    # city = jsonReq['city'] # mm/dd/yyyy
     
     
     # Query the db with the flight data request
     conn = mysql.connect()	
     cursor = conn.cursor()
-    baseQuery = "SELECT DISTINCT * from Activities WHERE city=%(aCity)s"
-    params = {'aCity': city}
-    cursor.execute(baseQuery, params)
+    # baseQuery = "SELECT DISTINCT * from Activities WHERE city=%(aCity)s"
+    # params = {'aCity': city}
+    baseQuery = "SELECT DISTINCT * from Activities"
+    cursor.execute(baseQuery)
     print("Data queried from the database.")
     activities = []
     for row in cursor:

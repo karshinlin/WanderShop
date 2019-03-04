@@ -5,48 +5,18 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 class FlightView extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
         isLoading: true,
         currentCart: null,
         error: false,
-        data: [{
-          airline : "Malaysian Airlines",
-          flightsNumber: "370",
-          dLoc : "SFO",
-          aLoc : "Maylasia",
-          departure : "December 4th, 2018" ,
-          arrival : "December 5th, 2018",
-          cost : "50$-100$"
-        
-        },
-        {
-          airline : "Malaysian Airlines",
-          flightsNumber: "370",
-          dLoc : "SFO",
-          aLoc : "Maylasia",
-          departure : "December 4th, 2018" ,
-          arrival : "December 5th, 2018",
-          cost : "50$-100$"
-        
-        },
-        {
-          airline : "Malaysian Airlines",
-          flightsNumber: "370",
-          dLoc : "SFO",
-          aLoc : "Maylasia",
-          departure : "December 4th, 2018" ,
-          arrival : "December 5th, 2018",
-          cost : "50$-100$"
-        
-        }],
         refreshing: false,
         time: 30,
     };
+    this.fetchFlights();
   }
 
   fetchFlights(){
-    return fetch('http://127.0.0.1:5000/getflights/')
+    return fetch('http://127.0.0.1:5000/flights/getByDate/')
         .then((response) => response.json())
         .then((response) => {
             this.setState({
@@ -132,18 +102,18 @@ class FlightView extends Component {
       <View style={{ flex: 1 }}>
         <FlatList
         data={this.state.data}
-        renderItem={({ item: { flightsNumber, airline, dLoc, aLoc, cost, departure, arrival } }) => (
+        renderItem={({ item: { flightsNumber, airline, origin, destination, cost, departDate, departTime } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
             <Text>Flight Number: {flightsNumber}</Text>
             <Text>Airline: {airline}</Text>
-            <Text>Departure Airport: {dLoc}</Text>
-            <Text>Arrival Airport: {aLoc}</Text>
+            <Text>Departure Airport: {origin}</Text>
+            <Text>Arrival Airport: {destination}</Text>
             <Text>Price Range: {cost}</Text>
-            <Text>Departure Date: {departure}</Text>
-            <Text>Arrival Date: {arrival}</Text>
+            <Text>Departure Date: {departDate}</Text>
+            <Text>Depart Time: {departTime}</Text>
             <Button title={'Add To Cart'} onPress={() => {
               console.log("Hi");
-              this.addToCart({flightsNumber, airline, dLoc, aLoc, cost, departure, arrival });
+              this.addToCart({type: "flight", flightsNumber, airline, dLoc, aLoc, cost, departure, arrival });
             }
             }/>
           </View>

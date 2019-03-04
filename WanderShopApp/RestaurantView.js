@@ -1,25 +1,123 @@
 import React, { Component } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, ActivityIndicator, Button, AsyncStorage } from "react-native";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 class RestaurantView extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      loading: false,
-      data: [{title:'Food 1'}, {title:'Food 2'}, {title: 'Food 3'}],
+        isLoading: true,
+        currentCart: null,
+        error: false,
+        refreshing: false,
+        time: 30,
     };
+    this.fetchRestaurants();
+  }
+
+  fetchRestaurants(){
+    return fetch('http://127.0.0.1:5000/restaurants/getByCity/')
+        .then((response) => response.json())
+        .then((response) => {
+            this.setState({
+                isLoading: false,
+                error: false,
+                data: response.restaurants,
+                refreshing: false,
+                time: 30,
+            }, function () {
+
+            });
+        })
+        .catch((error) => {
+            this.setState({
+                isLoading: false,
+                error: true
+            })
+        });
+    }
+    componentDidMount() {
+        this.getCurrentCart();
+        this.setState({ isLoading: false });
+    }
+
+    async getCurrentCart() {
+      try {
+        const value = await AsyncStorage.getItem('currentCart');
+        if (value !== null) {
+          // We have data!!
+          const cart = JSON.parse(value);
+          await this.setState({ currentCart: cart });
+          console.log(cart);
+        }
+      } catch (error) {
+        // Error retrieving data
+      }
+    }
+
+  async addToCart(restaurantObj) {
+    console.log(restaurantObj);
+    if (this.state.currentCart) {
+      var currentCart = this.state.currentCart;
+      console.log(currentCart);
+      currentCart.push(restaurantObj);
+      await this.setState({ currentCart: currentCart });
+    } else {
+      const currentCart = [restaurantObj];
+      console.log(currentCart);
+      await this.setState({ currentCart: currentCart });
+    }
+    await this.saveCartLocally();
+  }
+
+  async saveCartLocally() {
+    try {
+      console.log(this.state.currentCart);
+      await AsyncStorage.setItem('currentCart', JSON.stringify(this.state.currentCart));
+      await this.getCurrentCart();
+    } catch (error) {
+      // Error saving data
+      console.error(error);
+    }
   }
 
   render() {
+    if (this.state.error) {
+        return (
+            <View style={{ flex: 1, paddingTop: 25, alignSelf: "center" }}>
+                <Icon name="error" size={75} color="#F00" />
+                <Text style={{ alignSelf: "center", color: "#F00" }}>Error</Text>
+            </View>
+            );
+    }
+    if (this.state.isLoading) {
+        return (
+            <View style={{ flex: 1, paddingTop: 25 }}>
+                <ActivityIndicator size="large" color="#0000ff" />
+            </View>
+        );
+    }
     return (
       <View style={{ flex: 1 }}>
         <FlatList
         data={this.state.data}
-        renderItem={
-          ({ item }) =>
-            <Text style={{ padding: 15, width: '100%' }}>{item.title}</Text>
-        }
+        renderItem={({ item: { restaurantId, restaurantName, address, phone, type, website, rating } }) => (
+          <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
+            <Text>Restaurant: {restaurantName}</Text>
+            <Text>Address: {address}</Text>
+            <Text>{type}</Text>
+            <Text>Rating: {rating}</Text>
+            <Text>Website: {website}</Text>
+            <Button title={'Add To Cart'} onPress={() => {
+              console.log("Hi");
+              this.addToCart({ type: "food", restaurantId, restaurantName, address, phone, type, website, rating });
+            }
+            }/>
+          </View>
+        )}
+        refreshing={this.state.refreshing}
+        keyExtractor={({item: restaurantId}) => restaurantId}
+        onRefresh={this.handleRefresh}
       />
       </View>
     );

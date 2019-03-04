@@ -16,3 +16,9 @@
 - cd ./WanderShopApp
 - npm install
 - react-native run-ios
+
+# To set up mySQL server
+- install mySQL and have local instance running
+- create mySQL user for user: wandershop and password: wandershoppass123
+- add permissions for user to access database 
+- run db_initialize.sql and db_populate.sql to get dummy data
