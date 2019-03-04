@@ -165,7 +165,6 @@ class CreateAccountScreen extends React.Component {
           <Button title="Create Account"
             onPress={() => {
               this.verifyPasswordMatch();
-              this.forceUpdate(this.createAccount());
             }}/>
         </View>
         <View style={{flex:.5, flexDirection: 'column'}}>
@@ -178,10 +177,7 @@ class CreateAccountScreen extends React.Component {
   verifyPasswordMatch() {
     if (this.state.password == this.state.confirmPass) {
       console.log(this.state.password + " " + this.state.confirmPass);
-      this.setState((state) => {
-        return {passwordVerified: true};
-      });
-      //this.setState({passwordVerified: true}, this.createAccount());
+      this.setState({passwordVerified: true}, () => { this.createAccount() });
       console.log(this.state.passwordVerified);
     } else {
       this.setState((state) => {
@@ -205,7 +201,7 @@ class CreateAccountScreen extends React.Component {
 
         body: JSON.stringify({
           name: this.state.name,
-          phone: this.state.phone,
+          phone: "+1" + this.state.phone,
           email: this.state.email,
           password: this.state.password,
         }),
