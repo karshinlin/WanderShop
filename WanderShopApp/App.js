@@ -3,6 +3,7 @@ import { Button, View, Text, StyleSheet, TextInput } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import TabViewPageHomeScreen from "./TabViewPage";
 import CartButton from "./CartButton";
+import CartScreen from "./CartScreen";
 
 class WelcomeScreen extends React.Component {
   static navigationOptions = {
@@ -231,6 +232,7 @@ const AppNavigator = createStackNavigator({
       headerRight: (<CartButton />),
     },
   },
+  Cart: CartScreen,
 }
 );
 
@@ -238,7 +240,7 @@ const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends React.Component {
   render() {
-    return <AppContainer />;
+    return <AppContainer persistenceKey={"NavigationKey"} />;
   }
 }
 

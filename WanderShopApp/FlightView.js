@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, ActivityIndicator } from "react-native";
+import { View, Text, FlatList, ActivityIndicator, Button, AsyncStorage } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 class FlightView extends Component {
@@ -8,8 +8,38 @@ class FlightView extends Component {
 
     this.state = {
         isLoading: true,
+        currentCart: null,
         error: false,
-        data: [{title:'Flight 1'}, {title:'Flight 2'}, {title: 'Flight 3'}],
+        data: [{
+          airline : "Malaysian Airlines",
+          flightsNumber: "370",
+          dLoc : "SFO",
+          aLoc : "Maylasia",
+          departure : "December 4th, 2018" ,
+          arrival : "December 5th, 2018",
+          cost : "50$-100$"
+        
+        },
+        {
+          airline : "Malaysian Airlines",
+          flightsNumber: "370",
+          dLoc : "SFO",
+          aLoc : "Maylasia",
+          departure : "December 4th, 2018" ,
+          arrival : "December 5th, 2018",
+          cost : "50$-100$"
+        
+        },
+        {
+          airline : "Malaysian Airlines",
+          flightsNumber: "370",
+          dLoc : "SFO",
+          aLoc : "Maylasia",
+          departure : "December 4th, 2018" ,
+          arrival : "December 5th, 2018",
+          cost : "50$-100$"
+        
+        }],
         refreshing: false,
         time: 30,
     };
@@ -38,8 +68,49 @@ class FlightView extends Component {
     }
     componentDidMount() {
         //this.fetchFlights();
+        this.getCurrentCart();
         this.setState({ isLoading: false });
     }
+
+    async getCurrentCart() {
+      try {
+        const value = await AsyncStorage.getItem('currentCart');
+        if (value !== null) {
+          // We have data!!
+          const cart = JSON.parse(value);
+          await this.setState({ currentCart: cart });
+          console.log(cart);
+        }
+      } catch (error) {
+        // Error retrieving data
+      }
+    }
+
+  async addToCart(flightObj) {
+    console.log(flightObj);
+    if (this.state.currentCart) {
+      var currentCart = this.state.currentCart;
+      console.log(currentCart);
+      currentCart.push(flightObj);
+      await this.setState({ currentCart: currentCart });
+    } else {
+      const currentCart = [flightObj];
+      console.log(currentCart);
+      await this.setState({ currentCart: currentCart });
+    }
+    await this.saveCartLocally();
+  }
+
+  async saveCartLocally() {
+    try {
+      console.log(this.state.currentCart);
+      await AsyncStorage.setItem('currentCart', JSON.stringify(this.state.currentCart));
+      await this.getCurrentCart();
+    } catch (error) {
+      // Error saving data
+      console.error(error);
+    }
+  }
 
   render() {
     if (this.state.error) {
@@ -61,11 +132,24 @@ class FlightView extends Component {
       <View style={{ flex: 1 }}>
         <FlatList
         data={this.state.data}
-        renderItem={
-          ({ item }) =>
-            <Text style={{ padding: 15, width: '100%' }}>{item.title}</Text>
-        }
+        renderItem={({ item: { flightsNumber, airline, dLoc, aLoc, cost, departure, arrival } }) => (
+          <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
+            <Text>Flight Number: {flightsNumber}</Text>
+            <Text>Airline: {airline}</Text>
+            <Text>Departure Airport: {dLoc}</Text>
+            <Text>Arrival Airport: {aLoc}</Text>
+            <Text>Price Range: {cost}</Text>
+            <Text>Departure Date: {departure}</Text>
+            <Text>Arrival Date: {arrival}</Text>
+            <Button title={'Add To Cart'} onPress={() => {
+              console.log("Hi");
+              this.addToCart({flightsNumber, airline, dLoc, aLoc, cost, departure, arrival });
+            }
+            }/>
+          </View>
+        )}
         refreshing={this.state.refreshing}
+        keyExtractor={({item: flightsNumber}) => flightsNumber}
         onRefresh={this.handleRefresh}
       />
       </View>
