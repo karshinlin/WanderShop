@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, View, Text, StyleSheet, TextInput, AsyncStorage } from "react-native";
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createAppContainer, NavigationActions, withNavigation } from "react-navigation";
 import TabViewPageHomeScreen from "./TabViewPage";
 import CartButton from "./CartButton";
 import CartScreen from "./CartScreen";
@@ -225,6 +225,24 @@ class CreateAccountScreen extends React.Component {
   }
 }
 
+class LogoutButton extends React.Component {
+
+  logout() {
+    console.log('LOGOUT');
+    this.props.navigation.navigate('Welcome');
+  }
+
+  render() {
+    var that = this;
+    return (
+      <Button title={"Logout"} onPress={that.logout.bind(that)}/>
+    );
+  }
+
+}
+
+const LogoutButtonNav = withNavigation(LogoutButton);
+
 const AppNavigator = createStackNavigator({
 	Welcome: WelcomeScreen,
 	Login: LoginScreen,
@@ -232,7 +250,7 @@ const AppNavigator = createStackNavigator({
   HomePage: {
     screen: TabViewPageHomeScreen,
     navigationOptions: {
-      headerLeft: null,
+      headerLeft: (<LogoutButtonNav />),
       headerRight: (<CartButton />),
     },
   },
