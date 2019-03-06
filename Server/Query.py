@@ -37,17 +37,20 @@ def searchQuery(term="burrito", location="NYC"):
         {
             search(term: "%s",
                     location: "%s") {
-                total
                 business {
-                name
-                rating
-                review_count
-                location {
-                    address1
-                    city
-                    state
-                    country
-                }
+                    id
+                    name
+                    rating
+                    price
+                    display_phone
+                    url
+                    location {
+                        address1
+                        city
+                        state
+                        postal_code
+                        country
+                    }
                 }
             }
         }

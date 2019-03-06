@@ -16,13 +16,13 @@ class RestaurantView extends Component {
   }
 
   fetchRestaurants(){
-    return fetch('https://tobincolby.pythonanywhere.com/restaurants/getByCity/')
+    return fetch('http://127.0.0.1:5000/restaurants/getByCity/')
         .then((response) => response.json())
         .then((response) => {
             this.setState({
                 isLoading: false,
                 error: false,
-                data: response.restaurants,
+                data: response.business,
                 refreshing: false,
                 time: 30,
             }, function () {
@@ -102,22 +102,42 @@ class RestaurantView extends Component {
       <View style={{ flex: 1 }}>
         <FlatList
         data={this.state.data}
-        renderItem={({ item: { restaurantId, restaurantName, address, phone, type, website, rating } }) => (
+        renderItem={({ item: { name, id,
+          rating,
+          price,
+          display_phone,
+          url,
+          location: {
+              address1,
+              city,
+              state,
+              postal_code,
+          } } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Restaurant: {restaurantName}</Text>
-            <Text>Address: {address}</Text>
-            <Text>{type}</Text>
+            <Text>Restaurant: {name}</Text>
+            <Text>Address: {address1} {city}, {state} {postal_code}</Text>
+            <Text>Price: {price}</Text>
+            <Text>Phone: {display_phone}</Text>
             <Text>Rating: {rating}</Text>
-            <Text>Website: {website}</Text>
+            <Text>Website: {url}</Text>
             <Button title={'Add To Cart'} onPress={() => {
-              console.log("Hi");
-              this.addToCart({ category: "food", restaurantId, restaurantName, address, phone, type, website, rating });
+              this.addToCart({ category: "food", name, id,
+              rating,
+              price,
+              display_phone,
+              url,
+              location: {
+                  address1,
+                  city,
+                  state,
+                  postal_code,
+              }});
             }
             }/>
           </View>
         )}
         refreshing={this.state.refreshing}
-        keyExtractor={({item: restaurantId}) => restaurantId}
+        keyExtractor={({item: id}) => id}
         onRefresh={this.handleRefresh}
       />
       </View>

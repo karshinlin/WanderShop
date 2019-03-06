@@ -111,17 +111,28 @@ class CartScreen extends Component {
         <FlatList
         scrollEnabled={false}
         data={this.state.food}
-        renderItem={({ item: { restaurantId, restaurantName, address, phone, type, website, rating } }) => (
+        renderItem={({ item: { name,
+          rating,
+          price,
+          display_phone,
+          url,
+          location: {
+              address1,
+              city,
+              state,
+              postal_code,
+          } } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Restaurant: {restaurantName}</Text>
-            <Text>Address: {address}</Text>
-            <Text>{type}</Text>
+            <Text>Restaurant: {name}</Text>
+            <Text>Address: {address1} {city}, {state} {postal_code}</Text>
+            <Text>Price: {price}</Text>
+            <Text>Phone: {display_phone}</Text>
             <Text>Rating: {rating}</Text>
-            <Text>Website: {website}</Text>
+            <Text>Website: {url}</Text>
           </View>
         )}
         refreshing={this.state.refreshing}
-        keyExtractor={({item: restaurantId}) => restaurantId}
+        keyExtractor={({item: id}) => id}
         onRefresh={this.handleRefresh}
       />
         </ScrollView>
