@@ -5,6 +5,7 @@ import requests
 from firebase_admin import credentials, auth
 import config
 import sys
+import Query
 cred = credentials.Certificate("firebase-config.json")
 app = Flask(__name__)
 firebase_app = firebase_admin.initialize_app(cred)
@@ -210,27 +211,27 @@ def restaurants_handler():
     jsonReq = request.get_json()
     # city = jsonReq['city'] # mm/dd/yyyy
     
-    
+    return json.jsonify(Query.run_yelp_query(Query.searchQuery())["data"]["search"])
     # Query the db with the flight data request
-    conn = mysql.connect()	
-    cursor = conn.cursor()
-    # baseQuery = "SELECT DISTINCT * from Restaurants WHERE city=%(rCity)s"
-    # params = {'rCity': city}
-    baseQuery = "SELECT DISTINCT * from Restaurants"
-    cursor.execute(baseQuery)
-    print("Data queried from the database.")
-    restaurants = []
-    for row in cursor:
-        print(row) # We should probably add a cost field $ $$ $$$
-        restaurant = {  'restaurantId' : row[0],
-	                'restaurantName' : row[1],
-	                'address' : row[3],
-                    'phone' : row[4],
-                    'website' : row[5],
-                    'type': row[6],
-                    'rating': row[7]}
-        restaurants.append(restaurant)
-    return json.jsonify({'restaurants': restaurants})
+    # conn = mysql.connect()	
+    # cursor = conn.cursor()
+    # # baseQuery = "SELECT DISTINCT * from Restaurants WHERE city=%(rCity)s"
+    # # params = {'rCity': city}
+    # baseQuery = "SELECT DISTINCT * from Restaurants"
+    # cursor.execute(baseQuery)
+    # print("Data queried from the database.")
+    # restaurants = []
+    # for row in cursor:
+    #     print(row) # We should probably add a cost field $ $$ $$$
+    #     restaurant = {  'restaurantId' : row[0],
+	#                 'restaurantName' : row[1],
+	#                 'address' : row[3],
+    #                 'phone' : row[4],
+    #                 'website' : row[5],
+    #                 'type': row[6],
+    #                 'rating': row[7]}
+    #     restaurants.append(restaurant)
+    # return json.jsonify({'restaurants': restaurants})
 
 ## Activities handling
 @app.route('/activities/getByCity/', methods=["GET"])
