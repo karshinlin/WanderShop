@@ -1,4 +1,5 @@
 import requests
+import config
 # class YelpQuery(graphene.ObjectType):
 #     search = graphene.Field(Search, location=graphene.String(default="NYC"), term=graphene.String(default="pizza"))
 
@@ -22,7 +23,7 @@ import requests
 #     formatted_address = graphene.String()
 
 def run_yelp_query(query): # A simple function to use requests.post to make the API call. Note the json= section.
-    headers = headers = {"Authorization": "Bearer qsFYT-eR_CY_ETu4HINDdE8n2uvabKl4bOdyq-W2nqgZWcFVsiiN66kst8n_gc7PC3CMHHjeMTjCwc53hr7P-QAwOudkvo9SWIq5VARA02_YOgVj79WPgP3i0CKAXHYx",
+    headers = headers = {"Authorization": config.YELP_API_KEY,
     "Content-Type": "application/graphql",
     }
     request = requests.post('https://api.yelp.com/v3/graphql', data=query, headers=headers)
