@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, ActivityIndicator, Button, AsyncStorage } from "react-native";
+import { View, Text, Linking, TouchableOpacity, FlatList, StyleSheet, ActivityIndicator, Button, AsyncStorage } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
+import StarRating from 'react-native-star-rating'; 
 
 class RestaurantView extends Component {
   constructor(props) {
@@ -112,30 +114,69 @@ class RestaurantView extends Component {
               city,
               state,
               postal_code,
-          } } }) => (
-          <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Restaurant: {name}</Text>
-            <Text>Address: {address1} {city}, {state} {postal_code}</Text>
-            <Text>Price: {price}</Text>
-            <Text>Phone: {display_phone}</Text>
-            <Text>Rating: {rating}</Text>
-            <Text>Website: {url}</Text>
-            <Button title={'Add To Cart'} onPress={() => {
-              this.addToCart({ category: "food", name, id,
-              rating,
-              price,
-              display_phone,
-              url,
-              location: {
-                  address1,
-                  city,
-                  state,
-                  postal_code,
-              }});
+          } } }) => {
+            if (price == "$") {
+              price = 1;
+            } else if (price == "$$") {
+              price = 2;
+            } else if (price == "$$$") {
+              price = 3;
+            } else {
+              price = 4;
             }
-            }/>
+            return (
+          <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
+            <Text style={styles.titleText}>{name}</Text>
+            <View style={{ width: "50%"}}>
+              <StarRating
+                disabled={false}
+                fullStarColor={"yellow"}
+                maxStars={5}
+                rating={rating}
+              />
+            </View>
+            <View style={{ marginTop: 5, marginBottom: 5 }}>
+              <Text style={styles.miniHeader}>Address:</Text>
+              <Text>{address1}</Text>
+              <Text>{city}, {state} {postal_code}</Text>
+            </View>
+            <Text style={styles.miniHeader}>Price:</Text>
+            <View style={{ width: "50%"}}>
+              <StarRating
+                disabled={false}
+                fullStarColor={"yellow"}
+                maxStars={4}
+                rating={price}
+                halfStar={null}
+                emptyStar={null}
+                fullStar={"dollar"}
+                iconSet={"FontAwesome"}
+              />
+            </View>
+            <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${display_phone}`); }}>Give Us a Call!</Text>
+            
+            <Text style={styles.link} onPress={() => { Linking.openURL(url); }}>Take a Look!</Text>
+            <View style={{ margin: 15, flex: 1, justifyContent: "center", alignSelf: "center" }}>
+              <TouchableOpacity onPress={() => {
+                this.addToCart({ category: "food", name, id,
+                rating,
+                price,
+                display_phone,
+                url,
+                location: {
+                    address1,
+                    city,
+                    state,
+                    postal_code,
+                }});
+              }}>
+                <FontAwesomeIcon size={35} name={"cart-plus"} color={"#000"}/>
+              </TouchableOpacity>
+            </View>
           </View>
-        )}
+        );
+      }
+          }
         refreshing={this.state.refreshing}
         keyExtractor={({item: id}) => id}
         onRefresh={this.handleRefresh}
@@ -144,5 +185,24 @@ class RestaurantView extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: 'Cochin',
+  },
+  link: {
+    textDecorationLine: 'underline',
+    color: "#00F",
+    marginTop: 5,
+  },
+  titleText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  miniHeader: {
+    fontSize: 15,
+    fontWeight: "bold",
+  }
+});
 
 export default RestaurantView;

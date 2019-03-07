@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, ScrollView, AsyncStorage } from "react-native";
+import { View, Text, FlatList, StyleSheet, ScrollView, AsyncStorage } from "react-native";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
+import StarRating from 'react-native-star-rating'; 
 
 class CartScreen extends Component {
   constructor(props) {
@@ -111,7 +113,7 @@ class CartScreen extends Component {
         <FlatList
         scrollEnabled={false}
         data={this.state.food}
-        renderItem={({ item: { name,
+        renderItem={({ item: { name, id,
           rating,
           price,
           display_phone,
@@ -123,14 +125,38 @@ class CartScreen extends Component {
               postal_code,
           } } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Restaurant: {name}</Text>
-            <Text>Address: {address1} {city}, {state} {postal_code}</Text>
-            <Text>Price: {price}</Text>
-            <Text>Phone: {display_phone}</Text>
-            <Text>Rating: {rating}</Text>
-            <Text>Website: {url}</Text>
+            <Text style={styles.titleText}>{name}</Text>
+            <View style={{ width: "50%"}}>
+              <StarRating
+                disabled={false}
+                fullStarColor={"yellow"}
+                maxStars={5}
+                rating={rating}
+              />
+            </View>
+            <View style={{ marginTop: 5, marginBottom: 5 }}>
+              <Text style={styles.miniHeader}>Address:</Text>
+              <Text>{address1}</Text>
+              <Text>{city}, {state} {postal_code}</Text>
+            </View>
+            <Text style={styles.miniHeader}>Price:</Text>
+            <View style={{ width: "50%"}}>
+              <StarRating
+                disabled={false}
+                fullStarColor={"yellow"}
+                maxStars={4}
+                rating={price}
+                halfStar={null}
+                emptyStar={null}
+                fullStar={"dollar"}
+                iconSet={"FontAwesome"}
+              />
+            </View>
+            <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${display_phone}`); }}>Give Us a Call!</Text>
+            <Text style={styles.link} onPress={() => { Linking.openURL(url); }}>Take a Look!</Text>
           </View>
-        )}
+        )
+          }
         refreshing={this.state.refreshing}
         keyExtractor={({item: id}) => id}
         onRefresh={this.handleRefresh}
@@ -145,5 +171,24 @@ class CartScreen extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: 'Cochin',
+  },
+  link: {
+    textDecorationLine: 'underline',
+    color: "#00F",
+    marginTop: 5,
+  },
+  titleText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  miniHeader: {
+    fontSize: 15,
+    fontWeight: "bold",
+  }
+});
 
 export default CartScreen;
