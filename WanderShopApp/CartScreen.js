@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, StyleSheet, ScrollView, AsyncStorage } from "react-native";
+import { View, Text, FlatList, Image, StyleSheet, ScrollView, AsyncStorage } from "react-native";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import StarRating from 'react-native-star-rating'; 
 
@@ -95,19 +95,35 @@ class CartScreen extends Component {
         onRefresh={this.handleRefresh}
       />
         <FlatList
-        scrollEnabled={false}
         data={this.state.events}
-        renderItem={({ item: { activityId, activityName, address, cost, date, description } }) => (
+        renderItem={({ item: { name, info, images, id, priceRanges, url, type, place, _embedded: { venues } } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Event: {activityName}</Text>
-            <Text>Address: {address}</Text>
-            <Text>Date: {date}</Text>
-            <Text>Cost: {cost}</Text>
-            <Text>Description: {description}</Text>
+            <Image
+              style={{width: 75, height: 75, alignSelf: "center" }}
+              source={{uri: images[0].url}}
+            />
+            <Text style={styles.centerTitle}>{name}</Text>
+              
+            {venues && venues.length > 0 &&
+            <View>
+              <Text style={styles.miniHeader}>Location:</Text>
+              <Text>{venues[0].name}</Text>
+              <Text>{venues[0].address.line1}</Text><Text>{venues[0].city.name}, {venues[0].state && <Text>{venues[0].state.stateCode}</Text>} {venues[0].postalCode}</Text>
+            </View>
+            }
+            {!(venues && venues.length < 0) && place && 
+              <Text>Address: {place.address.line1} {place.city.name}, {place.state && <Text>{place.state.stateCode}</Text>} {place.postalCode}</Text>
+
+            }
+            {priceRanges && priceRanges.length > 0 &&
+            <Text style={styles.miniHeader}>Cost: ${priceRanges[0].min} - ${priceRanges[0].max}</Text>
+            }
+            <Text style={styles.link} onPress={() => { Linking.openURL(url); }}>Take a Look!</Text>
+            {info && <View><Text style={styles.miniHeader}>Extra Info:</Text><Text>{info}</Text></View>}
           </View>
         )}
         refreshing={this.state.refreshing}
-        keyExtractor={({item: activityId}) => activityId}
+        keyExtractor={({item: id}) => id}
         onRefresh={this.handleRefresh}
       />
         <FlatList
@@ -184,6 +200,11 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 24,
     fontWeight: 'bold',
+  },
+  centerTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    alignSelf: "center",
   },
   miniHeader: {
     fontSize: 15,

@@ -1,5 +1,7 @@
 import requests
 import config
+import urllib.parse
+from datetime import date
 # class YelpQuery(graphene.ObjectType):
 #     search = graphene.Field(Search, location=graphene.String(default="NYC"), term=graphene.String(default="pizza"))
 
@@ -22,8 +24,31 @@ import config
 #     postal_code = graphene.String()
 #     formatted_address = graphene.String()
 
+def run_ticketmaster_query(postal_code=None, city=None, state_code=None, start_date_time=date.today(), end_date_time=None):
+    url = "https://app.ticketmaster.com/discovery/v2/events.json"
+    params = dict()
+    params["apikey"] = config.TICKETMASTER_API_KEY
+    if postal_code:
+        params["postalCode"] = postal_code
+    if city:
+        params["city"] = city
+    if state_code:
+        params["stateCode"] = state_code
+    # if start_date_time:
+    #     params["startDateTime"] = str(start_date_time)
+    # if end_date_time:
+    #     params["endDateTime"] = str(end_date_time)
+    
+    param_string = urllib.parse.urlencode(params)
+    url += "?" + param_string
+    request = requests.get(url)
+    if request.status_code == 200:
+        return request.json()
+    else:
+        raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, url))
+
 def run_yelp_query(query): # A simple function to use requests.post to make the API call. Note the json= section.
-    headers = headers = {"Authorization": config.YELP_API_KEY,
+    headers = {"Authorization": config.YELP_API_KEY,
     "Content-Type": "application/graphql",
     }
     request = requests.post('https://api.yelp.com/v3/graphql', data=query, headers=headers)

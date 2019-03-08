@@ -240,27 +240,29 @@ def activities_handler():
     jsonReq = request.get_json()
     # city = jsonReq['city'] # mm/dd/yyyy
     
+    json_response = Query.run_ticketmaster_query()
+    return json.jsonify(json_response["_embedded"])
     
     # Query the db with the flight data request
-    conn = mysql.connect()	
-    cursor = conn.cursor()
-    # baseQuery = "SELECT DISTINCT * from Activities WHERE city=%(aCity)s"
-    # params = {'aCity': city}
-    baseQuery = "SELECT DISTINCT * from Activities"
-    cursor.execute(baseQuery)
-    print("Data queried from the database.")
-    activities = []
-    for row in cursor:
-        print(row)
-        print(str(row[4]))
-        activity = {  'activityId' : row[0],
-	                'activityName' : row[1],
-	                'description' : row[2],
-                    'cost' : row[3],
-                    'address' : row[5],
-                    'date' : str(row[6])}
-        activities.append(activity)
-    return json.jsonify({'activities': activities})
+    # conn = mysql.connect()	
+    # cursor = conn.cursor()
+    # # baseQuery = "SELECT DISTINCT * from Activities WHERE city=%(aCity)s"
+    # # params = {'aCity': city}
+    # baseQuery = "SELECT DISTINCT * from Activities"
+    # cursor.execute(baseQuery)
+    # print("Data queried from the database.")
+    # activities = []
+    # for row in cursor:
+    #     print(row)
+    #     print(str(row[4]))
+    #     activity = {  'activityId' : row[0],
+	#                 'activityName' : row[1],
+	#                 'description' : row[2],
+    #                 'cost' : row[3],
+    #                 'address' : row[5],
+    #                 'date' : str(row[6])}
+    #     activities.append(activity)
+    # return json.jsonify({'activities': activities})
 
 
 

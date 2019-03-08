@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, ActivityIndicator, Button, AsyncStorage } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, Image, ActivityIndicator, Button, AsyncStorage } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 
 class EventView extends Component {
   constructor(props) {
@@ -16,13 +17,14 @@ class EventView extends Component {
   }
 
   fetchEvents(){
-    return fetch('https://tobincolby.pythonanywhere.com/activities/getByCity/')
+    return fetch('http://127.0.0.1:5000/activities/getByCity/')
         .then((response) => response.json())
         .then((response) => {
+          console.log(response);
             this.setState({
                 isLoading: false,
                 error: false,
-                data: response.activities,
+                data: response.events,
                 refreshing: false,
                 time: 30,
             }, function () {
@@ -103,27 +105,71 @@ class EventView extends Component {
       <View style={{ flex: 1 }}>
         <FlatList
         data={this.state.data}
-        renderItem={({ item: { activityId, activityName, address, cost, date, description } }) => (
+        renderItem={({ item: { name, info, images, id, priceRanges, url, type, place, _embedded: { venues } } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Event: {activityName}</Text>
-            <Text>Address: {address}</Text>
-            <Text>Date: {date}</Text>
-            <Text>Cost: {cost}</Text>
-            <Text>Description: {description}</Text>
-            <Button title={'Add To Cart'} onPress={() => {
-              console.log("Hi");
-              this.addToCart({category: "event", activityName, activityId, address, date, cost, description });
+            <Image
+              style={{width: 75, height: 75, alignSelf: "center" }}
+              source={{uri: images[0].url}}
+            />
+            <Text style={styles.centerTitle}>{name}</Text>
+              
+            {venues && venues.length > 0 &&
+            <View>
+              <Text style={styles.miniHeader}>Location:</Text>
+              <Text>{venues[0].name}</Text>
+              <Text>{venues[0].address.line1}</Text><Text>{venues[0].city.name}, {venues[0].state && <Text>{venues[0].state.stateCode}</Text>} {venues[0].postalCode}</Text>
+            </View>
             }
-            }/>
+            {!(venues && venues.length < 0) && place && 
+              <Text>Address: {place.address.line1} {place.city.name}, {place.state && <Text>{place.state.stateCode}</Text>} {place.postalCode}</Text>
+
+            }
+            {priceRanges && priceRanges.length > 0 &&
+            <Text style={styles.miniHeader}>Cost: ${priceRanges[0].min} - ${priceRanges[0].max}</Text>
+            }
+            <Text style={styles.link} onPress={() => { Linking.openURL(url); }}>Take a Look!</Text>
+            {info && <View><Text style={styles.miniHeader}>Extra Info:</Text><Text>{info}</Text></View>}
+            <View style={{ margin: 15, flex: 1, justifyContent: "center", alignSelf: "center" }}>
+              <TouchableOpacity onPress={() => {
+                this.addToCart({ category: "event", name, info, images, id, priceRanges, url, type, place, _embedded: { venues } });
+              }}>
+                <FontAwesomeIcon size={35} name={"cart-plus"} color={"#000"}/>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
         refreshing={this.state.refreshing}
-        keyExtractor={({item: activityId}) => activityId}
+        keyExtractor={({item: id}) => id}
         onRefresh={this.handleRefresh}
       />
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: 'Cochin',
+  },
+  link: {
+    textDecorationLine: 'underline',
+    color: "#00F",
+    marginTop: 5,
+    marginBottom: 5,
+  },
+  centerTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    alignSelf: "center",
+  },
+  titleText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  miniHeader: {
+    fontSize: 15,
+    fontWeight: "bold",
+  }
+});
 
 export default EventView;
