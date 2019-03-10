@@ -43,7 +43,7 @@ def login_page():
             resp = requests.request('post', _verify_password_url, params=params, json=body)
             if bool(resp.json().get('registered')):
                 user = auth.get_user_by_email(email)
-                return json.jsonify({'success':1, 'email': user.email, 'name': user.display_name, 'phone': user.phone_number})
+                return json.jsonify({'success':1, 'email': user.email, 'name': user.display_name, 'uid': user.uid})
             else:
                 return json.jsonify({'success':0})
 
