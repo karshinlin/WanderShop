@@ -4,6 +4,9 @@ import { createStackNavigator, createAppContainer, NavigationActions, withNaviga
 import TabViewPageHomeScreen from "./TabViewPage";
 import CartButton from "./CartButton";
 import CartScreen from "./CartScreen";
+import HomeView from "./HomeView";
+import TripOptionsScreen from './TripOptionsScreen';
+import './global.js'
 
 class WelcomeScreen extends React.Component {
   static navigationOptions = {
@@ -29,7 +32,7 @@ class WelcomeScreen extends React.Component {
   }
 
   componentDidMount() {
-    AsyncStorage.clear();
+    AsyncStorage.removeItem('currentCart');
   }
 }
 class LoginScreen extends React.Component {
@@ -70,14 +73,14 @@ class LoginScreen extends React.Component {
   };
   
   componentDidMount() {
-    AsyncStorage.clear();
+    AsyncStorage.removeItem('currentCart');
   }
 
   login() {
     try {
       console.log(this.state.email)
       console.log(this.state.pass)
-      fetch('https://tobincolby.pythonanywhere.com/login/', {
+      fetch(global.url + 'login/', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -92,7 +95,12 @@ class LoginScreen extends React.Component {
       .then((response) => response.json())
       .then((responseJSON) => {
         if (responseJSON['success'] == 1) {
-          this.props.navigation.navigate('HomePage')
+          // try {
+          //   AsyncStorage.setItem('currentUserUid', responseJSON['uid']);
+          // } catch (error) {
+          //   console.log(error);
+          // }
+          this.props.navigation.navigate('HomePage');
         } else {
           console.log(responseJSON)
           console.log("Login failed");
@@ -192,7 +200,7 @@ class CreateAccountScreen extends React.Component {
       return;
     }
     try {
-      fetch('https://tobincolby.pythonanywhere.com/register/', {
+      fetch(global.url + 'register/', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -248,9 +256,21 @@ const AppNavigator = createStackNavigator({
 	Login: LoginScreen,
   CreateAccount: CreateAccountScreen,
   HomePage: {
+    screen: HomeView,
+    navigationOptions: {
+      headerLeft: null,
+      headerRight: (<LogoutButtonNav />),
+    },
+  },
+  TripOptions: {
+    screen: TripOptionsScreen,
+    navigationOptions: {
+      headerRight: (<LogoutButtonNav />),
+    },
+  },
+  TripPage: {
     screen: TabViewPageHomeScreen,
     navigationOptions: {
-      headerLeft: (<LogoutButtonNav />),
       headerRight: (<CartButton />),
     },
   },

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, FlatList, ActivityIndicator, Button, AsyncStorage } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import './global.js'
 
 class HotelView extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class HotelView extends Component {
   }
 
   fetchHotels(){
-    return fetch('https://tobincolby.pythonanywhere.com/hotels/getByCity/')
+    return fetch(global.url + 'hotels/getByCity/')
         .then((response) => response.json())
         .then((response) => {
             this.setState({

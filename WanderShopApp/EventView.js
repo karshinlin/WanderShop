@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, Image, ActivityIndicator, Button, AsyncStorage } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
+import './global.js'
 
 class EventView extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class EventView extends Component {
   }
 
   fetchEvents(){
-    return fetch('http://127.0.0.1:5000/activities/getByCity/')
+    return fetch(global.url + 'activities/getByCity/')
         .then((response) => response.json())
         .then((response) => {
           console.log(response);

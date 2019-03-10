@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, FlatList, Image, StyleSheet, ScrollView, AsyncStorage } from "react-native";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
-import StarRating from 'react-native-star-rating'; 
+import StarRating from 'react-native-star-rating';
 
 class CartScreen extends Component {
   constructor(props) {

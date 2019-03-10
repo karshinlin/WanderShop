@@ -3,6 +3,7 @@ import { View, Text, Linking, TouchableOpacity, FlatList, StyleSheet, ActivityIn
 import Icon from "react-native-vector-icons/MaterialIcons";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import StarRating from 'react-native-star-rating'; 
+import './global.js'
 
 class RestaurantView extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class RestaurantView extends Component {
   }
 
   fetchRestaurants(){
-    return fetch('http://127.0.0.1:5000/restaurants/getByCity/')
+    return fetch(global.url + 'restaurants/getByCity/')
         .then((response) => response.json())
         .then((response) => {
             this.setState({
@@ -37,25 +38,25 @@ class RestaurantView extends Component {
                 error: true
             })
         });
-    }
-    componentDidMount() {
-        this.getCurrentCart();
-        this.setState({ isLoading: false });
-    }
+  }
+  componentDidMount() {
+      this.getCurrentCart();
+      this.setState({ isLoading: false });
+  }
 
-    async getCurrentCart() {
-      try {
-        const value = await AsyncStorage.getItem('currentCart');
-        if (value !== null) {
-          // We have data!!
-          const cart = JSON.parse(value);
-          await this.setState({ currentCart: cart });
-          console.log(cart);
-        }
-      } catch (error) {
-        // Error retrieving data
+  async getCurrentCart() {
+    try {
+      const value = await AsyncStorage.getItem('currentCart');
+      if (value !== null) {
+        // We have data!!
+        const cart = JSON.parse(value);
+        await this.setState({ currentCart: cart });
+        console.log(cart);
       }
+    } catch (error) {
+      // Error retrieving data
     }
+  }
 
   async addToCart(restaurantObj) {
     await this.getCurrentCart();

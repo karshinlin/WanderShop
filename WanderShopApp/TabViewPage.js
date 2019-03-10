@@ -29,7 +29,8 @@ export default class TabViewPage extends React.Component {
           fourth: RestaurantView,
         })}
         onIndexChange={index => this.setState({ index })}
-        initialLayout={{ width: Dimensions.get('window').width }}
+        initialLayout={{ width: Dimensions.get('window').width,
+                          height: Dimensions.get('window').height }}
       />
     );
   }
