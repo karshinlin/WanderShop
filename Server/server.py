@@ -3,7 +3,11 @@ from flaskext.mysql import MySQL
 import firebase_admin
 import requests
 from firebase_admin import credentials, auth
-import config
+try: # only import locally
+    import private_config
+except ImportError:
+    pass
+import public_config
 import sys
 import Query
 import os
@@ -13,7 +17,7 @@ firebase_app = firebase_admin.initialize_app(cred)
 
 mysql = MySQL()
 # MySQL configurations
-cleardb_params = os.getenv('CLEARDB_PARAMETERS').split(":")
+cleardb_params = public_config.CLEARDB_PARAMETERS.split(":")
 app.config['MYSQL_DATABASE_USER'] = cleardb_params[0]
 app.config['MYSQL_DATABASE_PASSWORD'] = cleardb_params[1]
 app.config['MYSQL_DATABASE_DB'] = cleardb_params[3]
@@ -39,7 +43,7 @@ def login_page():
             email = jsonReq['email']
             password = jsonReq['password']
             body = {'email': email, 'password': password}
-            params = {'key' : config.FIREBASE_API_KEY}
+            params = {'key' : public_config.FIREBASE_API_KEY}
             
             resp = requests.request('post', _verify_password_url, params=params, json=body)
             if bool(resp.json().get('registered')):

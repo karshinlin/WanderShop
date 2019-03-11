@@ -1,5 +1,9 @@
 import requests
-import config
+try: # only import locally
+    import private_config
+except ImportError:
+    pass
+import public_config
 import urllib.parse
 from datetime import date
 # class YelpQuery(graphene.ObjectType):
@@ -27,7 +31,7 @@ from datetime import date
 def run_ticketmaster_query(postal_code=None, city=None, state_code=None, start_date_time=date.today(), end_date_time=None):
     url = "https://app.ticketmaster.com/discovery/v2/events.json"
     params = dict()
-    params["apikey"] = config.TICKETMASTER_API_KEY
+    params["apikey"] = public_config.TICKETMASTER_API_KEY
     if postal_code:
         params["postalCode"] = postal_code
     if city:
@@ -48,7 +52,7 @@ def run_ticketmaster_query(postal_code=None, city=None, state_code=None, start_d
         raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, url))
 
 def run_yelp_query(query): # A simple function to use requests.post to make the API call. Note the json= section.
-    headers = {"Authorization": config.YELP_API_KEY,
+    headers = {"Authorization": public_config.YELP_API_KEY,
     "Content-Type": "application/graphql",
     }
     request = requests.post('https://api.yelp.com/v3/graphql', data=query, headers=headers)
