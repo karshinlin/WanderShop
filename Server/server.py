@@ -10,10 +10,30 @@ except ImportError:
 import public_config
 import sys
 import Query
-import os
-cred = credentials.Certificate("firebase-config.json")
+import os 
+import requests
+
+#print(type(json.loads(public_config.FIREBASE_CONFIG, strict=False).replace('/\\n/g', '\n')) is dict)
+#cred = credentials.Certificate(json.loads(public_config.FIREBASE_CONFIG, strict=False))
 app = Flask(__name__)
-firebase_app = firebase_admin.initialize_app(cred)
+firebase_app = firebase_admin.initialize_app(credential=credentials.Certificate({
+    "type": "service_account",
+    "private_key": public_config.FIREBASE_CONFIG_PRIVATE_KEY,
+    "client_email": public_config.FIREBASE_CONFIG_CLIENT_EMAIL,
+    "token_uri": public_config.FIREBASE_CONFIG_TOKEN_URI,
+  })
+)
+# admin.initializeApp({
+#   credential: admin.credential.cert({
+#     "private_key": process.env.FIREBASE_PRIVATE_KEY,
+#     "client_email": process.env.FIREBASE_CLIENT_EMAIL,
+#   }),
+#   databaseURL: "https://my-firebase-app.firebaseio.com"
+# });
+
+# os.environ['FIREBASE_CONFIG_PRIVATE_KEY'] = "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDbG4v6kzhWJNfS\n0J9Y94N/uhjOW55ZBoCfuOEkLzFcBPQjpeHcAH/yN2ziMyQBVrGbcNALbGk1iSfD\nTQzaKKOt0R2ShMv7gswsw3glr+vHnXtztmYoDS5FgVRa/D45A16AfaMKcMdG3ivQ\nUgRKL6GvmIiVBle/GHqG0ElwGKRzmZmsZFmLTqIB19Gy5z6JVm5KbJHtBu6E3phU\nxW+eajU8MkMnDLI1vbYlINETetJCyKZ99sgyv/5CYWsXlT6y2o27uCbAAYOCBPOQ\nO55fuEfbcd1hg1Wsoops7Ny2D5+bjWKLHhWZNIjhBBei0+S+aQVYVyNeijqq8XwA\nScsXVhidAgMBAAECggEABEOrfEN8P7T03F4CE+2xSf2ZuP5wfQQS4cjr3NPsToGs\nLLtwQ2NhGho5DMf5BeulhkRyUB6ah5e1RehMfTx4PwxIWo8qFymLBr4BKx6a5KYs\nfmqI33OuOF0VgrXREjP+FVscnrnmLvto9+N4wObfazb5RYk7kPUNgW0xWLSqErPb\n3vcAKjJ9j3odc9loVvNaIb+iCPEujMaxsAmd0/NUa2yRukmHtszrg+OCErtbqZua\n3eQ/MaKybNBJ7RNu9A0gO3ULbLk9i553uPWdoaNBDm9BwEqU2Ce2w8JvPbpR/onT\n58zrQ4UT8kREub+s/2GmMAU+jWI0vaGzDM5bUnxYsQKBgQD3iGlUMgKMR6EeANl4\nIom5j8J0Lw5LhNLXaxtIb1Dus/K7SXygQ9C/Ox96s5izHR/+PZKVrEhrIgY2W9YC\nAXEn6i+zlQubDqxdIOkcjNS8gCFFXI/9g9i2apdYYVwsMckP9RHyUtVcLgKwC4AZ\nIKMPJoeZnfLV7g24Y6RKaaJfiQKBgQDimjjP6+GowDMadsX8Hmgiy8WOUqaMuvRH\nPRjeg919xpHKIIv0k13MTXM+2AT3HPmL8+ZWeaTSWLYtiP8n7E2LCF7TwPRy9zT+\ng+1VUQ4nxNK20Wcf0F2p93S5/K3jCKk9Fbs9lGCvyouXjmps+N06zUVWckOsn3+T\nV1JI0Eo3dQKBgFI1xfWmnl4EtCgI1DEoF2G/sy9vKWo/dN8CvY7zGYgNz8IQCAoa\nO8wnUK8p0r86HxQLUxHOpEagiDupiIwl+nTtPGaCS9Z1qx1K/uDyjP0F+QbWVSQ3\nk9QR1q4Nt9Udu89G72zxwdbZmR7q0uKFimJPw51rbelLJNdmkHv+VWUxAoGAMOJI\nQ0KFqdvcqmbZCyycFnWTJsLZvx5NuFiL1uTnkUyXAt3Gk3p/D6XdqL79Qzny86go\nFpujXOVaV7RoJvqpN8cUfeXwViTSP93CA1e7EAU718iQ0KIospP5kG3cLVAfAlh/\nzicGPKYbOxS0DNIbF6ZUwPNhegnmgaiizaZxfEkCgYBcVsaz0QlbxSOVoPbywelu\nGn+82BZg4+pNy3L4DviAEIwfShA4Wgupb8NtMEjcF4YkVYa/O7O+2N8U4cCiTWpy\ndByL2vWW2omALlVXt3AakBleKnyqsq3F5ag2yGGcxorBSwld1usitAkWoe7UN4h8\nTDbincUywaTeqOMUgWTwtQ==\n-----END PRIVATE KEY-----\n",
+# os.environ['FIREBASE_CONFIG_CLIENT_EMAIL'] = "firebase-adminsdk-0qydc@wandershop-d654b.iam.gserviceaccount.com"
+
 
 mysql = MySQL()
 # MySQL configurations
