@@ -6,17 +6,18 @@ from firebase_admin import credentials, auth
 import config
 import sys
 import Query
+import os
 cred = credentials.Certificate("firebase-config.json")
 app = Flask(__name__)
 firebase_app = firebase_admin.initialize_app(cred)
 
-
 mysql = MySQL()
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'wandershop'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'wandershoppass123'
-app.config['MYSQL_DATABASE_DB'] = 'wander_shop'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+cleardb_params = os.getenv('CLEARDB_PARAMETERS').split(":")
+app.config['MYSQL_DATABASE_USER'] = cleardb_params[0]
+app.config['MYSQL_DATABASE_PASSWORD'] = cleardb_params[1]
+app.config['MYSQL_DATABASE_DB'] = cleardb_params[3]
+app.config['MYSQL_DATABASE_HOST'] = cleardb_params[2]
 mysql.init_app(app)
 
 _verify_password_url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword'
