@@ -1,175 +1,72 @@
-<!DOCTYPE html>
-<html>
-<title>WanderShop</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-<style>
-body, html {
-  height: 100%;
-  font-family: "Inconsolata", sans-serif;
-}
+<!doctype html>
+<html></html>
+    <head>
+        <meta charset="utf-8">    
+        <title>Wander Shop - All in one travel app</title>
+        <link rel="stylesheet" href="main.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700|Roboto:300,400,500,700,900|Lato:300,400,500,700,900" rel="stylesheet">
+    </head>
 
-.bgimg {
-  background-position: center;
-  background-size: cover;
-  background-image: url("travel_booking.jpg");
-  min-height: 75%;
-}
+    <body>
+        <div class="section" id="welcome">
+                <div id="welcome-holder">
+                        <span id="welcome-title">WanderShop App, plan your trip in one place</span>
+                        <p id="welcome-subtitle">WanderShop is an all-in-one travel planner, bringing the e-commerce experience to travel booking.</p>
+                </div>
+                <div id="phone-holder">
+                    <img id="phone-arrow" src="assets/arrow_thick.svg" alt="">
+                    <img id="phone-img" src="assets/black-mockup-welcome.png" alt="">
+                    <img src="assets/Confetti.svg" alt="" id="colbys-confetti">
+                </div>
 
-.menu {
-  display: none;
-}
-</style>
-<body>
+                <div id="team-holder">
+                    <span>Team&nbsp;</span><span class="tname">UNIT</span>
+                </div>
 
-<!-- Links (sit on top) -->
-<div class="w3-top">
-  <div class="w3-row w3-padding w3-black">
-    <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">HOME</a>
-    </div>
-    <div class="w3-col s3">
-      <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
-    </div>
-    <div class="w3-col s3">
-      <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
-    </div>
-    <div class="w3-col s3">
-      <a href="#where" class="w3-button w3-block w3-black">WHERE</a>
-    </div>
-  </div>
-</div>
+        </div>
+        <div class="section" id="description">
+            <img id="description-mockup" src="assets/black-mockup-hotels.png" alt="">
+            <div id="description-holder">
+                <h1>Hours of Searching, Organized in Seconds</h1>
+                <p>With WanderShop every part of your trip can be organized in one app allowing you to see the big picture.</p>
+                <p><span class="highlight">All-in-one Searching. </span><br>Enter the dates for your trip and search for flights, hotels, events, restaurants all within the app!</p>
+                <p><span class="highlight">Create and save your next trips. </span><br>Save your trips and keep track of your budget from your WanderShop account. Keep your plan with you at all times.</p>
+                <p><span class="highlight">Fast and easy booking. </span><br>If we can't book your ticket directly we will direct you to the right place. No more mistakes, book faster. </p>
 
-<!-- Header with image -->
-<header class="bgimg w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
-    <span class="w3-text-black">A solution to all your traveling needs.</span>
-  </div>
-  <div class="w3-display-middle w3-center">
-    <span class="w3-tag" style="font-size:90px">WanderShop</span>
-  </div>
-  <div class="w3-display-bottomright w3-center w3-padding-large">
-    <span class="w3-text-black">CS 4261 - Mobile Apps & Services</span>
-  </div>
-</header>
+            </div>
+        </div>
+       
+        <div class="section" id="video-section">
+                <video id="video" controls>
+                        <source src="assets/app_video.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                      </video>
+            
+        </div>
 
-<!-- Add a background color and large text to the whole page -->
-<div class="w3-sand w3-grayscale w3-large">
+        <div class="section" id="footer">
+            <h2>proudly developed by </h2>
+            <div id="footer-team">
+                    <div id="team-holder">
+                            <span>Team&nbsp;</span><span class="tname">UNIT</span>
+                    </div>
+                    <div id="names">
+                        <span>Borja Vicinay</span><br>
+                        <a href="mailto:bvicinay@gmail.com">bvicinay@gmail.com</a><br>
+                        <span>Colby Tobin</span><br>
+                        <a href="mailto:tobincolby@gmail.com">tobincolby@gmail.com</a><br>
+                        <span>Grant Robinson</span><br>
+                        <a href="mailto:bvicinay@gmail.com">bvicinay@gmail.com</a><br>
+                        <span>Kar Shin Lin</span><br>
+                        <a href="mailto:bvicinay@gmail.com">colbyTobin@gmail.com</a><br>
+                    </div>
+            </div>
+            
+        </div>
+        
+        
+        
 
-<!-- About Container -->
-<div class="w3-container" id="about">
-  <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE APP</span></h5>
-    <p>Have you ever seen wanted to plan a trip to the city? Did the many many websites out there discourage you, your family, or your friends from making concrete plans? We've had that problem too!</p>
-    <p>WanderShop is an all-in-one planner. It brings the e-commerce experience to travel planning, allowing you to add everything you need to make a fun trip in one application on-the-go.</p>
-    <div class="w3-panel w3-leftbar w3-light-grey">
-      <p><i>"I've never spent such little time making such a complete itinerary. It truly revolutionizes trip planning!"</i></p>
-      <p>Student, Frequent Travler, and Fun-enthusiast: George Burdell</p>
-    </div>
-    <img src="https://www.w3schools.com/w3images/coffeeshop.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
-    <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>
-    <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>
-  </div>
-</div>
 
-<!-- Menu Container -->
-<div class="w3-container" id="menu">
-  <div class="w3-content" style="max-width:700px">
- 
-    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
-  
-    <div class="w3-row w3-center w3-card w3-padding">
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
-        <div class="w3-col s6 tablink">Eat</div>
-      </a>
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
-        <div class="w3-col s6 tablink">Drink</div>
-      </a>
-    </div>
-
-    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
-      <h5>Bread Basket</h5>
-      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
-    
-      <h5>Honey Almond Granola with Fruits</h5>
-      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
-    
-      <h5>Belgian Waffle</h5>
-      <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
-    
-      <h5>Scrambled eggs</h5>
-      <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
-    
-      <h5>Blueberry Pancakes</h5>
-      <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
-    </div>
-
-    <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
-      <h5>Coffee</h5>
-      <p class="w3-text-grey">Regular coffee 2.50</p><br>
-    
-      <h5>Chocolato</h5>
-      <p class="w3-text-grey">Chocolate espresso with milk 4.50</p><br>
-    
-      <h5>Corretto</h5>
-      <p class="w3-text-grey">Whiskey and coffee 5.00</p><br>
-    
-      <h5>Iced tea</h5>
-      <p class="w3-text-grey">Hot tea, except not hot 3.00</p><br>
-    
-      <h5>Soda</h5>
-      <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
-    </div>  
-    <img src="https://www.w3schools.com/w3images/coffeehouse2.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
-  </div>
-</div>
-
-<!-- Contact/Area Container -->
-<div class="w3-container" id="where" style="padding-bottom:32px;">
-  <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHERE TO FIND US</span></h5>
-    <p>Find us at some address at some place.</p>
-    <img src="https://www.w3schools.com/w3images/map.jpg" class="w3-image" style="width:100%">
-    <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
-    <p><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2017-11-16T20:00"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
-      <p><button class="w3-button w3-black" type="submit">SEND MESSAGE</button></p>
-    </form>
-  </div>
-</div>
-
-<!-- End page content -->
-</div>
-
-<!-- Footer -->
-<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-</footer>
-
-<script>
-// Tabbed Menu
-function openMenu(evt, menuName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("menu");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
-  }
-  document.getElementById(menuName).style.display = "block";
-  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
-}
-document.getElementById("myLink").click();
-</script>
-
-</body>
+    </body>
 </html>
-
