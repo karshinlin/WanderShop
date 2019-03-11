@@ -18,7 +18,7 @@ import requests
 app = Flask(__name__)
 firebase_app = firebase_admin.initialize_app(credential=credentials.Certificate({
     "type": "service_account",
-    "private_key": public_config.FIREBASE_CONFIG_PRIVATE_KEY,
+    "private_key": public_config.FIREBASE_CONFIG_PRIVATE_KEY.replace('\\n', '\n'),
     "client_email": public_config.FIREBASE_CONFIG_CLIENT_EMAIL,
     "token_uri": public_config.FIREBASE_CONFIG_TOKEN_URI,
   })
