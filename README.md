@@ -4,7 +4,7 @@
 - backend server uses the Flask framework and is run with gunicorn
 - virtualenv is used to maintain dependencies
 - To activate virtualenv, run `source venv/bin/activate` in project root
-- To run the server from project root: `gunicorn --chdir ./Server wsgi:app`
+- To run the server from project root: `gunicorn --chdir ./Server wsgi:app` (in virtualenv)
 
 # Continuous Deployment with Heroku
 - Heroku-deployment branch serves as continuous deployment branch to Heroku
@@ -12,7 +12,7 @@
 - Heroku config variables are used to supply credentials and keys to the server on Heroku
 - private_config.py is used to supply these credentials locally for development (not on Git)
 - A cloud ClearDB database is used to house all backend data
-- To run the Heroku build locally, download the Heroku CLI and run `heroku local` 
+- To run the Heroku build locally, download the Heroku CLI and run `heroku local` (in virtualenv) 
 
 # Server Requirements in virtualenv
 - run 'pip freeze > requirements.txt' to refresh requirements file
