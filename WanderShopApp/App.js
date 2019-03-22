@@ -1,12 +1,20 @@
 import React from "react";
-import { Button, View, Text, StyleSheet, TextInput, AsyncStorage } from "react-native";
+import { Button, View, Text, StyleSheet, TextInput, AsyncStorage, Image } from "react-native";
 import { createStackNavigator, createAppContainer, NavigationActions, withNavigation } from "react-navigation";
 import TabViewPageHomeScreen from "./TabViewPage";
 import CartButton from "./CartButton";
 import CartScreen from "./CartScreen";
 import HomeView from "./HomeView";
 import TripOptionsScreen from './TripOptionsScreen';
-import './global.js'
+import './global.js';
+import EmphasisButton from './EmphasisButton';
+
+export const cBlack = '#3D3D3D';
+export const cDarkBlue = "#1D71F3";
+export const cLightBlue = "#3EAAFA";
+export const cRed = "#ED6A5A";
+export const cOrange = "#FAA916";
+export const cWhite = "#FFFFFF";
 
 class WelcomeScreen extends React.Component {
   static navigationOptions = {
@@ -14,18 +22,24 @@ class WelcomeScreen extends React.Component {
   }
   render() {
     return (
-		<View style={styles.container}>
-      <View style={{flex:.2}}></View>
-      <View style={{flex:.4}}>
-        <Text style={styles.welcome}>WanderShop</Text>
-        <Text style={styles.normal}>Solve all your trip planning needs.</Text>
+		<View style={styles.welcomeContainer}>
+      <View>
+      <Image source={require('./assets/img/logo_icon.png')} style={styles.welcomeLogo} />
       </View>
-      <View style={{flex:.4}}>
-        <Button title="Sign In"
-          onPress={() => this.props.navigation.navigate('Login')}/>
-        <Button title="Create Account"
-          onPress={() => this.props.navigation.navigate('CreateAccount')}/>
+      <View>
+        <Text style={styles.welcomeTitle}>Welcome to Wander Shop</Text>
+        <Text style={styles.welcomeSubtitle}>An all-in-one travel e-commerce platform for all your future trips</Text>
       </View>
+      <View>
+          <EmphasisButton isRipple style={{}} rippleColor={cLightBlue}
+            onPress={() => this.props.navigation.navigate('Login')} >
+              <Text style={styles.emphasisButton}> LogIn Now </Text>
+          </EmphasisButton>
+          <EmphasisButton isRipple style={{backgroundColor: cRed}} rippleColor={cLightBlue} 
+            onPress={() => this.props.navigation.navigate('CreateAccount')}>
+              <Text style={[styles.emphasisButton, {color: cBlack}]}> Create an Account </Text>
+          </EmphasisButton>
+        </View>
 		
 		</View>
     );
@@ -35,6 +49,7 @@ class WelcomeScreen extends React.Component {
     AsyncStorage.removeItem('currentCart');
   }
 }
+
 class LoginScreen extends React.Component {
 	render() {
     const {navigate} = this.props.navigation;
@@ -286,29 +301,46 @@ export default class App extends React.Component {
   }
 }
 
-  
-  const styles = StyleSheet.create({
-	container: {
-	  flex: 1,
-	  justifyContent: 'center',
-	  backgroundColor: '#42cef4',
-	  flexDirection: 'column'
+
+const styles = StyleSheet.create({
+  welcomeContainer: {
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+	  backgroundColor: '#FFFFFF',
+    flexDirection: 'column',
+    padding: 40
 	},
-	welcome: {
-	  fontSize: 40,
+  welcomeLogo: {
+    width: 130, 
+    height: 157,
+    marginTop: 100
+  },
+  welcomeTitle: {
+    fontFamily: "MontserratBold",
+    fontSize: 34,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: cBlack,
+    marginTop: 59
+  },
+	welcomeSubtitle: {
+	  fontSize: 25,
 	  textAlign: 'center',
-	  margin: 10,
-	},
-	normal: {
-	  fontSize: 20,
-	  textAlign: 'center',
-	  margin: 10,
-	},
+    marginTop: 20,
+    marginBottom: 90
+  },
+  emphasisButton: {
+    color: cWhite,
+    fontSize: 23,
+    fontFamily: "MontserratSemiBold",
+  },
+
 	instructions: {
 	  textAlign: 'center',
 	  color: '#333333',
 	  marginBottom: 5,
-	},
+	}, 
 	background: {
 	  backgroundColor: '#42cef4',
 	  flex: 1,

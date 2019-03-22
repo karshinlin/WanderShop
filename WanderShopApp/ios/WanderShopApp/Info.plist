@@ -70,6 +70,24 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>MontserratBlack Italic.otf</string>
+		<string>MontserratBlack.otf</string>
+		<string>MontserratBold Italic.otf</string>
+		<string>MontserratBold.otf</string>
+		<string>MontserratExtra Bold.otf</string>
+		<string>MontserratExtraBold Italic.otf</string>
+		<string>MontserratExtraLight Italic.otf</string>
+		<string>MontserratExtraLight.otf</string>
+		<string>MontserratItalic.otf</string>
+		<string>MontserratLight Italic.otf</string>
+		<string>MontserratLight.otf</string>
+		<string>MontserratMedium Italic.otf</string>
+		<string>MontserratMedium.otf</string>
+		<string>MontserratRegular.otf</string>
+		<string>MontserratSemiBold Italic.otf</string>
+		<string>MontserratSemiBold.otf</string>
+		<string>MontserratThin Italic.otf</string>
+		<string>MontserratThin.otf</string>
 	</array>
 </dict>
 </plist>
