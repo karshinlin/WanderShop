@@ -18,13 +18,13 @@ class FlightView extends Component {
   }
 
   fetchFlights(){
-    return fetch(global.url + 'flights/getByDate/')
+    return fetch(global.url + 'flights')
         .then((response) => response.json())
         .then((response) => {
             this.setState({
                 isLoading: false,
                 error: false,
-                data: response.flights,
+                data: response,
                 refreshing: false,
                 time: 30,
             }, function () {
@@ -109,24 +109,21 @@ class FlightView extends Component {
       <View style={{ flex: 1 }}>
         <FlatList
         data={this.state.data}
-        renderItem={({ item: { flightsNumber, airline, origin, destination, cost, departDate, departTime } }) => (
+        renderItem={({ item: { tripid, cheapestProviderName, displayLowTotal, fareFamily, legs } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Flight Number: {flightsNumber}</Text>
-            <Text>Airline: {airline}</Text>
-            <Text>Departure Airport: {origin}</Text>
-            <Text>Arrival Airport: {destination}</Text>
-            <Text>Price Range: {cost}</Text>
-            <Text>Departure Date: {departDate}</Text>
-            <Text>Depart Time: {departTime}</Text>
+            <Text>Airline: {cheapestProviderName}</Text>
+            <Text>Price: {displayLowTotal}</Text>
+            <Text>Cabin Type: {fareFamily.displayName}</Text>
+            <Text>Number of Stops: {Object.keys(legs[0].segments).length}</Text>
             <Button title={'Add To Cart'} onPress={() => {
               console.log("Hi");
-              this.addToCart({category: "flight", flightsNumber, airline, origin, destination, cost, departDate, departTime });
+              this.addToCart({category: "flight", cheapestProviderName, displayLowTotal, fareFamily, legs });
             }
             }/>
           </View>
         )}
         refreshing={this.state.refreshing}
-        keyExtractor={({item: flightsNumber}) => flightsNumber}
+        keyExtractor={({item: tripid}) => tripid}
         onRefresh={this.handleRefresh}
       />
       </View>
