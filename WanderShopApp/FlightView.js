@@ -14,6 +14,7 @@ class FlightView extends Component {
         time: 30,
     };
     this.fetchFlights();
+    console.log(this.props);
   }
 
   fetchFlights(){
@@ -99,6 +100,11 @@ class FlightView extends Component {
             </View>
         );
     }
+    // const { navigation } = this.props.navigation;
+    // const startDate = navigation.state.getParam('startDate', '03-23-2019');
+    // const endDate = navigation.state.getParam('endDate', '03-24-2019');
+    // const origin = navigation.state.getParam('origin', 'ATL');
+    // const destination = navigation.state.getParam('destination', 'NYC');
     return (
       <View style={{ flex: 1 }}>
         <FlatList
