@@ -202,13 +202,14 @@ def hotels_handler():
     return json.jsonify({'hotels': hotels})
 
 ## Restaurants handling
-@app.route('/restaurants/getByCity/', methods=["GET"])
+@app.route('/restaurants/getByCity', methods=["GET"])
 def restaurants_handler():
     ## Retrieve data from the request
     jsonReq = request.get_json()
     # city = jsonReq['city'] # mm/dd/yyyy
-    
-    return json.jsonify(Query.run_yelp_query(Query.searchQuery())["data"]["search"])
+    destination = request.args.get('dest', default="JFK", type=str)
+    cityInfo = Query.runLocationQuery(destination, ["cityname"])
+    return json.jsonify(Query.run_yelp_query(Query.searchQuery(location=cityInfo[0]))["data"]["search"])
     # Query the db with the flight data request
     # conn = mysql.connect()	
     # cursor = conn.cursor()
@@ -232,7 +233,7 @@ def restaurants_handler():
 
 ## Activities handling
 # format: /activities/getByCity?dest=JFK&date=2019-08-23
-@app.route('/activities/getByCity/', methods=["GET"])
+@app.route('/activities/getByCity', methods=["GET"])
 def activities_handler():
     ## Retrieve data from the request
     jsonReq = request.get_json()
