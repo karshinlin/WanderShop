@@ -18,7 +18,7 @@ class EventView extends Component {
   }
 
   fetchEvents(){
-    return fetch(global.url + 'activities/getByCity/')
+    return fetch(global.url + 'activities/getByCity')
         .then((response) => response.json())
         .then((response) => {
           console.log(response);

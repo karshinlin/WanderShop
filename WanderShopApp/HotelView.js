@@ -17,13 +17,13 @@ class HotelView extends Component {
   }
 
   fetchHotels(){
-    return fetch(global.url + 'hotels/getByCity/')
+    return fetch(global.url + 'hotels')
         .then((response) => response.json())
         .then((response) => {
             this.setState({
                 isLoading: false,
                 error: false,
-                data: response.hotels,
+                data: response,
                 refreshing: false,
                 time: 30,
             }, function () {
@@ -103,23 +103,24 @@ class HotelView extends Component {
       <View style={{ flex: 1 }}>
         <FlatList
         data={this.state.data}
-        renderItem={({ item: { address, cost, hotelId, hotelName, phoneNumber, rating, website } }) => (
+        renderItem={({ item: { displayaddress, brand, cheapestProvider, cheapestProviderName, stars, userrating, phone } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Hotel Name: {hotelName}</Text>
-            <Text>Address: {address}</Text>
-            <Text>Phone Number: {phoneNumber}</Text>
-            <Text>Website: {website}</Text>
-            <Text>Cost: {cost}</Text>
-            <Text>Rating: {rating}</Text>
+            <Text>Hotel Name: {brand ? brand : cheapestProviderName}</Text>
+            <Text>Address: {displayaddress}</Text>
+            <Text>Phone Number: {phone}</Text>
+            <Text>Cost: {cheapestProvider.displayprice}</Text>
+            <Text>Rooms Remaining: {cheapestProvider.roomsRemaining}</Text>
+            <Text>Stars: {stars}</Text>
+            <Text>User Rating: {userrating}</Text>
             <Button title={'Add To Cart'} onPress={() => {
               console.log("Hi");
-              this.addToCart({category: "hotel", hotelName, hotelId, address, cost, phoneNumber, rating, website});
+              this.addToCart({category: "hotel", displayaddress, brand, cheapestProvider, stars, userrating, phone});
             }
             }/>
           </View>
         )}
         refreshing={this.state.refreshing}
-        keyExtractor={({item: hotelId}) => hotelId}
+        keyExtractor={({item: displayaddress}) => displayaddress}
         onRefresh={this.handleRefresh}
       />
       </View>

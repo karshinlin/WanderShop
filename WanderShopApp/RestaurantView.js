@@ -19,7 +19,7 @@ class RestaurantView extends Component {
   }
 
   fetchRestaurants(){
-    return fetch(global.url + 'restaurants/getByCity/')
+    return fetch(global.url + 'restaurants/getByCity')
         .then((response) => response.json())
         .then((response) => {
             this.setState({
