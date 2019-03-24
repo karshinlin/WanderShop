@@ -1,0 +1,123 @@
+Sample Hotel Response (json will contain a list of these entries)
+/hotels?dest=ATL&rooms=1&checkin=2019-09-23&checkout=2019-09-27&adults=2
+	{	
+        "address": "540 Park Avenue",
+        "baseprice": "$459",
+        "basepricenumber": 459,
+        "brand": "Loews Hotels",
+        "brandId": "60",
+        "cheapestProvider": {
+            "baseprice": 459,
+            "checkoutProvider": false,
+            "currencyCode": "USD",
+            "displaybaseprice": "$459",
+            "displayprice": "$530",
+            "firstnight": false,
+            "isPrivate": false,
+            "isallinclusive": true,
+            "iscompareto": false,
+            "logo": "BOOKINGDOTCOM",
+            "name": "Booking.com",
+            "openInFullBrowser": false,
+            "price": 530.2,
+            "priceperbed": false,
+            "providerBranded": false,
+            "providerCode": "BOOKINGDOTCOM",
+            "rateType": "bestAvailable",
+            "roomRates": [],
+            "roomTypeCode": "2490003",
+            "roomsRemaining": 10,
+            "taxestimated": false,
+            "url": "/book/hotel?code=FaCkEHYbk9.qumWFano8BP274JKcE0diPaeNWhRPjM7r__yfHjaxxI.53020.31545&h=eb10d2a4051a&_sid_=H-4GE5O38wbsFSZXmzNmlkG-gffQptSFiLW5skSh3ICk9Ahrf_efmadPPUthK8eiI&sortpricemode=daybase"
+        },
+        "cheapestProviderName": "Booking.com",
+        "city": "New York",
+        "country": "US",
+        "ctid": "15830",
+        "currencyCode": "USD",
+        "displayaddress": "540 Park Avenue, New York, NY",
+        "distance": 0,
+        "distanceFromFilterLocation": 0,
+        "distanceToSearchLocation": 0,
+        "firstnight": false,
+        "id": "31545",
+        "isHsp": false,
+        "ischeapestprivate": false,
+        "lat": 40.76445585774745,
+        "lon": -73.96896963061903,
+        "maxDisplayedProviders": 12,
+        "name": "Loews Regency New York Hotel",
+        "numProviders": 12,
+        "phone": "+1 212 759 4100",
+        "price": "$530",
+        "pricehistory": "$371",
+        "pricehistoryhi": "808.00",
+        "pricehistoryhilocal": "808",
+        "pricehistorylo": "371.00",
+        "pricehistorylolocal": "371",
+        "ratinglabel": "Excellent",
+        "region": "NY",
+        "reviewcount": 1577,
+        "shareURL": "/hotels/New-York,NY-c15830-h31545/2019-03-31/2019-04-07/2adults?sharing=1",
+        "specialrate": false,
+        "stars": 5,
+        "taxestimated": false,
+        "thumburl": "/rimg/himg/86/f2/ed/leonardo-1086585-Avenue_King_S-image.jpg?width=200&height=200&xhint=1003&yhint=728&crop=true",
+        "thumburls": {
+            "200x200": "/rimg/himg/86/f2/ed/leonardo-1086585-Avenue_King_S-image.jpg?width=200&height=200&xhint=1003&yhint=728&crop=true",
+            "600x400": "/rimg/himg/86/f2/ed/leonardo-1086585-Avenue_King_S-image.jpg?width=600&height=400&xhint=1003&yhint=728&crop=true"
+        },
+        "totalpricenumber": 530.2,
+        "userrating": "88",
+        "userratingflag": "y"
+	}
+	
+
+Flights output (json will contain a list of these entries)
+/flights?origin=ATL&dest=JFK&departDate=2019-09-23
+{
+	"cabinClass": "e",
+	"cheapestProviderName": "Delta",
+	"clickProbability": 0.010529546987327571,
+	"currencyCode": "USD",
+	"displayLow": "$525",
+	"displayLowTotal": "$525",
+	"duration": 135,
+	"exactLow": 524.3,
+	"exactLowTotal": 524.3,
+	"fareFamily": {
+		"code": "MAINCABIN",
+		"displayName": "Main Cabin"
+	},
+	"fareFamilyLabel": "Multiple Fares",
+	"featureScore": 5.640351300833572,
+	"flightRoutes": [
+		{
+			"destinationAirport": "HPN",
+			"originAirport": "ATL"
+		}
+	],
+	"isCubaLayover": false,
+	"isOpaque": false,
+	"isSplit": false,
+	"legs": [
+		{
+			"duration": 135,
+			"segments": [
+				"748438998"
+			]
+		}
+	],
+	"low": 525,
+	"lowOriginal": 525,
+	"lowOriginalTotal": 525,
+	"lowTotal": 525,
+	"maxDisplayedProviders": 1,
+	"maxstops": 0,
+	"numProviders": 2,
+	"penalized": false,
+	"seatUrgency": 1,
+	"shareURL": "/flights/ATL-JFK/2019-03-24/fcd84f85099c3af061910f442c4115924",
+	"tripid": "cd84f85099c3af061910f442c4115924",
+	"underpriced": false
+}
