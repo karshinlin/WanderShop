@@ -34,7 +34,9 @@ export default class TripOptionsScreen extends React.Component {
 			this.state.selectedEndDate != null &&
 			this.state.originCity != null && 
 			this.state.destCity != null) {
-				this.props.navigation.navigate('TripPage');
+				this.props.navigation.navigate('TripPage', {startDate: this.state.selectedStartDate,
+				endDate: this.state.selectedEndDate, origin: this.state.originCity,
+				destination: this.state.destCity});
 				console.log("navigating");
 			}
 		else {

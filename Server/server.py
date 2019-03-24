@@ -12,6 +12,7 @@ import sys
 import Query
 import os 
 import requests
+import datetime
 
 #print(type(json.loads(public_config.FIREBASE_CONFIG, strict=False).replace('/\\n/g', '\n')) is dict)
 #cred = credentials.Certificate(json.loads(public_config.FIREBASE_CONFIG, strict=False))
@@ -142,62 +143,33 @@ def flights_handler():
         flights.append(flight)
     return json.jsonify({'flights': flights})
 
+# format: /flights?origin=ATL&dest=JFK&departDate=2019-09-23
+@app.route('/flights', methods=["GET"])
+def flights():
+    # return json.jsonify({'flights': 'hello'})
+    today = datetime.date.today()  
+    origin = request.args.get('origin', default = "ATL", type = str)
+    destination = request.args.get('dest', default = "JFK", type = str)
+    departDate = request.args.get('departDate', default = str(today), type = str)
+    json_response = Query.runFlightsQuery(origin, destination, departDate)
+    if len(json_response["tripset"]) > 30:
+        return json.jsonify(json_response["tripset"][:30])
+    else:
+        return json.jsonify(json_response["tripset"])
+
+# format: /hotels?dest=ATL&rooms=1&checkin=2019-09-23&checkout=2019-09-27&adults=2
+@app.route('/hotels', methods=["GET"])
+def hotels():
+    destination = request.args.get('dest', default="JFK", type=str)
+    rooms = request.args.get('rooms', default="1", type=int)
+    oneWeek = datetime.date.today() + datetime.timedelta(days=7)
+    twoWeeks = oneWeek + datetime.timedelta(days=7)  
+    checkin = request.args.get('checkin', default=str(oneWeek), type=str)
+    checkout = request.args.get('checkout', default=str(twoWeeks), type=str)
+    adults = request.args.get('adults', default=2, type=int)
+    cityId = Query.runLocationQuery(destination, ["ctid"])
+    return json.jsonify(Query.runHotelsQuery(cityId[0], rooms, checkin, checkout, adults))
     
-    
-
-    ## CODE BELOW IS FOR API IMPLEMENTATION
-    """ 
-    
-    # http://127.0.0.1:5000/flights/getByDate/?departDate=04/15/2019&returnDate=04/21/2019&origin=LHR&destination=ATL
-
-    error = ''
-    try:
-        if request.method == "POST":
-            print("request was a post", file=sys.stderr)
-            jsonReq = request.get_json()
-            departDate = jsonReq['departDate'] # mm/dd/yyyy
-            returnDate = jsonReq['returnDate']
-            origin = jsonReq['origin']
-            destination = jsonReq['destination']
-
-            # We can allow to specify these through the app in the future 
-            numAdults = 1 
-            numChilds = 0 
-            numInfants = 0 
-            classType = "Economy"
-            currency = "USD"
-            flightsLimit = "30ITINS" # num of flights in response
-            tripType = "R" # O for one-way, R for round-trip
-
-            headers = {"apikey": config.AIRHOB_API_KEY, "mode": "sandbox", "Content-Type": "application/json"}
-
-            params = { 
-                "TripType": tripType, "NoOfAdults": numAdults, "NoOfChilds": numChilds, "NoOfInfants": numInfants, "ClassType": classType, "OriginDestination": 
-                    [ { "Origin": origin, "Destination": destination, "TravelDate": departDate }, 
-                    { "Origin": destination, "Destination": origin, "TravelDate": returnDate } ], 
-                "Currency": "USD" }
-
-            r = requests.post("https://dev-sandbox-api.airhob.com/sandboxapi/flights/v1.3/search", data = params, headers=headers)
-
-            
-            print(r.url)
-            
-
-            return str(r.json())
-
-
-            ##return json.jsonify({'success':1, 'token': token.decode('utf-8'), 'email': email, 'name': name, 'phone': phone})
-        
-        return json.jsonify({'success':0})
-
-
-    except Exception as e:
-        #flash(e)
-        print (e)
-        print ("error")
-        return json.jsonify({'success':0}) """
-
-
 
 ## Hotels handling
 @app.route('/hotels/getByCity/', methods=["GET"])
@@ -259,13 +231,21 @@ def restaurants_handler():
     # return json.jsonify({'restaurants': restaurants})
 
 ## Activities handling
+# format: /activities/getByCity?dest=JFK&date=2019-08-23
 @app.route('/activities/getByCity/', methods=["GET"])
 def activities_handler():
     ## Retrieve data from the request
     jsonReq = request.get_json()
     # city = jsonReq['city'] # mm/dd/yyyy
     
-    json_response = Query.run_ticketmaster_query()
+    destination = request.args.get('dest', default="JFK", type=str)
+    oneWeek = datetime.date.today() + datetime.timedelta(days=7)
+    date = request.args.get('date', default=str(oneWeek), type=str)
+    cityInfo = Query.runLocationQuery(destination, ["cityname", "rc"])
+
+    dateObj = datetime.datetime.strptime(date, '%Y-%m-%d')
+    date = dateObj.strftime('%Y-%m-%dT%H:%M:%SZ')
+    json_response = Query.run_ticketmaster_query(city=cityInfo[0], state_code=cityInfo[1], start_date_time=date)
     return json.jsonify(json_response["_embedded"])
     
     # Query the db with the flight data request
