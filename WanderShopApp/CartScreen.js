@@ -62,32 +62,30 @@ class CartScreen extends Component {
             <FlatList
             scrollEnabled={false}
             data={this.state.flights}
-            renderItem={({ item: { flightsNumber, airline, origin, destination, cost, departDate, departTime } }) => (
+            renderItem={({ item: { tripid, cheapestProviderName, displayLowTotal, fareFamily, legs } }) => (
               <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-                <Text>Flight Number: {flightsNumber}</Text>
-                <Text>Airline: {airline}</Text>
-                <Text>Departure Airport: {origin}</Text>
-                <Text>Arrival Airport: {destination}</Text>
-                <Text>Price Range: {cost}</Text>
-                <Text>Departure Date: {departDate}</Text>
-                <Text>Depart Time: {departTime}</Text>
+                <Text>Airline: {cheapestProviderName}</Text>
+                <Text>Price: {displayLowTotal}</Text>
+                <Text>Cabin Type: {fareFamily.displayName}</Text>
+                <Text>Number of Stops: {Object.keys(legs[0].segments).length}</Text>
               </View>
             )}
             refreshing={this.state.refreshing}
-            keyExtractor={({item: flightsNumber}) => flightsNumber}
+            keyExtractor={({item: tripid}) => tripid}
             onRefresh={this.handleRefresh}
         />
         <FlatList
         scrollEnabled={false}
         data={this.state.hotels}
-        renderItem={({ item: { address, cost, hotelId, hotelName, phoneNumber, rating, website } }) => (
+        renderItem={({ item: { displayaddress, brand, cheapestProvider, stars, userrating, phone } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Hotel Name: {hotelName}</Text>
-            <Text>Address: {address}</Text>
-            <Text>Phone Number: {phoneNumber}</Text>
-            <Text>Website: {website}</Text>
-            <Text>Cost: {cost}</Text>
-            <Text>Rating: {rating}</Text>
+            <Text>Hotel Name: {brand}</Text>
+            <Text>Address: {displayaddress}</Text>
+            <Text>Phone Number: {phone}</Text>
+            <Text>Cost: {cheapestProvider.displayprice}</Text>
+            <Text>Rooms Remaining: {cheapestProvider.roomsRemaining}</Text>
+            <Text>Stars: {stars}</Text>
+            <Text>User Rating: {userrating}</Text>
           </View>
         )}
         refreshing={this.state.refreshing}
