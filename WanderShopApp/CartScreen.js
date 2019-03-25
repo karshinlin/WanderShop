@@ -64,10 +64,10 @@ class CartScreen extends Component {
             data={this.state.flights}
             renderItem={({ item: { tripid, cheapestProviderName, displayLowTotal, fareFamily, legs } }) => (
               <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-                <Text>Airline: {cheapestProviderName}</Text>
-                <Text>Price: {displayLowTotal}</Text>
-                <Text>Cabin Type: {fareFamily.displayName}</Text>
-                <Text>Number of Stops: {Object.keys(legs[0].segments).length}</Text>
+                <Text style={styles.centerTitle}>{cheapestProviderName}</Text>
+                <Text style={styles.miniHeader}>Price: <Text style={styles.regularText}>{displayLowTotal}</Text></Text>
+                <Text style={styles.miniHeader}>Cabin Type: <Text style={styles.regularText}>{fareFamily ? fareFamily.displayName : ""}</Text></Text>
+                <Text style={styles.miniHeader}>Number of Stops: <Text style={styles.regularText}>{Object.keys(legs[0].segments).length}</Text></Text>
               </View>
             )}
             refreshing={this.state.refreshing}
@@ -77,15 +77,21 @@ class CartScreen extends Component {
         <FlatList
         scrollEnabled={false}
         data={this.state.hotels}
-        renderItem={({ item: { displayaddress, brand, cheapestProvider, stars, userrating, phone } }) => (
+        renderItem={({ item: { displayaddress, brand, cheapestProvider, stars, cheapestProviderName, phone } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Hotel Name: {brand}</Text>
-            <Text>Address: {displayaddress}</Text>
-            <Text>Phone Number: {phone}</Text>
-            <Text>Cost: {cheapestProvider.displayprice}</Text>
-            <Text>Rooms Remaining: {cheapestProvider.roomsRemaining}</Text>
-            <Text>Stars: {stars}</Text>
-            <Text>User Rating: {userrating}</Text>
+            <Text style={styles.centerTitle}>{brand ? brand : cheapestProviderName}</Text>
+            <Text style={styles.miniHeader}>Address: <Text style={styles.regularText}>{displayaddress}</Text></Text>
+            <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${phone}`); }}>Give Us a Call!</Text>
+            <Text style={styles.miniHeader}>Cost: {cheapestProvider.displayprice}</Text>
+            <Text style={styles.miniHeader}>Rooms Remaining: <Text style={styles.regularText}>{cheapestProvider.roomsRemaining}</Text></Text>
+            <View style={{ width: "50%"}}>
+              <StarRating
+                disabled={false}
+                fullStarColor={"yellow"}
+                maxStars={5}
+                rating={stars}
+              />
+            </View>
           </View>
         )}
         refreshing={this.state.refreshing}
@@ -207,7 +213,11 @@ const styles = StyleSheet.create({
   miniHeader: {
     fontSize: 15,
     fontWeight: "bold",
-  }
+  },
+  regularText: {
+    fontSize: 15,
+    fontWeight: "normal",
+  },
 });
 
 export default CartScreen;
