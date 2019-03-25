@@ -146,29 +146,39 @@ def flights_handler():
 # format: /flights?origin=ATL&dest=JFK&departDate=2019-09-23
 @app.route('/flights', methods=["GET"])
 def flights():
-    # return json.jsonify({'flights': 'hello'})
-    today = datetime.date.today()  
-    origin = request.args.get('origin', default = "ATL", type = str)
-    destination = request.args.get('dest', default = "JFK", type = str)
-    departDate = request.args.get('departDate', default = str(today), type = str)
-    json_response = Query.runFlightsQuery(origin, destination, departDate)
-    if len(json_response["tripset"]) > 30:
-        return json.jsonify(json_response["tripset"][:30])
-    else:
-        return json.jsonify(json_response["tripset"])
+    with open('flights_sample.json') as json_file:  
+        data = json.load(json_file)
+    return json.jsonify(data)
+
+    # TODO: TO LIMIT API USAGE, FOLLOWING HAS BEEN COMMENTED OUT
+    # origin = request.args.get('origin', default = "ATL", type = str)
+    # destination = request.args.get('dest', default = "JFK", type = str)
+    # oneWeek = datetime.date.today() + datetime.timedelta(days=7)
+    # departDate = request.args.get('departDate', default = str(oneWeek), type = str)
+    # json_response = Query.runFlightsQuery(origin, destination, departDate)
+    # if len(json_response["tripset"]) > 30:
+    #     return json.jsonify(json_response["tripset"][:30])
+    # else:
+    #     return json.jsonify(json_response["tripset"])
 
 # format: /hotels?dest=ATL&rooms=1&checkin=2019-09-23&checkout=2019-09-27&adults=2
 @app.route('/hotels', methods=["GET"])
 def hotels():
-    destination = request.args.get('dest', default="JFK", type=str)
-    rooms = request.args.get('rooms', default="1", type=int)
-    oneWeek = datetime.date.today() + datetime.timedelta(days=7)
-    twoWeeks = oneWeek + datetime.timedelta(days=7)  
-    checkin = request.args.get('checkin', default=str(oneWeek), type=str)
-    checkout = request.args.get('checkout', default=str(twoWeeks), type=str)
-    adults = request.args.get('adults', default=2, type=int)
-    cityId = Query.runLocationQuery(destination, ["ctid"])
-    return json.jsonify(Query.runHotelsQuery(cityId[0], rooms, checkin, checkout, adults))
+
+    with open('hotels_sample.json') as json_file:  
+        data = json.load(json_file)
+    return json.jsonify(data)
+
+    # TODO: TO LIMIT API USAGE, FOLLOWING HAS BEEN COMMENTED OUT
+    # destination = request.args.get('dest', default="JFK", type=str)
+    # rooms = request.args.get('rooms', default="1", type=int)
+    # oneWeek = datetime.date.today() + datetime.timedelta(days=7)
+    # twoWeeks = oneWeek + datetime.timedelta(days=7)  
+    # checkin = request.args.get('checkin', default=str(oneWeek), type=str)
+    # checkout = request.args.get('checkout', default=str(twoWeeks), type=str)
+    # adults = request.args.get('adults', default=2, type=int)
+    # cityId = Query.runLocationQuery(destination, ["ctid"])
+    # return json.jsonify(Query.runHotelsQuery(cityId[0], rooms, checkin, checkout, adults))
     
 
 ## Hotels handling
