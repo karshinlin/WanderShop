@@ -113,7 +113,7 @@ class FlightView extends Component {
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
             <Text>Airline: {cheapestProviderName}</Text>
             <Text>Price: {displayLowTotal}</Text>
-            <Text>Cabin Type: {fareFamily.displayName}</Text>
+            <Text>Cabin Type: {fareFamily ? fareFamily.displayName : ""}</Text>
             <Text>Number of Stops: {Object.keys(legs[0].segments).length}</Text>
             <Button title={'Add To Cart'} onPress={() => {
               console.log("Hi");
