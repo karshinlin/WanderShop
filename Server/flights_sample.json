@@ -1,0 +1,1339 @@
+[
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "Delta",
+        "clickProbability": 0.010206115747776731,
+        "currencyCode": "USD",
+        "displayLow": "$218",
+        "displayLowTotal": "$218",
+        "duration": 139,
+        "exactLow": 217.31,
+        "exactLowTotal": 217.31,
+        "fareFamily": {
+            "code": "BASIC_ECONOMY",
+            "displayName": "Basic Economy"
+        },
+        "fareFamilyLabel": "Multiple Fares",
+        "featureScore": 5.59823449921363,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 139,
+                "segments": [
+                    "-1107896651"
+                ]
+            }
+        ],
+        "low": 218,
+        "lowOriginal": 218,
+        "lowOriginalTotal": 218,
+        "lowTotal": 218,
+        "maxDisplayedProviders": 1,
+        "maxstops": 0,
+        "numProviders": 4,
+        "penalized": false,
+        "seatUrgency": 2,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f886c1ae3dfb93fef44acf4cc1d937a09",
+        "tripid": "886c1ae3dfb93fef44acf4cc1d937a09",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "Delta",
+        "clickProbability": 0.008539077108764755,
+        "currencyCode": "USD",
+        "displayLow": "$260",
+        "displayLowTotal": "$260",
+        "duration": 140,
+        "exactLow": 259.31,
+        "exactLowTotal": 259.31,
+        "fareFamily": {
+            "code": "MAINCABIN",
+            "displayName": "Main Cabin"
+        },
+        "fareFamilyLabel": "Multiple Fares",
+        "featureScore": 5.362533138177788,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 140,
+                "segments": [
+                    "1950729961"
+                ]
+            }
+        ],
+        "low": 260,
+        "lowOriginal": 260,
+        "lowOriginalTotal": 260,
+        "lowTotal": 260,
+        "maxDisplayedProviders": 1,
+        "maxstops": 0,
+        "numProviders": 3,
+        "penalized": false,
+        "seatUrgency": 1,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f528edfa2a5cfa932b664f9f587f7b4f7",
+        "tripid": "528edfa2a5cfa932b664f9f587f7b4f7",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "Frontier",
+        "clickProbability": 0.006691307156473331,
+        "currencyCode": "USD",
+        "displayLow": "$264",
+        "displayLowTotal": "$264",
+        "duration": 138,
+        "exactLow": 263.3,
+        "exactLowTotal": 263.3,
+        "featureScore": 5.054167552160006,
+        "flightRoutes": [
+            {
+                "destinationAirport": "LGA",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 138,
+                "segments": [
+                    "671032364"
+                ]
+            }
+        ],
+        "low": 264,
+        "lowOriginal": 264,
+        "lowOriginalTotal": 264,
+        "lowTotal": 264,
+        "maxDisplayedProviders": 10,
+        "maxstops": 0,
+        "numProviders": 10,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f88e00d196f7e60aefe99fefbabd64381",
+        "tripid": "88e00d196f7e60aefe99fefbabd64381",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "CheapOair",
+        "clickProbability": 0.00007616876163188143,
+        "currencyCode": "USD",
+        "displayLow": "$301",
+        "displayLowTotal": "$301",
+        "duration": 726,
+        "exactLow": 300.57,
+        "exactLowTotal": 300.57,
+        "featureScore": 1.6611666786647215,
+        "flightRoutes": [
+            {
+                "destinationAirport": "EWR",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 726,
+                "segments": [
+                    "1157599147",
+                    "93934208"
+                ]
+            }
+        ],
+        "low": 301,
+        "lowOriginal": 301,
+        "lowOriginalTotal": 301,
+        "lowTotal": 301,
+        "maxDisplayedProviders": 7,
+        "maxstops": 1,
+        "numProviders": 7,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f9fd28999ede737b89fb54243975372cd",
+        "tripid": "9fd28999ede737b89fb54243975372cd",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "Delta",
+        "clickProbability": 0.0071915387151145725,
+        "currencyCode": "USD",
+        "displayLow": "$311",
+        "displayLowTotal": "$311",
+        "duration": 134,
+        "exactLow": 310.31,
+        "exactLowTotal": 310.31,
+        "fareFamily": {
+            "code": "MAINCABIN",
+            "displayName": "Main Cabin"
+        },
+        "fareFamilyLabel": "Multiple Fares",
+        "featureScore": 5.143670097108977,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 134,
+                "segments": [
+                    "461199488"
+                ]
+            }
+        ],
+        "low": 311,
+        "lowOriginal": 311,
+        "lowOriginalTotal": 311,
+        "lowTotal": 311,
+        "maxDisplayedProviders": 1,
+        "maxstops": 0,
+        "numProviders": 2,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/fcb8313afcd5b93a0b80479bb88d9d1b5",
+        "tripid": "cb8313afcd5b93a0b80479bb88d9d1b5",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "CheapOair",
+        "clickProbability": 0.0007102530624755495,
+        "currencyCode": "USD",
+        "displayLow": "$346",
+        "displayLowTotal": "$346",
+        "duration": 342,
+        "exactLow": 345.98,
+        "exactLowTotal": 345.98,
+        "featureScore": 2.901109062685836,
+        "flightRoutes": [
+            {
+                "destinationAirport": "LGA",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 342,
+                "segments": [
+                    "1514932672",
+                    "1471747354"
+                ]
+            }
+        ],
+        "low": 346,
+        "lowOriginal": 346,
+        "lowOriginalTotal": 346,
+        "lowTotal": 346,
+        "maxDisplayedProviders": 2,
+        "maxstops": 1,
+        "numProviders": 2,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f0071f0754a15c61086576686089d10f3",
+        "tripid": "0071f0754a15c61086576686089d10f3",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "Expedia",
+        "clickProbability": 0.0004986223976767025,
+        "currencyCode": "USD",
+        "displayLow": "$395",
+        "displayLowTotal": "$395",
+        "duration": 366,
+        "exactLow": 394.98,
+        "exactLowTotal": 394.98,
+        "featureScore": 2.656072406053992,
+        "flightRoutes": [
+            {
+                "destinationAirport": "EWR",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 366,
+                "segments": [
+                    "1514932672",
+                    "121337764"
+                ]
+            }
+        ],
+        "low": 395,
+        "lowOriginal": 395,
+        "lowOriginalTotal": 395,
+        "lowTotal": 395,
+        "maxDisplayedProviders": 6,
+        "maxstops": 1,
+        "numProviders": 6,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f7dc68ffa13b928e04f9d18af1dc75b02",
+        "tripid": "7dc68ffa13b928e04f9d18af1dc75b02",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.00011931446806299829,
+        "currencyCode": "USD",
+        "displayLow": "$493",
+        "displayLowTotal": "$493",
+        "duration": 469,
+        "exactLow": 492.2,
+        "exactLowTotal": 492.2,
+        "fareFamily": {
+            "code": "BASIC_ECONOMY",
+            "displayName": "Basic Economy"
+        },
+        "fareFamilyLabel": "Multiple Fares",
+        "featureScore": 1.8583379551522956,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 469,
+                "segments": [
+                    "1823561009",
+                    "601282863",
+                    "758495413"
+                ]
+            }
+        ],
+        "low": 493,
+        "lowOriginal": 493,
+        "lowOriginalTotal": 493,
+        "lowTotal": 493,
+        "maxDisplayedProviders": 1,
+        "maxstops": 2,
+        "numProviders": 2,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f5ba697bad40b631c6f144c57efa58d6d",
+        "tripid": "5ba697bad40b631c6f144c57efa58d6d",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.00007454460943709794,
+        "currencyCode": "USD",
+        "displayLow": "$529",
+        "displayLowTotal": "$529",
+        "duration": 520,
+        "exactLow": 528.19,
+        "exactLowTotal": 528.19,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 1.652242197054107,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 520,
+                "segments": [
+                    "1823561009",
+                    "-2094200314",
+                    "-423627254"
+                ]
+            }
+        ],
+        "low": 529,
+        "lowOriginal": 529,
+        "lowOriginalTotal": 529,
+        "lowTotal": 529,
+        "maxDisplayedProviders": 1,
+        "maxstops": 2,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/fbe4707d93672f23c62251302697e80f5",
+        "tripid": "be4707d93672f23c62251302697e80f5",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.00010112750489393506,
+        "currencyCode": "USD",
+        "displayLow": "$533",
+        "displayLowTotal": "$533",
+        "duration": 469,
+        "exactLow": 532.19,
+        "exactLowTotal": 532.19,
+        "fareFamily": {
+            "code": "BASIC_ECONOMY",
+            "displayName": "Basic Economy"
+        },
+        "fareFamilyLabel": "Multiple Fares",
+        "featureScore": 1.7831018392637392,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 469,
+                "segments": [
+                    "1823561009",
+                    "2136633827",
+                    "758495413"
+                ]
+            }
+        ],
+        "low": 533,
+        "lowOriginal": 533,
+        "lowOriginalTotal": 533,
+        "lowTotal": 533,
+        "maxDisplayedProviders": 1,
+        "maxstops": 2,
+        "numProviders": 2,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f5bac588be401a9d3e9cd5e2699eba404",
+        "tripid": "5bac588be401a9d3e9cd5e2699eba404",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.0008143973475188452,
+        "currencyCode": "USD",
+        "displayLow": "$538",
+        "displayLowTotal": "$538",
+        "duration": 233,
+        "exactLow": 537.5,
+        "exactLowTotal": 537.5,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 3.00177024758593,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 233,
+                "segments": [
+                    "-1070804458",
+                    "-58200298"
+                ]
+            }
+        ],
+        "low": 538,
+        "lowOriginal": 538,
+        "lowOriginalTotal": 538,
+        "lowTotal": 538,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f8d7d6e1e5e76ac029e971492dc8957f4",
+        "tripid": "8d7d6e1e5e76ac029e971492dc8957f4",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.00008606417252037801,
+        "currencyCode": "USD",
+        "displayLow": "$572",
+        "displayLowTotal": "$572",
+        "duration": 469,
+        "exactLow": 571.19,
+        "exactLowTotal": 571.19,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 1.712657645468566,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 469,
+                "segments": [
+                    "1823561009",
+                    "1801599620",
+                    "758495413"
+                ]
+            }
+        ],
+        "low": 572,
+        "lowOriginal": 572,
+        "lowOriginalTotal": 572,
+        "lowTotal": 572,
+        "maxDisplayedProviders": 1,
+        "maxstops": 2,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f84c516b4cb25adf21a1ac8be71e7b280",
+        "tripid": "84c516b4cb25adf21a1ac8be71e7b280",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "United",
+        "clickProbability": 0.0003578383025891587,
+        "currencyCode": "USD",
+        "displayLow": "$584",
+        "displayLowTotal": "$584",
+        "duration": 333,
+        "exactLow": 584,
+        "exactLowTotal": 584,
+        "featureScore": 2.4449838858759767,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 333,
+                "segments": [
+                    "278285550",
+                    "-1758632075"
+                ]
+            }
+        ],
+        "low": 584,
+        "lowOriginal": 584,
+        "lowOriginalTotal": 584,
+        "lowTotal": 584,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "seatUrgency": 3,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f92f00d5962cba1614bd08f5e282c1a15",
+        "tripid": "92f00d5962cba1614bd08f5e282c1a15",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "United",
+        "clickProbability": 0.0000019263954063787825,
+        "currencyCode": "USD",
+        "displayLow": "$590",
+        "displayLowTotal": "$590",
+        "duration": 1158,
+        "exactLow": 589.6,
+        "exactLowTotal": 589.6,
+        "featureScore": 0.6624995294731689,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 1158,
+                "segments": [
+                    "1583260696",
+                    "-1613646599"
+                ]
+            }
+        ],
+        "low": 590,
+        "lowOriginal": 590,
+        "lowOriginalTotal": 590,
+        "lowTotal": 590,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "seatUrgency": 2,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/fd635c6e86e8d95cddc9be403214eb19a",
+        "tripid": "d635c6e86e8d95cddc9be403214eb19a",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "United",
+        "clickProbability": 1.395558189946389e-7,
+        "currencyCode": "USD",
+        "displayLow": "$653",
+        "displayLowTotal": "$653",
+        "duration": 1533,
+        "exactLow": 652.6,
+        "exactLowTotal": 652.6,
+        "featureScore": 0.5623407979970536,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 1533,
+                "segments": [
+                    "2008498290",
+                    "1538385781"
+                ]
+            }
+        ],
+        "low": 653,
+        "lowOriginal": 653,
+        "lowOriginalTotal": 653,
+        "lowTotal": 653,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f48682571565562191ec8b8f5f677cbf7",
+        "tripid": "48682571565562191ec8b8f5f677cbf7",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.00038378630411943986,
+        "currencyCode": "USD",
+        "displayLow": "$720",
+        "displayLowTotal": "$720",
+        "duration": 233,
+        "exactLow": 719.51,
+        "exactLowTotal": 719.51,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 2.4880900621867164,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 233,
+                "segments": [
+                    "1849935640",
+                    "995136330"
+                ]
+            }
+        ],
+        "low": 720,
+        "lowOriginal": 720,
+        "lowOriginalTotal": 720,
+        "lowTotal": 720,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/fc23ead1d6bfe17a9a6dd3c16129f7f0e",
+        "tripid": "c23ead1d6bfe17a9a6dd3c16129f7f0e",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.00009141607494892004,
+        "currencyCode": "USD",
+        "displayLow": "$852",
+        "displayLowTotal": "$852",
+        "duration": 374,
+        "exactLow": 851.51,
+        "exactLowTotal": 851.51,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 1.7386750488349847,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 374,
+                "segments": [
+                    "2136092978",
+                    "-58200298"
+                ]
+            }
+        ],
+        "low": 852,
+        "lowOriginal": 852,
+        "lowOriginalTotal": 852,
+        "lowTotal": 852,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/fa0a242ea8e50233d417f6759fde14f18",
+        "tripid": "a0a242ea8e50233d417f6759fde14f18",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.000052420206455977446,
+        "currencyCode": "USD",
+        "displayLow": "$856",
+        "displayLowTotal": "$856",
+        "duration": 361,
+        "exactLow": 855.71,
+        "exactLowTotal": 855.71,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 1.5130502045347844,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 361,
+                "segments": [
+                    "1849935640",
+                    "694423599",
+                    "1280902776"
+                ]
+            }
+        ],
+        "low": 856,
+        "lowOriginal": 856,
+        "lowOriginalTotal": 856,
+        "lowTotal": 856,
+        "maxDisplayedProviders": 1,
+        "maxstops": 2,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/fcaa9f8b1ce5bb409b24d8ce6e1ac9e0e",
+        "tripid": "caa9f8b1ce5bb409b24d8ce6e1ac9e0e",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.000036951794265101354,
+        "currencyCode": "USD",
+        "displayLow": "$858",
+        "displayLowTotal": "$858",
+        "duration": 514,
+        "exactLow": 857.11,
+        "exactLowTotal": 857.11,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 1.3864168810898303,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 514,
+                "segments": [
+                    "-567569897",
+                    "-58200298"
+                ]
+            }
+        ],
+        "low": 858,
+        "lowOriginal": 858,
+        "lowOriginalTotal": 858,
+        "lowTotal": 858,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f41d808d79a2f765f2602874dafa0269e",
+        "tripid": "41d808d79a2f765f2602874dafa0269e",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.00002081919376875072,
+        "currencyCode": "USD",
+        "displayLow": "$858",
+        "displayLowTotal": "$858",
+        "duration": 605,
+        "exactLow": 857.11,
+        "exactLowTotal": 857.11,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 1.2011783619989465,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 605,
+                "segments": [
+                    "1637517780",
+                    "-58200298"
+                ]
+            }
+        ],
+        "low": 858,
+        "lowOriginal": 858,
+        "lowOriginalTotal": 858,
+        "lowTotal": 858,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/fea340a18848e5b9205b85da518a5a3ae",
+        "tripid": "ea340a18848e5b9205b85da518a5a3ae",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.000011656040014690356,
+        "currencyCode": "USD",
+        "displayLow": "$858",
+        "displayLowTotal": "$858",
+        "duration": 697,
+        "exactLow": 857.11,
+        "exactLowTotal": 857.11,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 1.0390417816634696,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 697,
+                "segments": [
+                    "-1115156065",
+                    "-58200298"
+                ]
+            }
+        ],
+        "low": 858,
+        "lowOriginal": 858,
+        "lowOriginalTotal": 858,
+        "lowTotal": 858,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f32ba8ec1b6c8b8dc0184e371750fccc9",
+        "tripid": "32ba8ec1b6c8b8dc0184e371750fccc9",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.000007173143516314417,
+        "currencyCode": "USD",
+        "displayLow": "$858",
+        "displayLowTotal": "$858",
+        "duration": 774,
+        "exactLow": 857.11,
+        "exactLowTotal": 857.11,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 0.9202894840275617,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 774,
+                "segments": [
+                    "1849935640",
+                    "-58200298"
+                ]
+            }
+        ],
+        "low": 858,
+        "lowOriginal": 858,
+        "lowOriginalTotal": 858,
+        "lowTotal": 858,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f41d0932fb5dcfef04e2d0b2361b41f49",
+        "tripid": "41d0932fb5dcfef04e2d0b2361b41f49",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.0000021924265969230913,
+        "currencyCode": "USD",
+        "displayLow": "$858",
+        "displayLowTotal": "$858",
+        "duration": 962,
+        "exactLow": 857.11,
+        "exactLowTotal": 857.11,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 0.6842745265575216,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 962,
+                "segments": [
+                    "-1070804458",
+                    "202166367"
+                ]
+            }
+        ],
+        "low": 858,
+        "lowOriginal": 858,
+        "lowOriginalTotal": 858,
+        "lowTotal": 858,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f4a385d72b936d964013dc4fe2d851ed4",
+        "tripid": "4a385d72b936d964013dc4fe2d851ed4",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.00008481114348826036,
+        "currencyCode": "USD",
+        "displayLow": "$893",
+        "displayLowTotal": "$893",
+        "duration": 359,
+        "exactLow": 892.51,
+        "exactLowTotal": 892.51,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 1.7063915747235794,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 359,
+                "segments": [
+                    "-1007587054",
+                    "995136330"
+                ]
+            }
+        ],
+        "low": 893,
+        "lowOriginal": 893,
+        "lowOriginalTotal": 893,
+        "lowTotal": 893,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/ff5c488332718a8dc236c5f1f30b50890",
+        "tripid": "f5c488332718a8dc236c5f1f30b50890",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.00001926124982501199,
+        "currencyCode": "USD",
+        "displayLow": "$906",
+        "displayLowTotal": "$906",
+        "duration": 487,
+        "exactLow": 905.71,
+        "exactLowTotal": 905.71,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 1.178048779822501,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 487,
+                "segments": [
+                    "-1007587054",
+                    "694423599",
+                    "1280902776"
+                ]
+            }
+        ],
+        "low": 906,
+        "lowOriginal": 906,
+        "lowOriginalTotal": 906,
+        "lowTotal": 906,
+        "maxDisplayedProviders": 1,
+        "maxstops": 2,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f1740e1b0b21edb04e916677a85bd1eab",
+        "tripid": "1740e1b0b21edb04e916677a85bd1eab",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.000002635620194790651,
+        "currencyCode": "USD",
+        "displayLow": "$908",
+        "displayLowTotal": "$908",
+        "duration": 900,
+        "exactLow": 907.11,
+        "exactLowTotal": 907.11,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 0.7165056733812548,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 900,
+                "segments": [
+                    "-1007587054",
+                    "-58200298"
+                ]
+            }
+        ],
+        "low": 908,
+        "lowOriginal": 908,
+        "lowOriginalTotal": 908,
+        "lowTotal": 908,
+        "maxDisplayedProviders": 1,
+        "maxstops": 1,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/fdfec8c73a7c070d8639f1c0eb2592b55",
+        "tripid": "dfec8c73a7c070d8639f1c0eb2592b55",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.00001833014454728602,
+        "currencyCode": "USD",
+        "displayLow": "$918",
+        "displayLowTotal": "$918",
+        "duration": 487,
+        "exactLow": 917.69,
+        "exactLowTotal": 917.69,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 1.1635472103520141,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 487,
+                "segments": [
+                    "-1007587054",
+                    "95225977",
+                    "1280902776"
+                ]
+            }
+        ],
+        "low": 918,
+        "lowOriginal": 918,
+        "lowOriginalTotal": 918,
+        "lowTotal": 918,
+        "maxDisplayedProviders": 1,
+        "maxstops": 2,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f873cbf651264c8660e98ee5fc80d3c6a",
+        "tripid": "873cbf651264c8660e98ee5fc80d3c6a",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.000023193344542559803,
+        "currencyCode": "USD",
+        "displayLow": "$950",
+        "displayLowTotal": "$950",
+        "duration": 429,
+        "exactLow": 949.21,
+        "exactLowTotal": 949.21,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 1.2340461506003595,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 429,
+                "segments": [
+                    "839611345",
+                    "-1591050752",
+                    "1044576224"
+                ]
+            }
+        ],
+        "low": 950,
+        "lowOriginal": 950,
+        "lowOriginalTotal": 950,
+        "lowTotal": 950,
+        "maxDisplayedProviders": 1,
+        "maxstops": 2,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/f4960568de3bb797e4f13e1afb9484e5c",
+        "tripid": "4960568de3bb797e4f13e1afb9484e5c",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.000019627964111802586,
+        "currencyCode": "USD",
+        "displayLow": "$967",
+        "displayLowTotal": "$967",
+        "duration": 444,
+        "exactLow": 966.7,
+        "exactLowTotal": 966.7,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 1.1836159862450804,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 444,
+                "segments": [
+                    "-1007587054",
+                    "415105277",
+                    "1044576224"
+                ]
+            }
+        ],
+        "low": 967,
+        "lowOriginal": 967,
+        "lowOriginalTotal": 967,
+        "lowTotal": 967,
+        "maxDisplayedProviders": 1,
+        "maxstops": 2,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/fc95b0eb20b075face727fde59d6d78fd",
+        "tripid": "c95b0eb20b075face727fde59d6d78fd",
+        "underpriced": false
+    },
+    {
+        "cabinClass": "e",
+        "cheapestProviderName": "American Airlines",
+        "clickProbability": 0.000009921677365210003,
+        "currencyCode": "USD",
+        "displayLow": "$1073",
+        "displayLowTotal": "$1073",
+        "duration": 483,
+        "exactLow": 1072.2,
+        "exactLowTotal": 1072.2,
+        "fareFamily": {
+            "code": "MAIN",
+            "displayName": "Main Cabin"
+        },
+        "featureScore": 0.9980268733974993,
+        "flightRoutes": [
+            {
+                "destinationAirport": "JFK",
+                "originAirport": "ATL"
+            }
+        ],
+        "isCubaLayover": false,
+        "isOpaque": false,
+        "isSplit": false,
+        "legs": [
+            {
+                "duration": 483,
+                "segments": [
+                    "-519293379",
+                    "-133304304",
+                    "-423627254"
+                ]
+            }
+        ],
+        "low": 1073,
+        "lowOriginal": 1073,
+        "lowOriginalTotal": 1073,
+        "lowTotal": 1073,
+        "maxDisplayedProviders": 1,
+        "maxstops": 2,
+        "numProviders": 1,
+        "penalized": false,
+        "shareURL": "/flights/ATL-JFK/2019-03-31/fcb57a1fa161085fe970eb8fbd3e5a644",
+        "tripid": "cb57a1fa161085fe970eb8fbd3e5a644",
+        "underpriced": false
+    }
+]
