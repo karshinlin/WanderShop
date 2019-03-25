@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, ActivityIndicator, Button, AsyncStorage } from "react-native";
+import { View, Text, TouchableOpacity, FlatList, StyleSheet, ActivityIndicator, Button, AsyncStorage } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import './global.js'
 
 class FlightView extends Component {
@@ -111,15 +112,17 @@ class FlightView extends Component {
         data={this.state.data}
         renderItem={({ item: { tripid, cheapestProviderName, displayLowTotal, fareFamily, legs } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Airline: {cheapestProviderName}</Text>
-            <Text>Price: {displayLowTotal}</Text>
-            <Text>Cabin Type: {fareFamily ? fareFamily.displayName : ""}</Text>
-            <Text>Number of Stops: {Object.keys(legs[0].segments).length}</Text>
-            <Button title={'Add To Cart'} onPress={() => {
-              console.log("Hi");
-              this.addToCart({category: "flight", cheapestProviderName, displayLowTotal, fareFamily, legs });
-            }
-            }/>
+            <Text style={styles.centerTitle}>{cheapestProviderName}</Text>
+            <Text style={styles.miniHeader}>Price: <Text style={styles.regularText}>{displayLowTotal}</Text></Text>
+            <Text style={styles.miniHeader}>Cabin Type: <Text style={styles.regularText}>{fareFamily ? fareFamily.displayName : ""}</Text></Text>
+            <Text style={styles.miniHeader}>Number of Stops: <Text style={styles.regularText}>{Object.keys(legs[0].segments).length}</Text></Text>
+            <View style={{ margin: 15, flex: 1, justifyContent: "center", alignSelf: "center" }}>
+              <TouchableOpacity onPress={() => {
+                this.addToCart({category: "flight", cheapestProviderName, displayLowTotal, fareFamily, legs });
+              }}>
+                <FontAwesomeIcon size={35} name={"cart-plus"} color={"#000"}/>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
         refreshing={this.state.refreshing}
@@ -130,5 +133,34 @@ class FlightView extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: 'Cochin',
+  },
+  link: {
+    textDecorationLine: 'underline',
+    color: "#00F",
+    marginTop: 5,
+    marginBottom: 5,
+  },
+  centerTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    alignSelf: "center",
+  },
+  titleText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  miniHeader: {
+    fontSize: 15,
+    fontWeight: "bold",
+  },
+  regularText: {
+    fontSize: 15,
+    fontWeight: "normal",
+  },
+});
 
 export default FlightView;

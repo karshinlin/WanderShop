@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, ActivityIndicator, Button, AsyncStorage } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Linking, StyleSheet, ActivityIndicator, Button, AsyncStorage } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import StarRating from 'react-native-star-rating'; 
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
+
 import './global.js'
 
 class HotelView extends Component {
@@ -105,18 +108,26 @@ class HotelView extends Component {
         data={this.state.data}
         renderItem={({ item: { displayaddress, brand, cheapestProvider, cheapestProviderName, stars, userrating, phone } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Hotel Name: {brand ? brand : cheapestProviderName}</Text>
-            <Text>Address: {displayaddress}</Text>
-            <Text>Phone Number: {phone}</Text>
-            <Text>Cost: {cheapestProvider.displayprice}</Text>
-            <Text>Rooms Remaining: {cheapestProvider.roomsRemaining}</Text>
-            <Text>Stars: {stars}</Text>
-            <Text>User Rating: {userrating}</Text>
-            <Button title={'Add To Cart'} onPress={() => {
-              console.log("Hi");
-              this.addToCart({category: "hotel", displayaddress, brand, cheapestProvider, stars, userrating, phone});
-            }
-            }/>
+            <Text style={styles.centerTitle}>{brand ? brand : cheapestProviderName}</Text>
+            <Text style={styles.miniHeader}>Address: <Text style={styles.regularText}>{displayaddress}</Text></Text>
+            <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${phone}`); }}>Give Us a Call!</Text>
+            <Text style={styles.miniHeader}>Cost: {cheapestProvider.displayprice}</Text>
+            <Text style={styles.miniHeader}>Rooms Remaining: <Text style={styles.regularText}>{cheapestProvider.roomsRemaining}</Text></Text>
+            <View style={{ width: "50%"}}>
+              <StarRating
+                disabled={false}
+                fullStarColor={"yellow"}
+                maxStars={5}
+                rating={stars}
+              />
+            </View>
+            <View style={{ margin: 15, flex: 1, justifyContent: "center", alignSelf: "center" }}>
+              <TouchableOpacity onPress={() => {
+                this.addToCart({category: "hotel", displayaddress, brand, cheapestProvider, cheapestProviderName, stars, userrating, phone});
+              }}>
+                <FontAwesomeIcon size={35} name={"cart-plus"} color={"#000"}/>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
         refreshing={this.state.refreshing}
@@ -127,5 +138,34 @@ class HotelView extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: 'Cochin',
+  },
+  link: {
+    textDecorationLine: 'underline',
+    color: "#00F",
+    marginTop: 5,
+    marginBottom: 5,
+  },
+  centerTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    alignSelf: "center",
+  },
+  titleText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  miniHeader: {
+    fontSize: 15,
+    fontWeight: "bold",
+  },
+  regularText: {
+    fontSize: 15,
+    fontWeight: "normal",
+  },
+});
 
 export default HotelView;
