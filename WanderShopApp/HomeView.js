@@ -33,7 +33,7 @@ export default class HomeView extends React.Component {
 		  </View>
 			<View>
 				<TripCard></TripCard>
-				<FlightCard 
+				{/* <FlightCard 
 					first_dep_time={"09:05"}
 					first_dep_airport={"SFO"}
 					first_duration={"4h 25m"}
@@ -52,7 +52,7 @@ export default class HomeView extends React.Component {
 					onPress={() => {
 						this.addToCart({category: "hotel", hotelName, hotelId, address, cost, phoneNumber, rating, website});
 						}}>
-					</FlightCard>
+					</FlightCard> */}
 			</View>
 				
 			</View>
