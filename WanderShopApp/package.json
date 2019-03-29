@@ -32,6 +32,7 @@
   "rnpm": {
     "assets": [
       "assets/fonts/Montserrat",
+      "assets/fonts/Roboto",
       "assets/fonts/img"
     ]
   }

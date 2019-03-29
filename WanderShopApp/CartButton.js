@@ -17,8 +17,8 @@ class CartButton extends Component {
     render() {
         var that = this;
 
-        return <TouchableOpacity style={{ marginRight: 10 }} onPress={that.onPressButton.bind(that)}>
-                <Icon name="shopping-cart" size={25} color="#42cef4" />
+        return <TouchableOpacity style={{ marginRight: 35 }} onPress={that.onPressButton.bind(that)}>
+                <Icon name="shopping-cart" size={30} color="white" />
             </TouchableOpacity>;
     }
 }

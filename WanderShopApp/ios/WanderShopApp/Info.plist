@@ -88,6 +88,18 @@
 		<string>MontserratSemiBold.otf</string>
 		<string>MontserratThin Italic.otf</string>
 		<string>MontserratThin.otf</string>
+		<string>RobotoBlack Italic.ttf</string>
+		<string>RobotoBlack.ttf</string>
+		<string>RobotoBold Italic.ttf</string>
+		<string>RobotoBold.ttf</string>
+		<string>RobotoItalic.ttf</string>
+		<string>RobotoLight Italic.ttf</string>
+		<string>RobotoLight.ttf</string>
+		<string>RobotoMedium Italic.ttf</string>
+		<string>RobotoMedium.ttf</string>
+		<string>RobotoRegular.ttf</string>
+		<string>RobotoThin Italic.ttf</string>
+		<string>RobotoThin.ttf</string>
 	</array>
 </dict>
 </plist>

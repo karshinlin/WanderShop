@@ -8,6 +8,7 @@ import HomeView from "./HomeView";
 import TripOptionsScreen from './TripOptionsScreen';
 import './global.js';
 import EmphasisButton from './EmphasisButton';
+import StandardButton from './StandardButton';
 
 export const cBlack = '#3D3D3D';
 export const cDarkBlue = "#1D71F3";
@@ -31,11 +32,11 @@ class WelcomeScreen extends React.Component {
         <Text style={styles.welcomeSubtitle}>An all-in-one travel e-commerce platform for all your future trips</Text>
       </View>
       <View>
-          <EmphasisButton isRipple style={{}} rippleColor={cLightBlue}
+          <EmphasisButton isRipple style={{}}
             onPress={() => this.props.navigation.navigate('Login')} >
               <Text style={styles.emphasisButton}> LogIn Now </Text>
           </EmphasisButton>
-          <EmphasisButton isRipple style={{backgroundColor: cRed}} rippleColor={cLightBlue} 
+          <EmphasisButton isRipple style={{backgroundColor: cRed}} 
             onPress={() => this.props.navigation.navigate('CreateAccount')}>
               <Text style={[styles.emphasisButton, {color: cBlack}]}> Create an Account </Text>
           </EmphasisButton>
@@ -55,35 +56,32 @@ class LoginScreen extends React.Component {
     const {navigate} = this.props.navigation;
 		return (
 			<View style={styles.container}>
-        <View style={{flex:.2, flexDirection: 'column'}}></View>
-        <View style={{flex:.3}}>
-          <Text style={styles.normal}>Please log into your account.</Text>
+        
+        <View style={[{flex: 0.2}, styles.titleHolder]}>
+          <Text style={styles.title}>Sign In</Text>
         </View>
-        <View style={{flex:.2, flexDirection: 'column'}}>
-          <View style={{flex: 1, flexDirection:'row', justifyContent: 'center'}}>
-            <View style={{flex:.3}}></View>
-            <TextInput
-              style={{flex:.7}}
+        <View style={{}}>
+          <TextInput
+              style={styles.textInput}
               placeholder="Email"
               onChangeText={(email) => this.setState({email})}>
-            </TextInput>
-          </View>
-          <View style={{flex: 1, flexDirection:'row', justifyContent: 'center'}}>
-            <View style={{flex:.3}}></View>
-            <TextInput
-              style={{flex:.7}}
+          </TextInput>
+          <TextInput
+              style={styles.textInput}
               placeholder="Password"
               secureTextEntry={true}
               onChangeText={(pass) => this.setState({pass})}>
             </TextInput>
-          </View>
-          <Button title="Sign In"
-            onPress={() => this.login()}/>
         </View>
-        <View style={{flex:.4, flexDirection: 'column'}}>
-          <Text style={styles.normal}></Text>
+        <View style={{flex:.3}}>
+          <StandardButton style={{marginTop: 50}} rippleColor={cLightBlue}
+            onPress={() => this.login()} >
+              <Text style={styles.standardButton}> LOG IN</Text>
+          </StandardButton>
+          <Text style={styles.buttonNote}>Forgot your password?</Text>
         </View>
-		</View>
+
+		  </View>
 		);
   };
   
@@ -92,6 +90,9 @@ class LoginScreen extends React.Component {
   }
 
   login() {
+    this.props.navigation.navigate('HomePage');
+    //TODO: remove after UI improvements
+    return null;
     try {
       console.log(this.state.email)
       console.log(this.state.pass)
@@ -136,64 +137,50 @@ class LoginScreen extends React.Component {
 class CreateAccountScreen extends React.Component {
 	render() {
     const {navigate} = this.props.navigation;
+    let inpMargin = 7;
 		return (
 			<View style={styles.container}>
-        <View style={{flex:.2, flexDirection: 'column'}}></View>
+        <View style={[{flex: 0.2}, styles.titleHolder]}>
+          <Text style={styles.title}>Create an Account</Text>
+        </View>
+        <View style={{}}>
+          <TextInput
+            style={[styles.textInput, {marginBottom: inpMargin}]}
+            placeholder="Name"
+            onChangeText={(name) => this.setState({name})}>
+          </TextInput>
+          <TextInput
+            style={[styles.textInput, {marginBottom: inpMargin}]}
+            placeholder="Phone"
+            onChangeText={(phone) => this.setState({phone})}>
+          </TextInput>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Email"
+            onChangeText={(email) => this.setState({email})}>
+          </TextInput>
+          <TextInput
+            style={[styles.textInput, {marginBottom: inpMargin}]}
+            placeholder="Password"
+            secureTextEntry={true}
+            onChangeText={(password) => this.setState({password})}>
+          </TextInput>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Confirm Password"
+            secureTextEntry={true}
+            onChangeText={(confirmPass) => this.setState({confirmPass})}>
+          </TextInput>
+        </View>
         <View style={{flex:.3}}>
-          <Text style={styles.normal}>Please create an account.</Text>
+          <StandardButton isRipple style={{height:70, marginTop: 50}} rippleColor={cLightBlue}
+            onPress={() => this.login()} >
+              <Text style={styles.standardButton}> LOG IN</Text>
+          </StandardButton>
+          <Text style={styles.buttonNote}>Already have an account? <Text style={{color: cDarkBlue}}> LOG IN</Text></Text>
         </View>
-        <View style={{flex:.3, flexDirection: 'column'}}>
-          <View style={{flex: 1, flexDirection:'row', justifyContent: 'center'}}>
-            <View style={{flex:.3}}></View>
-            <TextInput
-              style={{flex:.7}}
-              placeholder="Name"
-              onChangeText={(name) => this.setState({name})}>
-            </TextInput>
-          </View>
-          <View style={{flex: 1, flexDirection:'row', justifyContent: 'center'}}>
-            <View style={{flex:.3}}></View>
-            <TextInput
-              style={{flex:.7}}
-              placeholder="Phone"
-              onChangeText={(phone) => this.setState({phone})}>
-            </TextInput>
-          </View>
-          <View style={{flex: 1, flexDirection:'row', justifyContent: 'center'}}>
-            <View style={{flex:.3}}></View>
-            <TextInput
-              style={{flex:.7}}
-              placeholder="Email"
-              onChangeText={(email) => this.setState({email})}>
-            </TextInput>
-          </View>
-          <View style={{flex: 1, flexDirection:'row', justifyContent: 'center'}}>
-            <View style={{flex:.3}}></View>
-            <TextInput
-              style={{flex:.7}}
-              placeholder="Password (at least 8 characters)"
-              secureTextEntry={true}
-              onChangeText={(password) => this.setState({password})}>
-            </TextInput>
-          </View>
-          <View style={{flex: 1, flexDirection:'row', justifyContent: 'center'}}>
-            <View style={{flex:.3}}></View>
-            <TextInput
-              style={{flex:.7}}
-              placeholder="Confirm Password"
-              secureTextEntry={true}
-              onChangeText={(confirmPass) => this.setState({confirmPass})}>
-            </TextInput>
-          </View>
-          <Button title="Create Account"
-            onPress={() => {
-              this.verifyPasswordMatch();
-            }}/>
-        </View>
-        <View style={{flex:.5, flexDirection: 'column'}}>
-          <Text style={styles.normal}></Text>
-        </View>
-		</View>
+
+		  </View>
 		);
   };
   
@@ -258,7 +245,8 @@ class LogoutButton extends React.Component {
   render() {
     var that = this;
     return (
-      <Button title={"Logout"} onPress={that.logout.bind(that)}/>
+      
+      <Text style={{color: cLightBlue, fontFamily: "RobotoRegular", fontSize: 19, marginRight: 30}} onPress={that.logout.bind(that)}>Logout</Text>
     );
   }
 
@@ -281,12 +269,27 @@ const AppNavigator = createStackNavigator({
     screen: TripOptionsScreen,
     navigationOptions: {
       headerRight: (<LogoutButtonNav />),
+
     },
+    
   },
   TripPage: {
     screen: TabViewPageHomeScreen,
     navigationOptions: {
       headerRight: (<CartButton />),
+      headerStyle: {
+        backgroundColor: cLightBlue,
+        elevation: 0,
+        shadowOpacity: 0,
+        paddingTop: 15
+      },
+      headerLeftContainerStyle: {
+        marginLeft: 5,
+        
+
+      },
+      headerTintColor: 'white',
+      
     },
   },
   Cart: CartScreen,
@@ -303,6 +306,28 @@ export default class App extends React.Component {
 
 
 const styles = StyleSheet.create({
+  textInput: {
+    borderRadius: 8,
+    backgroundColor: '#F2F2F2',
+    height: 75,
+    marginBottom: 20,
+    fontFamily: "RobotoRegular",
+    fontSize: 23,
+    padding: 20,
+
+  },
+  titleHolder: {
+    justifyContent: "flex-end",
+    marginBottom: 50,
+  },
+  title: {
+    textAlign: 'left',
+    fontSize: 35,
+    fontFamily: "MontserratBold",
+    color: cBlack,
+    
+   
+  },
   welcomeContainer: {
     textAlign: 'center',
     justifyContent: 'center',
@@ -310,7 +335,14 @@ const styles = StyleSheet.create({
 	  backgroundColor: '#FFFFFF',
     flexDirection: 'column',
     padding: 40
-	},
+  },
+  container: {
+
+	  backgroundColor: '#FFFFFF',
+    flexDirection: 'column',
+    padding: 30,
+    height: '100%',
+  },
   welcomeLogo: {
     width: 130, 
     height: 157,
@@ -335,7 +367,20 @@ const styles = StyleSheet.create({
     fontSize: 23,
     fontFamily: "MontserratSemiBold",
   },
-
+  standardButton: {
+    color: cWhite,
+    fontSize: 25,
+    fontFamily: "MontserratBold",
+    
+  },
+  buttonNote: {
+    textAlign: "center",
+    alignItems: "center",
+    fontSize: 18,
+    color: cBlack,
+    marginTop: 8,
+    fontFamily: "RobotoRegular"
+  },
 	instructions: {
 	  textAlign: 'center',
 	  color: '#333333',

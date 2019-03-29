@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet, TextInput, AsyncStorage, ScrollView } from "react-native";
+import { Button, View, Text, StyleSheet, TextInput, AsyncStorage, ScrollView, Dimensions } from "react-native";
 import CalendarPicker from 'react-native-calendar-picker';
+import {cRed, cBlack, cWhite, cLightBlue} from "./App"
+import StandardButton from './StandardButton';
+
 
 export default class TripOptionsScreen extends React.Component {
 	constructor(props) {
@@ -51,46 +54,57 @@ export default class TripOptionsScreen extends React.Component {
 		const endDate = selectedEndDate ? selectedEndDate.toString() : '';
 		const origin = originCity ? originCity.toString() : '';
 		const dest = destCity ? destCity.toString() : '';
-		const theWarning = startDate != '' && endDate != '' && origin != '' && dest != '' ? '' : 'Please complete all fields';
+		const theWarning = startDate != '' && endDate != '' && origin != '' && dest != '' ? '' : 'Please complete all fields'; //Please complete all fields
+		let warnStyle = theWarning == '' ? 'none' : 'flex';
+		//let enableContinue = theWarning == '' ? 0.6 : 1;
 		return (
 			<View style={styles.container}>
-				<View style={{flex:.1}}>
-				<Text style={styles.header}>Let's make a new trip!</Text>
-				{
-					theWarning != "" && 
-					<Text styles={styles.warning}>{theWarning}</Text>
-				}
+				<View style={[{height: "auto"}, styles.titleHolder]}>
+						<Text style={styles.title}>Start your trip </Text>
+						<Text style={[styles.warning, {display: warnStyle}]}>{theWarning}</Text>
 				</View>
-				<ScrollView style={{flex:.65}}>
-					<Text style={styles.normal}>Please select your trip dates:</Text>
-					<View style={styles.container}>
-						<CalendarPicker
+
+				
+				
+					{/* <Text style={styles.normal}>Please select your trip dates:</Text> */}
+					<View style={styles.calendarContainer}>
+						<CalendarPicker style={{}}
 						startFromMonday={true}
 						allowRangeSelection={true}
 						minDate={minDate}
 						maxDate={maxDate}
-						todayBackgroundColor="#f2e6ff"
-						selectedDayColor="#7300e6"
-						selectedDayTextColor="#FFFFFF"
+						todayBackgroundColor="#1D71F3"
+						selectedDayColor="#FAA916"
+						selectedDayTextColor="white"
 						onDateChange={this.onDateChange}
+						width={Dimensions.get("window").width-60}
+						
 						/>
+						</View>
 				
 						<View>
-						<Text>SELECTED START DATE:{ startDate }</Text>
-						<Text>SELECTED END DATE:{ endDate }</Text>
+						{/* <Text>SELECTED START DATE:{ startDate }</Text> */}
+						{/* <Text>SELECTED END DATE:{ endDate }</Text> */}
 						</View>
 
-						<TextInput style={styles.input} placeholder="Origin City" onChangeText={(city) => this.setState({originCity: city})}></TextInput>
-						<TextInput style={styles.input} placeholder="Destination City" onChangeText={(city) => this.setState({destCity: city})}></TextInput>
-					</View>
+						<View style={{}}>
+							<TextInput
+								style={styles.textInput}
+								placeholder="Origin"
+								onChangeText={(city) => this.setState({originCity: city})}>
+							</TextInput>
+							<TextInput
+								style={styles.textInput}
+								placeholder="Destination"
+								onChangeText={(city) => this.setState({destCity: city})}>
+							</TextInput>
+        		</View>
 
-					<View style={{flex:.4}}>
-					<Button title="See Past Trips"></Button>
-					<Button title="See Options" onPress={this.onSubmitOptions}/>
-					</View>
-				</ScrollView>
-				<View style={{flex:.10}}></View>
-				
+						<StandardButton style={{opacity: theWarning == '' ? 1 : 0.6}}
+            onPress={this.onSubmitOptions}>
+              <Text style={styles.standardButton}> Continue</Text>
+          </StandardButton>
+					
 			</View>
 		);
   }
@@ -98,30 +112,56 @@ export default class TripOptionsScreen extends React.Component {
  
 const styles = StyleSheet.create({
 	container: {
-	  flex: 1,
-	  justifyContent: 'flex-start',
-	  backgroundColor: '#42cef4',
-	  flexDirection: 'column'
+	  backgroundColor: 'white',
+    flexDirection: 'column',
+    padding: 30,
+		height: '100%',
+		paddingTop: 20
 	},
-	header: {
-	  fontSize: 30,
-	  textAlign: 'left',
-	  margin: 5,
+	titleHolder: {
+    justifyContent: "center",
+		alignItems: "flex-start",
+		height: 100
+  },
+  title: {
+    textAlign: 'left',
+    fontSize: 35,
+    fontFamily: "MontserratBold",
+		color: "black",		
 	},
-	normal: {
-	  fontSize: 20,
-	  textAlign: 'left',
-	  margin: 10,
-	  fontWeight: 'bold',
+	warning: {
+		color: '#3EAAFA',
+		fontSize: 21,
+		textAlign: 'left',
+		marginTop: 7,
+		marginBottom: 7,
+
+		fontFamily: "RobotoRegular"
+	 },
+	calendarContainer: {
+		borderRadius: 8,
+		backgroundColor: '#F2F2F2',
+		marginBottom: 18,
+		fontFamily: "RobotoRegular",
+		fontSize: 23,
+		height: 340,
+		overflow: "hidden"
+		
 	},
-	instructions: {
-	  textAlign: 'center',
-	  color: '#333333',
-	  marginBottom: 5,
-	},
+	textInput: {
+    borderRadius: 8,
+    backgroundColor: '#F2F2F2',
+    height: 70,
+    marginBottom: 18,
+    fontFamily: "RobotoRegular",
+    fontSize: 23,
+    padding: 19,
+
+  },
 	background: {
 	  backgroundColor: '#42cef4',
-	  flex: 1,
+		flex: 1,
+		
 	},
 	input: {
 		margin: 15,
@@ -129,12 +169,11 @@ const styles = StyleSheet.create({
 		borderColor: '#7a42f4',
 		borderWidth: 1
  },
- warning: {
-	color: 'red',
+
+ standardButton: {
+	color: "#FFFFFF",
 	fontSize: 25,
-	textAlign: 'left',
-	margin: 5,
-	fontWeight: 'bold',
-	flex: .25,
- }
+	fontFamily: "MontserratBold",
+	
+},
 });

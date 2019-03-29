@@ -5,25 +5,26 @@ import {
 } from 'react-native';
 import { cDarkBlue, cLightBlue } from "./App";
 
-export default class EmphasisButton extends Component {
+export default class StandardButton extends Component {
     render () {
         let {onPress, isRipple, rippleColor, children, style} = this.props;
         let btn_styles = {
             alignItems: 'center',
-            borderRadius: 14,
-            margin: 18,
-            backgroundColor: cLightBlue,
-            width: 271, 
-            height: 75, 
+            borderRadius: 8,
+            marginTop:18,
+            marginBottom: 18,
+            backgroundColor: cDarkBlue,
+            height: 70, 
             padding: 10,
             justifyContent: "center"
         }
         return (
             <View>
-                <TouchableHighlight style={btn_styles}
+                <TouchableHighlight style={[btn_styles, this.props.style]}
                     onPress={onPress}
-                    underlayColor={cDarkBlue}>
-                    <View style={[btn_styles, style]}>
+                    underlayColor={cLightBlue}
+                    >
+                    <View style={[{alignItems: "center", justifyContent: "center", padding: 10}]}>
                         {children}
                     </View>
                 </TouchableHighlight>

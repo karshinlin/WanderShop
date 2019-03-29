@@ -17,7 +17,7 @@ class HotelView extends Component {
   }
 
   fetchHotels(){
-    return fetch(global.url + 'hotels/getByCity/')
+    return fetch(global.url + 'hotels/')
         .then((response) => response.json())
         .then((response) => {
             this.setState({
@@ -112,7 +112,6 @@ class HotelView extends Component {
             <Text>Cost: {cost}</Text>
             <Text>Rating: {rating}</Text>
             <Button title={'Add To Cart'} onPress={() => {
-              console.log("Hi");
               this.addToCart({category: "hotel", hotelName, hotelId, address, cost, phoneNumber, rating, website});
             }
             }/>
