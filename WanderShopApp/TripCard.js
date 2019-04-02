@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
         width: 410
     },
     city: {
-        fontFamily: "RobotoBold",
+        fontFamily: "Arial",
         color: "black",
         fontSize: 25
     },
     detail: {
-        fontFamily: "RobotoRegular",
+        fontFamily: "Arial",
         fontSize: 18,
         color: "black",
         opacity: 0.6
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     dates: {
         marginBottom: 2,
         fontSize: 18,
-        fontFamily: "RobotoRegular",
+        fontFamily: "Arial",
         color: "#3EAAFA"
     },
     priceArea: {
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         
     },
     price: {
-        fontFamily: "RobotoBold",
+        fontFamily: "Arial",
         fontSize: 26,
         color: "black",
         

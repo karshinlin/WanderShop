@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     time: {
-        fontFamily: "RobotoRegular",
+        fontFamily: "Arial",
         color: "black",
         fontSize: 23
     },
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     },
     price: {
         fontSize: 27,
-        fontFamily: "RobotoMedium",
+        fontFamily: "Arial",
         color: "black",
         
     },

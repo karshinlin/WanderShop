@@ -32,7 +32,7 @@ export default class AddButton extends Component {
                     underlayColor={cLightBlue}
                     >
                     <View style={[{alignItems: "center", justifyContent: "center", padding: 10}]}>
-                        <Text style={{fontSize: 20, fontFamily: "RobotoBold", color: "white"}}>+ADD</Text>
+                        <Text style={{fontSize: 20, fontFamily: "Arial", color: "white"}}>+ADD</Text>
                     </View>
                 </TouchableHighlight>
             </View>

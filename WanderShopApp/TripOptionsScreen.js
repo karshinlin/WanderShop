@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'left',
     fontSize: 35,
-    fontFamily: "MontserratBold",
+    fontFamily: "Arial",
 		color: "black",		
 	},
 	warning: {
@@ -138,13 +138,13 @@ const styles = StyleSheet.create({
 		marginTop: 7,
 		marginBottom: 7,
 
-		fontFamily: "RobotoRegular"
+		fontFamily: "Arial"
 	 },
 	calendarContainer: {
 		borderRadius: 8,
 		backgroundColor: '#F2F2F2',
 		marginBottom: 18,
-		fontFamily: "RobotoRegular",
+		fontFamily: "Arial",
 		fontSize: 23,
 		height: 340,
 		overflow: "hidden"
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F2F2',
     height: 70,
     marginBottom: 18,
-    fontFamily: "RobotoRegular",
+    fontFamily: "Arial",
     fontSize: 23,
     padding: 19,
 
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
  standardButton: {
 	color: "#FFFFFF",
 	fontSize: 25,
-	fontFamily: "MontserratBold",
+	fontFamily: "Arial",
 	
 },
 });

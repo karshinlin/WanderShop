@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'left',
     fontSize: 35,
-    fontFamily: "MontserratBold",
+    fontFamily: "Arial",
 		color: "black",
 		alignSelf: "center"
 		
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
 	heading: {
 		textAlign: 'left',
     fontSize: 30,
-    fontFamily: "MontserratBold",
+    fontFamily: "Arial",
 		color: "black",
 	},
   profileIcon: {
@@ -95,6 +95,6 @@ const styles = StyleSheet.create({
 	},
 	profileText: {
 		fontSize: 30,
-		fontFamily: "RobotoMedium",
+		fontFamily: "Arial",
 	}
 });

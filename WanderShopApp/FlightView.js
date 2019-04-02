@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, FlatList, StyleSheet, ActivityIndicator, 
 import Icon from "react-native-vector-icons/MaterialIcons";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import './global.js'
+import FlightCard from "./FlightCard.js";
 
 class FlightView extends Component {
   constructor(props) {

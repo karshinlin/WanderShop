@@ -246,7 +246,7 @@ class LogoutButton extends React.Component {
     var that = this;
     return (
       
-      <Text style={{color: cLightBlue, fontFamily: "RobotoRegular", fontSize: 19, marginRight: 30}} onPress={that.logout.bind(that)}>Logout</Text>
+      <Text style={{color: cLightBlue, fontFamily: "Arial", fontSize: 19, marginRight: 30}} onPress={that.logout.bind(that)}>Logout</Text>
     );
   }
 
@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F2F2',
     height: 75,
     marginBottom: 20,
-    fontFamily: "RobotoRegular",
+    fontFamily: "Arial",
     fontSize: 23,
     padding: 20,
 
@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'left',
     fontSize: 35,
-    fontFamily: "MontserratBold",
+    fontFamily: "Arial",
     color: cBlack,
     
    
@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
     marginTop: 100
   },
   welcomeTitle: {
-    fontFamily: "MontserratBold",
+    fontFamily: "Arial",
     fontSize: 34,
     textAlign: 'center',
     fontWeight: 'bold',
@@ -365,12 +365,12 @@ const styles = StyleSheet.create({
   emphasisButton: {
     color: cWhite,
     fontSize: 23,
-    fontFamily: "MontserratSemiBold",
+    fontFamily: "Arial",
   },
   standardButton: {
     color: cWhite,
     fontSize: 25,
-    fontFamily: "MontserratBold",
+    fontFamily: "Arial",
     
   },
   buttonNote: {
@@ -379,7 +379,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: cBlack,
     marginTop: 8,
-    fontFamily: "RobotoRegular"
+    fontFamily: "Arial"
   },
 	instructions: {
 	  textAlign: 'center',

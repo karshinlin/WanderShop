@@ -56,12 +56,12 @@ const styles = StyleSheet.create({
       
     },
     btnTitle: {
-        fontFamily: "RobotoMedium",
+        fontFamily: "Arial",
         fontSize: 23,
         color: "#3EAAFA",
     },
     btnSubtitle: {
-        fontFamily: "RobotoRegular",
+        fontFamily: "Arial",
         fontSize: 16,
         lineHeight: 21,
         marginTop: 3,

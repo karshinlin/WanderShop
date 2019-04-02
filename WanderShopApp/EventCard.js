@@ -20,14 +20,14 @@ export default class RestaurantCard extends Component {
                     <View style={{width: "100%"}}>
                         <View style={styles.wrapper}>
                             <View style={{width: wrapperWidth}}>
-                                <Image source={require('./assets/img/hero_hotel.jpg')} style={styles.heroImg} />
+                                <Image source={source={uri: this.props.sourceURL}} style={styles.heroImg} />
                                 <AddButton></AddButton>
                             </View>
                             <View style={styles.infoArea}>
                                 <View style={styles.name_stars}>
                                     <Text style={styles.hotelName}>{this.props.name}</Text>
                                     <View style={{width: 140, marginVertical: 5}}>
-                                        <CardRating rating={this.props.rating}></CardRating>
+                                        {/* <CardRating rating={this.props.rating}></CardRating> */}
                                     </View>
                                         
                                 </View>
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     hotelName: {
-        fontFamily: "RobotoBold",
+        fontFamily: "Arial",
         fontSize: 26,
         color: "#363636",
     },
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     },
     price: {
         fontSize: 27,
-        fontFamily: "RobotoMedium",
+        fontFamily: "Arial",
         color: "#3EAAFA"
     },
     nightText: {

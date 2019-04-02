@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     hotelName: {
-        fontFamily: "RobotoBold",
+        fontFamily: "Arial",
         fontSize: 26,
         color: "#363636",
     },
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     },
     price: {
         fontSize: 27,
-        fontFamily: "RobotoMedium",
+        fontFamily: "Arial",
         color: "#3EAAFA"
     },
     nightText: {

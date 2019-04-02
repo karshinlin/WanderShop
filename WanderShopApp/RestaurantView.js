@@ -4,6 +4,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import StarRating from 'react-native-star-rating'; 
 import './global.js'
+import RestaurantCard from "./EventCard.js";
 
 class RestaurantView extends Component {
   constructor(props) {
@@ -110,6 +111,7 @@ class RestaurantView extends Component {
           price,
           display_phone,
           url,
+          photos,
           location: {
               address1,
               city,
@@ -126,55 +128,69 @@ class RestaurantView extends Component {
               price = 4;
             }
             return (
-          <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text style={styles.titleText}>{name}</Text>
-            <View style={{ width: "50%"}}>
-              <StarRating
-                disabled={false}
-                fullStarColor={"yellow"}
-                maxStars={5}
-                rating={rating}
-              />
-            </View>
-            <View style={{ marginTop: 5, marginBottom: 5 }}>
-              <Text style={styles.miniHeader}>Address:</Text>
-              <Text>{address1}</Text>
-              <Text>{city}, {state} {postal_code}</Text>
-            </View>
-            <Text style={styles.miniHeader}>Price:</Text>
-            <View style={{ width: "50%"}}>
-              <StarRating
-                disabled={false}
-                fullStarColor={"yellow"}
-                maxStars={4}
-                rating={price}
-                halfStar={null}
-                emptyStar={null}
-                fullStar={"dollar"}
-                iconSet={"FontAwesome"}
-              />
-            </View>
-            <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${display_phone}`); }}>Give Us a Call!</Text>
-            
-            <Text style={styles.link} onPress={() => { Linking.openURL(url); }}>Take a Look!</Text>
-            <View style={{ margin: 15, flex: 1, justifyContent: "center", alignSelf: "center" }}>
-              <TouchableOpacity onPress={() => {
+              <RestaurantCard name={name} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={price} addAction={() => {
                 this.addToCart({ category: "food", name, id,
                 rating,
                 price,
                 display_phone,
                 url,
+                photos,
                 location: {
                     address1,
                     city,
                     state,
                     postal_code,
                 }});
-              }}>
-                <FontAwesomeIcon size={35} name={"cart-plus"} color={"#000"}/>
-              </TouchableOpacity>
-            </View>
-          </View>
+              }} />
+          // <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
+          //   <Text style={styles.titleText}>{name}</Text>
+          //   <View style={{ width: "50%"}}>
+          //     <StarRating
+          //       disabled={false}
+          //       fullStarColor={"yellow"}
+          //       maxStars={5}
+          //       rating={rating}
+          //     />
+          //   </View>
+          //   <View style={{ marginTop: 5, marginBottom: 5 }}>
+          //     <Text style={styles.miniHeader}>Address:</Text>
+          //     <Text>{address1}</Text>
+          //     <Text>{city}, {state} {postal_code}</Text>
+          //   </View>
+          //   <Text style={styles.miniHeader}>Price:</Text>
+          //   <View style={{ width: "50%"}}>
+          //     <StarRating
+          //       disabled={false}
+          //       fullStarColor={"yellow"}
+          //       maxStars={4}
+          //       rating={price}
+          //       halfStar={null}
+          //       emptyStar={null}
+          //       fullStar={"dollar"}
+          //       iconSet={"FontAwesome"}
+          //     />
+          //   </View>
+          //   <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${display_phone}`); }}>Give Us a Call!</Text>
+            
+          //   <Text style={styles.link} onPress={() => { Linking.openURL(url); }}>Take a Look!</Text>
+          //   <View style={{ margin: 15, flex: 1, justifyContent: "center", alignSelf: "center" }}>
+          //     <TouchableOpacity onPress={() => {
+          //       this.addToCart({ category: "food", name, id,
+          //       rating,
+          //       price,
+          //       display_phone,
+          //       url,
+          //       location: {
+          //           address1,
+          //           city,
+          //           state,
+          //           postal_code,
+          //       }});
+          //     }}>
+          //       <FontAwesomeIcon size={35} name={"cart-plus"} color={"#000"}/>
+          //     </TouchableOpacity>
+          //   </View>
+          // </View>
         );
       }
           }

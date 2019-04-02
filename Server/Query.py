@@ -74,6 +74,7 @@ def searchQuery(term="burrito", location="NYC"):
                     price
                     display_phone
                     url
+                    photos
                     location {
                         address1
                         city
