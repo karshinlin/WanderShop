@@ -20,11 +20,7 @@ class HotelView extends Component {
   }
 
   fetchHotels(){
-<<<<<<< HEAD
-    return fetch(global.url + 'hotels/')
-=======
     return fetch(global.url + 'hotels')
->>>>>>> master
         .then((response) => response.json())
         .then((response) => {
             this.setState({
