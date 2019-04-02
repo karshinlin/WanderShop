@@ -6,6 +6,7 @@ except ImportError:
 import public_config
 import urllib.parse
 from datetime import date
+
 # class YelpQuery(graphene.ObjectType):
 #     search = graphene.Field(Search, location=graphene.String(default="NYC"), term=graphene.String(default="pizza"))
 
@@ -38,10 +39,10 @@ def run_ticketmaster_query(postal_code=None, city=None, state_code=None, start_d
         params["city"] = city
     if state_code:
         params["stateCode"] = state_code
-    # if start_date_time:
-    #     params["startDateTime"] = str(start_date_time)
-    # if end_date_time:
-    #     params["endDateTime"] = str(end_date_time)
+    if start_date_time:
+        params["startDateTime"] = str(start_date_time)
+    if end_date_time:
+        params["endDateTime"] = str(end_date_time)
     
     param_string = urllib.parse.urlencode(params)
     url += "?" + param_string
@@ -86,4 +87,93 @@ def searchQuery(term="burrito", location="NYC"):
             ''' % (term, location)
         
     return searchQuery
+
+def runFlightsQuery(origin, destination, departDate):    
+    url = "https://apidojo-kayak-v1.p.rapidapi.com/flights/create-session?"
+    params = dict()
+    params["origin1"] = origin
+    params["destination1"] = destination
+    params["departdate1"] = departDate
+    params["cabin"] = 'e'
+    params["currency"] = "USD"
+    params["adults"] = 1
+    params["bags"] = 0
+    param_string = urllib.parse.urlencode(params)
+    url += param_string
+    headers = {"X-RapidAPI-Key": public_config.X_RAPIDAPI_KEY,
+    "Content-Type": "application/json",
+    }
+    request = requests.get(url, headers=headers)
+    if request.status_code == 200:
+        return request.json()
+    else: 
+        raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, url))
+
+def runLocationQuery(destination, desiredParams):
+    url = "https://apidojo-kayak-v1.p.rapidapi.com/locations/search?"
+    params = dict()
+    params["where"] = destination
+    param_string = urllib.parse.urlencode(params)
+    url += param_string
+    headers = {"X-RapidAPI-Key": public_config.X_RAPIDAPI_KEY,
+    "Content-Type": "application/json",
+    }
+    request = requests.get(url, headers=headers)
+    output = []
+    if request.status_code == 200:
+        if len(request.json()) > 0:
+            for i in range(len(desiredParams)):
+                output.append(request.json()[0][desiredParams[i]])
+        else:
+            raise Exception("Query returned no values. {}".format(url))
+    else: 
+        raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, url))
+    return output
+
+def runHotelsQuery(cityId, rooms, checkin, checkout, adults):
+    url = "https://apidojo-kayak-v1.p.rapidapi.com/hotels/create-session?"
+    params = dict()
+    params["rooms"] = rooms
+    params["citycode"] = cityId
+    params["checkin"] = checkin
+    params["checkout"] = checkout
+    params["adults"] = adults
+    param_string = urllib.parse.urlencode(params)
+    url += param_string
+    headers = {"X-RapidAPI-Key": public_config.X_RAPIDAPI_KEY,
+    "Content-Type": "application/json",
+    }
+    print(url)
+    request = requests.get(url, headers=headers)
+    if request.status_code == 200:
+        if len(request.json()["hotelset"]) > 0:
+            if len(request.json()["hotelset"]) > 30:
+                return request.json()["hotelset"][:30]
+            else:
+                return request.json()["hotelset"]
+    else: 
+        raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, url))
+
+
+#  url = "https://app.ticketmaster.com/discovery/v2/events.json"
+#     params = dict()
+#     params["apikey"] = public_config.TICKETMASTER_API_KEY
+#     if postal_code:
+#         params["postalCode"] = postal_code
+#     if city:
+#         params["city"] = city
+#     if state_code:
+#         params["stateCode"] = state_code
+#     # if start_date_time:
+#     #     params["startDateTime"] = str(start_date_time)
+#     # if end_date_time:
+#     #     params["endDateTime"] = str(end_date_time)
+    
+#     param_string = urllib.parse.urlencode(params)
+#     url += "?" + param_string
+#     request = requests.get(url)
+#     if request.status_code == 200:
+#         return request.json()
+#     else:
+#         raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, url))
 

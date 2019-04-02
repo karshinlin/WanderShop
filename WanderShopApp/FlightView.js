@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, ActivityIndicator, Button, AsyncStorage } from "react-native";
+import { View, Text, TouchableOpacity, FlatList, StyleSheet, ActivityIndicator, Button, AsyncStorage } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import './global.js'
 
 class FlightView extends Component {
@@ -14,16 +15,17 @@ class FlightView extends Component {
         time: 30,
     };
     this.fetchFlights();
+    console.log(this.props);
   }
 
   fetchFlights(){
-    return fetch(global.url + 'flights/getByDate/')
+    return fetch(global.url + 'flights')
         .then((response) => response.json())
         .then((response) => {
             this.setState({
                 isLoading: false,
                 error: false,
-                data: response.flights,
+                data: response,
                 refreshing: false,
                 time: 30,
             }, function () {
@@ -99,33 +101,66 @@ class FlightView extends Component {
             </View>
         );
     }
+    // const { navigation } = this.props.navigation;
+    // const startDate = navigation.state.getParam('startDate', '03-23-2019');
+    // const endDate = navigation.state.getParam('endDate', '03-24-2019');
+    // const origin = navigation.state.getParam('origin', 'ATL');
+    // const destination = navigation.state.getParam('destination', 'NYC');
     return (
       <View style={{ flex: 1 }}>
         <FlatList
         data={this.state.data}
-        renderItem={({ item: { flightsNumber, airline, origin, destination, cost, departDate, departTime } }) => (
+        renderItem={({ item: { tripid, cheapestProviderName, displayLowTotal, fareFamily, legs } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Flight Number: {flightsNumber}</Text>
-            <Text>Airline: {airline}</Text>
-            <Text>Departure Airport: {origin}</Text>
-            <Text>Arrival Airport: {destination}</Text>
-            <Text>Price Range: {cost}</Text>
-            <Text>Departure Date: {departDate}</Text>
-            <Text>Depart Time: {departTime}</Text>
-            <Button title={'Add To Cart'} onPress={() => {
-              console.log("Hi");
-              this.addToCart({category: "flight", flightsNumber, airline, origin, destination, cost, departDate, departTime });
-            }
-            }/>
+            <Text style={styles.centerTitle}>{cheapestProviderName}</Text>
+            <Text style={styles.miniHeader}>Price: <Text style={styles.regularText}>{displayLowTotal}</Text></Text>
+            <Text style={styles.miniHeader}>Cabin Type: <Text style={styles.regularText}>{fareFamily ? fareFamily.displayName : ""}</Text></Text>
+            <Text style={styles.miniHeader}>Number of Stops: <Text style={styles.regularText}>{Object.keys(legs[0].segments).length}</Text></Text>
+            <View style={{ margin: 15, flex: 1, justifyContent: "center", alignSelf: "center" }}>
+              <TouchableOpacity onPress={() => {
+                this.addToCart({category: "flight", cheapestProviderName, displayLowTotal, fareFamily, legs });
+              }}>
+                <FontAwesomeIcon size={35} name={"cart-plus"} color={"#000"}/>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
         refreshing={this.state.refreshing}
-        keyExtractor={({item: flightsNumber}) => flightsNumber}
+        keyExtractor={({item: tripid}) => tripid}
         onRefresh={this.handleRefresh}
       />
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: 'Cochin',
+  },
+  link: {
+    textDecorationLine: 'underline',
+    color: "#00F",
+    marginTop: 5,
+    marginBottom: 5,
+  },
+  centerTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    alignSelf: "center",
+  },
+  titleText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  miniHeader: {
+    fontSize: 15,
+    fontWeight: "bold",
+  },
+  regularText: {
+    fontSize: 15,
+    fontWeight: "normal",
+  },
+});
 
 export default FlightView;

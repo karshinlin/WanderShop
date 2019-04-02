@@ -62,32 +62,36 @@ class CartScreen extends Component {
             <FlatList
             scrollEnabled={false}
             data={this.state.flights}
-            renderItem={({ item: { flightsNumber, airline, origin, destination, cost, departDate, departTime } }) => (
+            renderItem={({ item: { tripid, cheapestProviderName, displayLowTotal, fareFamily, legs } }) => (
               <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-                <Text>Flight Number: {flightsNumber}</Text>
-                <Text>Airline: {airline}</Text>
-                <Text>Departure Airport: {origin}</Text>
-                <Text>Arrival Airport: {destination}</Text>
-                <Text>Price Range: {cost}</Text>
-                <Text>Departure Date: {departDate}</Text>
-                <Text>Depart Time: {departTime}</Text>
+                <Text style={styles.centerTitle}>{cheapestProviderName}</Text>
+                <Text style={styles.miniHeader}>Price: <Text style={styles.regularText}>{displayLowTotal}</Text></Text>
+                <Text style={styles.miniHeader}>Cabin Type: <Text style={styles.regularText}>{fareFamily ? fareFamily.displayName : ""}</Text></Text>
+                <Text style={styles.miniHeader}>Number of Stops: <Text style={styles.regularText}>{Object.keys(legs[0].segments).length}</Text></Text>
               </View>
             )}
             refreshing={this.state.refreshing}
-            keyExtractor={({item: flightsNumber}) => flightsNumber}
+            keyExtractor={({item: tripid}) => tripid}
             onRefresh={this.handleRefresh}
         />
         <FlatList
         scrollEnabled={false}
         data={this.state.hotels}
-        renderItem={({ item: { address, cost, hotelId, hotelName, phoneNumber, rating, website } }) => (
+        renderItem={({ item: { displayaddress, brand, cheapestProvider, stars, cheapestProviderName, phone } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text>Hotel Name: {hotelName}</Text>
-            <Text>Address: {address}</Text>
-            <Text>Phone Number: {phoneNumber}</Text>
-            <Text>Website: {website}</Text>
-            <Text>Cost: {cost}</Text>
-            <Text>Rating: {rating}</Text>
+            <Text style={styles.centerTitle}>{brand ? brand : cheapestProviderName}</Text>
+            <Text style={styles.miniHeader}>Address: <Text style={styles.regularText}>{displayaddress}</Text></Text>
+            <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${phone}`); }}>Give Us a Call!</Text>
+            <Text style={styles.miniHeader}>Cost: {cheapestProvider.displayprice}</Text>
+            <Text style={styles.miniHeader}>Rooms Remaining: <Text style={styles.regularText}>{cheapestProvider.roomsRemaining}</Text></Text>
+            <View style={{ width: "50%"}}>
+              <StarRating
+                disabled={false}
+                fullStarColor={"yellow"}
+                maxStars={5}
+                rating={stars}
+              />
+            </View>
           </View>
         )}
         refreshing={this.state.refreshing}
@@ -209,7 +213,11 @@ const styles = StyleSheet.create({
   miniHeader: {
     fontSize: 15,
     fontWeight: "bold",
-  }
+  },
+  regularText: {
+    fontSize: 15,
+    fontWeight: "normal",
+  },
 });
 
 export default CartScreen;
