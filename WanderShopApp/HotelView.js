@@ -106,13 +106,16 @@ class HotelView extends Component {
       <View style={{ flex: 1 }}>
         <FlatList
         data={this.state.data}
-        renderItem={({ item: { displayaddress, brand, cheapestProvider, cheapestProviderName, stars, userrating, phone } }) => (
+        renderItem={({ item: { bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text style={styles.centerTitle}>{brand ? brand : cheapestProviderName}</Text>
-            <Text style={styles.miniHeader}>Address: <Text style={styles.regularText}>{displayaddress}</Text></Text>
+            <Text style={styles.centerTitle}>{hotelName}</Text>
+            <Text style={styles.miniHeader}>Address: <Text style={styles.regularText}>{address}</Text></Text>
             <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${phone}`); }}>Give Us a Call!</Text>
-            <Text style={styles.miniHeader}>Cost: {cheapestProvider.displayprice}</Text>
-            <Text style={styles.miniHeader}>Rooms Remaining: <Text style={styles.regularText}>{cheapestProvider.roomsRemaining}</Text></Text>
+            <Text style={styles.miniHeader}>Check-In: {checkin}</Text>
+            <Text style={styles.miniHeader}>Check-Out: {checkout}</Text>
+            <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${bookingUrl}`); }}>Book Now!</Text>
+            <Text style={styles.miniHeader}>Cost: {price}</Text>
+            <Text style={styles.miniHeader}>Rooms Remaining: <Text style={styles.regularText}>{roomsRemaining}</Text></Text>
             <View style={{ width: "50%"}}>
               <StarRating
                 disabled={false}

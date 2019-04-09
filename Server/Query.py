@@ -6,6 +6,7 @@ except ImportError:
 import public_config
 import urllib.parse
 from datetime import date
+import json 
 
 # class YelpQuery(graphene.ObjectType):
 #     search = graphene.Field(Search, location=graphene.String(default="NYC"), term=graphene.String(default="pizza"))
@@ -109,6 +110,47 @@ def runFlightsQuery(origin, destination, departDate):
     else: 
         raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, url))
 
+def postProcessFlights(jsonResponse):
+    airports = jsonResponse["airportDetails"]
+    airlines = jsonResponse["airlines"]
+    airlineLogos = jsonResponse["airlineLogos"]
+    base = jsonResponse["baseUrl"]
+    for airline in airlineLogos:
+        airlineLogos[airline] = base + airlineLogos[airline]
+    departDate = jsonResponse["departDate"]
+    segments = jsonResponse["segset"]
+    tripOutput = []
+    for trip in jsonResponse["tripset"]:
+        segmentList = []
+        for segment in trip["legs"][0]["segments"]:
+            currSeg = segments[segment]
+            newSeg = {
+                "airlineCode": currSeg["airlineCode"],
+                "airlinePic": airlineLogos[currSeg["airlineCode"]],
+                "airlineName": airlines[currSeg["airlineCode"]],
+                "flightNumber": currSeg["flightNumber"],
+                "originAirportCode": currSeg["originCode"],
+                "originAirportName": airports[currSeg["originCode"]],
+                "destinationAirportCode": currSeg["destinationCode"],
+                "destinationAirportName": airports[currSeg["destinationCode"]],
+                "departTime": currSeg["leaveTimeDisplay"],
+                "arriveTime": currSeg["arriveTimeDisplay"],
+                "arriveDayDiff": currSeg["arrivalDayDiff"]
+            }
+            segmentList.append(newSeg)
+        tripId = trip["tripid"]
+        thePrice = "Not Available" if trip["displayLowTotal"] == "$-1" else trip["displayLowTotal"]
+        tripOutput.append({
+            "tripId": tripId,
+            "provider": trip["cheapestProviderName"],
+            "price": thePrice,
+            "departDate": departDate,
+            "segments": segmentList
+        })
+        
+    return tripOutput
+
+
 def runLocationQuery(destination, desiredParams):
     url = "https://apidojo-kayak-v1.p.rapidapi.com/locations/search?"
     params = dict()
@@ -154,6 +196,27 @@ def runHotelsQuery(cityId, rooms, checkin, checkout, adults):
     else: 
         raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, url))
 
+def postProcessHotels(jsonResponse):
+    checkinDate = jsonResponse["checkinDate"]
+    baseUrl = jsonResponse["baseUrl"]
+    checkoutDate = jsonResponse["checkoutDate"]
+    hotelsOut = []
+    for hotel in jsonResponse["hotelset"]:
+        hotelsOut.append({
+            "checkin": checkinDate,
+            "checkout": checkoutDate,
+            "bookingId": hotel["id"],
+            "hotelPic": baseUrl + hotel["thumburl"],
+            "hotelName": hotel["name"],
+            "address": hotel["displayaddress"],
+            "price": hotel["price"],
+            "stars": hotel["stars"],
+            "phone": hotel["phone"],
+            "bookingUrl": baseUrl + hotel["cheapestProvider"]["url"],
+            "bookingLogo": hotel["cheapestProvider"]["logoUrl"],
+            "roomsRemaining": hotel["cheapestProvider"]["roomsRemaining"]
+        })
+    return hotelsOut
 
 #  url = "https://app.ticketmaster.com/discovery/v2/events.json"
 #     params = dict()

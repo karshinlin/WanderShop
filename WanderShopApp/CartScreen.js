@@ -62,12 +62,12 @@ class CartScreen extends Component {
             <FlatList
             scrollEnabled={false}
             data={this.state.flights}
-            renderItem={({ item: { tripid, cheapestProviderName, displayLowTotal, fareFamily, legs } }) => (
+            renderItem={({ item: { tripId, departDate, price, provider, segments } }) => (
               <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-                <Text style={styles.centerTitle}>{cheapestProviderName}</Text>
-                <Text style={styles.miniHeader}>Price: <Text style={styles.regularText}>{displayLowTotal}</Text></Text>
-                <Text style={styles.miniHeader}>Cabin Type: <Text style={styles.regularText}>{fareFamily ? fareFamily.displayName : ""}</Text></Text>
-                <Text style={styles.miniHeader}>Number of Stops: <Text style={styles.regularText}>{Object.keys(legs[0].segments).length}</Text></Text>
+                <Text style={styles.centerTitle}>{provider}</Text>
+                <Text style={styles.miniHeader}>Price: <Text style={styles.regularText}>{price}</Text></Text>
+                <Text style={styles.miniHeader}>DepartDate: <Text style={styles.regularText}>{departDate}</Text></Text>
+                <Text style={styles.miniHeader}>Number of Stops: <Text style={styles.regularText}>{segments.length}</Text></Text>
               </View>
             )}
             refreshing={this.state.refreshing}
@@ -77,13 +77,16 @@ class CartScreen extends Component {
         <FlatList
         scrollEnabled={false}
         data={this.state.hotels}
-        renderItem={({ item: { displayaddress, brand, cheapestProvider, stars, cheapestProviderName, phone } }) => (
+        renderItem={({ item: { bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text style={styles.centerTitle}>{brand ? brand : cheapestProviderName}</Text>
-            <Text style={styles.miniHeader}>Address: <Text style={styles.regularText}>{displayaddress}</Text></Text>
-            <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${phone}`); }}>Give Us a Call!</Text>
-            <Text style={styles.miniHeader}>Cost: {cheapestProvider.displayprice}</Text>
-            <Text style={styles.miniHeader}>Rooms Remaining: <Text style={styles.regularText}>{cheapestProvider.roomsRemaining}</Text></Text>
+              <Text style={styles.centerTitle}>{hotelName}</Text>
+              <Text style={styles.miniHeader}>Address: <Text style={styles.regularText}>{address}</Text></Text>
+              <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${phone}`); }}>Give Us a Call!</Text>
+              <Text style={styles.miniHeader}>Check-In: {checkin}</Text>
+              <Text style={styles.miniHeader}>Check-Out: {checkout}</Text>
+              <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${bookingUrl}`); }}>Book Now!</Text>
+              <Text style={styles.miniHeader}>Cost: {price}</Text>
+              <Text style={styles.miniHeader}>Rooms Remaining: <Text style={styles.regularText}>{roomsRemaining}</Text></Text>
             <View style={{ width: "50%"}}>
               <StarRating
                 disabled={false}

@@ -148,7 +148,7 @@ def flights_handler():
 def flights():
     with open('flights_sample.json') as json_file:  
         data = json.load(json_file)
-    return json.jsonify(data)
+    return json.jsonify(Query.postProcessFlights(data))
 
     # TODO: TO LIMIT API USAGE, FOLLOWING HAS BEEN COMMENTED OUT
     # origin = request.args.get('origin', default = "ATL", type = str)
@@ -167,7 +167,7 @@ def hotels():
 
     with open('hotels_sample.json') as json_file:  
         data = json.load(json_file)
-    return json.jsonify(data)
+    return json.jsonify(Query.postProcessHotels(data))
 
     # TODO: TO LIMIT API USAGE, FOLLOWING HAS BEEN COMMENTED OUT
     # destination = request.args.get('dest', default="JFK", type=str)
