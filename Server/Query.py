@@ -145,7 +145,8 @@ def postProcessFlights(jsonResponse):
             "provider": trip["cheapestProviderName"],
             "price": thePrice,
             "departDate": departDate,
-            "segments": segmentList
+            "segments": segmentList,
+            "bookingUrl": base + trip["shareURL"]
         })
         
     return tripOutput

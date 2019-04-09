@@ -126,7 +126,7 @@ class HotelView extends Component {
             </View>
             <View style={{ margin: 15, flex: 1, justifyContent: "center", alignSelf: "center" }}>
               <TouchableOpacity onPress={() => {
-                this.addToCart({category: "hotel", displayaddress, brand, cheapestProvider, cheapestProviderName, stars, userrating, phone});
+                this.addToCart({category: "hotel", bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars});
               }}>
                 <FontAwesomeIcon size={35} name={"cart-plus"} color={"#000"}/>
               </TouchableOpacity>

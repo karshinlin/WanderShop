@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, Image, StyleSheet, ScrollView, AsyncStorage } from "react-native";
+import { View, Text, FlatList, Image, StyleSheet, Linking, ScrollView, AsyncStorage } from "react-native";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import StarRating from 'react-native-star-rating';
 
@@ -62,16 +62,17 @@ class CartScreen extends Component {
             <FlatList
             scrollEnabled={false}
             data={this.state.flights}
-            renderItem={({ item: { tripId, departDate, price, provider, segments } }) => (
+            renderItem={({ item: { tripId, departDate, price, provider, segments, bookingUrl } }) => (
               <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
                 <Text style={styles.centerTitle}>{provider}</Text>
                 <Text style={styles.miniHeader}>Price: <Text style={styles.regularText}>{price}</Text></Text>
                 <Text style={styles.miniHeader}>DepartDate: <Text style={styles.regularText}>{departDate}</Text></Text>
                 <Text style={styles.miniHeader}>Number of Stops: <Text style={styles.regularText}>{segments.length}</Text></Text>
+                <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${bookingUrl}`); }}>Book Now!</Text>
               </View>
             )}
             refreshing={this.state.refreshing}
-            keyExtractor={({item: tripid}) => tripid}
+            keyExtractor={({item: tripId}) => tripId}
             onRefresh={this.handleRefresh}
         />
         <FlatList
@@ -98,7 +99,7 @@ class CartScreen extends Component {
           </View>
         )}
         refreshing={this.state.refreshing}
-        keyExtractor={({item: hotelId}) => hotelId}
+        keyExtractor={({item: bookingId}) => bookingId}
         onRefresh={this.handleRefresh}
       />
         <FlatList
