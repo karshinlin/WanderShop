@@ -16,6 +16,11 @@ export default class TabViewPage extends React.Component {
       { key: 'fourth', title: 'Food'},
     ],
   };
+
+  constructor(props) {
+    super(props);
+    this.params = this.props.navigation.state.params;
+  }
  
   render() {
     return (
@@ -25,10 +30,10 @@ export default class TabViewPage extends React.Component {
         color="green"
         navigationState={this.state}
         renderScene={SceneMap({
-          first: FlightView,
-          second: HotelView,
-          third: EventView,
-          fourth: RestaurantView,
+          first: () => <FlightView params={this.params}/>,
+          second: () => <HotelView params={this.params}/>,
+          third: () => <EventView params={this.params}/>,
+          fourth: () => <RestaurantView params={this.params}/>,
         })}
         onIndexChange={index => this.setState({ index })}
         initialLayout={{ width: Dimensions.get('window').width,

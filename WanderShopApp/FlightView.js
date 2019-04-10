@@ -15,12 +15,15 @@ class FlightView extends Component {
         refreshing: false,
         time: 30,
     };
+    this.fetchFlights = this.fetchFlights.bind(this);
+    this.params = this.props.params;
     this.fetchFlights();
-    console.log(this.props);
   }
-
+  //flights?origin=ATL&dest=JFK&departDate=2019-09-23
   fetchFlights(){
-    return fetch(global.url + 'flights')
+    var url = global.url + 'flights?origin=' + this.params.origin + "&dest=" + this.params.destination + "&departDate=" + this.params.startDate;
+    console.log(url)
+    return fetch(url)
         .then((response) => response.json())
         .then((response) => {
             this.setState({
@@ -112,9 +115,7 @@ class FlightView extends Component {
         <FlatList
         data={this.state.data}
         renderItem={({ item: { tripId, departDate, price, provider, segments, bookingUrl } }) => {
-          
           var diff = segments[segments.length-1]["arriveTimeUnix"] - segments[0]["departTimeUnix"];
-          console.log(segments[0]["departTimeUnix"]);
           var hours_diff = Math.floor(diff/3600);
           var mins_diff = Math.floor((diff % 3600)/60);
           var theDuration = hours_diff + "h " + mins_diff + "m ";

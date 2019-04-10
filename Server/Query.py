@@ -48,6 +48,7 @@ def run_ticketmaster_query(postal_code=None, city=None, state_code=None, start_d
     param_string = urllib.parse.urlencode(params)
     url += "?" + param_string
     request = requests.get(url)
+    print(url)
     if request.status_code == 200:
         return request.json()
     else:
@@ -121,7 +122,7 @@ def postProcessFlights(jsonResponse):
     departDate = jsonResponse["departDate"]
     segments = jsonResponse["segset"]
     tripOutput = []
-    for trip in jsonResponse["tripset"]:
+    for trip in jsonResponse["tripset"][:30]:
         segmentList = []
         for segment in trip["legs"][0]["segments"]:
             currSeg = segments[segment]
@@ -192,11 +193,7 @@ def runHotelsQuery(cityId, rooms, checkin, checkout, adults):
     print(url)
     request = requests.get(url, headers=headers)
     if request.status_code == 200:
-        if len(request.json()["hotelset"]) > 0:
-            if len(request.json()["hotelset"]) > 30:
-                return request.json()["hotelset"][:30]
-            else:
-                return request.json()["hotelset"]
+        return request.json()
     else: 
         raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, url))
 
@@ -205,7 +202,7 @@ def postProcessHotels(jsonResponse):
     baseUrl = jsonResponse["baseUrl"]
     checkoutDate = jsonResponse["checkoutDate"]
     hotelsOut = []
-    for hotel in jsonResponse["hotelset"]:
+    for hotel in jsonResponse["hotelset"][:30]:
         hotelsOut.append({
             "checkin": checkinDate,
             "checkout": checkoutDate,

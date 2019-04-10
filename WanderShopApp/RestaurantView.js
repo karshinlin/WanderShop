@@ -16,11 +16,14 @@ class RestaurantView extends Component {
         refreshing: false,
         time: 30,
     };
+    this.fetchRestaurants = this.fetchRestaurants.bind(this);
+    this.params = this.props.params;
     this.fetchRestaurants();
   }
 
   fetchRestaurants(){
-    return fetch(global.url + 'restaurants/getByCity')
+    var url = global.url + 'restaurants/getByCity?dest=' + this.params.destination;
+    return fetch(url)
         .then((response) => response.json())
         .then((response) => {
             this.setState({

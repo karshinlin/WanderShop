@@ -15,11 +15,14 @@ class EventView extends Component {
         refreshing: false,
         time: 30,
     };
+    this.fetchEvents = this.fetchEvents.bind(this);
+    this.params = this.props.params;
     this.fetchEvents();
   }
-
+  //format: /activities/getByCity?dest=JFK&date=2019-08-23
   fetchEvents(){
-    return fetch(global.url + 'activities/getByCity')
+    var url = global.url + 'activities/getByCity?dest=' + this.params.destination + "&date=" + this.params.startDate;
+    return fetch(url)
         .then((response) => response.json())
         .then((response) => {
           console.log(response);

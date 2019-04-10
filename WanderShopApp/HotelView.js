@@ -17,11 +17,16 @@ class HotelView extends Component {
         refreshing: false,
         time: 30,
     };
+    this.fetchHotels = this.fetchHotels.bind(this);
+    this.params = this.props.params;
     this.fetchHotels();
   }
 
+  //format: /hotels?dest=ATL&rooms=1&checkin=2019-09-23&checkout=2019-09-27&adults=2
   fetchHotels(){
-    return fetch(global.url + 'hotels')
+    var url = global.url + 'hotels?dest=' + this.params.destination + "&rooms=1&checkin=" + this.params.startDate + "&checkout=" + this.params.endDate + "&adults=2";
+    console.log(url);
+    return fetch(url)
         .then((response) => response.json())
         .then((response) => {
             this.setState({

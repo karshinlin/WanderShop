@@ -156,10 +156,7 @@ def flights():
     # oneWeek = datetime.date.today() + datetime.timedelta(days=7)
     # departDate = request.args.get('departDate', default = str(oneWeek), type = str)
     # json_response = Query.runFlightsQuery(origin, destination, departDate)
-    # if len(json_response["tripset"]) > 30:
-    #     return json.jsonify(json_response["tripset"][:30])
-    # else:
-    #     return json.jsonify(json_response["tripset"])
+    # return json.jsonify(Query.postProcessFlights(json_response))
 
 # format: /hotels?dest=ATL&rooms=1&checkin=2019-09-23&checkout=2019-09-27&adults=2
 @app.route('/hotels', methods=["GET"])
@@ -178,7 +175,8 @@ def hotels():
     # checkout = request.args.get('checkout', default=str(twoWeeks), type=str)
     # adults = request.args.get('adults', default=2, type=int)
     # cityId = Query.runLocationQuery(destination, ["ctid"])
-    # return json.jsonify(Query.runHotelsQuery(cityId[0], rooms, checkin, checkout, adults))
+    # json_response = Query.runHotelsQuery(cityId[0], rooms, checkin, checkout, adults)
+    # return json.jsonify(Query.postProcessHotels(json_response))
     
 
 ## Hotels handling
@@ -218,8 +216,8 @@ def restaurants_handler():
     jsonReq = request.get_json()
     # city = jsonReq['city'] # mm/dd/yyyy
     destination = request.args.get('dest', default="JFK", type=str)
-    cityInfo = Query.runLocationQuery(destination, ["cityname"])
-    return json.jsonify(Query.run_yelp_query(Query.searchQuery(location=cityInfo[0]))["data"]["search"])
+    # cityInfo = Query.runLocationQuery(destination, ["cityname"])
+    return json.jsonify(Query.run_yelp_query(Query.searchQuery(location=destination))["data"]["search"])
     # Query the db with the flight data request
     # conn = mysql.connect()	
     # cursor = conn.cursor()
