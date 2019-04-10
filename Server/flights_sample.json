@@ -1,1339 +1,2205 @@
-[
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "Delta",
-        "clickProbability": 0.010206115747776731,
-        "currencyCode": "USD",
-        "displayLow": "$218",
-        "displayLowTotal": "$218",
-        "duration": 139,
-        "exactLow": 217.31,
-        "exactLowTotal": 217.31,
-        "fareFamily": {
-            "code": "BASIC_ECONOMY",
-            "displayName": "Basic Economy"
+{
+    "searchid": "FcCiJmI3ZP",
+    "morepending": true,
+    "resultcount": 23,
+    "currency": "USD",
+    "error": false,
+    "shareURL": "/flights/ATL-SAN/2019-04-24",
+    "airlines": {
+        "AA": "American Airlines",
+        "F9": "Frontier",
+        "WN": "Southwest"
+    },
+    "airlineLogos": {
+        "AA": "/rimg/provider-logos/airlines/v/AA.png?crop=false&width=108&height=92&fallback=default2.png&_v=e9d74b31db77b6207fb6f03d73b66cbaa8358b50",
+        "F9": "/rimg/provider-logos/airlines/v/F9.png?crop=false&width=108&height=92&fallback=default2.png&_v=e90db8feb9d8f1cbbf24c678b9fad383698712b8",
+        "MULT": "/rimg/provider-logos/airlines/v/MULT.png?crop=false&width=108&height=92&fallback=default2.png&_v=f24edaf71e8362557c2902819736be3568cc83fe",
+        "WN": "/rimg/provider-logos/airlines/v/WN.png?crop=false&width=108&height=92&fallback=default1.png&_v=prod-cc305d9c63f62e63e2f38c1618208d93a3dde780"
+    },
+    "airports": {
+        "SAN": "San Diego",
+        "ATL": "Hartsfield-Jackson"
+    },
+    "airportDetails": {
+        "SAN": {
+            "name": "San Diego",
+            "city": "San Diego",
+            "ctid": "10760",
+            "lat": 32.73235,
+            "lon": -117.19744
         },
-        "fareFamilyLabel": "Multiple Fares",
-        "featureScore": 5.59823449921363,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 139,
-                "segments": [
-                    "-1107896651"
-                ]
-            }
-        ],
-        "low": 218,
-        "lowOriginal": 218,
-        "lowOriginalTotal": 218,
-        "lowTotal": 218,
-        "maxDisplayedProviders": 1,
-        "maxstops": 0,
-        "numProviders": 4,
-        "penalized": false,
-        "seatUrgency": 2,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f886c1ae3dfb93fef44acf4cc1d937a09",
-        "tripid": "886c1ae3dfb93fef44acf4cc1d937a09",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "Delta",
-        "clickProbability": 0.008539077108764755,
-        "currencyCode": "USD",
-        "displayLow": "$260",
-        "displayLowTotal": "$260",
-        "duration": 140,
-        "exactLow": 259.31,
-        "exactLowTotal": 259.31,
-        "fareFamily": {
-            "code": "MAINCABIN",
-            "displayName": "Main Cabin"
+        "PHX": {
+            "name": "Sky Harbor Intl",
+            "city": "Phoenix",
+            "ctid": "18004",
+            "lat": 33.43551,
+            "lon": -111.99807
         },
-        "fareFamilyLabel": "Multiple Fares",
-        "featureScore": 5.362533138177788,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 140,
-                "segments": [
-                    "1950729961"
-                ]
-            }
-        ],
-        "low": 260,
-        "lowOriginal": 260,
-        "lowOriginalTotal": 260,
-        "lowTotal": 260,
-        "maxDisplayedProviders": 1,
-        "maxstops": 0,
-        "numProviders": 3,
-        "penalized": false,
-        "seatUrgency": 1,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f528edfa2a5cfa932b664f9f587f7b4f7",
-        "tripid": "528edfa2a5cfa932b664f9f587f7b4f7",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "Frontier",
-        "clickProbability": 0.006691307156473331,
-        "currencyCode": "USD",
-        "displayLow": "$264",
-        "displayLowTotal": "$264",
-        "duration": 138,
-        "exactLow": 263.3,
-        "exactLowTotal": 263.3,
-        "featureScore": 5.054167552160006,
-        "flightRoutes": [
-            {
-                "destinationAirport": "LGA",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 138,
-                "segments": [
-                    "671032364"
-                ]
-            }
-        ],
-        "low": 264,
-        "lowOriginal": 264,
-        "lowOriginalTotal": 264,
-        "lowTotal": 264,
-        "maxDisplayedProviders": 10,
-        "maxstops": 0,
-        "numProviders": 10,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f88e00d196f7e60aefe99fefbabd64381",
-        "tripid": "88e00d196f7e60aefe99fefbabd64381",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "CheapOair",
-        "clickProbability": 0.00007616876163188143,
-        "currencyCode": "USD",
-        "displayLow": "$301",
-        "displayLowTotal": "$301",
-        "duration": 726,
-        "exactLow": 300.57,
-        "exactLowTotal": 300.57,
-        "featureScore": 1.6611666786647215,
-        "flightRoutes": [
-            {
-                "destinationAirport": "EWR",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 726,
-                "segments": [
-                    "1157599147",
-                    "93934208"
-                ]
-            }
-        ],
-        "low": 301,
-        "lowOriginal": 301,
-        "lowOriginalTotal": 301,
-        "lowTotal": 301,
-        "maxDisplayedProviders": 7,
-        "maxstops": 1,
-        "numProviders": 7,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f9fd28999ede737b89fb54243975372cd",
-        "tripid": "9fd28999ede737b89fb54243975372cd",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "Delta",
-        "clickProbability": 0.0071915387151145725,
-        "currencyCode": "USD",
-        "displayLow": "$311",
-        "displayLowTotal": "$311",
-        "duration": 134,
-        "exactLow": 310.31,
-        "exactLowTotal": 310.31,
-        "fareFamily": {
-            "code": "MAINCABIN",
-            "displayName": "Main Cabin"
+        "MDW": {
+            "name": "Midway",
+            "city": "Chicago",
+            "ctid": "12514",
+            "lat": 41.7868,
+            "lon": -87.74555
         },
-        "fareFamilyLabel": "Multiple Fares",
-        "featureScore": 5.143670097108977,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 134,
-                "segments": [
-                    "461199488"
-                ]
-            }
-        ],
-        "low": 311,
-        "lowOriginal": 311,
-        "lowOriginalTotal": 311,
-        "lowTotal": 311,
-        "maxDisplayedProviders": 1,
-        "maxstops": 0,
-        "numProviders": 2,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/fcb8313afcd5b93a0b80479bb88d9d1b5",
-        "tripid": "cb8313afcd5b93a0b80479bb88d9d1b5",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "CheapOair",
-        "clickProbability": 0.0007102530624755495,
-        "currencyCode": "USD",
-        "displayLow": "$346",
-        "displayLowTotal": "$346",
-        "duration": 342,
-        "exactLow": 345.98,
-        "exactLowTotal": 345.98,
-        "featureScore": 2.901109062685836,
-        "flightRoutes": [
-            {
-                "destinationAirport": "LGA",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 342,
-                "segments": [
-                    "1514932672",
-                    "1471747354"
-                ]
-            }
-        ],
-        "low": 346,
-        "lowOriginal": 346,
-        "lowOriginalTotal": 346,
-        "lowTotal": 346,
-        "maxDisplayedProviders": 2,
-        "maxstops": 1,
-        "numProviders": 2,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f0071f0754a15c61086576686089d10f3",
-        "tripid": "0071f0754a15c61086576686089d10f3",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "Expedia",
-        "clickProbability": 0.0004986223976767025,
-        "currencyCode": "USD",
-        "displayLow": "$395",
-        "displayLowTotal": "$395",
-        "duration": 366,
-        "exactLow": 394.98,
-        "exactLowTotal": 394.98,
-        "featureScore": 2.656072406053992,
-        "flightRoutes": [
-            {
-                "destinationAirport": "EWR",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 366,
-                "segments": [
-                    "1514932672",
-                    "121337764"
-                ]
-            }
-        ],
-        "low": 395,
-        "lowOriginal": 395,
-        "lowOriginalTotal": 395,
-        "lowTotal": 395,
-        "maxDisplayedProviders": 6,
-        "maxstops": 1,
-        "numProviders": 6,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f7dc68ffa13b928e04f9d18af1dc75b02",
-        "tripid": "7dc68ffa13b928e04f9d18af1dc75b02",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.00011931446806299829,
-        "currencyCode": "USD",
-        "displayLow": "$493",
-        "displayLowTotal": "$493",
-        "duration": 469,
-        "exactLow": 492.2,
-        "exactLowTotal": 492.2,
-        "fareFamily": {
-            "code": "BASIC_ECONOMY",
-            "displayName": "Basic Economy"
+        "LAX": {
+            "name": "Los Angeles",
+            "city": "Los Angeles",
+            "ctid": "16078",
+            "lat": 33.94165553585093,
+            "lon": -118.4082833544922
         },
-        "fareFamilyLabel": "Multiple Fares",
-        "featureScore": 1.8583379551522956,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 469,
-                "segments": [
-                    "1823561009",
-                    "601282863",
-                    "758495413"
-                ]
-            }
-        ],
-        "low": 493,
-        "lowOriginal": 493,
-        "lowOriginalTotal": 493,
-        "lowTotal": 493,
-        "maxDisplayedProviders": 1,
-        "maxstops": 2,
-        "numProviders": 2,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f5ba697bad40b631c6f144c57efa58d6d",
-        "tripid": "5ba697bad40b631c6f144c57efa58d6d",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.00007454460943709794,
-        "currencyCode": "USD",
-        "displayLow": "$529",
-        "displayLowTotal": "$529",
-        "duration": 520,
-        "exactLow": 528.19,
-        "exactLowTotal": 528.19,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        "STL": {
+            "name": "Lambert-St Louis",
+            "city": "St. Louis",
+            "ctid": "13298",
+            "lat": 38.751242874705525,
+            "lon": -90.37123150268553
         },
-        "featureScore": 1.652242197054107,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 520,
-                "segments": [
-                    "1823561009",
-                    "-2094200314",
-                    "-423627254"
-                ]
-            }
-        ],
-        "low": 529,
-        "lowOriginal": 529,
-        "lowOriginalTotal": 529,
-        "lowTotal": 529,
-        "maxDisplayedProviders": 1,
-        "maxstops": 2,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/fbe4707d93672f23c62251302697e80f5",
-        "tripid": "be4707d93672f23c62251302697e80f5",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.00010112750489393506,
-        "currencyCode": "USD",
-        "displayLow": "$533",
-        "displayLowTotal": "$533",
-        "duration": 469,
-        "exactLow": 532.19,
-        "exactLowTotal": 532.19,
-        "fareFamily": {
-            "code": "BASIC_ECONOMY",
-            "displayName": "Basic Economy"
+        "CLT": {
+            "name": "Douglas",
+            "city": "Charlotte",
+            "ctid": "17741",
+            "lat": 35.2207,
+            "lon": -80.94413
         },
-        "fareFamilyLabel": "Multiple Fares",
-        "featureScore": 1.7831018392637392,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 469,
-                "segments": [
-                    "1823561009",
-                    "2136633827",
-                    "758495413"
-                ]
-            }
-        ],
-        "low": 533,
-        "lowOriginal": 533,
-        "lowOriginalTotal": 533,
-        "lowTotal": 533,
-        "maxDisplayedProviders": 1,
-        "maxstops": 2,
-        "numProviders": 2,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f5bac588be401a9d3e9cd5e2699eba404",
-        "tripid": "5bac588be401a9d3e9cd5e2699eba404",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.0008143973475188452,
-        "currencyCode": "USD",
-        "displayLow": "$538",
-        "displayLowTotal": "$538",
-        "duration": 233,
-        "exactLow": 537.5,
-        "exactLowTotal": 537.5,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        "DEN": {
+            "name": "Denver Intl",
+            "city": "Denver",
+            "ctid": "12493",
+            "lat": 39.858909999999995,
+            "lon": -104.67326
         },
-        "featureScore": 3.00177024758593,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 233,
-                "segments": [
-                    "-1070804458",
-                    "-58200298"
-                ]
-            }
-        ],
-        "low": 538,
-        "lowOriginal": 538,
-        "lowOriginalTotal": 538,
-        "lowTotal": 538,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f8d7d6e1e5e76ac029e971492dc8957f4",
-        "tripid": "8d7d6e1e5e76ac029e971492dc8957f4",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.00008606417252037801,
-        "currencyCode": "USD",
-        "displayLow": "$572",
-        "displayLowTotal": "$572",
-        "duration": 469,
-        "exactLow": 571.19,
-        "exactLowTotal": 571.19,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        "DAL": {
+            "name": "Love Field",
+            "city": "Dallas",
+            "ctid": "16406",
+            "lat": 32.84707,
+            "lon": -96.85195
         },
-        "featureScore": 1.712657645468566,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 469,
-                "segments": [
-                    "1823561009",
-                    "1801599620",
-                    "758495413"
-                ]
-            }
-        ],
-        "low": 572,
-        "lowOriginal": 572,
-        "lowOriginalTotal": 572,
-        "lowTotal": 572,
-        "maxDisplayedProviders": 1,
-        "maxstops": 2,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f84c516b4cb25adf21a1ac8be71e7b280",
-        "tripid": "84c516b4cb25adf21a1ac8be71e7b280",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "United",
-        "clickProbability": 0.0003578383025891587,
-        "currencyCode": "USD",
-        "displayLow": "$584",
-        "displayLowTotal": "$584",
-        "duration": 333,
-        "exactLow": 584,
-        "exactLowTotal": 584,
-        "featureScore": 2.4449838858759767,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 333,
-                "segments": [
-                    "278285550",
-                    "-1758632075"
-                ]
-            }
-        ],
-        "low": 584,
-        "lowOriginal": 584,
-        "lowOriginalTotal": 584,
-        "lowTotal": 584,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "seatUrgency": 3,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f92f00d5962cba1614bd08f5e282c1a15",
-        "tripid": "92f00d5962cba1614bd08f5e282c1a15",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "United",
-        "clickProbability": 0.0000019263954063787825,
-        "currencyCode": "USD",
-        "displayLow": "$590",
-        "displayLowTotal": "$590",
-        "duration": 1158,
-        "exactLow": 589.6,
-        "exactLowTotal": 589.6,
-        "featureScore": 0.6624995294731689,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 1158,
-                "segments": [
-                    "1583260696",
-                    "-1613646599"
-                ]
-            }
-        ],
-        "low": 590,
-        "lowOriginal": 590,
-        "lowOriginalTotal": 590,
-        "lowTotal": 590,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "seatUrgency": 2,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/fd635c6e86e8d95cddc9be403214eb19a",
-        "tripid": "d635c6e86e8d95cddc9be403214eb19a",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "United",
-        "clickProbability": 1.395558189946389e-7,
-        "currencyCode": "USD",
-        "displayLow": "$653",
-        "displayLowTotal": "$653",
-        "duration": 1533,
-        "exactLow": 652.6,
-        "exactLowTotal": 652.6,
-        "featureScore": 0.5623407979970536,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 1533,
-                "segments": [
-                    "2008498290",
-                    "1538385781"
-                ]
-            }
-        ],
-        "low": 653,
-        "lowOriginal": 653,
-        "lowOriginalTotal": 653,
-        "lowTotal": 653,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f48682571565562191ec8b8f5f677cbf7",
-        "tripid": "48682571565562191ec8b8f5f677cbf7",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.00038378630411943986,
-        "currencyCode": "USD",
-        "displayLow": "$720",
-        "displayLowTotal": "$720",
-        "duration": 233,
-        "exactLow": 719.51,
-        "exactLowTotal": 719.51,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        "HOU": {
+            "name": "Houston",
+            "city": "Houston",
+            "ctid": "31193",
+            "lat": 29.65,
+            "lon": -95.3
         },
-        "featureScore": 2.4880900621867164,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 233,
-                "segments": [
-                    "1849935640",
-                    "995136330"
-                ]
-            }
-        ],
-        "low": 720,
-        "lowOriginal": 720,
-        "lowOriginalTotal": 720,
-        "lowTotal": 720,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/fc23ead1d6bfe17a9a6dd3c16129f7f0e",
-        "tripid": "c23ead1d6bfe17a9a6dd3c16129f7f0e",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.00009141607494892004,
-        "currencyCode": "USD",
-        "displayLow": "$852",
-        "displayLowTotal": "$852",
-        "duration": 374,
-        "exactLow": 851.51,
-        "exactLowTotal": 851.51,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        "DFW": {
+            "name": "Dallas",
+            "city": "Dallas",
+            "ctid": "16406",
+            "lat": 32.89710131,
+            "lon": -97.04386711
         },
-        "featureScore": 1.7386750488349847,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 374,
-                "segments": [
-                    "2136092978",
-                    "-58200298"
-                ]
-            }
-        ],
-        "low": 852,
-        "lowOriginal": 852,
-        "lowOriginalTotal": 852,
-        "lowTotal": 852,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/fa0a242ea8e50233d417f6759fde14f18",
-        "tripid": "a0a242ea8e50233d417f6759fde14f18",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.000052420206455977446,
-        "currencyCode": "USD",
-        "displayLow": "$856",
-        "displayLowTotal": "$856",
-        "duration": 361,
-        "exactLow": 855.71,
-        "exactLowTotal": 855.71,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        "ATL": {
+            "name": "Hartsfield-Jackson",
+            "city": "Atlanta",
+            "ctid": "11123",
+            "lat": 33.64099,
+            "lon": -84.42265
         },
-        "featureScore": 1.5130502045347844,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 361,
-                "segments": [
-                    "1849935640",
-                    "694423599",
-                    "1280902776"
-                ]
-            }
-        ],
-        "low": 856,
-        "lowOriginal": 856,
-        "lowOriginalTotal": 856,
-        "lowTotal": 856,
-        "maxDisplayedProviders": 1,
-        "maxstops": 2,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/fcaa9f8b1ce5bb409b24d8ce6e1ac9e0e",
-        "tripid": "caa9f8b1ce5bb409b24d8ce6e1ac9e0e",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.000036951794265101354,
-        "currencyCode": "USD",
-        "displayLow": "$858",
-        "displayLowTotal": "$858",
-        "duration": 514,
-        "exactLow": 857.11,
-        "exactLowTotal": 857.11,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        "CLE": {
+            "name": "Hopkins Intl",
+            "city": "Cleveland",
+            "ctid": "4321",
+            "lat": 41.41083,
+            "lon": -81.84944
         },
-        "featureScore": 1.3864168810898303,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 514,
-                "segments": [
-                    "-567569897",
-                    "-58200298"
-                ]
-            }
-        ],
-        "low": 858,
-        "lowOriginal": 858,
-        "lowOriginalTotal": 858,
-        "lowTotal": 858,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f41d808d79a2f765f2602874dafa0269e",
-        "tripid": "41d808d79a2f765f2602874dafa0269e",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.00002081919376875072,
-        "currencyCode": "USD",
-        "displayLow": "$858",
-        "displayLowTotal": "$858",
-        "duration": 605,
-        "exactLow": 857.11,
-        "exactLowTotal": 857.11,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        "AUS": {
+            "name": "Austin Bergstrom",
+            "city": "Austin",
+            "ctid": "22863",
+            "lat": 30.19453,
+            "lon": -97.66987
         },
-        "featureScore": 1.2011783619989465,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 605,
-                "segments": [
-                    "1637517780",
-                    "-58200298"
-                ]
-            }
-        ],
-        "low": 858,
-        "lowOriginal": 858,
-        "lowOriginalTotal": 858,
-        "lowTotal": 858,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/fea340a18848e5b9205b85da518a5a3ae",
-        "tripid": "ea340a18848e5b9205b85da518a5a3ae",
-        "underpriced": false
+        "LAS": {
+            "name": "McCarran",
+            "city": "Las Vegas",
+            "ctid": "35107",
+            "lat": 36.08521,
+            "lon": -115.15068
+        }
     },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.000011656040014690356,
-        "currencyCode": "USD",
-        "displayLow": "$858",
-        "displayLowTotal": "$858",
-        "duration": 697,
-        "exactLow": 857.11,
-        "exactLowTotal": 857.11,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
-        },
-        "featureScore": 1.0390417816634696,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 697,
-                "segments": [
-                    "-1115156065",
-                    "-58200298"
-                ]
-            }
-        ],
-        "low": 858,
-        "lowOriginal": 858,
-        "lowOriginalTotal": 858,
-        "lowTotal": 858,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f32ba8ec1b6c8b8dc0184e371750fccc9",
-        "tripid": "32ba8ec1b6c8b8dc0184e371750fccc9",
-        "underpriced": false
+    "layoverAirports": {
+        "PHX": "Sky Harbor Intl",
+        "MDW": "Midway",
+        "LAX": "Los Angeles",
+        "DFW": "Dallas",
+        "STL": "Lambert-St Louis",
+        "CLT": "Douglas",
+        "DEN": "Denver Intl",
+        "CLE": "Hopkins Intl",
+        "DAL": "Love Field",
+        "HOU": "Houston",
+        "AUS": "Austin Bergstrom",
+        "LAS": "McCarran"
     },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.000007173143516314417,
-        "currencyCode": "USD",
-        "displayLow": "$858",
-        "displayLowTotal": "$858",
-        "duration": 774,
-        "exactLow": 857.11,
-        "exactLowTotal": 857.11,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+    "airportSummary": "ATL to SAN",
+    "departDate": "Wed Apr 24 2019",
+    "segset": {
+        "21584420": {
+            "airlineCode": "AA",
+            "flightNumber": "1567",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "8:01a",
+            "destinationCode": "DFW",
+            "arriveTimeDisplay": "9:40a",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": true,
+            "leaveTimeUTC": "2019/04/24 12:01",
+            "leaveTimeAirport": "2019/04/24 08:01",
+            "arriveTimeUTC": "2019/04/24 14:40",
+            "arriveTimeAirport": "2019/04/24 09:40",
+            "equipmentType": "Boeing 737-800",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556107260,
+            "arriveTime": 1556113200,
+            "duration": 159,
+            "arrivalDayDiff": 0
         },
-        "featureScore": 0.9202894840275617,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 774,
-                "segments": [
-                    "1849935640",
-                    "-58200298"
-                ]
-            }
-        ],
-        "low": 858,
-        "lowOriginal": 858,
-        "lowOriginalTotal": 858,
-        "lowTotal": 858,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f41d0932fb5dcfef04e2d0b2361b41f49",
-        "tripid": "41d0932fb5dcfef04e2d0b2361b41f49",
-        "underpriced": false
+        "196313382": {
+            "airlineCode": "WN",
+            "flightNumber": "147",
+            "originCode": "HOU",
+            "leaveTimeDisplay": "8:25a",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "9:45a",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 13:25",
+            "leaveTimeAirport": "2019/04/24 08:25",
+            "arriveTimeUTC": "2019/04/24 16:45",
+            "arriveTimeAirport": "2019/04/24 09:45",
+            "equipmentType": "Boeing 737-800 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556108700,
+            "arriveTime": 1556113500,
+            "duration": 200,
+            "arrivalDayDiff": 0
+        },
+        "241519152": {
+            "airlineCode": "WN",
+            "flightNumber": "2010",
+            "originCode": "DAL",
+            "leaveTimeDisplay": "3:00p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "4:15p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 20:00",
+            "leaveTimeAirport": "2019/04/24 15:00",
+            "arriveTimeUTC": "2019/04/24 23:15",
+            "arriveTimeAirport": "2019/04/24 16:15",
+            "equipmentType": "Boeing 737-800 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556132400,
+            "arriveTime": 1556136900,
+            "duration": 195,
+            "arrivalDayDiff": 0
+        },
+        "407150656": {
+            "airlineCode": "WN",
+            "flightNumber": "367",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "2:15p",
+            "destinationCode": "AUS",
+            "arriveTimeDisplay": "3:45p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 18:15",
+            "leaveTimeAirport": "2019/04/24 14:15",
+            "arriveTimeUTC": "2019/04/24 20:45",
+            "arriveTimeAirport": "2019/04/24 15:45",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556129700,
+            "arriveTime": 1556135100,
+            "duration": 150,
+            "arrivalDayDiff": 0
+        },
+        "458523256": {
+            "airlineCode": "WN",
+            "flightNumber": "528",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "1:20p",
+            "destinationCode": "HOU",
+            "arriveTimeDisplay": "2:35p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 17:20",
+            "leaveTimeAirport": "2019/04/24 13:20",
+            "arriveTimeUTC": "2019/04/24 19:35",
+            "arriveTimeAirport": "2019/04/24 14:35",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556126400,
+            "arriveTime": 1556130900,
+            "duration": 135,
+            "arrivalDayDiff": 0
+        },
+        "503756123": {
+            "airlineCode": "WN",
+            "flightNumber": "887",
+            "originCode": "MDW",
+            "leaveTimeDisplay": "2:45p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "5:05p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 19:45",
+            "leaveTimeAirport": "2019/04/24 14:45",
+            "arriveTimeUTC": "2019/04/25 00:05",
+            "arriveTimeAirport": "2019/04/24 17:05",
+            "equipmentType": "Boeing 737-800 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556131500,
+            "arriveTime": 1556139900,
+            "duration": 260,
+            "arrivalDayDiff": 0
+        },
+        "670217056": {
+            "airlineCode": "WN",
+            "flightNumber": "1441",
+            "originCode": "HOU",
+            "leaveTimeDisplay": "4:55p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "6:25p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 21:55",
+            "leaveTimeAirport": "2019/04/24 16:55",
+            "arriveTimeUTC": "2019/04/25 01:25",
+            "arriveTimeAirport": "2019/04/24 18:25",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556139300,
+            "arriveTime": 1556144700,
+            "duration": 210,
+            "arrivalDayDiff": 0
+        },
+        "850015676": {
+            "airlineCode": "AA",
+            "flightNumber": "596",
+            "originCode": "CLT",
+            "leaveTimeDisplay": "8:14p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "10:29p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": true,
+            "leaveTimeUTC": "2019/04/25 00:14",
+            "leaveTimeAirport": "2019/04/24 20:14",
+            "arriveTimeUTC": "2019/04/25 05:29",
+            "arriveTimeAirport": "2019/04/24 22:29",
+            "equipmentType": "Airbus A321-100/200",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556151240,
+            "arriveTime": 1556159340,
+            "duration": 315,
+            "arrivalDayDiff": 0
+        },
+        "940513776": {
+            "airlineCode": "AA",
+            "flightNumber": "1243",
+            "originCode": "DFW",
+            "leaveTimeDisplay": "7:45p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "8:48p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": true,
+            "leaveTimeUTC": "2019/04/25 00:45",
+            "leaveTimeAirport": "2019/04/24 19:45",
+            "arriveTimeUTC": "2019/04/25 03:48",
+            "arriveTimeAirport": "2019/04/24 20:48",
+            "equipmentType": "Boeing 737-800",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556149500,
+            "arriveTime": 1556153280,
+            "duration": 183,
+            "arrivalDayDiff": 0
+        },
+        "1191456757": {
+            "airlineCode": "WN",
+            "flightNumber": "1236",
+            "originCode": "AUS",
+            "leaveTimeDisplay": "10:50a",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "12:00p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 15:50",
+            "leaveTimeAirport": "2019/04/24 10:50",
+            "arriveTimeUTC": "2019/04/24 19:00",
+            "arriveTimeAirport": "2019/04/24 12:00",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556117400,
+            "arriveTime": 1556121600,
+            "duration": 190,
+            "arrivalDayDiff": 0
+        },
+        "1402114177": {
+            "airlineCode": "AA",
+            "flightNumber": "5354",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "6:01p",
+            "destinationCode": "CLT",
+            "arriveTimeDisplay": "7:23p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "operatingAirline": "Psa Airlines",
+            "miles": -1,
+            "wifi": true,
+            "leaveTimeUTC": "2019/04/24 22:01",
+            "leaveTimeAirport": "2019/04/24 18:01",
+            "arriveTimeUTC": "2019/04/24 23:23",
+            "arriveTimeAirport": "2019/04/24 19:23",
+            "equipmentType": "Canadair Regional Jet 900",
+            "equipmentCategory": "REGIONAL",
+            "leaveTime": 1556143260,
+            "arriveTime": 1556148180,
+            "duration": 82,
+            "arrivalDayDiff": 0
+        },
+        "1520193990": {
+            "airlineCode": "WN",
+            "flightNumber": "1645",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "11:40a",
+            "destinationCode": "STL",
+            "arriveTimeDisplay": "12:20p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 15:40",
+            "leaveTimeAirport": "2019/04/24 11:40",
+            "arriveTimeUTC": "2019/04/24 17:20",
+            "arriveTimeAirport": "2019/04/24 12:20",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556120400,
+            "arriveTime": 1556122800,
+            "duration": 100,
+            "arrivalDayDiff": 0
+        },
+        "1601964734": {
+            "airlineCode": "WN",
+            "flightNumber": "2113",
+            "originCode": "STL",
+            "leaveTimeDisplay": "1:40p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "3:30p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 18:40",
+            "leaveTimeAirport": "2019/04/24 13:40",
+            "arriveTimeUTC": "2019/04/24 22:30",
+            "arriveTimeAirport": "2019/04/24 15:30",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556127600,
+            "arriveTime": 1556134200,
+            "duration": 230,
+            "arrivalDayDiff": 0
+        },
+        "1670970307": {
+            "airlineCode": "WN",
+            "flightNumber": "1399",
+            "originCode": "CLE",
+            "leaveTimeDisplay": "11:00a",
+            "destinationCode": "DEN",
+            "arriveTimeDisplay": "12:20p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 15:00",
+            "leaveTimeAirport": "2019/04/24 11:00",
+            "arriveTimeUTC": "2019/04/24 18:20",
+            "arriveTimeAirport": "2019/04/24 12:20",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556118000,
+            "arriveTime": 1556122800,
+            "duration": 200,
+            "arrivalDayDiff": 0
+        },
+        "1721013330": {
+            "airlineCode": "WN",
+            "flightNumber": "2079",
+            "originCode": "PHX",
+            "leaveTimeDisplay": "9:55p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "11:05p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/25 04:55",
+            "leaveTimeAirport": "2019/04/24 21:55",
+            "arriveTimeUTC": "2019/04/25 06:05",
+            "arriveTimeAirport": "2019/04/24 23:05",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556157300,
+            "arriveTime": 1556161500,
+            "duration": 70,
+            "arrivalDayDiff": 0
+        },
+        "1762147872": {
+            "airlineCode": "F9",
+            "flightNumber": "419",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "9:37p",
+            "destinationCode": "DEN",
+            "arriveTimeDisplay": "11:10p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/25 01:37",
+            "leaveTimeAirport": "2019/04/24 21:37",
+            "arriveTimeUTC": "2019/04/25 05:10",
+            "arriveTimeAirport": "2019/04/24 23:10",
+            "equipmentType": "Airbus A320-100/200",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556156220,
+            "arriveTime": 1556161800,
+            "duration": 213,
+            "arrivalDayDiff": 0
+        },
+        "1808205004": {
+            "airlineCode": "WN",
+            "flightNumber": "1002",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "8:50a",
+            "destinationCode": "MDW",
+            "arriveTimeDisplay": "9:50a",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 12:50",
+            "leaveTimeAirport": "2019/04/24 08:50",
+            "arriveTimeUTC": "2019/04/24 14:50",
+            "arriveTimeAirport": "2019/04/24 09:50",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556110200,
+            "arriveTime": 1556113800,
+            "duration": 120,
+            "arrivalDayDiff": 0
+        },
+        "1837901210": {
+            "airlineCode": "WN",
+            "flightNumber": "738",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "9:30a",
+            "destinationCode": "DEN",
+            "arriveTimeDisplay": "10:50a",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 13:30",
+            "leaveTimeAirport": "2019/04/24 09:30",
+            "arriveTimeUTC": "2019/04/24 16:50",
+            "arriveTimeAirport": "2019/04/24 10:50",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556112600,
+            "arriveTime": 1556117400,
+            "duration": 200,
+            "arrivalDayDiff": 0
+        },
+        "1846177043": {
+            "airlineCode": "WN",
+            "flightNumber": "333",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "4:00p",
+            "destinationCode": "STL",
+            "arriveTimeDisplay": "4:45p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 20:00",
+            "leaveTimeAirport": "2019/04/24 16:00",
+            "arriveTimeUTC": "2019/04/24 21:45",
+            "arriveTimeAirport": "2019/04/24 16:45",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556136000,
+            "arriveTime": 1556138700,
+            "duration": 105,
+            "arrivalDayDiff": 0
+        },
+        "1917157489": {
+            "airlineCode": "WN",
+            "flightNumber": "1918",
+            "originCode": "LAS",
+            "leaveTimeDisplay": "9:55a",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "11:10a",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 16:55",
+            "leaveTimeAirport": "2019/04/24 09:55",
+            "arriveTimeUTC": "2019/04/24 18:10",
+            "arriveTimeAirport": "2019/04/24 11:10",
+            "equipmentType": "Boeing 737-800 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556114100,
+            "arriveTime": 1556118600,
+            "duration": 75,
+            "arrivalDayDiff": 0
+        },
+        "2087673909": {
+            "airlineCode": "WN",
+            "flightNumber": "1479",
+            "originCode": "LAS",
+            "leaveTimeDisplay": "1:10p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "2:15p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 20:10",
+            "leaveTimeAirport": "2019/04/24 13:10",
+            "arriveTimeUTC": "2019/04/24 21:15",
+            "arriveTimeAirport": "2019/04/24 14:15",
+            "equipmentType": "Boeing 737-800",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556125800,
+            "arriveTime": 1556129700,
+            "duration": 65,
+            "arrivalDayDiff": 0
+        },
+        "-955129574": {
+            "airlineCode": "F9",
+            "flightNumber": "555",
+            "originCode": "DEN",
+            "leaveTimeDisplay": "8:04a",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "9:30a",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/25 14:04",
+            "leaveTimeAirport": "2019/04/25 08:04",
+            "arriveTimeUTC": "2019/04/25 16:30",
+            "arriveTimeAirport": "2019/04/25 09:30",
+            "equipmentType": "Airbus A321-100/200",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556193840,
+            "arriveTime": 1556199000,
+            "duration": 146,
+            "arrivalDayDiff": 0
+        },
+        "-121307266": {
+            "airlineCode": "WN",
+            "flightNumber": "807",
+            "originCode": "DEN",
+            "leaveTimeDisplay": "10:00p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "11:20p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/25 04:00",
+            "leaveTimeAirport": "2019/04/24 22:00",
+            "arriveTimeUTC": "2019/04/25 06:20",
+            "arriveTimeAirport": "2019/04/24 23:20",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556157600,
+            "arriveTime": 1556162400,
+            "duration": 140,
+            "arrivalDayDiff": 0
+        },
+        "-1833931238": {
+            "airlineCode": "AA",
+            "flightNumber": "2737",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "11:04a",
+            "destinationCode": "LAX",
+            "arriveTimeDisplay": "1:10p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": true,
+            "leaveTimeUTC": "2019/04/24 15:04",
+            "leaveTimeAirport": "2019/04/24 11:04",
+            "arriveTimeUTC": "2019/04/24 20:10",
+            "arriveTimeAirport": "2019/04/24 13:10",
+            "equipmentType": "Boeing 737-800",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556118240,
+            "arriveTime": 1556125800,
+            "duration": 306,
+            "arrivalDayDiff": 0
+        },
+        "-2125683289": {
+            "airlineCode": "WN",
+            "flightNumber": "423",
+            "originCode": "MDW",
+            "leaveTimeDisplay": "8:55p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "11:15p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/25 01:55",
+            "leaveTimeAirport": "2019/04/24 20:55",
+            "arriveTimeUTC": "2019/04/25 06:15",
+            "arriveTimeAirport": "2019/04/24 23:15",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556153700,
+            "arriveTime": 1556162100,
+            "duration": 260,
+            "arrivalDayDiff": 0
+        },
+        "-1755938199": {
+            "airlineCode": "WN",
+            "flightNumber": "1957",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "6:15a",
+            "destinationCode": "LAS",
+            "arriveTimeDisplay": "7:40a",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 10:15",
+            "leaveTimeAirport": "2019/04/24 06:15",
+            "arriveTimeUTC": "2019/04/24 14:40",
+            "arriveTimeAirport": "2019/04/24 07:40",
+            "equipmentType": "Boeing 737-800 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556100900,
+            "arriveTime": 1556106000,
+            "duration": 265,
+            "arrivalDayDiff": 0
+        },
+        "-1708103031": {
+            "airlineCode": "AA",
+            "flightNumber": "3089",
+            "originCode": "LAX",
+            "leaveTimeDisplay": "1:50p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "2:37p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "operatingAirline": "Skywest Airlines",
+            "miles": -1,
+            "wifi": true,
+            "leaveTimeUTC": "2019/04/24 20:50",
+            "leaveTimeAirport": "2019/04/24 13:50",
+            "arriveTimeUTC": "2019/04/24 21:37",
+            "arriveTimeAirport": "2019/04/24 14:37",
+            "equipmentType": "Canadair Regional Jet 700",
+            "equipmentCategory": "REGIONAL",
+            "leaveTime": 1556128200,
+            "arriveTime": 1556131020,
+            "duration": 47,
+            "arrivalDayDiff": 0
+        },
+        "-809313229": {
+            "airlineCode": "WN",
+            "flightNumber": "236",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "7:40p",
+            "destinationCode": "DEN",
+            "arriveTimeDisplay": "9:05p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 23:40",
+            "leaveTimeAirport": "2019/04/24 19:40",
+            "arriveTimeUTC": "2019/04/25 03:05",
+            "arriveTimeAirport": "2019/04/24 21:05",
+            "equipmentType": "Boeing 737-800",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556149200,
+            "arriveTime": 1556154300,
+            "duration": 205,
+            "arrivalDayDiff": 0
+        },
+        "-1230656674": {
+            "airlineCode": "AA",
+            "flightNumber": "884",
+            "originCode": "CLT",
+            "leaveTimeDisplay": "4:44p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "7:03p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": true,
+            "leaveTimeUTC": "2019/04/24 20:44",
+            "leaveTimeAirport": "2019/04/24 16:44",
+            "arriveTimeUTC": "2019/04/25 02:03",
+            "arriveTimeAirport": "2019/04/24 19:03",
+            "equipmentType": "Airbus A321-100/200",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556138640,
+            "arriveTime": 1556146980,
+            "duration": 319,
+            "arrivalDayDiff": 0
+        },
+        "-1948878267": {
+            "airlineCode": "WN",
+            "flightNumber": "1207",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "7:30p",
+            "destinationCode": "PHX",
+            "arriveTimeDisplay": "8:40p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 23:30",
+            "leaveTimeAirport": "2019/04/24 19:30",
+            "arriveTimeUTC": "2019/04/25 03:40",
+            "arriveTimeAirport": "2019/04/24 20:40",
+            "equipmentType": "Boeing 737-800 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556148600,
+            "arriveTime": 1556152800,
+            "duration": 250,
+            "arrivalDayDiff": 0
+        },
+        "-1148511435": {
+            "airlineCode": "WN",
+            "flightNumber": "1944",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "9:40a",
+            "destinationCode": "LAS",
+            "arriveTimeDisplay": "11:10a",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 13:40",
+            "leaveTimeAirport": "2019/04/24 09:40",
+            "arriveTimeUTC": "2019/04/24 18:10",
+            "arriveTimeAirport": "2019/04/24 11:10",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556113200,
+            "arriveTime": 1556118600,
+            "duration": 270,
+            "arrivalDayDiff": 0
+        },
+        "-716283878": {
+            "airlineCode": "WN",
+            "flightNumber": "616",
+            "originCode": "DEN",
+            "leaveTimeDisplay": "1:20p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "2:40p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 19:20",
+            "leaveTimeAirport": "2019/04/24 13:20",
+            "arriveTimeUTC": "2019/04/24 21:40",
+            "arriveTimeAirport": "2019/04/24 14:40",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556126400,
+            "arriveTime": 1556131200,
+            "duration": 140,
+            "arrivalDayDiff": 0
+        },
+        "-373276297": {
+            "airlineCode": "WN",
+            "flightNumber": "1051",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "10:40a",
+            "destinationCode": "DAL",
+            "arriveTimeDisplay": "12:00p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 14:40",
+            "leaveTimeAirport": "2019/04/24 10:40",
+            "arriveTimeUTC": "2019/04/24 17:00",
+            "arriveTimeAirport": "2019/04/24 12:00",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556116800,
+            "arriveTime": 1556121600,
+            "duration": 140,
+            "arrivalDayDiff": 0
+        },
+        "-507241403": {
+            "airlineCode": "AA",
+            "flightNumber": "1630",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "4:24p",
+            "destinationCode": "DFW",
+            "arriveTimeDisplay": "5:55p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": true,
+            "leaveTimeUTC": "2019/04/24 20:24",
+            "leaveTimeAirport": "2019/04/24 16:24",
+            "arriveTimeUTC": "2019/04/24 22:55",
+            "arriveTimeAirport": "2019/04/24 17:55",
+            "equipmentType": "Airbus A320-100/200",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556137440,
+            "arriveTime": 1556142900,
+            "duration": 151,
+            "arrivalDayDiff": 0
+        },
+        "-223263294": {
+            "airlineCode": "WN",
+            "flightNumber": "1399",
+            "originCode": "DEN",
+            "leaveTimeDisplay": "1:00p",
+            "destinationCode": "AUS",
+            "arriveTimeDisplay": "4:10p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 19:00",
+            "leaveTimeAirport": "2019/04/24 13:00",
+            "arriveTimeUTC": "2019/04/24 21:10",
+            "arriveTimeAirport": "2019/04/24 16:10",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556125200,
+            "arriveTime": 1556136600,
+            "duration": 130,
+            "arrivalDayDiff": 0
+        },
+        "-2043644292": {
+            "airlineCode": "F9",
+            "flightNumber": "557",
+            "originCode": "DEN",
+            "leaveTimeDisplay": "5:04p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "6:28p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/25 23:04",
+            "leaveTimeAirport": "2019/04/25 17:04",
+            "arriveTimeUTC": "2019/04/26 01:28",
+            "arriveTimeAirport": "2019/04/25 18:28",
+            "equipmentType": "Airbus A320-100/200",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556226240,
+            "arriveTime": 1556231280,
+            "duration": 144,
+            "arrivalDayDiff": 0
+        },
+        "-1357240173": {
+            "airlineCode": "WN",
+            "flightNumber": "1399",
+            "originCode": "AUS",
+            "leaveTimeDisplay": "4:45p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "5:50p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 21:45",
+            "leaveTimeAirport": "2019/04/24 16:45",
+            "arriveTimeUTC": "2019/04/25 00:50",
+            "arriveTimeAirport": "2019/04/24 17:50",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556138700,
+            "arriveTime": 1556142600,
+            "duration": 185,
+            "arrivalDayDiff": 0
+        },
+        "-2108637172": {
+            "airlineCode": "WN",
+            "flightNumber": "1893",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "7:00p",
+            "destinationCode": "MDW",
+            "arriveTimeDisplay": "7:55p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 23:00",
+            "leaveTimeAirport": "2019/04/24 19:00",
+            "arriveTimeUTC": "2019/04/25 00:55",
+            "arriveTimeAirport": "2019/04/24 19:55",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556146800,
+            "arriveTime": 1556150100,
+            "duration": 115,
+            "arrivalDayDiff": 0
+        },
+        "-274302342": {
+            "airlineCode": "WN",
+            "flightNumber": "1108",
+            "originCode": "MDW",
+            "leaveTimeDisplay": "12:20p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "2:35p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 17:20",
+            "leaveTimeAirport": "2019/04/24 12:20",
+            "arriveTimeUTC": "2019/04/24 21:35",
+            "arriveTimeAirport": "2019/04/24 14:35",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556122800,
+            "arriveTime": 1556130900,
+            "duration": 255,
+            "arrivalDayDiff": 0
+        },
+        "-402587887": {
+            "airlineCode": "WN",
+            "flightNumber": "1399",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "8:35a",
+            "destinationCode": "CLE",
+            "arriveTimeDisplay": "10:25a",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 12:35",
+            "leaveTimeAirport": "2019/04/24 08:35",
+            "arriveTimeUTC": "2019/04/24 14:25",
+            "arriveTimeAirport": "2019/04/24 10:25",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556109300,
+            "arriveTime": 1556115900,
+            "duration": 110,
+            "arrivalDayDiff": 0
+        },
+        "-218778977": {
+            "airlineCode": "WN",
+            "flightNumber": "1003",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "6:25a",
+            "destinationCode": "HOU",
+            "arriveTimeDisplay": "7:40a",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 10:25",
+            "leaveTimeAirport": "2019/04/24 06:25",
+            "arriveTimeUTC": "2019/04/24 12:40",
+            "arriveTimeAirport": "2019/04/24 07:40",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556101500,
+            "arriveTime": 1556106000,
+            "duration": 135,
+            "arrivalDayDiff": 0
+        },
+        "-796763422": {
+            "airlineCode": "AA",
+            "flightNumber": "5333",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "1:50p",
+            "destinationCode": "CLT",
+            "arriveTimeDisplay": "3:11p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "operatingAirline": "Psa Airlines",
+            "miles": -1,
+            "wifi": true,
+            "leaveTimeUTC": "2019/04/24 17:50",
+            "leaveTimeAirport": "2019/04/24 13:50",
+            "arriveTimeUTC": "2019/04/24 19:11",
+            "arriveTimeAirport": "2019/04/24 15:11",
+            "equipmentType": "Canadair Regional Jet 900",
+            "equipmentCategory": "REGIONAL",
+            "leaveTime": 1556128200,
+            "arriveTime": 1556133060,
+            "duration": 81,
+            "arrivalDayDiff": 0
+        },
+        "-630388368": {
+            "airlineCode": "WN",
+            "flightNumber": "586",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "1:05p",
+            "destinationCode": "MDW",
+            "arriveTimeDisplay": "2:00p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 17:05",
+            "leaveTimeAirport": "2019/04/24 13:05",
+            "arriveTimeUTC": "2019/04/24 19:00",
+            "arriveTimeAirport": "2019/04/24 14:00",
+            "equipmentType": "Boeing 737-800 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556125500,
+            "arriveTime": 1556128800,
+            "duration": 115,
+            "arrivalDayDiff": 0
+        },
+        "-578868703": {
+            "airlineCode": "WN",
+            "flightNumber": "588",
+            "originCode": "ATL",
+            "leaveTimeDisplay": "7:00a",
+            "destinationCode": "AUS",
+            "arriveTimeDisplay": "8:25a",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 11:00",
+            "leaveTimeAirport": "2019/04/24 07:00",
+            "arriveTimeUTC": "2019/04/24 13:25",
+            "arriveTimeAirport": "2019/04/24 08:25",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556103600,
+            "arriveTime": 1556108700,
+            "duration": 145,
+            "arrivalDayDiff": 0
+        },
+        "-113779828": {
+            "airlineCode": "AA",
+            "flightNumber": "679",
+            "originCode": "DFW",
+            "leaveTimeDisplay": "10:45a",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "11:58a",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": true,
+            "leaveTimeUTC": "2019/04/24 15:45",
+            "leaveTimeAirport": "2019/04/24 10:45",
+            "arriveTimeUTC": "2019/04/24 18:58",
+            "arriveTimeAirport": "2019/04/24 11:58",
+            "equipmentType": "Airbus A321-100/200",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556117100,
+            "arriveTime": 1556121480,
+            "duration": 193,
+            "arrivalDayDiff": 0
+        },
+        "-91044794": {
+            "airlineCode": "WN",
+            "flightNumber": "1978",
+            "originCode": "STL",
+            "leaveTimeDisplay": "6:35p",
+            "destinationCode": "SAN",
+            "arriveTimeDisplay": "8:20p",
+            "cabin": "economy",
+            "cabinClass": "E",
+            "miles": -1,
+            "wifi": false,
+            "leaveTimeUTC": "2019/04/24 23:35",
+            "leaveTimeAirport": "2019/04/24 18:35",
+            "arriveTimeUTC": "2019/04/25 03:20",
+            "arriveTimeAirport": "2019/04/24 20:20",
+            "equipmentType": "Boeing 737-700 (winglets)",
+            "equipmentCategory": "NARROW_BODY",
+            "leaveTime": 1556145300,
+            "arriveTime": 1556151600,
+            "duration": 225,
+            "arrivalDayDiff": 0
+        }
     },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.0000021924265969230913,
-        "currencyCode": "USD",
-        "displayLow": "$858",
-        "displayLowTotal": "$858",
-        "duration": 962,
-        "exactLow": 857.11,
-        "exactLowTotal": 857.11,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+    "maxstopsall": 3,
+    "minstopsall": 1,
+    "numguests": 1,
+    "numAdults": 1,
+    "numSeniors": 0,
+    "numSeatInfants": 0,
+    "numLapInfants": 0,
+    "numYouths": 0,
+    "numChildren": 0,
+    "isCuba": false,
+    "cheapestPrice": 214,
+    "cheapestPriceTotal": 214,
+    "tripset": [
+        {
+            "tripid": "563bb378136f62c933a2e111fe1a4718",
+            "featureScore": 5.14127945333801,
+            "clickProbability": 0.007177807591036375,
+            "maxstops": 1,
+            "low": 214,
+            "duration": 893,
+            "legs": [
+                {
+                    "segments": [
+                        "1762147872",
+                        "-955129574"
+                    ],
+                    "duration": 893
+                }
+            ],
+            "cheapestProviderName": "Frontier",
+            "isOpaque": false,
+            "displayLow": "$214",
+            "numProviders": 3,
+            "maxDisplayedProviders": 3,
+            "exactLow": 213.6,
+            "penalized": false,
+            "lowTotal": 214,
+            "displayLowTotal": "$214",
+            "exactLowTotal": 213.6,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/f563bb378136f62c933a2e111fe1a4718",
+            "underpriced": false,
+            "lowOriginal": 214,
+            "lowOriginalTotal": 214,
+            "numCheckedBags": 0,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
         },
-        "featureScore": 0.6842745265575216,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 962,
-                "segments": [
-                    "-1070804458",
-                    "202166367"
-                ]
-            }
-        ],
-        "low": 858,
-        "lowOriginal": 858,
-        "lowOriginalTotal": 858,
-        "lowTotal": 858,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f4a385d72b936d964013dc4fe2d851ed4",
-        "tripid": "4a385d72b936d964013dc4fe2d851ed4",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.00008481114348826036,
-        "currencyCode": "USD",
-        "displayLow": "$893",
-        "displayLowTotal": "$893",
-        "duration": 359,
-        "exactLow": 892.51,
-        "exactLowTotal": 892.51,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        {
+            "tripid": "a926dd31f1557edd762f4007eba83623",
+            "featureScore": 2.1192235093741867,
+            "clickProbability": 0.00020185327746762978,
+            "maxstops": 1,
+            "low": 259,
+            "duration": 1431,
+            "legs": [
+                {
+                    "segments": [
+                        "1762147872",
+                        "-2043644292"
+                    ],
+                    "duration": 1431
+                }
+            ],
+            "cheapestProviderName": "Frontier",
+            "isOpaque": false,
+            "displayLow": "$259",
+            "numProviders": 3,
+            "maxDisplayedProviders": 3,
+            "exactLow": 258.6,
+            "penalized": false,
+            "lowTotal": 259,
+            "displayLowTotal": "$259",
+            "exactLowTotal": 258.6,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/fa926dd31f1557edd762f4007eba83623",
+            "underpriced": false,
+            "lowOriginal": 259,
+            "lowOriginalTotal": 259,
+            "numCheckedBags": 0,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
         },
-        "featureScore": 1.7063915747235794,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 359,
-                "segments": [
-                    "-1007587054",
-                    "995136330"
-                ]
-            }
-        ],
-        "low": 893,
-        "lowOriginal": 893,
-        "lowOriginalTotal": 893,
-        "lowTotal": 893,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/ff5c488332718a8dc236c5f1f30b50890",
-        "tripid": "f5c488332718a8dc236c5f1f30b50890",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.00001926124982501199,
-        "currencyCode": "USD",
-        "displayLow": "$906",
-        "displayLowTotal": "$906",
-        "duration": 487,
-        "exactLow": 905.71,
-        "exactLowTotal": 905.71,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        {
+            "tripid": "4e9501591035f32def2f4f5c25702282",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 380,
+            "legs": [
+                {
+                    "segments": [
+                        "-218778977",
+                        "196313382"
+                    ],
+                    "duration": 380
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/f4e9501591035f32def2f4f5c25702282",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
         },
-        "featureScore": 1.178048779822501,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 487,
-                "segments": [
-                    "-1007587054",
-                    "694423599",
-                    "1280902776"
-                ]
-            }
-        ],
-        "low": 906,
-        "lowOriginal": 906,
-        "lowOriginalTotal": 906,
-        "lowTotal": 906,
-        "maxDisplayedProviders": 1,
-        "maxstops": 2,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f1740e1b0b21edb04e916677a85bd1eab",
-        "tripid": "1740e1b0b21edb04e916677a85bd1eab",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.000002635620194790651,
-        "currencyCode": "USD",
-        "displayLow": "$908",
-        "displayLowTotal": "$908",
-        "duration": 900,
-        "exactLow": 907.11,
-        "exactLowTotal": 907.11,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        {
+            "tripid": "8cccc9e984e5b58c55dfd80dc483566c",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 393,
+            "legs": [
+                {
+                    "segments": [
+                        "-1833931238",
+                        "-1708103031"
+                    ],
+                    "duration": 393
+                }
+            ],
+            "cheapestProviderName": "American Airlines",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/f8cccc9e984e5b58c55dfd80dc483566c",
+            "underpriced": false,
+            "fareFamily": {
+                "code": "MAIN",
+                "displayName": "Main Cabin"
+            },
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 0,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
         },
-        "featureScore": 0.7165056733812548,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 900,
-                "segments": [
-                    "-1007587054",
-                    "-58200298"
-                ]
-            }
-        ],
-        "low": 908,
-        "lowOriginal": 908,
-        "lowOriginalTotal": 908,
-        "lowTotal": 908,
-        "maxDisplayedProviders": 1,
-        "maxstops": 1,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/fdfec8c73a7c070d8639f1c0eb2592b55",
-        "tripid": "dfec8c73a7c070d8639f1c0eb2592b55",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.00001833014454728602,
-        "currencyCode": "USD",
-        "displayLow": "$918",
-        "displayLowTotal": "$918",
-        "duration": 487,
-        "exactLow": 917.69,
-        "exactLowTotal": 917.69,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        {
+            "tripid": "ba05191d37e4b3bbe02e38655d469a24",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 395,
+            "legs": [
+                {
+                    "segments": [
+                        "-1948878267",
+                        "1721013330"
+                    ],
+                    "duration": 395
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/fba05191d37e4b3bbe02e38655d469a24",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
         },
-        "featureScore": 1.1635472103520141,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 487,
-                "segments": [
-                    "-1007587054",
-                    "95225977",
-                    "1280902776"
-                ]
-            }
-        ],
-        "low": 918,
-        "lowOriginal": 918,
-        "lowOriginalTotal": 918,
-        "lowTotal": 918,
-        "maxDisplayedProviders": 1,
-        "maxstops": 2,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f873cbf651264c8660e98ee5fc80d3c6a",
-        "tripid": "873cbf651264c8660e98ee5fc80d3c6a",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.000023193344542559803,
-        "currencyCode": "USD",
-        "displayLow": "$950",
-        "displayLowTotal": "$950",
-        "duration": 429,
-        "exactLow": 949.21,
-        "exactLowTotal": 949.21,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        {
+            "tripid": "e931effe094e3f157b52cc1ba111e379",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 395,
+            "legs": [
+                {
+                    "segments": [
+                        "407150656",
+                        "-1357240173"
+                    ],
+                    "duration": 395
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/fe931effe094e3f157b52cc1ba111e379",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
         },
-        "featureScore": 1.2340461506003595,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 429,
-                "segments": [
-                    "839611345",
-                    "-1591050752",
-                    "1044576224"
-                ]
-            }
-        ],
-        "low": 950,
-        "lowOriginal": 950,
-        "lowOriginalTotal": 950,
-        "lowTotal": 950,
-        "maxDisplayedProviders": 1,
-        "maxstops": 2,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/f4960568de3bb797e4f13e1afb9484e5c",
-        "tripid": "4960568de3bb797e4f13e1afb9484e5c",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.000019627964111802586,
-        "currencyCode": "USD",
-        "displayLow": "$967",
-        "displayLowTotal": "$967",
-        "duration": 444,
-        "exactLow": 966.7,
-        "exactLowTotal": 966.7,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        {
+            "tripid": "446cf59c04d1b486128fa733a51ad306",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 400,
+            "legs": [
+                {
+                    "segments": [
+                        "-809313229",
+                        "-121307266"
+                    ],
+                    "duration": 400
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/f446cf59c04d1b486128fa733a51ad306",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
         },
-        "featureScore": 1.1836159862450804,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 444,
-                "segments": [
-                    "-1007587054",
-                    "415105277",
-                    "1044576224"
-                ]
-            }
-        ],
-        "low": 967,
-        "lowOriginal": 967,
-        "lowOriginalTotal": 967,
-        "lowTotal": 967,
-        "maxDisplayedProviders": 1,
-        "maxstops": 2,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/fc95b0eb20b075face727fde59d6d78fd",
-        "tripid": "c95b0eb20b075face727fde59d6d78fd",
-        "underpriced": false
-    },
-    {
-        "cabinClass": "e",
-        "cheapestProviderName": "American Airlines",
-        "clickProbability": 0.000009921677365210003,
-        "currencyCode": "USD",
-        "displayLow": "$1073",
-        "displayLowTotal": "$1073",
-        "duration": 483,
-        "exactLow": 1072.2,
-        "exactLowTotal": 1072.2,
-        "fareFamily": {
-            "code": "MAIN",
-            "displayName": "Main Cabin"
+        {
+            "tripid": "8f1eef69faa4a370f20259a298302a7c",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 410,
+            "legs": [
+                {
+                    "segments": [
+                        "1520193990",
+                        "1601964734"
+                    ],
+                    "duration": 410
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/f8f1eef69faa4a370f20259a298302a7c",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
         },
-        "featureScore": 0.9980268733974993,
-        "flightRoutes": [
-            {
-                "destinationAirport": "JFK",
-                "originAirport": "ATL"
-            }
-        ],
-        "isCubaLayover": false,
-        "isOpaque": false,
-        "isSplit": false,
-        "legs": [
-            {
-                "duration": 483,
-                "segments": [
-                    "-519293379",
-                    "-133304304",
-                    "-423627254"
-                ]
-            }
-        ],
-        "low": 1073,
-        "lowOriginal": 1073,
-        "lowOriginalTotal": 1073,
-        "lowTotal": 1073,
-        "maxDisplayedProviders": 1,
-        "maxstops": 2,
-        "numProviders": 1,
-        "penalized": false,
-        "shareURL": "/flights/ATL-JFK/2019-03-31/fcb57a1fa161085fe970eb8fbd3e5a644",
-        "tripid": "cb57a1fa161085fe970eb8fbd3e5a644",
-        "underpriced": false
-    }
-]
+        {
+            "tripid": "e67686640260872f275f789505b8a085",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 417,
+            "legs": [
+                {
+                    "segments": [
+                        "21584420",
+                        "-113779828"
+                    ],
+                    "duration": 417
+                }
+            ],
+            "cheapestProviderName": "American Airlines",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/fe67686640260872f275f789505b8a085",
+            "underpriced": false,
+            "fareFamily": {
+                "code": "MAIN",
+                "displayName": "Main Cabin"
+            },
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 0,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "04939604f8fcc22585bb4e49acca48a2",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 420,
+            "legs": [
+                {
+                    "segments": [
+                        "-630388368",
+                        "503756123"
+                    ],
+                    "duration": 420
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/f04939604f8fcc22585bb4e49acca48a2",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "f4ea02562427d3da081ce0b57614626a",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 435,
+            "legs": [
+                {
+                    "segments": [
+                        "-2108637172",
+                        "-2125683289"
+                    ],
+                    "duration": 435
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/ff4ea02562427d3da081ce0b57614626a",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "f504a4d081996f8bd7480a22f2d86ba6",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 440,
+            "legs": [
+                {
+                    "segments": [
+                        "1846177043",
+                        "-91044794"
+                    ],
+                    "duration": 440
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/ff504a4d081996f8bd7480a22f2d86ba6",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "8a08d96b6cfd624f2f77f3daec22df85",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 444,
+            "legs": [
+                {
+                    "segments": [
+                        "-507241403",
+                        "940513776"
+                    ],
+                    "duration": 444
+                }
+            ],
+            "cheapestProviderName": "American Airlines",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/f8a08d96b6cfd624f2f77f3daec22df85",
+            "underpriced": false,
+            "fareFamily": {
+                "code": "MAIN",
+                "displayName": "Main Cabin"
+            },
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 0,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "e4a6f66e77b78b37da9976a7189fca27",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 448,
+            "legs": [
+                {
+                    "segments": [
+                        "1402114177",
+                        "850015676"
+                    ],
+                    "duration": 448
+                }
+            ],
+            "cheapestProviderName": "American Airlines",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/fe4a6f66e77b78b37da9976a7189fca27",
+            "underpriced": false,
+            "fareFamily": {
+                "code": "MAIN",
+                "displayName": "Main Cabin"
+            },
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 0,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "a448e228d1695a8368e69677b10c7a91",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 455,
+            "legs": [
+                {
+                    "segments": [
+                        "-1148511435",
+                        "2087673909"
+                    ],
+                    "duration": 455
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/fa448e228d1695a8368e69677b10c7a91",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "32af3bbdfeb7c6cec495ae0532f095d6",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 475,
+            "legs": [
+                {
+                    "segments": [
+                        "-1755938199",
+                        "1917157489"
+                    ],
+                    "duration": 475
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/f32af3bbdfeb7c6cec495ae0532f095d6",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "b781e7d774548f7d5bba7df7dee3abda",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 480,
+            "legs": [
+                {
+                    "segments": [
+                        "-578868703",
+                        "1191456757"
+                    ],
+                    "duration": 480
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/fb781e7d774548f7d5bba7df7dee3abda",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "edcc376a5c04bd990b5f2cd45160da11",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 485,
+            "legs": [
+                {
+                    "segments": [
+                        "458523256",
+                        "670217056"
+                    ],
+                    "duration": 485
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/fedcc376a5c04bd990b5f2cd45160da11",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "d8a7595293c1b6e0053f72634e88000b",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 490,
+            "legs": [
+                {
+                    "segments": [
+                        "1837901210",
+                        "-716283878"
+                    ],
+                    "duration": 490
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/fd8a7595293c1b6e0053f72634e88000b",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "617d4ff625cf9d7bdea70aebb3812781",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 493,
+            "legs": [
+                {
+                    "segments": [
+                        "-796763422",
+                        "-1230656674"
+                    ],
+                    "duration": 493
+                }
+            ],
+            "cheapestProviderName": "American Airlines",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/f617d4ff625cf9d7bdea70aebb3812781",
+            "underpriced": false,
+            "fareFamily": {
+                "code": "MAIN",
+                "displayName": "Main Cabin"
+            },
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 0,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "3b7aac971a0fec360dea46699904b8e8",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 515,
+            "legs": [
+                {
+                    "segments": [
+                        "-373276297",
+                        "241519152"
+                    ],
+                    "duration": 515
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/f3b7aac971a0fec360dea46699904b8e8",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "739f19963ee7d7f4d4b30bd461f8e58d",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 1,
+            "low": -1,
+            "duration": 525,
+            "legs": [
+                {
+                    "segments": [
+                        "1808205004",
+                        "-274302342"
+                    ],
+                    "duration": 525
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/f739f19963ee7d7f4d4b30bd461f8e58d",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        },
+        {
+            "tripid": "56c32df953de9c48b823829c406e6c9a",
+            "featureScore": -1,
+            "clickProbability": 0,
+            "maxstops": 3,
+            "low": -1,
+            "duration": 735,
+            "legs": [
+                {
+                    "segments": [
+                        "-402587887",
+                        "1670970307",
+                        "-223263294",
+                        "-1357240173"
+                    ],
+                    "duration": 735
+                }
+            ],
+            "cheapestProviderName": "Southwest",
+            "isOpaque": false,
+            "displayLow": "$-1",
+            "numProviders": 1,
+            "maxDisplayedProviders": 1,
+            "exactLow": -1,
+            "penalized": false,
+            "lowTotal": -1,
+            "displayLowTotal": "$-1",
+            "exactLowTotal": -1,
+            "currencyCode": "USD",
+            "isSplit": false,
+            "cabinClass": "e",
+            "isCubaLayover": false,
+            "flightRoutes": [
+                {
+                    "originAirport": "ATL",
+                    "destinationAirport": "SAN"
+                }
+            ],
+            "shareURL": "/flights/ATL-SAN/2019-04-24/f56c32df953de9c48b823829c406e6c9a",
+            "underpriced": false,
+            "lowOriginal": -1,
+            "lowOriginalTotal": -1,
+            "numCheckedBags": 2,
+            "numCarryOnBags": 1,
+            "carryOnProhibited": false
+        }
+    ],
+    "baseUrl": "https://www.kayak.com"
+}

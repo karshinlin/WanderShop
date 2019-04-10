@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity, FlatList, StyleSheet, ActivityIndicator, Button, AsyncStorage } from "react-native";
+import { View, Text, TouchableOpacity, FlatList, StyleSheet, Linking, ActivityIndicator, Button, AsyncStorage } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import './global.js'
@@ -111,15 +111,16 @@ class FlightView extends Component {
       <View style={{ flex: 1 }}>
         <FlatList
         data={this.state.data}
-        renderItem={({ item: { tripid, cheapestProviderName, displayLowTotal, fareFamily, legs } }) => (
+        renderItem={({ item: { tripId, departDate, price, provider, segments, bookingUrl } }) => (
           <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text style={styles.centerTitle}>{cheapestProviderName}</Text>
-            <Text style={styles.miniHeader}>Price: <Text style={styles.regularText}>{displayLowTotal}</Text></Text>
-            <Text style={styles.miniHeader}>Cabin Type: <Text style={styles.regularText}>{fareFamily ? fareFamily.displayName : ""}</Text></Text>
-            <Text style={styles.miniHeader}>Number of Stops: <Text style={styles.regularText}>{Object.keys(legs[0].segments).length}</Text></Text>
+            <Text style={styles.centerTitle}>{provider}</Text>
+            <Text style={styles.miniHeader}>Price: <Text style={styles.regularText}>{price}</Text></Text>
+            <Text style={styles.miniHeader}>Depart Date: <Text style={styles.regularText}>{departDate}</Text></Text>
+            <Text style={styles.miniHeader}>Number of Stops: <Text style={styles.regularText}>{segments.length}</Text></Text>
+            <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${bookingUrl}`); }}>Book Now!</Text>
             <View style={{ margin: 15, flex: 1, justifyContent: "center", alignSelf: "center" }}>
               <TouchableOpacity onPress={() => {
-                this.addToCart({category: "flight", cheapestProviderName, displayLowTotal, fareFamily, legs });
+                this.addToCart({category: "flight", tripId, departDate, price, provider, segments, bookingUrl});
               }}>
                 <FontAwesomeIcon size={35} name={"cart-plus"} color={"#000"}/>
               </TouchableOpacity>
