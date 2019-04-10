@@ -135,7 +135,9 @@ def postProcessFlights(jsonResponse):
                 "destinationAirportCode": currSeg["destinationCode"],
                 "destinationAirportName": airports[currSeg["destinationCode"]],
                 "departTime": currSeg["leaveTimeDisplay"],
+                "departTimeUnix": currSeg["leaveTime"],
                 "arriveTime": currSeg["arriveTimeDisplay"],
+                "arriveTimeUnix": currSeg["arriveTime"],
                 "arriveDayDiff": currSeg["arrivalDayDiff"]
             }
             segmentList.append(newSeg)

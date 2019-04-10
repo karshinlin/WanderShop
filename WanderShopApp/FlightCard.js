@@ -34,6 +34,14 @@ export default class FlightCard extends Component {
                                     <Text style={styles.time}>{this.props.first_land_time}</Text>
                                     <Text style={styles.airport}>{this.props.first_land_airport}</Text>
                                 </View>
+                            </View>
+                            <View style={styles.flightRow}>
+                                <View style={styles.endpoint}>
+                                    <Text style={styles.time}>{this.props.aDepartDate}</Text>
+                                </View>
+                                <View style={styles.endpoint}>
+                                    <Text style={styles.time}>{this.props.numStops}</Text>
+                                </View>
                             </View>   
 {/*                             <View style={styles.flightRow}>
                                 <View style={styles.endpoint}>
