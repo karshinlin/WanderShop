@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    View, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
+    View, Platform, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
 import { cDarkBlue, cLightBlue, cWhite } from "./App";
 import CardRating from "./CardRating"
 import AddButton from "./AddButton"
@@ -19,22 +19,26 @@ export default class RestaurantCard extends Component {
                     >
                     <View style={{width: "100%"}}>
                         <View style={styles.wrapper}>
-                            <View style={{width: wrapperWidth}}>
+                            <View style={{width: Platform.OS === 'ios' ? '100%' : wrapperWidth}}>
                                 <Image source={{uri: this.props.sourceURL}} style={styles.heroImg} />
-                                <AddButton></AddButton>
+                                <AddButton onPress={this.props.addAction}></AddButton>
                             </View>
                             <View style={styles.infoArea}>
                                 <View style={styles.name_stars}>
                                     <Text style={styles.hotelName}>{this.props.name}</Text>
-                                    <View style={{width: 140, marginVertical: 5}}>
+                                    <View style={{width: Platform.OS === 'ios' ? 110 : 140, marginVertical: Platform.OS === 'ios' ? 7 : 5}}>
                                         <CardRating rating={this.props.rating}></CardRating>
                                     </View>
                                         
                                 </View>
                                 <View style={styles.price_area}>
                                     <Text style={styles.price}>{"$".repeat(this.props.price)}</Text>
+                                    
                                 </View>
-                            </View>                        
+                            </View> 
+                            <View style={{width: '100%'}}>
+                                <Text style={styles.address}>{this.props.address}</Text>
+                            </View>                       
                         </View>
                     </View>
                 </TouchableHighlight>
@@ -50,17 +54,27 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         padding: 30,
         justifyContent: "center",
+        ...Platform.select({
+            ios: {
+              
+              
+              
+            },
+            android: {
+              
+            },
+          }),
     },
     heroImg: {
-        width: "100%",
+        width: Platform.OS === 'ios' ? '100%' : "100%",
         height: 195,
         borderRadius: 13,
     },
     infoArea: {
         flexDirection: "row",
-        width: wrapperWidth,
+        width: Platform.OS === 'ios' ? '100%' : wrapperWidth,
         justifyContent: "space-between",
-        marginTop: 7,
+        marginTop: 10,
         padding: 5
     },
     name_stars: {
@@ -68,7 +82,9 @@ const styles = StyleSheet.create({
     },
     price_area: {
         flexDirection: "column",
-        justifyContent: "center"
+        justifyContent: "center",
+        alignSelf: "flex-start",
+        marginTop: 5
     },
     hotelName: {
         fontFamily: "Arial",
@@ -85,6 +101,17 @@ const styles = StyleSheet.create({
     },
     nightText: {
         alignSelf: "flex-end",
-        marginTop: -6,
+        marginTop: Platform.OS === 'ios' ? -2 : -6,
+        fontSize: 13,
+        opacity: 0.8
+    },
+    address: {
+        textAlign: "left",
+        fontSize: 16,
+        marginTop: -1,
+        width: '100%',
+        opacity: 0.7,
+        marginBottom: 5,
+        marginLeft: 5,
     }
 });

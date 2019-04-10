@@ -20,7 +20,7 @@ export default class HotelCard extends Component {
                     <View style={{width: "100%"}}>
                         <View style={styles.wrapper}>
                             <View style={{width: Platform.OS === 'ios' ? '100%' : wrapperWidth}}>
-                                <Image source={require('./assets/img/hero_hotel.jpg')} style={styles.heroImg} />
+                                <Image source={{uri: this.props.hotelPic}} style={styles.heroImg} />
                                 <AddButton onPress={this.props.addAction}></AddButton>
                             </View>
                             <View style={styles.infoArea}>
@@ -88,8 +88,10 @@ const styles = StyleSheet.create({
     },
     hotelName: {
         fontFamily: "Arial",
-        fontSize: 26,
+        fontSize: 21,
         color: "#363636",
+        maxWidth: 230,
+        marginTop: 4
     },
     hotelStars: {
 

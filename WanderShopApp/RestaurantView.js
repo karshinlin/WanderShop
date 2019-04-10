@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import StarRating from 'react-native-star-rating'; 
 import './global.js'
-import RestaurantCard from "./EventCard.js";
+import RestaurantCard from "./RestaurantCard.js";
 
 class RestaurantView extends Component {
   constructor(props) {
@@ -128,7 +128,7 @@ class RestaurantView extends Component {
               price = 4;
             }
             return (
-              <RestaurantCard name={name} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={price} addAction={() => {
+              <RestaurantCard name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={price} addAction={() => {
                 this.addToCart({ category: "food", name, id,
                 rating,
                 price,

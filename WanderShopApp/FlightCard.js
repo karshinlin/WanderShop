@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    View, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
+    View, Platform, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
 import { cDarkBlue, cLightBlue, cWhite } from "./App";
 import CardRating from "./CardRating"
 import AddButton from "./AddButton"
@@ -69,10 +69,10 @@ const styles = StyleSheet.create({
         flexDirection: "column", 
         alignItems: 'center',
         backgroundColor: "white",
-        paddingTop: 40,
+        paddingTop: 20,
         justifyContent: "center",
         position: "relative",
-        width: wrapperWidth,
+        width: Platform.OS === 'ios' ? '100%' : wrapperWidth,
         borderWidth: 2, 
         borderColor: "#E6E6E6", 
         borderRadius: 8
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     time: {
         fontFamily: "Arial",
         color: "black",
-        fontSize: 23
+        fontSize: 20
     },
     connector: {
         justifyContent: "center",
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     },
     airport: {
         color: "#A9A9BA",
-        fontSize: 17
+        fontSize: 13
     },
     footer: {
         backgroundColor: "#F8F9F9",
