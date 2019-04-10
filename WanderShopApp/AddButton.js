@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
     View,
     Text,
-    TouchableHighlight
+    TouchableHighlight,
+    Platform
 } from 'react-native';
 import { cDarkBlue, cLightBlue } from "./App";
 
@@ -16,14 +17,15 @@ export default class AddButton extends Component {
             marginBottom: 18,
             backgroundColor: cDarkBlue,
             height: 38,
-            width: 85,
+            width: Platform.OS === 'ios' ? 70 : 85,
             borderColor: "#2268D4",
             borderWidth: 1,
-            paddingVertical: 6,
+            paddingVertical: Platform.OS === 'ios' ? 0 : 6,
             justifyContent: "center",
             position: "absolute",
             top: -195,
-            right: 15
+            right: 15,
+            
         }
         return (
             <View>
@@ -32,7 +34,7 @@ export default class AddButton extends Component {
                     underlayColor={cLightBlue}
                     >
                     <View style={[{alignItems: "center", justifyContent: "center", padding: 10}]}>
-                        <Text style={{fontSize: 20, fontFamily: "Arial", color: "white"}}>+ADD</Text>
+                        <Text style={{fontSize: Platform.OS === 'ios' ? 16 : 20, fontFamily: "Arial", color: "white", fontWeight: Platform.OS === 'ios' ? 'bold' : 'regular'}}>+ADD</Text>
                     </View>
                 </TouchableHighlight>
             </View>

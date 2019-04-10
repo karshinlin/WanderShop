@@ -1,7 +1,7 @@
 import StarRating from 'react-native-star-rating';
 import React, { Component } from 'react';
 import {
-    View, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
+    View, Platform, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
 import { cDarkBlue, cLightBlue, cWhite } from "./App";
 
 class CardRating extends Component {
@@ -24,8 +24,8 @@ class CardRating extends Component {
       <StarRating
         disabled={true}
         maxStars={5}
-        starSize={25}
-        starStyle={{marginLeft: 1, marginRight: 1, paddingRight: 0, paddingHorizontal: 0, marginHorizontal: 0}}
+        starSize={Platform.OS === 'ios' ? 20 : 25}
+        starStyle={{marginHorizontal: Platform.OS === 'ios' ? 0: 1, paddingHorizontal: Platform.OS === 'ios' ? -5: 0}}
         emptyStarColor={"white"}
         fullStarColor={"#FAA916"}
         rating={this.props.rating}

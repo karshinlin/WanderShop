@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet, Dimensions, Text } from 'react-native';
+import { View, Platform, StyleSheet, Dimensions, Text } from 'react-native';
 import { TabView, TabBar, SceneMap, Label } from 'react-native-tab-view';
 import FlightView from './FlightView'; 
 import HotelView from './HotelView';
@@ -39,7 +39,7 @@ export default class TabViewPage extends React.Component {
             indicatorStyle={{ backgroundColor: '#FAA916', padding: 2 }}
             style={{ backgroundColor: '#3EAAFA'}}
             renderLabel={({ route, focused, color }) => (
-              <Text style={{marginTop: 10, marginBottom: 15, fontWeight: "bold", fontSize: 20, color: "white",}}>
+              <Text style={{marginTop: 10, marginBottom: 15, fontWeight: "bold", fontSize: Platform.OS === 'ios' ? 17 : 20, color: "white",}}>
                 {route.title.toUpperCase()}
               </Text>
             )}

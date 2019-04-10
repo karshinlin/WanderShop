@@ -108,7 +108,7 @@ class EventView extends Component {
         <FlatList
         data={this.state.data}
         renderItem={({ item: { name, info, images, id, priceRanges, url, type, place, _embedded: { venues } } }) => (
-          <EventCard name={name} sourceURL={images[0].url} price={priceRanges && priceRanges.length > 0 ? `${priceRanges[0].min} - ${priceRanges[0].max}` : ''} addAction={() => {
+          <EventCard name={name} info={info} sourceURL={images[0].url} price={priceRanges && priceRanges.length > 0 ? `${priceRanges[0].min}` : ''} eventLocation={venues[0].name} addAction={() => {
             this.addToCart({ category: "event", name, info, images, id, priceRanges, url, type, place, _embedded: { venues } });
           }}/>
           // <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
