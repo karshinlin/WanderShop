@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    View, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
+    View, Platform, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
 import { cDarkBlue, cLightBlue, cWhite } from "./App";
 
 export default class NewTripButton extends Component {
@@ -20,7 +20,7 @@ export default class NewTripButton extends Component {
                             </View>
                             <View style={styles.textHolder}>
                                 <Text style={styles.btnTitle}>Start a new trip</Text>
-                                <Text style={styles.btnSubtitle}>Book and track your budget for flights, hotels, events and restaurants in your trip</Text>
+                                <Text style={styles.btnSubtitle}>{Platform.OS === 'ios' ? "Book flights, hotels, events and restaurants in your trip": "Book and track your budget for flights, hotels, events and restaurants in your trip" }</Text>
                             </View>                        
                         </View>
                     </View>
@@ -37,17 +37,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius:15,
         backgroundColor: "#EDF7FF",
-        height: 130, 
-        padding: 23,
-        paddingLeft: 20,
+        height: Platform.OS === 'ios' ? "auto" : 130, 
+        padding: 20,
+        paddingVertical: Platform.OS === 'ios' ? 23 : 20,
+        paddingLeft: 17,
         justifyContent: "flex-start",
         borderWidth: 1.5,
         borderColor: "#3EAAFA",
         marginBottom: 5
     },
     tripIcon: {
-        height: 65,
-        width: 65
+        height: Platform.OS === 'ios' ? 53 : 65,
+        width: Platform.OS === 'ios' ? 53 : 65,
     },
     textHolder: {
         flex: 0.87,
@@ -57,14 +58,15 @@ const styles = StyleSheet.create({
     },
     btnTitle: {
         fontFamily: "Arial",
-        fontSize: 23,
+        fontSize: Platform.OS === 'ios' ? 20 : 23,
         color: "#3EAAFA",
+        fontWeight: "bold"
     },
     btnSubtitle: {
         fontFamily: "Arial",
-        fontSize: 16,
-        lineHeight: 21,
+        fontSize: Platform.OS === 'ios' ? 15 : 16,
+        lineHeight: Platform.OS === 'ios' ? 18 : 21,
         marginTop: 3,
-        color: "#4F5050",
+        color: "#3F4040",
     }
 });

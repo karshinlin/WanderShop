@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet, TextInput, AsyncStorage, Image } from "react-native";
+import { Platform, Button, View, Text, StyleSheet, TextInput, AsyncStorage, Image } from "react-native";
 import { cDarkBlue, cLightBlue, cBlack, cWhite } from "./App";
 import StandardButton from "./StandardButton"
 import NewTripButton from './NewTripButton';
@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontFamily: "Arial",
 		color: "black",
-		alignSelf: "center"
+		alignSelf: "center",
+		fontWeight: "bold"
 		
 	},
 	heading: {
@@ -88,13 +89,15 @@ const styles = StyleSheet.create({
   profileIcon: {
 		backgroundColor: "#D4D4D4",
 		borderRadius: 30,
-		width: 60,
-		height: 60,
+		width: Platform.OS === 'ios' ? 50 :60,
+		height: Platform.OS === 'ios' ? 50 :60,
 		justifyContent: "center",
-		alignItems: "center"
+		alignItems: "center",
+		marginTop: Platform.OS === 'ios' ? 5: 0,
 	},
 	profileText: {
-		fontSize: 30,
+		fontSize: Platform.OS === 'ios' ? 23 :30,
 		fontFamily: "Arial",
+		marginTop: Platform.OS === 'ios' ? 3 : 0,
 	}
 });
