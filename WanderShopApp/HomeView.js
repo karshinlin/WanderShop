@@ -13,12 +13,12 @@ import TripCard from "./TripCard";
 export default class HomeView extends React.Component {
 	constructor(props) {
     super(props);
-		this.params = this.props.navigation.state.params;
+		this.params = this.props.navigation.state.params || {};
 		console.log(this.params);
 	}
   	render() {
 			var initials = "";
-			if (this.params.name) {
+			if (this.params && this.params.name) {
 				this.params.name.split(" ").forEach(function(word) {
 					console.log(word);
 					initials += word.charAt(0);
