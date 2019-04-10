@@ -53,7 +53,7 @@ export default class TripOptionsScreen extends React.Component {
 		const { selectedStartDate, selectedEndDate, originCity, destCity} = this.state;
 		console.log(this.state);
 		const minDate = new Date(); // Today
-		const maxDate = new Date(2019, 3, 30);
+		const maxDate = new Date(2019, 12, 30);
 		const startDate  =  selectedStartDate ? selectedStartDate.toString() : '';
 		const endDate = selectedEndDate ? selectedEndDate.toString() : '';
 		const origin = originCity ? originCity.toString() : '';

@@ -121,17 +121,18 @@ class RestaurantView extends Component {
               state,
               postal_code,
           } } }) => {
+            var thePrice = 0;
             if (price == "$") {
-              price = 1;
+              thePrice = 1;
             } else if (price == "$$") {
-              price = 2;
+              thePrice = 2;
             } else if (price == "$$$") {
-              price = 3;
+              thePrice = 3;
             } else {
-              price = 4;
+              thePrice = 4;
             }
             return (
-              <RestaurantCard name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={price} addAction={() => {
+              <RestaurantCard name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} addAction={() => {
                 this.addToCart({ category: "food", name, id,
                 rating,
                 price,

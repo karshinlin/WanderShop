@@ -4,6 +4,8 @@ import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import StarRating from 'react-native-star-rating';
 import FlightCard from "./FlightCard.js";
 import HotelCard from "./HotelCard.js";
+import EventCard from "./EventCard.js";
+import RestaurantCard from "./RestaurantCard.js";
 
 class CartScreen extends Component {
   constructor(props) {
@@ -105,24 +107,9 @@ class CartScreen extends Component {
         scrollEnabled={false}
         data={this.state.hotels}
         renderItem={({ item: { bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars } }) => (
-          <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-              <Text style={styles.centerTitle}>{hotelName}</Text>
-              <Text style={styles.miniHeader}>Address: <Text style={styles.regularText}>{address}</Text></Text>
-              <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${phone}`); }}>Give Us a Call!</Text>
-              <Text style={styles.miniHeader}>Check-In: {checkin}</Text>
-              <Text style={styles.miniHeader}>Check-Out: {checkout}</Text>
-              <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${bookingUrl}`); }}>Book Now!</Text>
-              <Text style={styles.miniHeader}>Cost: {price}</Text>
-              <Text style={styles.miniHeader}>Rooms Remaining: <Text style={styles.regularText}>{roomsRemaining}</Text></Text>
-            <View style={{ width: "50%"}}>
-              <StarRating
-                disabled={false}
-                fullStarColor={"yellow"}
-                maxStars={5}
-                rating={stars}
-              />
-            </View>
-          </View>
+          <HotelCard showAdd={"false"} rating={stars} name={hotelName} price={price} address={address} bookingId={bookingId} bookingLogo={bookingLogo} bookingUrl={bookingUrl} checkin={checkin} checkout={checkout} hotelPic={hotelPic} roomsRemaining={roomsRemaining} addAction={() => {
+            this.addToCart({category: "hotel", bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars});
+          }}/>
         )}
         refreshing={this.state.refreshing}
         keyExtractor={({item: bookingId}) => bookingId}
@@ -130,9 +117,9 @@ class CartScreen extends Component {
       />
         <FlatList
         data={this.state.events}
-        renderItem={({ item: { bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars } }) => (
-          <HotelCard rating={stars} name={hotelName} price={price} address={address} bookingId={bookingId} bookingLogo={bookingLogo} bookingUrl={bookingUrl} checkin={checkin} checkout={checkout} hotelPic={hotelPic} roomsRemaining={roomsRemaining} addAction={() => {
-            this.addToCart({category: "hotel", bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars});
+        renderItem={({ item: { name, info, images, id, priceRanges, url, type, place, _embedded: { venues } } }) => (
+          <EventCard showAdd={"false"} name={name} info={info} sourceURL={images[0].url} price={priceRanges && priceRanges.length > 0 ? `${priceRanges[0].min}` : ''} eventLocation={venues[0].name} addAction={() => {
+            this.addToCart({ category: "event", name, info, images, id, priceRanges, url, type, place, _embedded: { venues } });
           }}/>
         )}
         refreshing={this.state.refreshing}
@@ -147,44 +134,40 @@ class CartScreen extends Component {
           price,
           display_phone,
           url,
+          photos,
           location: {
               address1,
               city,
               state,
               postal_code,
-          } } }) => (
-          <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Text style={styles.titleText}>{name}</Text>
-            <View style={{ width: "50%"}}>
-              <StarRating
-                disabled={false}
-                fullStarColor={"yellow"}
-                maxStars={5}
-                rating={rating}
-              />
-            </View>
-            <View style={{ marginTop: 5, marginBottom: 5 }}>
-              <Text style={styles.miniHeader}>Address:</Text>
-              <Text>{address1}</Text>
-              <Text>{city}, {state} {postal_code}</Text>
-            </View>
-            <Text style={styles.miniHeader}>Price:</Text>
-            <View style={{ width: "50%"}}>
-              <StarRating
-                disabled={false}
-                fullStarColor={"yellow"}
-                maxStars={4}
-                rating={price}
-                halfStar={null}
-                emptyStar={null}
-                fullStar={"dollar"}
-                iconSet={"FontAwesome"}
-              />
-            </View>
-            <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${display_phone}`); }}>Give Us a Call!</Text>
-            <Text style={styles.link} onPress={() => { Linking.openURL(url); }}>Take a Look!</Text>
-          </View>
-        )
+          } } }) => {
+            var thePrice = 0;
+            if (price == "$") {
+              thePrice = 1;
+            } else if (price == "$$") {
+              thePrice = 2;
+            } else if (price == "$$$") {
+              thePrice = 3;
+            } else {
+              thePrice = 4;
+            }
+            return (
+              <RestaurantCard name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} addAction={() => {
+                this.addToCart({ category: "food", name, id,
+                rating,
+                price,
+                display_phone,
+                url,
+                photos,
+                location: {
+                    address1,
+                    city,
+                    state,
+                    postal_code,
+                }});
+              }} />
+        );
+      }
           }
         refreshing={this.state.refreshing}
         keyExtractor={({item: id}) => id}

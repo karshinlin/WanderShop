@@ -21,7 +21,7 @@ export default class RestaurantCard extends Component {
                         <View style={styles.wrapper}>
                             <View style={{width: Platform.OS === 'ios' ? '100%' : wrapperWidth}}>
                                 <Image source={{uri: this.props.sourceURL}} style={styles.heroImg} />
-                                <AddButton onPress={this.props.addAction}></AddButton>
+                                <AddButton show={this.props.showAdd} onPress={this.props.showAdd == "false" ? function(){}: this.props.addAction}></AddButton>
                             </View>
                             <View style={styles.infoArea}>
                                 <View style={styles.name_stars}>

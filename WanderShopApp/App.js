@@ -90,9 +90,9 @@ class LoginScreen extends React.Component {
   }
 
   login() {
-    this.props.navigation.navigate('HomePage');
-    //TODO: remove after UI improvements
-    return null;
+    // this.props.navigation.navigate('HomePage');
+    // //TODO: remove after UI improvements
+    //return null;
     try {
       console.log(this.state.email)
       console.log(this.state.pass)
@@ -116,7 +116,9 @@ class LoginScreen extends React.Component {
           // } catch (error) {
           //   console.log(error);
           // }
-          this.props.navigation.navigate('HomePage');
+          var userName = responseJSON['name'];
+          console.log(responseJSON);
+          this.props.navigation.navigate('HomePage', {name: userName.toString()});
         } else {
           console.log(responseJSON)
           console.log("Login failed");
@@ -174,8 +176,8 @@ class CreateAccountScreen extends React.Component {
         </View>
         <View style={{flex:.3}}>
           <StandardButton isRipple style={{height:70, marginTop: 50}} rippleColor={cLightBlue}
-            onPress={() => this.login()} >
-              <Text style={styles.standardButton}> LOG IN</Text>
+            onPress={() => this.verifyPasswordMatch()} >
+              <Text style={styles.standardButton}>CREATE ACCOUNT</Text>
           </StandardButton>
           <Text style={styles.buttonNote}>Already have an account? <Text style={{color: cDarkBlue}}> LOG IN</Text></Text>
         </View>
