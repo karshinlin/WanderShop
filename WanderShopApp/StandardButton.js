@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
     View,
-    TouchableHighlight
+    TouchableHighlight,
+    Platform
 } from 'react-native';
 import { cDarkBlue, cLightBlue } from "./App";
 
@@ -11,10 +12,10 @@ export default class StandardButton extends Component {
         let btn_styles = {
             alignItems: 'center',
             borderRadius: 8,
-            marginTop:18,
-            marginBottom: 18,
+            marginTop: Platform.OS === 'ios' ? 0 : 18,
+            marginBottom: Platform.OS === 'ios' ? 0 : 18,
             backgroundColor: cDarkBlue,
-            height: 70, 
+            height: Platform.OS === 'ios' ? 65 : 70, 
             padding: 10,
             justifyContent: "center"
         }

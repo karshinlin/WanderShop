@@ -31,7 +31,7 @@ export default class HomeView extends React.Component {
 						<Text style={styles.heading}>Your Future Trips</Text>
 				</View>
 		  </View>
-			<View>
+			<View style={{paddingHorizontal: Platform.OS === 'ios' ? 0 : 0}}>
 				<TripCard></TripCard>
 				{/* <FlightCard 
 					first_dep_time={"09:05"}

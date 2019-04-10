@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
     View,
-    TouchableHighlight
+    TouchableHighlight,
+    Platform
 } from 'react-native';
 import { cDarkBlue, cLightBlue } from "./App";
 
@@ -11,10 +12,11 @@ export default class EmphasisButton extends Component {
         let btn_styles = {
             alignItems: 'center',
             borderRadius: 14,
-            margin: 18,
+            margin: Platform.OS === 'ios' ? 9 : 18,
+            
             backgroundColor: cLightBlue,
-            width: 271, 
-            height: 75, 
+            width: Platform.OS === 'ios' ? 230 : 271, 
+            height: Platform.OS === 'ios' ? 65 : 75, 
             padding: 10,
             justifyContent: "center"
         }

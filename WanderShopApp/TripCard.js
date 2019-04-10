@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    View, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
+    View, Platform, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
 import { cDarkBlue, cLightBlue, cWhite } from "./App";
 
 export default class TripCard extends Component {
@@ -40,20 +40,20 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         borderRadius:15,
         backgroundColor: "#F1F1F1", 
-        paddingHorizontal: 29,
+        paddingHorizontal: Platform.OS === 'ios' ? 20 : 29,
         paddingVertical: 20,
         justifyContent: "space-between",
         marginBottom: 15,
-        width: 410
+        width: Platform.OS === 'ios' ? 320 : 410
     },
     city: {
         fontFamily: "Arial",
         color: "black",
-        fontSize: 25
+        fontSize: Platform.OS === 'ios' ? 23 : 25
     },
     detail: {
         fontFamily: "Arial",
-        fontSize: 18,
+        fontSize: Platform.OS === 'ios' ? 16 : 18,
         color: "black",
         opacity: 0.6
     },
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     },
     dates: {
         marginBottom: 2,
-        fontSize: 18,
+        fontSize: Platform.OS === 'ios' ? 16 : 18,
         fontFamily: "Arial",
         color: "#3EAAFA"
     },
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     },
     price: {
         fontFamily: "Arial",
-        fontSize: 26,
+        fontSize: Platform.OS === 'ios' ? 24 : 26,
         color: "black",
         
     }

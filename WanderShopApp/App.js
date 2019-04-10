@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, View, Text, StyleSheet, TextInput, AsyncStorage, Image } from "react-native";
+import { Button, View, Platform, Text, StyleSheet, TextInput, AsyncStorage, Image } from "react-native";
 import { createStackNavigator, createAppContainer, NavigationActions, withNavigation } from "react-navigation";
 import TabViewPageHomeScreen from "./TabViewPage";
 import CartButton from "./CartButton";
@@ -34,11 +34,11 @@ class WelcomeScreen extends React.Component {
       <View>
           <EmphasisButton isRipple style={{}}
             onPress={() => this.props.navigation.navigate('Login')} >
-              <Text style={styles.emphasisButton}> LogIn Now </Text>
+              <Text style={[styles.emphasisButton, {fontWeight: "bold"}]}> Login Now </Text>
           </EmphasisButton>
-          <EmphasisButton isRipple style={{backgroundColor: cRed}} 
+          <EmphasisButton isRipple style={{backgroundColor: "white", borderWidth: 2, borderColor: "#BBBBBB",}} 
             onPress={() => this.props.navigation.navigate('CreateAccount')}>
-              <Text style={[styles.emphasisButton, {color: cBlack}]}> Create an Account </Text>
+              <Text style={[styles.emphasisButton, {color: cBlack, fontWeight: "bold"}]}> Create Account </Text>
           </EmphasisButton>
         </View>
 		
@@ -353,14 +353,15 @@ const styles = StyleSheet.create({
     fontSize: 34,
     textAlign: 'center',
     fontWeight: 'bold',
-    color: cBlack,
-    marginTop: 59
+    color: "#000000",
+    marginTop: Platform.OS === 'ios' ? 50 : 59
   },
 	welcomeSubtitle: {
-	  fontSize: 25,
+	  fontSize: Platform.OS === 'ios' ? 23 : 25,
 	  textAlign: 'center',
     marginTop: 20,
-    marginBottom: 90
+    marginBottom: Platform.OS === 'ios' ? 70 : 90,
+    opacity: Platform.OS === 'ios' ? 0.8 : 1,
   },
   emphasisButton: {
     color: cWhite,

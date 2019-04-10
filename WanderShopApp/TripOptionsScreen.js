@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet, TextInput, AsyncStorage, ScrollView, Dimensions } from "react-native";
+import { Button, Platform, View, Text, StyleSheet, TextInput, AsyncStorage, ScrollView, Dimensions } from "react-native";
 import CalendarPicker from 'react-native-calendar-picker';
 import {cRed, cBlack, cWhite, cLightBlue} from "./App"
 import StandardButton from './StandardButton';
@@ -127,13 +127,14 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'left',
-    fontSize: 35,
+    fontSize: Platform.OS === 'ios' ? 32 : 35,
     fontFamily: "Arial",
 		color: "black",		
+		fontWeight: Platform.OS === 'ios' ? 'bold' : 'regular',
 	},
 	warning: {
 		color: '#3EAAFA',
-		fontSize: 21,
+		fontSize: Platform.OS === 'ios' ? 18 : 21,
 		textAlign: 'left',
 		marginTop: 7,
 		marginBottom: 7,
@@ -146,17 +147,17 @@ const styles = StyleSheet.create({
 		marginBottom: 18,
 		fontFamily: "Arial",
 		fontSize: 23,
-		height: 340,
+		height: Platform.OS === 'ios' ? 280 : 340,
 		overflow: "hidden"
 		
 	},
 	textInput: {
     borderRadius: 8,
     backgroundColor: '#F2F2F2',
-    height: 70,
-    marginBottom: 18,
+    height: Platform.OS === 'ios' ? 60 : 70,
+    marginBottom: Platform.OS === 'ios' ? 13 : 18,
     fontFamily: "Arial",
-    fontSize: 23,
+    fontSize: Platform.OS === 'ios' ? 20 : 23,
     padding: 19,
 
   },
@@ -176,6 +177,7 @@ const styles = StyleSheet.create({
 	color: "#FFFFFF",
 	fontSize: 25,
 	fontFamily: "Arial",
+	fontWeight: 'bold'
 	
 },
 });
