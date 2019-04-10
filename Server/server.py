@@ -250,11 +250,12 @@ def activities_handler():
     destination = request.args.get('dest', default="JFK", type=str)
     oneWeek = datetime.date.today() + datetime.timedelta(days=7)
     date = request.args.get('date', default=str(oneWeek), type=str)
-    cityInfo = Query.runLocationQuery(destination, ["cityname", "rc"])
+    # cityInfo = Query.runLocationQuery(destination, ["cityname", "rc"]) #Comment out to limit API
 
     dateObj = datetime.datetime.strptime(date, '%Y-%m-%d')
     date = dateObj.strftime('%Y-%m-%dT%H:%M:%SZ')
-    json_response = Query.run_ticketmaster_query(city=cityInfo[0], state_code=cityInfo[1], start_date_time=date)
+    # json_response = Query.run_ticketmaster_query(city=cityInfo[0], state_code=cityInfo[1], start_date_time=date) #Comment out to limit API
+    json_response = Query.run_ticketmaster_query(city=destination, start_date_time=date)
     return json.jsonify(json_response["_embedded"])
     
     # Query the db with the flight data request
