@@ -116,8 +116,8 @@ class FlightView extends Component {
           var diff = segments[segments.length-1]["arriveTimeUnix"] - segments[0]["departTimeUnix"];
           console.log(segments[0]["departTimeUnix"]);
           var hours_diff = Math.floor(diff/3600);
-          var mins_diff = Math.floor((diff % 3600)/60)
-          var theDuration = hours_diff + "h " + mins_diff + "m "
+          var mins_diff = Math.floor((diff % 3600)/60);
+          var theDuration = hours_diff + "h " + mins_diff + "m ";
           return (
             <View style={Platform.OS === 'ios' ? {paddingHorizontal: 20} : {}}>
                 <FlightCard 
@@ -128,6 +128,7 @@ class FlightView extends Component {
                   first_land_airport={segments[segments.length-1].destinationAirportCode}
                   aDepartDate={departDate}
                   numStops={segments.length + " Stops"}
+                  
                   // second_dep_time={"10:20"}
                   // second_dep_airport={"JFK"}
                   // second_duration={"5h 05m"}

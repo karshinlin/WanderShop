@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, Image, StyleSheet, Linking, ScrollView, AsyncStorage } from "react-native";
+import { View, Platform, Text, FlatList, Image, StyleSheet, Linking, ScrollView, AsyncStorage } from "react-native";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import StarRating from 'react-native-star-rating';
+import FlightCard from "./FlightCard.js";
+import HotelCard from "./HotelCard.js";
 
 class CartScreen extends Component {
   constructor(props) {
@@ -58,21 +60,45 @@ class CartScreen extends Component {
     console.log(this.state.food);
     if (this.state.flights || this.state.events || this.state.food || this.state.hotels){
         return (
-        <ScrollView style={{ flex: 1, backgroundColor: "#42cef4" }}>
+        <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
             <FlatList
             scrollEnabled={false}
             data={this.state.flights}
-            renderItem={({ item: { tripId, departDate, price, provider, segments, bookingUrl } }) => (
-              <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-                <Text style={styles.centerTitle}>{provider}</Text>
-                <Text style={styles.miniHeader}>Price: <Text style={styles.regularText}>{price}</Text></Text>
-                <Text style={styles.miniHeader}>DepartDate: <Text style={styles.regularText}>{departDate}</Text></Text>
-                <Text style={styles.miniHeader}>Number of Stops: <Text style={styles.regularText}>{segments.length}</Text></Text>
-                <Text style={styles.link} onPress={() => { Linking.openURL(`tel:${bookingUrl}`); }}>Book Now!</Text>
-              </View>
-            )}
+            renderItem={({ item: { tripId, departDate, price, provider, segments, bookingUrl } }) => {
+          
+              var diff = segments[segments.length-1]["arriveTimeUnix"] - segments[0]["departTimeUnix"];
+              console.log(segments[0]["departTimeUnix"]);
+              var hours_diff = Math.floor(diff/3600);
+              var mins_diff = Math.floor((diff % 3600)/60);
+              var theDuration = hours_diff + "h " + mins_diff + "m ";
+              return (
+                <View style={Platform.OS === 'ios' ? {paddingHorizontal: 20} : {}}>
+                    <FlightCard 
+                      first_dep_time={segments[0]["departTime"]}
+                      first_dep_airport={segments[0].originAirportCode}
+                      first_duration={theDuration}
+                      first_land_time={segments[segments.length-1]["arriveTime"]}
+                      first_land_airport={segments[segments.length-1].destinationAirportCode}
+                      aDepartDate={departDate}
+                      numStops={segments.length + " Stops"}
+                      showAdd={"false"}
+                      // second_dep_time={"10:20"}
+                      // second_dep_airport={"JFK"}
+                      // second_duration={"5h 05m"}
+                      // second_land_time={"14:07"}
+                      // second_land_airport={"SFO"}
+                      airline={provider}
+                      price={price == "Not Available" ? "" : price}
+                      addAction={() => {
+                        this.addToCart({category: "flight", tripId, departDate, price, provider, segments, bookingUrl});
+                        }}
+                      >
+                  </FlightCard> 
+                </View>
+              );
+            }}
             refreshing={this.state.refreshing}
-            keyExtractor={({item: tripId}) => tripId}
+            keyExtractor={({item: tripid}) => tripid}
             onRefresh={this.handleRefresh}
         />
         <FlatList
@@ -104,31 +130,10 @@ class CartScreen extends Component {
       />
         <FlatList
         data={this.state.events}
-        renderItem={({ item: { name, info, images, id, priceRanges, url, type, place, _embedded: { venues } } }) => (
-          <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
-            <Image
-              style={{width: 75, height: 75, alignSelf: "center" }}
-              source={{uri: images[0].url}}
-            />
-            <Text style={styles.centerTitle}>{name}</Text>
-              
-            {venues && venues.length > 0 &&
-            <View>
-              <Text style={styles.miniHeader}>Location:</Text>
-              <Text>{venues[0].name}</Text>
-              <Text>{venues[0].address.line1}</Text><Text>{venues[0].city.name}, {venues[0].state && <Text>{venues[0].state.stateCode}</Text>} {venues[0].postalCode}</Text>
-            </View>
-            }
-            {!(venues && venues.length < 0) && place && 
-              <Text>Address: {place.address.line1} {place.city.name}, {place.state && <Text>{place.state.stateCode}</Text>} {place.postalCode}</Text>
-
-            }
-            {priceRanges && priceRanges.length > 0 &&
-            <Text style={styles.miniHeader}>Cost: ${priceRanges[0].min} - ${priceRanges[0].max}</Text>
-            }
-            <Text style={styles.link} onPress={() => { Linking.openURL(url); }}>Take a Look!</Text>
-            {info && <View><Text style={styles.miniHeader}>Extra Info:</Text><Text>{info}</Text></View>}
-          </View>
+        renderItem={({ item: { bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars } }) => (
+          <HotelCard rating={stars} name={hotelName} price={price} address={address} bookingId={bookingId} bookingLogo={bookingLogo} bookingUrl={bookingUrl} checkin={checkin} checkout={checkout} hotelPic={hotelPic} roomsRemaining={roomsRemaining} addAction={() => {
+            this.addToCart({category: "hotel", bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars});
+          }}/>
         )}
         refreshing={this.state.refreshing}
         keyExtractor={({item: id}) => id}
@@ -189,7 +194,7 @@ class CartScreen extends Component {
         );
     }
     return (
-        <View style={{ backgroundColor: "#42cef4" }} >
+        <View style={{ backgroundColor: "white", padding: 20 }} >
             <Text>No Items in Cart</Text>
         </View>
     );

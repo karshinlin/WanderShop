@@ -60,8 +60,8 @@ export default class FlightCard extends Component {
                             <View style={styles.footer}>
                                 <Text style={styles.airline}>{this.props.airline}</Text>
                                 <Text style={styles.price}>{this.props.price}</Text>
-                                <AddButton style={{top: 0, right: 0, marginTop: 0, marginBottom: 0, position: "relative"}}
-                                    onPress={this.props.addAction}></AddButton>
+                                <AddButton show={this.props.showAdd} style={{top: 0, right: 0, marginTop: 0, marginBottom: 0, position: "relative"}}
+                                    onPress={this.props.showAdd == "false" ? function(){}: this.props.addAction}></AddButton>
                                 
                             </View>            
                         </View>

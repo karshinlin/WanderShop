@@ -28,7 +28,7 @@ export default class AddButton extends Component {
             
         }
         return (
-            <View>
+            <View style={{opacity: this.props.show == "false" ? 0 : 1}}>
                 <TouchableHighlight style={[btn_styles, this.props.style]}
                     onPress={onPress}
                     underlayColor={cLightBlue}
