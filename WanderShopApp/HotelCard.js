@@ -32,7 +32,7 @@ export default class HotelCard extends Component {
                                         
                                 </View>
                                 <View style={styles.price_area}>
-                                    <Text style={styles.price}>{"$"+Math.ceil(this.props.price)}</Text>
+                                    <Text style={styles.price}>{this.props.price}</Text>
                                     <Text style={styles.nightText}>/night</Text>
                                 </View>
                             </View> 

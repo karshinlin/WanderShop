@@ -12,7 +12,7 @@ export default class FlightCard extends Component {
         let {onPress, isRipple, rippleColor, children, style} = this.props;
         
         return (
-            <View style={[this.props.style, {justifyContent: "center", marginVertical: 40}]}>
+            <View style={[this.props.style, {justifyContent: "center", marginTop: 30}]}>
                 <TouchableHighlight style={{}}
                     onPress={onPress}
                     underlayColor={cLightBlue}
@@ -35,7 +35,7 @@ export default class FlightCard extends Component {
                                     <Text style={styles.airport}>{this.props.first_land_airport}</Text>
                                 </View>
                             </View>   
-                            <View style={styles.flightRow}>
+{/*                             <View style={styles.flightRow}>
                                 <View style={styles.endpoint}>
                                     <Text style={styles.time}>{this.props.second_dep_time}</Text>
                                     <Text style={styles.airport}>{this.props.second_dep_airport}</Text>
@@ -48,7 +48,7 @@ export default class FlightCard extends Component {
                                     <Text style={styles.time}>{this.props.second_land_time}</Text>
                                     <Text style={styles.airport}>{this.props.first_land_airport}</Text>
                                 </View>
-                            </View>   
+                            </View>   */} 
                             <View style={styles.footer}>
                                 <Text style={styles.airline}>{this.props.airline}</Text>
                                 <Text style={styles.price}>{this.props.price}</Text>
@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
     endpoint: {
         flexDirection: "column",
         justifyContent: "center",
+        paddingTop: Platform.OS === 'ios' ? 20 : 0,
     },
     time: {
         fontFamily: "Arial",
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderColor: "#C9C9DA",
         position: 'relative',
-        width: 170,
+        width: Platform.OS === 'ios' ? 150 : 170,
         alignItems: "center",
         height: 43,
         
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     price: {
-        fontSize: 27,
+        fontSize: Platform.OS === 'ios' ? 23 : 27,
         fontFamily: "Arial",
         color: "black",
         
