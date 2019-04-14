@@ -64,7 +64,7 @@ def run_yelp_query(query): # A simple function to use requests.post to make the 
     else:
         raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, query))
 
-def searchQuery(term="burrito", location="NYC"):
+def searchQuery(term="food", location="NYC"):
     searchQuery = '''
         {
             search(term: "%s",

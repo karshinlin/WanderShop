@@ -121,6 +121,7 @@ class FlightView extends Component {
           return (
             <View style={Platform.OS === 'ios' ? {paddingHorizontal: 20} : {}}>
                 <FlightCard 
+                  showAdd={true}
                   first_dep_time={segments[0]["departTime"]}
                   first_dep_airport={segments[0].originAirportCode}
                   first_duration={theDuration}

@@ -4,6 +4,7 @@ import {
 import { cDarkBlue, cLightBlue, cWhite } from "./App";
 import CardRating from "./CardRating"
 import AddButton from "./AddButton"
+import RemoveButton from './RemoveButton';
 
 const wrapperWidth = 410;
 
@@ -60,8 +61,12 @@ export default class FlightCard extends Component {
                             <View style={styles.footer}>
                                 <Text style={styles.airline}>{this.props.airline}</Text>
                                 <Text style={styles.price}>{this.props.price}</Text>
-                                <AddButton show={this.props.showAdd} style={{top: 0, right: 0, marginTop: 0, marginBottom: 0, position: "relative"}}
-                                    onPress={this.props.showAdd == "false" ? function(){}: this.props.addAction}></AddButton>
+                                {this.props.showAdd ? 
+                                    <AddButton show={this.props.showAdd} style={{top: 0, right: 0, marginTop: 0, marginBottom: 0, position: "relative"}}
+                                    onPress={this.props.showAdd == false ? function(){}: this.props.addAction}></AddButton> :
+                                    <RemoveButton style={{top: 0, right: 0, marginTop: 0, marginBottom: 0, position: "relative"}}
+                                    onPress={this.props.showRemove == false ? function(){}: this.props.removeAction}></RemoveButton>
+                                }
                                 
                             </View>            
                         </View>

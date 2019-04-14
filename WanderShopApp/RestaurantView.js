@@ -131,7 +131,7 @@ class RestaurantView extends Component {
               thePrice = 4;
             }
             return (
-              <RestaurantCard name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} addAction={() => {
+              <RestaurantCard showAdd={true} name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} addAction={() => {
                 this.addToCart({ category: "food", name, id,
                 rating,
                 price,

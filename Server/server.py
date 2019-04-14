@@ -47,6 +47,10 @@ mysql.init_app(app)
 
 _verify_password_url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword'
 
+with open('hotels_sample.json') as json_file:  
+    hotelData = json.load(json_file)
+with open('flights_sample.json') as json_file:  
+    flightData = json.load(json_file)
 
 @app.route('/')
 def hello_world():
@@ -107,48 +111,10 @@ def register_page():
         print ("error")
         return json.jsonify({'success':0})
 
-
-## Flights handling
-@app.route('/flights/getByDate/', methods=["GET"])
-def flights_handler():
-    ## Retrieve data from the request
-    jsonReq = request.get_json()
-    # TODO: USE ARGUMENTS FROM REQUEST TO CHOOSE DATA
-    # departDate = jsonReq['departDate'] # mm/dd/yyyy
-    # returnDate = jsonReq['returnDate']
-    # origin = jsonReq['origin']
-    # destination = jsonReq['destination']
-    
-    # Query the db with the flight data request
-    conn = mysql.connect()	
-    cursor = conn.cursor()
-    # baseQuery = "SELECT DISTINCT * from Flights WHERE depart_date=%(fDate)s AND origin=%(fOrigin)s AND destination=%(fDestination)s"
-    baseQuery = "SELECT DISTINCT * from Flights"
-    # params = {'fDate': departDate, 'fOrigin': origin, 'fDestination': destination}
-    # cursor.execute(baseQuery, params)
-    cursor.execute(baseQuery)
-    print("Data queried from the database.")
-    flights = []
-    for row in cursor:
-        print(row)
-        print(str(row[4]))
-        flight = {  'flightId' : row[0],
-	                'origin' : row[1],
-	                'destination' : row[2],
-                    'departDate' : str(row[3]),
-                    'departTime' : str(row[4]),
-                    'airline' : row[5],
-                    'flightsNumber': row[6],
-                    'cost' : row[7]}
-        flights.append(flight)
-    return json.jsonify({'flights': flights})
-
 # format: /flights?origin=ATL&dest=JFK&departDate=2019-09-23
 @app.route('/flights', methods=["GET"])
 def flights():
-    with open('flights_sample.json') as json_file:  
-        data = json.load(json_file)
-    return json.jsonify(Query.postProcessFlights(data))
+    return json.jsonify(Query.postProcessFlights(flightData))
 
     # TODO: TO LIMIT API USAGE, FOLLOWING HAS BEEN COMMENTED OUT
     # origin = request.args.get('origin', default = "ATL", type = str)
@@ -161,10 +127,7 @@ def flights():
 # format: /hotels?dest=ATL&rooms=1&checkin=2019-09-23&checkout=2019-09-27&adults=2
 @app.route('/hotels', methods=["GET"])
 def hotels():
-
-    with open('hotels_sample.json') as json_file:  
-        data = json.load(json_file)
-    return json.jsonify(Query.postProcessHotels(data))
+    return json.jsonify(Query.postProcessHotels(hotelData))
 
     # TODO: TO LIMIT API USAGE, FOLLOWING HAS BEEN COMMENTED OUT
     # destination = request.args.get('dest', default="JFK", type=str)
@@ -178,75 +141,18 @@ def hotels():
     # json_response = Query.runHotelsQuery(cityId[0], rooms, checkin, checkout, adults)
     # return json.jsonify(Query.postProcessHotels(json_response))
     
-
-## Hotels handling
-@app.route('/hotels/getByCity/', methods=["GET"])
-def hotels_handler():
-    ## Retrieve data from the request
-    jsonReq = request.get_json()
-    # city = jsonReq['city'] # mm/dd/yyyy
-    
-    
-    # Query the db with the flight data request
-    conn = mysql.connect()	
-    cursor = conn.cursor()
-    # baseQuery = "SELECT DISTINCT * from Hotels WHERE city=%(hCity)s"
-    # params = {'hCity': city}
-    baseQuery = "SELECT DISTINCT * from Hotels"
-    cursor.execute(baseQuery)
-    print("Data queried from the database.")
-    hotels = []
-    for row in cursor:
-        print(row)
-        print(str(row[4]))
-        hotel = {  'hotelId' : row[0],
-	                'hotelName' : row[1],
-	                'address' : row[3],
-                    'phoneNumber' : row[4],
-                    'cost' : row[5],
-                    'website' : row[6],
-                    'rating': row[7]}
-        hotels.append(hotel)
-    return json.jsonify({'hotels': hotels})
-
 ## Restaurants handling
 @app.route('/restaurants/getByCity', methods=["GET"])
 def restaurants_handler():
-    ## Retrieve data from the request
-    jsonReq = request.get_json()
-    # city = jsonReq['city'] # mm/dd/yyyy
     destination = request.args.get('dest', default="JFK", type=str)
     # cityInfo = Query.runLocationQuery(destination, ["cityname"])
+    # return json.jsonify(Query.run_yelp_query(Query.searchQuery(location=cityInfo[0]))["data"]["search"])
     return json.jsonify(Query.run_yelp_query(Query.searchQuery(location=destination))["data"]["search"])
-    # Query the db with the flight data request
-    # conn = mysql.connect()	
-    # cursor = conn.cursor()
-    # # baseQuery = "SELECT DISTINCT * from Restaurants WHERE city=%(rCity)s"
-    # # params = {'rCity': city}
-    # baseQuery = "SELECT DISTINCT * from Restaurants"
-    # cursor.execute(baseQuery)
-    # print("Data queried from the database.")
-    # restaurants = []
-    # for row in cursor:
-    #     print(row) # We should probably add a cost field $ $$ $$$
-    #     restaurant = {  'restaurantId' : row[0],
-	#                 'restaurantName' : row[1],
-	#                 'address' : row[3],
-    #                 'phone' : row[4],
-    #                 'website' : row[5],
-    #                 'type': row[6],
-    #                 'rating': row[7]}
-    #     restaurants.append(restaurant)
-    # return json.jsonify({'restaurants': restaurants})
 
 ## Activities handling
 # format: /activities/getByCity?dest=JFK&date=2019-08-23
 @app.route('/activities/getByCity', methods=["GET"])
-def activities_handler():
-    ## Retrieve data from the request
-    jsonReq = request.get_json()
-    # city = jsonReq['city'] # mm/dd/yyyy
-    
+def activities_handler():  
     destination = request.args.get('dest', default="JFK", type=str)
     oneWeek = datetime.date.today() + datetime.timedelta(days=7)
     date = request.args.get('date', default=str(oneWeek), type=str)
@@ -257,29 +163,6 @@ def activities_handler():
     # json_response = Query.run_ticketmaster_query(city=cityInfo[0], state_code=cityInfo[1], start_date_time=date) #Comment out to limit API
     json_response = Query.run_ticketmaster_query(city=destination, start_date_time=date)
     return json.jsonify(json_response["_embedded"])
-    
-    # Query the db with the flight data request
-    # conn = mysql.connect()	
-    # cursor = conn.cursor()
-    # # baseQuery = "SELECT DISTINCT * from Activities WHERE city=%(aCity)s"
-    # # params = {'aCity': city}
-    # baseQuery = "SELECT DISTINCT * from Activities"
-    # cursor.execute(baseQuery)
-    # print("Data queried from the database.")
-    # activities = []
-    # for row in cursor:
-    #     print(row)
-    #     print(str(row[4]))
-    #     activity = {  'activityId' : row[0],
-	#                 'activityName' : row[1],
-	#                 'description' : row[2],
-    #                 'cost' : row[3],
-    #                 'address' : row[5],
-    #                 'date' : str(row[6])}
-    #     activities.append(activity)
-    # return json.jsonify({'activities': activities})
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)

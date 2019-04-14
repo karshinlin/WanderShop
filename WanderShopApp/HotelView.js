@@ -113,7 +113,7 @@ class HotelView extends Component {
         <FlatList
         data={this.state.data}
         renderItem={({ item: { bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars } }) => (
-          <HotelCard rating={stars} name={hotelName} price={price} address={address} bookingId={bookingId} bookingLogo={bookingLogo} bookingUrl={bookingUrl} checkin={checkin} checkout={checkout} hotelPic={hotelPic} roomsRemaining={roomsRemaining} addAction={() => {
+          <HotelCard showAdd={true} rating={stars} name={hotelName} price={price} address={address} bookingId={bookingId} bookingLogo={bookingLogo} bookingUrl={bookingUrl} checkin={checkin} checkout={checkout} hotelPic={hotelPic} roomsRemaining={roomsRemaining} addAction={() => {
             this.addToCart({category: "hotel", bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars});
           }}/>
           // <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>

@@ -76,6 +76,7 @@ class CartScreen extends Component {
               return (
                 <View style={Platform.OS === 'ios' ? {paddingHorizontal: 20} : {}}>
                     <FlightCard 
+                      showAdd={false}
                       first_dep_time={segments[0]["departTime"]}
                       first_dep_airport={segments[0].originAirportCode}
                       first_duration={theDuration}
@@ -83,7 +84,6 @@ class CartScreen extends Component {
                       first_land_airport={segments[segments.length-1].destinationAirportCode}
                       aDepartDate={departDate}
                       numStops={segments.length + " Stops"}
-                      showAdd={"false"}
                       // second_dep_time={"10:20"}
                       // second_dep_airport={"JFK"}
                       // second_duration={"5h 05m"}
@@ -107,7 +107,7 @@ class CartScreen extends Component {
         scrollEnabled={false}
         data={this.state.hotels}
         renderItem={({ item: { bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars } }) => (
-          <HotelCard showAdd={"false"} rating={stars} name={hotelName} price={price} address={address} bookingId={bookingId} bookingLogo={bookingLogo} bookingUrl={bookingUrl} checkin={checkin} checkout={checkout} hotelPic={hotelPic} roomsRemaining={roomsRemaining} addAction={() => {
+          <HotelCard showAdd={false} rating={stars} name={hotelName} price={price} address={address} bookingId={bookingId} bookingLogo={bookingLogo} bookingUrl={bookingUrl} checkin={checkin} checkout={checkout} hotelPic={hotelPic} roomsRemaining={roomsRemaining} addAction={() => {
             this.addToCart({category: "hotel", bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars});
           }}/>
         )}
@@ -118,7 +118,7 @@ class CartScreen extends Component {
         <FlatList
         data={this.state.events}
         renderItem={({ item: { name, info, images, id, priceRanges, url, type, place, _embedded: { venues } } }) => (
-          <EventCard showAdd={"false"} name={name} info={info} sourceURL={images[0].url} price={priceRanges && priceRanges.length > 0 ? `${priceRanges[0].min}` : ''} eventLocation={venues[0].name} addAction={() => {
+          <EventCard showAdd={false} name={name} info={info} sourceURL={images[0].url} price={priceRanges && priceRanges.length > 0 ? `${priceRanges[0].min}` : ''} eventLocation={venues[0].name} addAction={() => {
             this.addToCart({ category: "event", name, info, images, id, priceRanges, url, type, place, _embedded: { venues } });
           }}/>
         )}
@@ -127,52 +127,52 @@ class CartScreen extends Component {
         onRefresh={this.handleRefresh}
       />
         <FlatList
-        scrollEnabled={false}
-        data={this.state.food}
-        renderItem={({ item: { name, id,
-          rating,
-          price,
-          display_phone,
-          url,
-          photos,
-          location: {
-              address1,
-              city,
-              state,
-              postal_code,
-          } } }) => {
-            var thePrice = 0;
-            if (price == "$") {
-              thePrice = 1;
-            } else if (price == "$$") {
-              thePrice = 2;
-            } else if (price == "$$$") {
-              thePrice = 3;
-            } else {
-              thePrice = 4;
+          scrollEnabled={false}
+          data={this.state.food}
+          renderItem={({ item: { name, id,
+            rating,
+            price,
+            display_phone,
+            url,
+            photos,
+            location: {
+                address1,
+                city,
+                state,
+                postal_code,
+            }}}) => {
+              var thePrice = 0;
+              if (price == "$") {
+                thePrice = 1;
+              } else if (price == "$$") {
+                thePrice = 2;
+              } else if (price == "$$$") {
+                thePrice = 3;
+              } else {
+                thePrice = 4;
+              }
+              return (
+                <RestaurantCard showAdd={false} name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} addAction={() => {
+                  this.addToCart({ category: "food", name, id,
+                  rating,
+                  price,
+                  display_phone,
+                  url,
+                  photos,
+                  location: {
+                      address1,
+                      city,
+                      state,
+                      postal_code,
+                  }});
+                }} />
+              );
             }
-            return (
-              <RestaurantCard name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} addAction={() => {
-                this.addToCart({ category: "food", name, id,
-                rating,
-                price,
-                display_phone,
-                url,
-                photos,
-                location: {
-                    address1,
-                    city,
-                    state,
-                    postal_code,
-                }});
-              }} />
-        );
-      }
           }
-        refreshing={this.state.refreshing}
-        keyExtractor={({item: id}) => id}
-        onRefresh={this.handleRefresh}
-      />
+          refreshing={this.state.refreshing}
+          keyExtractor={({item: id}) => id}
+          onRefresh={this.handleRefresh}
+        />
         </ScrollView>
         );
     }

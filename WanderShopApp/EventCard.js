@@ -4,6 +4,7 @@ import {
 import { cDarkBlue, cLightBlue, cWhite } from "./App";
 import CardRating from "./CardRating"
 import AddButton from "./AddButton"
+import RemoveButton from "./RemoveButton"
 
 const wrapperWidth = 405;
 String.prototype.toTitleCase = function () {
@@ -28,7 +29,10 @@ export default class EventCard extends Component {
                         <View style={styles.wrapper}>
                             <View style={{width: Platform.OS === 'ios' ? '100%' : wrapperWidth}}>
                                 <Image source={{uri: this.props.sourceURL}} style={styles.heroImg} />
-                                <AddButton show={this.props.showAdd} onPress={this.props.showAdd == "false" ? function(){}: this.props.addAction}></AddButton>
+                                {this.props.showAdd ? 
+                                    <AddButton show={this.props.showAdd} onPress={this.props.showAdd == false ? function(){}: this.props.addAction}></AddButton> :
+                                    <RemoveButton onPress={this.props.showRemove == false ? function(){}: this.props.removeAction}></RemoveButton>
+                                }
                             </View>
                             <View style={styles.infoArea}>
                                 <View style={styles.name_stars}>
