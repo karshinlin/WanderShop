@@ -52,6 +52,8 @@ with open('hotels_sample.json') as json_file:
 with open('flights_sample.json') as json_file:  
     flightData = json.load(json_file)
 
+lockAPI = True
+
 @app.route('/')
 def hello_world():
 
@@ -114,54 +116,64 @@ def register_page():
 # format: /flights?origin=ATL&dest=JFK&departDate=2019-09-23
 @app.route('/flights', methods=["GET"])
 def flights():
-    return json.jsonify(Query.postProcessFlights(flightData))
+    if lockAPI:
+        return json.jsonify(Query.postProcessFlights(flightData))
 
     # TODO: TO LIMIT API USAGE, FOLLOWING HAS BEEN COMMENTED OUT
-    # origin = request.args.get('origin', default = "ATL", type = str)
-    # destination = request.args.get('dest', default = "JFK", type = str)
-    # oneWeek = datetime.date.today() + datetime.timedelta(days=7)
-    # departDate = request.args.get('departDate', default = str(oneWeek), type = str)
-    # json_response = Query.runFlightsQuery(origin, destination, departDate)
-    # return json.jsonify(Query.postProcessFlights(json_response))
+    origin = request.args.get('origin', default = "ATL", type = str)
+    destination = request.args.get('dest', default = "JFK", type = str)
+    oneWeek = datetime.date.today() + datetime.timedelta(days=7)
+    departDate = request.args.get('departDate', default = str(oneWeek), type = str)
+    json_response = Query.runFlightsQuery(origin, destination, departDate)
+    return json.jsonify(Query.postProcessFlights(json_response))
 
 # format: /hotels?dest=ATL&rooms=1&checkin=2019-09-23&checkout=2019-09-27&adults=2
 @app.route('/hotels', methods=["GET"])
 def hotels():
-    return json.jsonify(Query.postProcessHotels(hotelData))
+    if lockAPI:
+        return json.jsonify(Query.postProcessHotels(hotelData))
 
     # TODO: TO LIMIT API USAGE, FOLLOWING HAS BEEN COMMENTED OUT
-    # destination = request.args.get('dest', default="JFK", type=str)
-    # rooms = request.args.get('rooms', default="1", type=int)
-    # oneWeek = datetime.date.today() + datetime.timedelta(days=7)
-    # twoWeeks = oneWeek + datetime.timedelta(days=7)  
-    # checkin = request.args.get('checkin', default=str(oneWeek), type=str)
-    # checkout = request.args.get('checkout', default=str(twoWeeks), type=str)
-    # adults = request.args.get('adults', default=2, type=int)
-    # cityId = Query.runLocationQuery(destination, ["ctid"])
-    # json_response = Query.runHotelsQuery(cityId[0], rooms, checkin, checkout, adults)
-    # return json.jsonify(Query.postProcessHotels(json_response))
+    destination = request.args.get('dest', default="JFK", type=str)
+    rooms = request.args.get('rooms', default="1", type=int)
+    oneWeek = datetime.date.today() + datetime.timedelta(days=7)
+    twoWeeks = oneWeek + datetime.timedelta(days=7)  
+    checkin = request.args.get('checkin', default=str(oneWeek), type=str)
+    checkout = request.args.get('checkout', default=str(twoWeeks), type=str)
+    adults = request.args.get('adults', default=2, type=int)
+    cityId = Query.runLocationQuery(destination, ["ctid"])
+    json_response = Query.runHotelsQuery(cityId[0], rooms, checkin, checkout, adults)
+    return json.jsonify(Query.postProcessHotels(json_response))
     
 ## Restaurants handling
 @app.route('/restaurants/getByCity', methods=["GET"])
 def restaurants_handler():
+    if lockAPI:
+        destination = request.args.get('dest', default="JFK", type=str)
+        return json.jsonify(Query.run_yelp_query(Query.searchQuery(location=destination))["data"]["search"])
+    
     destination = request.args.get('dest', default="JFK", type=str)
-    # cityInfo = Query.runLocationQuery(destination, ["cityname"])
-    # return json.jsonify(Query.run_yelp_query(Query.searchQuery(location=cityInfo[0]))["data"]["search"])
-    return json.jsonify(Query.run_yelp_query(Query.searchQuery(location=destination))["data"]["search"])
+    cityInfo = Query.runLocationQuery(destination, ["cityname"])
+    return json.jsonify(Query.run_yelp_query(Query.searchQuery(location=cityInfo[0]))["data"]["search"])
 
 ## Activities handling
 # format: /activities/getByCity?dest=JFK&date=2019-08-23
 @app.route('/activities/getByCity', methods=["GET"])
 def activities_handler():  
+    
     destination = request.args.get('dest', default="JFK", type=str)
     oneWeek = datetime.date.today() + datetime.timedelta(days=7)
     date = request.args.get('date', default=str(oneWeek), type=str)
-    # cityInfo = Query.runLocationQuery(destination, ["cityname", "rc"]) #Comment out to limit API
-
     dateObj = datetime.datetime.strptime(date, '%Y-%m-%d')
     date = dateObj.strftime('%Y-%m-%dT%H:%M:%SZ')
-    # json_response = Query.run_ticketmaster_query(city=cityInfo[0], state_code=cityInfo[1], start_date_time=date) #Comment out to limit API
-    json_response = Query.run_ticketmaster_query(city=destination, start_date_time=date)
+    
+    json_response = json.jsonify([])
+    if lockAPI:
+        json_response = Query.run_ticketmaster_query(city=destination, start_date_time=date)
+    else:
+        cityInfo = Query.runLocationQuery(destination, ["cityname", "rc"]) #Comment out to limit API
+        json_response = Query.run_ticketmaster_query(city=cityInfo[0], state_code=cityInfo[1], start_date_time=date) #Comment out to limit API
+    
     return json.jsonify(json_response["_embedded"])
 
 if __name__ == '__main__':

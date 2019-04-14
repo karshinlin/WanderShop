@@ -20,10 +20,6 @@ class CartScreen extends Component {
     }
   }
 
-  componentDidMount() {
-    this.getCurrentCart();
-  }
-
   async getCurrentCart() {
     try {
       const value = await AsyncStorage.getItem('currentCart');
@@ -41,19 +37,19 @@ class CartScreen extends Component {
           }
           if (element.category == "hotel") {
             hotels.push(element);
-            if (element.price || element.price != '') {
+            if (element.price && element.price != '') {
               totalCost += parseInt(element.price.substring(1))
             }
           }
           if (element.category == "flight") {
             flights.push(element);
-            if (element.price || element.price != '') {
+            if (element.price && element.price != '') {
               totalCost += parseInt(element.price.substring(1))
             }
           }
           if (element.category == "event") {
             events.push(element);
-            if (element.price || element.price != '') {
+            if (element.price && element.price != '') {
               totalCost += parseInt(element.price.substring(1))
             }
           }
