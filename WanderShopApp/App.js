@@ -294,9 +294,22 @@ const AppNavigator = createStackNavigator({
       
     },
   },
-  Cart: CartScreen,
-}
-);
+  Cart: {
+    screen: CartScreen,
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: cLightBlue,
+        elevation: 0,
+        shadowOpacity: 0,
+        paddingTop: 15
+      },
+      headerLeftContainerStyle: {
+        marginLeft: 5,
+      },
+      headerTintColor: 'white',
+    },
+  }
+});
 
 const AppContainer = createAppContainer(AppNavigator);
 
