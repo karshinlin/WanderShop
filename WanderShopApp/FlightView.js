@@ -45,7 +45,6 @@ class FlightView extends Component {
     }
     componentDidMount() {
         this.getCurrentCart();
-        this.setState({ isLoading: false });
     }
 
     async getCurrentCart() {
