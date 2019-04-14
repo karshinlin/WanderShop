@@ -67,8 +67,16 @@ class RestaurantView extends Component {
     if (this.state.currentCart) {
       var currentCart = this.state.currentCart;
       console.log(currentCart);
-      currentCart.push(restaurantObj);
-      await this.setState({ currentCart: currentCart });
+      var found = false;
+      currentCart.forEach(element => {
+        if (element.id == restaurantObj.id) {
+          found = true;
+        }
+      });
+      if (!found) {
+        currentCart.push(restaurantObj);
+        await this.setState({ currentCart: currentCart });
+      }
     } else {
       const currentCart = [restaurantObj];
       console.log(currentCart);
@@ -132,7 +140,7 @@ class RestaurantView extends Component {
             }
             return (
               <RestaurantCard showAdd={true} name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} addAction={() => {
-                this.addToCart({ category: "food", name, id,
+                this.addToCart({ category: "food", name, id: id,
                 rating,
                 price,
                 display_phone,

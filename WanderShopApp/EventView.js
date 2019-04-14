@@ -67,8 +67,16 @@ class EventView extends Component {
     if (this.state.currentCart) {
       var currentCart = this.state.currentCart;
       console.log(currentCart);
-      currentCart.push(eventObj);
-      await this.setState({ currentCart: currentCart });
+      var found = false;
+      currentCart.forEach(element => {
+        if (element.id == eventObj.id) {
+          found = true;
+        }
+      });
+      if (!found) {
+        currentCart.push(eventObj);
+        await this.setState({ currentCart: currentCart });
+      }
     } else {
       const currentCart = [eventObj];
       console.log(currentCart);
@@ -111,7 +119,7 @@ class EventView extends Component {
         data={this.state.data}
         renderItem={({ item: { name, info, images, id, priceRanges, url, type, place, _embedded: { venues } } }) => (
           <EventCard showAdd={true} name={name} info={info} sourceURL={images[0].url} price={priceRanges && priceRanges.length > 0 ? `${priceRanges[0].min}` : ''} eventLocation={venues[0].name} addAction={() => {
-            this.addToCart({ category: "event", name, info, images, id, priceRanges, url, type, place, _embedded: { venues } });
+            this.addToCart({ category: "event", name, info, images, id: id, priceRanges, url, type, place, _embedded: { venues } });
           }}/>
           // <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
           //   <Image

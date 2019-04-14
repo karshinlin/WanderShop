@@ -58,6 +58,62 @@ class CartScreen extends Component {
     }
   }
 
+  async removeFromCart(id, category) {
+    switch(category) {
+      case "flight":
+        var flights = this.state.flights;
+        for (var i = 0; i < flights.length; i++) {
+          if (flights[i].id == id) {
+            flights.splice(i, 1);
+            break;
+          }
+        }
+        this.setState({flights: flights})
+        break;
+      case "hotel":
+        var hotels = this.state.hotels;
+        for (var i = 0; i < hotels.length; i++) {
+          if (hotels[i].id == id) {
+            hotels.splice(i, 1);
+            break;
+          }
+        }
+        this.setState({hotels: hotels})
+        break;
+      case "food":
+      var food = this.state.food;
+      for (var i = 0; i < food.length; i++) {
+        if (food[i].id == id) {
+          food.splice(i, 1);
+          break;
+        }
+      }
+      this.setState({food: food})
+        break;
+      case "event":
+        var events = this.state.events;
+        for (var i = 0; i < events.length; i++) {
+          if (events[i].id == id) {
+            events.splice(i, 1);
+            break;
+          }
+        }
+        this.setState({events: events})
+        break;
+    }
+    await this.saveCartLocally();
+
+  }
+  async saveCartLocally() {
+    try {
+      await AsyncStorage.setItem('currentCart', JSON.stringify(this.state.flights.concat(this.state.hotels, this.state.food, this.state.events)));
+      await this.getCurrentCart();
+    } catch (error) {
+      // Error saving data
+      console.error(error);
+    }
+  }
+
   render() {
     console.log(this.state.food);
     if (this.state.flights || this.state.events || this.state.food || this.state.hotels){
@@ -66,7 +122,7 @@ class CartScreen extends Component {
             <FlatList
             scrollEnabled={false}
             data={this.state.flights}
-            renderItem={({ item: { tripId, departDate, price, provider, segments, bookingUrl } }) => {
+            renderItem={({ item: { id, departDate, price, provider, segments, bookingUrl } }) => {
           
               var diff = segments[segments.length-1]["arriveTimeUnix"] - segments[0]["departTimeUnix"];
               console.log(segments[0]["departTimeUnix"]);
@@ -91,8 +147,9 @@ class CartScreen extends Component {
                       // second_land_airport={"SFO"}
                       airline={provider}
                       price={price == "Not Available" ? "" : price}
-                      addAction={() => {
-                        this.addToCart({category: "flight", tripId, departDate, price, provider, segments, bookingUrl});
+                      removeAction={() => {
+                        this.removeFromCart(id, "flight");
+                        //this.addToCart({category: "flight", tripId, departDate, price, provider, segments, bookingUrl});
                         }}
                       >
                   </FlightCard> 
@@ -106,20 +163,22 @@ class CartScreen extends Component {
         <FlatList
         scrollEnabled={false}
         data={this.state.hotels}
-        renderItem={({ item: { bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars } }) => (
-          <HotelCard showAdd={false} rating={stars} name={hotelName} price={price} address={address} bookingId={bookingId} bookingLogo={bookingLogo} bookingUrl={bookingUrl} checkin={checkin} checkout={checkout} hotelPic={hotelPic} roomsRemaining={roomsRemaining} addAction={() => {
-            this.addToCart({category: "hotel", bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars});
+        renderItem={({ item: { id, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars } }) => (
+          <HotelCard showAdd={false} rating={stars} name={hotelName} price={price} address={address} id={id} bookingLogo={bookingLogo} bookingUrl={bookingUrl} checkin={checkin} checkout={checkout} hotelPic={hotelPic} roomsRemaining={roomsRemaining} removeAction={() => {
+            this.removeFromCart(id, "hotel");
+            //this.addToCart({category: "hotel", bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars});
           }}/>
         )}
         refreshing={this.state.refreshing}
-        keyExtractor={({item: bookingId}) => bookingId}
+        keyExtractor={({item: id}) => id}
         onRefresh={this.handleRefresh}
       />
         <FlatList
         data={this.state.events}
         renderItem={({ item: { name, info, images, id, priceRanges, url, type, place, _embedded: { venues } } }) => (
-          <EventCard showAdd={false} name={name} info={info} sourceURL={images[0].url} price={priceRanges && priceRanges.length > 0 ? `${priceRanges[0].min}` : ''} eventLocation={venues[0].name} addAction={() => {
-            this.addToCart({ category: "event", name, info, images, id, priceRanges, url, type, place, _embedded: { venues } });
+          <EventCard showAdd={false} name={name} info={info} sourceURL={images[0].url} price={priceRanges && priceRanges.length > 0 ? `${priceRanges[0].min}` : ''} eventLocation={venues[0].name} removeAction={() => {
+            this.removeFromCart(id, "event");
+            //this.addToCart({ category: "event", name, info, images, id, priceRanges, url, type, place, _embedded: { venues } });
           }}/>
         )}
         refreshing={this.state.refreshing}
@@ -152,19 +211,9 @@ class CartScreen extends Component {
                 thePrice = 4;
               }
               return (
-                <RestaurantCard showAdd={false} name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} addAction={() => {
-                  this.addToCart({ category: "food", name, id,
-                  rating,
-                  price,
-                  display_phone,
-                  url,
-                  photos,
-                  location: {
-                      address1,
-                      city,
-                      state,
-                      postal_code,
-                  }});
+                <RestaurantCard showAdd={false} name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} removeAction={() => {
+                  this.removeFromCart(id, "food");
+                  //this.addToCart({ category: "food", name, id, rating, price, display_phone, url, photos, location: {address1, city, state, postal_code}});
                 }} />
               );
             }

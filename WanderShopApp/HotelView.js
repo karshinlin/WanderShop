@@ -70,8 +70,16 @@ class HotelView extends Component {
     if (this.state.currentCart) {
       var currentCart = this.state.currentCart;
       console.log(currentCart);
-      currentCart.push(hotelObj);
-      await this.setState({ currentCart: currentCart });
+      var found = false;
+      currentCart.forEach(element => {
+        if (element.id == hotelObj.id) {
+          found = true;
+        }
+      });
+      if (!found) {
+        currentCart.push(hotelObj);
+        await this.setState({ currentCart: currentCart });
+      }
     } else {
       const currentCart = [hotelObj];
       console.log(currentCart);
@@ -114,7 +122,7 @@ class HotelView extends Component {
         data={this.state.data}
         renderItem={({ item: { bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars } }) => (
           <HotelCard showAdd={true} rating={stars} name={hotelName} price={price} address={address} bookingId={bookingId} bookingLogo={bookingLogo} bookingUrl={bookingUrl} checkin={checkin} checkout={checkout} hotelPic={hotelPic} roomsRemaining={roomsRemaining} addAction={() => {
-            this.addToCart({category: "hotel", bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars});
+            this.addToCart({category: "hotel", id: bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars});
           }}/>
           // <View style={{ margin: 15, borderBottomColor: "#000", borderBottomWidth: 2 }}>
           //   <Text style={styles.centerTitle}>{}</Text>

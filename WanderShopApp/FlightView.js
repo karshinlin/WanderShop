@@ -67,8 +67,16 @@ class FlightView extends Component {
     if (this.state.currentCart) {
       var currentCart = this.state.currentCart;
       console.log(currentCart);
-      currentCart.push(flightObj);
-      await this.setState({ currentCart: currentCart });
+      var found = false;
+      currentCart.forEach(element => {
+        if (element.id == flightObj.id) {
+          found = true;
+        }
+      });
+      if (!found) {
+        currentCart.push(flightObj);
+        await this.setState({ currentCart: currentCart });
+      }
     } else {
       const currentCart = [flightObj];
       console.log(currentCart);
@@ -138,7 +146,7 @@ class FlightView extends Component {
                   airline={provider}
                   price={price == "Not Available" ? "" : price}
                   addAction={() => {
-                    this.addToCart({category: "flight", tripId, departDate, price, provider, segments, bookingUrl});
+                    this.addToCart({category: "flight", id: tripId, departDate, price, provider, segments, bookingUrl});
                     }}
                   >
               </FlightCard> 
