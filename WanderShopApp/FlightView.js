@@ -121,32 +121,39 @@ class FlightView extends Component {
       <View style={{ flex: 1 }}>
         <FlatList
         data={this.state.data}
-        renderItem={({ item: { tripId, departDate, price, provider, segments, bookingUrl } }) => {
-          var diff = segments[segments.length-1]["arriveTimeUnix"] - segments[0]["departTimeUnix"];
+        renderItem={({ item: { tripId, departDate, returnDate, price, provider, segmentsTo, segmentsBack, bookingUrl } }) => {
+          var diff = segmentsTo[segmentsTo.length-1]["arriveTimeUnix"] - segmentsTo[0]["departTimeUnix"];
           var hours_diff = Math.floor(diff/3600);
           var mins_diff = Math.floor((diff % 3600)/60);
-          var theDuration = hours_diff + "h " + mins_diff + "m ";
+          var durationTo = hours_diff + "h " + mins_diff + "m ";
+          
+          diff = segmentsBack[segmentsBack.length-1]["arriveTimeUnix"] - segmentsBack[0]["departTimeUnix"];
+          hours_diff = Math.floor(diff/3600);
+          mins_diff = Math.floor((diff % 3600)/60);
+          var durationBack = hours_diff + "h " + mins_diff + "m ";
           return (
             <View style={Platform.OS === 'ios' ? {paddingHorizontal: 20} : {}}>
                 <FlightCard 
                   showAdd={true}
-                  first_dep_time={segments[0]["departTime"]}
-                  first_dep_airport={segments[0].originAirportCode}
-                  first_duration={theDuration}
-                  first_land_time={segments[segments.length-1]["arriveTime"]}
-                  first_land_airport={segments[segments.length-1].destinationAirportCode}
+                  first_dep_time={segmentsTo[0]["departTime"]}
+                  first_dep_airport={segmentsTo[0].originAirportCode}
+                  first_duration={durationTo}
+                  first_land_time={segmentsTo[segmentsTo.length-1]["arriveTime"]}
+                  first_land_airport={segmentsTo[segmentsTo.length-1].destinationAirportCode}
                   aDepartDate={departDate}
-                  numStops={segments.length + " Stops"}
+                  numStopsTo={segmentsTo.length}
                   
-                  // second_dep_time={"10:20"}
-                  // second_dep_airport={"JFK"}
-                  // second_duration={"5h 05m"}
-                  // second_land_time={"14:07"}
-                  // second_land_airport={"SFO"}
+                  second_dep_time={segmentsBack[0]["departTime"]}
+                  second_dep_airport={segmentsBack[0].originAirportCode}
+                  second_duration={durationBack}
+                  second_land_time={segmentsBack[segmentsBack.length-1]["arriveTime"]}
+                  second_land_airport={segmentsBack[segmentsBack.length-1].destinationAirportCode}
+                  aReturnDate={returnDate}
+                  numStopsBack={segmentsBack.length}
                   airline={provider}
                   price={price == "Not Available" ? "" : price}
                   addAction={() => {
-                    this.addToCart({category: "flight", id: tripId, departDate, price, provider, segments, bookingUrl});
+                    this.addToCart({category: "flight", id: tripId, departDate, returnDate, price, provider, segmentsTo, segmentsBack, bookingUrl});
                     }}
                   >
               </FlightCard> 

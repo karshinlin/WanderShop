@@ -124,7 +124,8 @@ def flights():
     destination = request.args.get('dest', default = "JFK", type = str)
     oneWeek = datetime.date.today() + datetime.timedelta(days=7)
     departDate = request.args.get('departDate', default = str(oneWeek), type = str)
-    json_response = Query.runFlightsQuery(origin, destination, departDate)
+    endDate = request.args.get('endDate', default = str(oneWeek), type = str)
+    json_response = Query.runFlightsQuery(origin, destination, departDate, endDate)
     return json.jsonify(Query.postProcessFlights(json_response))
 
 # format: /hotels?dest=ATL&rooms=1&checkin=2019-09-23&checkout=2019-09-27&adults=2

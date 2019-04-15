@@ -11,14 +11,23 @@ const wrapperWidth = 410;
 export default class FlightCard extends Component {
     render () {
         let {onPress, isRipple, rippleColor, children, style} = this.props;
-        var numStops = parseInt(this.props.numStops.split(" ")[0]);
-		var stopStr = '';
-		if (numStops > 1) {
-			stopStr = numStops + ' Stops';
-		} else if (numStops == 0) {
-			stopStr = numStops + ' Stop';
+        var numStopsTo = parseInt(this.props.numStopsTo);
+		var stopStrTo = '';
+		if (numStopsTo > 1) {
+			stopStrTo = numStopsTo + ' Stops';
+		} else if (numStopsTo == 1) {
+			stopStrTo = numStopsTo + ' Stop';
 		} else {
-			stopStr = this.props.numStops;
+			stopStrTo = this.props.numStopsTo;
+        }
+        var numStopsBack = parseInt(this.props.numStopsBack);
+		var stopStrBack = '';
+		if (numStopsBack > 1) {
+			stopStrBack = numStopsBack + ' Stops';
+		} else if (numStopsBack == 1) {
+			stopStrBack = numStopsBack + ' Stop';
+		} else {
+			stopStrBack = this.props.numStopsBack;
 		}
         return (
             <View style={[this.props.style, {justifyContent: "center", marginTop: 30}]}>
@@ -45,14 +54,14 @@ export default class FlightCard extends Component {
                                 </View>
                             </View>
                             <View style={styles.flightRow}>
-                                <View style={styles.endpoint}>
-                                    <Text style={styles.time}>{this.props.aDepartDate}</Text>
+                                <View style={styles.connector}>
+                                    <Text style={styles.duration}>{this.props.aDepartDate}</Text>
                                 </View>
-                                <View style={styles.endpoint}>
-                                    <Text style={styles.time}>{stopStr}</Text>
+                                <View style={styles.connector}>
+                                    <Text style={styles.duration}>{stopStrTo}</Text>
                                 </View>
                             </View>   
-{/*                             <View style={styles.flightRow}>
+                             <View style={styles.flightRow}>
                                 <View style={styles.endpoint}>
                                     <Text style={styles.time}>{this.props.second_dep_time}</Text>
                                     <Text style={styles.airport}>{this.props.second_dep_airport}</Text>
@@ -63,9 +72,17 @@ export default class FlightCard extends Component {
                                 </View>
                                 <View style={styles.endpoint}>
                                     <Text style={styles.time}>{this.props.second_land_time}</Text>
-                                    <Text style={styles.airport}>{this.props.first_land_airport}</Text>
+                                    <Text style={styles.airport}>{this.props.second_land_airport}</Text>
                                 </View>
-                            </View>   */} 
+                            </View> 
+                            <View style={styles.flightRow}>
+                                <View style={styles.connector}>
+                                    <Text style={styles.duration}>{this.props.aReturnDate}</Text>
+                                </View>
+                                <View style={styles.connector}>
+                                    <Text style={styles.duration}>{stopStrBack}</Text>
+                                </View>
+                            </View>   
                             <View style={styles.footer}>
                                 <Text style={styles.airline}>{this.props.airline}</Text>
                                 <Text style={styles.price}>{this.props.price}</Text>
@@ -100,7 +117,7 @@ const styles = StyleSheet.create({
     },
     flightRow: {
         flexDirection: "row",
-        paddingBottom: 40,
+        paddingBottom: 10,
         justifyContent: "space-between",
         width: "100%",
         paddingHorizontal: 25

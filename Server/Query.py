@@ -91,12 +91,15 @@ def searchQuery(term="food", location="NYC"):
         
     return searchQuery
 
-def runFlightsQuery(origin, destination, departDate):    
+def runFlightsQuery(origin, destination, departDate, endDate):    
     url = "https://apidojo-kayak-v1.p.rapidapi.com/flights/create-session?"
     params = dict()
     params["origin1"] = origin
     params["destination1"] = destination
     params["departdate1"] = departDate
+    params["origin2"] = destination
+    params["destination2"] = origin
+    params["departdate2"] = endDate
     params["cabin"] = 'e'
     params["currency"] = "USD"
     params["adults"] = 1
@@ -120,10 +123,11 @@ def postProcessFlights(jsonResponse):
     for airline in airlineLogos:
         airlineLogos[airline] = base + airlineLogos[airline]
     departDate = jsonResponse["departDate"]
+    returnDate = jsonResponse["returnDate"]
     segments = jsonResponse["segset"]
     tripOutput = []
-    for trip in jsonResponse["tripset"][:30]:
-        segmentList = []
+    for trip in jsonResponse["tripset"][:20]:
+        segment1List = []
         for segment in trip["legs"][0]["segments"]:
             currSeg = segments[segment]
             newSeg = {
@@ -141,7 +145,26 @@ def postProcessFlights(jsonResponse):
                 "arriveTimeUnix": currSeg["arriveTime"],
                 "arriveDayDiff": currSeg["arrivalDayDiff"]
             }
-            segmentList.append(newSeg)
+            segment1List.append(newSeg)
+        segment2List = []
+        for segment in trip["legs"][1]["segments"]:
+            currSeg = segments[segment]
+            newSeg = {
+                "airlineCode": currSeg["airlineCode"],
+                "airlinePic": airlineLogos[currSeg["airlineCode"]],
+                "airlineName": airlines[currSeg["airlineCode"]],
+                "flightNumber": currSeg["flightNumber"],
+                "originAirportCode": currSeg["originCode"],
+                "originAirportName": airports[currSeg["originCode"]],
+                "destinationAirportCode": currSeg["destinationCode"],
+                "destinationAirportName": airports[currSeg["destinationCode"]],
+                "departTime": currSeg["leaveTimeDisplay"],
+                "departTimeUnix": currSeg["leaveTime"],
+                "arriveTime": currSeg["arriveTimeDisplay"],
+                "arriveTimeUnix": currSeg["arriveTime"],
+                "arriveDayDiff": currSeg["arrivalDayDiff"]
+            }
+            segment2List.append(newSeg)
         tripId = trip["tripid"]
         thePrice = "Not Available" if trip["displayLowTotal"] == "$-1" else trip["displayLowTotal"]
         tripOutput.append({
@@ -149,7 +172,9 @@ def postProcessFlights(jsonResponse):
             "provider": trip["cheapestProviderName"],
             "price": thePrice,
             "departDate": departDate,
-            "segments": segmentList,
+            "returnDate": returnDate,
+            "segmentsTo": segment1List,
+            "segmentsBack": segment2List,
             "bookingUrl": base + trip["shareURL"]
         })
         
