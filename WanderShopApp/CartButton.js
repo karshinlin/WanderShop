@@ -9,8 +9,6 @@ class CartButton extends Component {
     }
 
     onPressButton() {
-        this.props;
-        this.props.navigation;
         this.props.navigation.navigate('Cart');
     }
 

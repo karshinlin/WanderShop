@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {
-    View, Platform, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
+    View, Platform, TouchableHighlight, Linking, Image, Text, StyleSheet } from 'react-native';
 import { cDarkBlue, cLightBlue, cWhite } from "./App";
-import CardRating from "./CardRating"
-import AddButton from "./AddButton"
+import CardRating from "./CardRating";
+import BookButton from "./BookButton";
+import AddButton from "./AddButton";
 import RemoveButton from './RemoveButton';
 
 const wrapperWidth = 410;
@@ -28,7 +29,17 @@ export default class FlightCard extends Component {
 			stopStrBack = numStopsBack + ' Stop';
 		} else {
 			stopStrBack = this.props.numStopsBack;
-		}
+        }
+        
+        var addButton = <AddButton show={this.props.showAdd} style={{top: 0, right: 0, marginTop: 0, marginBottom: 0, position: "relative"}}
+        onPress={this.props.showAdd == false ? function(){}: this.props.addAction}></AddButton>;
+        console.log(this.props.showCheckout);
+        if (this.props.showCheckout) {
+            addButton = <BookButton  style={{top: 0, right: 0, marginTop: 0, marginBottom: 0, position: "relative"}} show={this.props.showCheckout} onPress={() => Linking.openURL(this.props.bookingUrl)} />
+        } else if (!this.props.showAdd) {
+            addButton = <RemoveButton style={{top: 0, right: 0, marginTop: 0, marginBottom: 0, position: "relative"}}
+            onPress={this.props.showRemove == false ? function(){}: this.props.removeAction}></RemoveButton>;
+        }
         return (
             <View style={[this.props.style, {justifyContent: "center", marginTop: 30}]}>
                 <TouchableHighlight style={{}}
@@ -86,13 +97,7 @@ export default class FlightCard extends Component {
                             <View style={styles.footer}>
                                 <Text style={styles.airline}>{this.props.airline}</Text>
                                 <Text style={styles.price}>{this.props.price}</Text>
-                                {this.props.showAdd ? 
-                                    <AddButton show={this.props.showAdd} style={{top: 0, right: 0, marginTop: 0, marginBottom: 0, position: "relative"}}
-                                    onPress={this.props.showAdd == false ? function(){}: this.props.addAction}></AddButton> :
-                                    <RemoveButton style={{top: 0, right: 0, marginTop: 0, marginBottom: 0, position: "relative"}}
-                                    onPress={this.props.showRemove == false ? function(){}: this.props.removeAction}></RemoveButton>
-                                }
-                                
+                                {addButton}
                             </View>            
                         </View>
                     </View>

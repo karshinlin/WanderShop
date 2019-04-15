@@ -18,11 +18,18 @@ class CartScreen extends Component {
         events: null,
         food: null,
         totalCost: 0,
+        checkout: false,
     }
+    this.setCheckoutState = this.setCheckoutState.bind(this);
   }
 
   componentDidMount() {
-    this.getCurrentCart()
+    this.getCurrentCart();
+  }
+
+  setCheckoutState() {
+    console.log("New Checkout State");
+    this.setState({checkout: true});
   }
 
   async getCurrentCart() {
@@ -120,28 +127,22 @@ class CartScreen extends Component {
       console.error(error);
     }
   }
-  checkoutFunction() {
-    // var flights = this.state.flights ? this.state.flights : [];
-    // var hotels = this.state.hotels ? this.state.hotels : [];
-    // var food = this.state.food ? this.state.food : [];
-    // var events = this.state.events ? this.state.events : [];
-    // if (flights.length == 0) {
-
-    // }
-  }
 
   render() {
     //this.getCurrentCart()
+    console.log("Rerender");
+    console.log(this.state.checkout);
     if ((this.state.flights && this.state.flights.length > 0) || (this.state.events && this.state.events.length > 0) 
       || (this.state.food && this.state.food.length > 0) || (this.state.hotels && this.state.hotels.length > 0)){
-        
+        var showCheckout = this.state.checkout;
         return (
           <View style={{flex: 1}}>
             <View style={{flexDirection: 'column', flex: 0.20}}>
-              <CartSummaryCard price={this.state.totalCost}/>
+              <CartSummaryCard setCheckoutState={this.setCheckoutState} price={this.state.totalCost} flights={this.state.flights} events={this.state.events} hotels={this.state.hotels} food={this.state.food}/>
             </View>
             <ScrollView style={{ flex: 0.75, backgroundColor: "white" }}>
               <FlatList
+                extraData={this.state.checkout}
                 scrollEnabled={false}
                 data={this.state.flights}
                 renderItem={({ item: { id, departDate, returnDate, price, provider, segmentsTo, segmentsBack, bookingUrl } }) => {
@@ -149,7 +150,7 @@ class CartScreen extends Component {
                   var hours_diff = Math.floor(diff/3600);
                   var mins_diff = Math.floor((diff % 3600)/60);
                   var durationTo = hours_diff + "h " + mins_diff + "m ";
-                  
+                  console.log("Render Flatlist item");
                   diff = segmentsBack[segmentsBack.length-1]["arriveTimeUnix"] - segmentsBack[0]["departTimeUnix"];
                   hours_diff = Math.floor(diff/3600);
                   mins_diff = Math.floor((diff % 3600)/60);
@@ -165,7 +166,7 @@ class CartScreen extends Component {
                           first_land_airport={segmentsTo[segmentsTo.length-1].destinationAirportCode}
                           aDepartDate={departDate}
                           numStopsTo={segmentsTo.length}
-                          
+                          bookingUrl={bookingUrl}
                           second_dep_time={segmentsBack[0]["departTime"]}
                           second_dep_airport={segmentsBack[0].originAirportCode}
                           second_duration={durationBack}
@@ -173,6 +174,7 @@ class CartScreen extends Component {
                           second_land_airport={segmentsBack[segmentsBack.length-1].destinationAirportCode}
                           aReturnDate={returnDate}
                           numStopsBack={segmentsBack.length}
+                          showCheckout={showCheckout}
                           airline={provider}
                           price={price == "Not Available" ? "" : price}
                           removeAction={() => {
@@ -189,10 +191,12 @@ class CartScreen extends Component {
                 onRefresh={this.handleRefresh}
               />
               <FlatList
+                extraData={this.state.checkout}
                 scrollEnabled={false}
                 data={this.state.hotels}
                 renderItem={({ item: { id, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars } }) => (
-                  <HotelCard showAdd={false} rating={stars} name={hotelName} price={price} address={address} id={id} bookingLogo={bookingLogo} bookingUrl={bookingUrl} checkin={checkin} checkout={checkout} hotelPic={hotelPic} roomsRemaining={roomsRemaining} removeAction={() => {
+                  <HotelCard showAdd={false} showCheckout={showCheckout}
+                  rating={stars} name={hotelName} price={price} address={address} id={id} bookingLogo={bookingLogo} bookingUrl={bookingUrl} checkin={checkin} checkout={checkout} hotelPic={hotelPic} roomsRemaining={roomsRemaining} removeAction={() => {
                     this.removeFromCart(id, "hotel");
                     //this.addToCart({category: "hotel", bookingId, address, bookingLogo, bookingUrl, checkin, checkout, hotelName, hotelPic, phone, price, roomsRemaining, stars});
                   }}/>
@@ -202,9 +206,11 @@ class CartScreen extends Component {
                 onRefresh={this.handleRefresh}
               />
               <FlatList
+                extraData={this.state.checkout}
                 data={this.state.events}
                 renderItem={({ item: { name, info, images, id, priceRanges, url, type, place, _embedded: { venues } } }) => (
-                  <EventCard showAdd={false} name={name} info={info} sourceURL={images[0].url} price={priceRanges && priceRanges.length > 0 ? `${priceRanges[0].min}` : ''} eventLocation={venues[0].name} removeAction={() => {
+                  <EventCard showCheckout={showCheckout}
+                  showAdd={false} name={name} info={info} sourceURL={images[0].url} bookingUrl={url} price={priceRanges && priceRanges.length > 0 ? `${priceRanges[0].min}` : ''} eventLocation={venues[0].name} removeAction={() => {
                     this.removeFromCart(id, "event");
                     //this.addToCart({ category: "event", name, info, images, id, priceRanges, url, type, place, _embedded: { venues } });
                   }}/>
@@ -214,6 +220,7 @@ class CartScreen extends Component {
                 onRefresh={this.handleRefresh}
               />
               <FlatList
+                extraData={this.state.checkout}
                 scrollEnabled={false}
                 data={this.state.food}
                 renderItem={({ item: { name, id, rating, price, display_phone, url, photos, location: {address1, city, state, postal_code,
@@ -229,7 +236,7 @@ class CartScreen extends Component {
                       thePrice = 4;
                     }
                     return (
-                      <RestaurantCard showAdd={false} name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} removeAction={() => {
+                      <RestaurantCard showCheckout={this.state.checkout} showAdd={false} name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} removeAction={() => {
                         this.removeFromCart(id, "food");
                         //this.addToCart({ category: "food", name, id, rating, price, display_phone, url, photos, location: {address1, city, state, postal_code}});
                       }} />

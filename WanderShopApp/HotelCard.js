@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {
-    View, Platform, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
+    View, Platform, TouchableHighlight, Image, Linking, Text, StyleSheet } from 'react-native';
 import { cDarkBlue, cLightBlue, cWhite } from "./App";
 import CardRating from "./CardRating"
 import AddButton from "./AddButton"
+import BookButton from "./BookButton";
 import RemoveButton from "./RemoveButton"
 
 const wrapperWidth = 405;
@@ -12,6 +13,15 @@ export default class HotelCard extends Component {
     render () {
         let {onPress, isRipple, rippleColor, children, style} = this.props;
         
+        var addButton = <AddButton show={this.props.showAdd} onPress={this.props.showAdd == false ? function(){}: this.props.addAction}></AddButton>;
+
+        console.log(this.props.showCheckout);
+        if (this.props.showCheckout) {
+            addButton = <BookButton show={this.props.showCheckout} onPress={() => Linking.openURL(this.props.bookingUrl)} />
+        } else if (!this.props.showAdd) {
+            addButton = <RemoveButton onPress={this.props.showRemove == false ? function(){}: this.props.removeAction}></RemoveButton>;
+        }
+
         return (
             <View style={[this.props.style, {borderBottomWidth: 10, borderBottomColor: "#F4F4F4"}]}>
                 <TouchableHighlight style={{}}
@@ -22,10 +32,7 @@ export default class HotelCard extends Component {
                         <View style={styles.wrapper}>
                             <View style={{width: Platform.OS === 'ios' ? '100%' : wrapperWidth}}>
                                 <Image source={{uri: this.props.hotelPic}} style={styles.heroImg} />
-                                {this.props.showAdd ? 
-                                    <AddButton show={this.props.showAdd} onPress={this.props.showAdd == false ? function(){}: this.props.addAction}></AddButton> :
-                                    <RemoveButton onPress={this.props.showRemove == false ? function(){}: this.props.removeAction}></RemoveButton>
-                                }
+                                {addButton}
                             </View>
                             <View style={styles.infoArea}>
                                 <View style={styles.name_stars}>
