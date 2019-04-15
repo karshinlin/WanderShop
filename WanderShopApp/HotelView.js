@@ -36,7 +36,7 @@ class HotelView extends Component {
                 refreshing: false,
                 time: 30,
             }, function () {
-
+                console.log(response);
             });
         })
         .catch((error) => {

@@ -6,6 +6,7 @@ import FlightCard from "./FlightCard.js";
 import HotelCard from "./HotelCard.js";
 import EventCard from "./EventCard.js";
 import RestaurantCard from "./RestaurantCard.js";
+import CartSummaryCard from "./CartSummaryCard.js";
 
 class CartScreen extends Component {
   constructor(props) {
@@ -18,6 +19,10 @@ class CartScreen extends Component {
         food: null,
         totalCost: 0,
     }
+  }
+
+  componentDidMount() {
+    this.getCurrentCart()
   }
 
   async getCurrentCart() {
@@ -38,7 +43,8 @@ class CartScreen extends Component {
           if (element.category == "hotel") {
             hotels.push(element);
             if (element.price && element.price != '') {
-              totalCost += parseInt(element.price.substring(1))
+              if (global.numDays > 0) totalCost += global.numDays * parseInt(element.price.substring(1));
+              else totalCost += parseInt(element.price.substring(1));
             }
           }
           if (element.category == "flight") {
@@ -107,34 +113,33 @@ class CartScreen extends Component {
     }
     try {
       await AsyncStorage.setItem('currentCart', JSON.stringify(flights.concat(hotels, food, events)));
-      //await this.getCurrentCart();
+      await this.getCurrentCart();
     } catch (error) {
       // Error saving data
       console.error(error);
     }
   }
   checkoutFunction() {
-    
+    // var flights = this.state.flights ? this.state.flights : [];
+    // var hotels = this.state.hotels ? this.state.hotels : [];
+    // var food = this.state.food ? this.state.food : [];
+    // var events = this.state.events ? this.state.events : [];
+    // if (flights.length == 0) {
+
+    // }
   }
 
   render() {
-    this.getCurrentCart()
+    //this.getCurrentCart()
     if ((this.state.flights && this.state.flights.length > 0) || (this.state.events && this.state.events.length > 0) 
       || (this.state.food && this.state.food.length > 0) || (this.state.hotels && this.state.hotels.length > 0)){
         
         return (
           <View style={{flex: 1}}>
-            <View style={{flexDirection: 'row', flex: 0.1}}>
-              <Text style={[{flex: 0.5, alignContent: 'center', justifyContent: 'center'},  styles.titleText]}>
-                {'$' + this.state.totalCost}
-              </Text>
-              <Button
-                style={{flex: 0.5}}
-                onPress={() => this.checkoutFunction()}
-                title="Checkout"
-              />
+            <View style={{flexDirection: 'column', flex: 0.20}}>
+              <CartSummaryCard price={this.state.totalCost}/>
             </View>
-            <ScrollView style={{ flex: 0.9, backgroundColor: "white" }}>
+            <ScrollView style={{ flex: 0.75, backgroundColor: "white" }}>
               <FlatList
                 scrollEnabled={false}
                 data={this.state.flights}

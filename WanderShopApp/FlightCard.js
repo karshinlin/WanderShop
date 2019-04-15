@@ -11,7 +11,15 @@ const wrapperWidth = 410;
 export default class FlightCard extends Component {
     render () {
         let {onPress, isRipple, rippleColor, children, style} = this.props;
-        
+        var numStops = parseInt(this.props.numStops.split(" ")[0]);
+		var stopStr = '';
+		if (numStops > 1) {
+			stopStr = numStops + ' Stops';
+		} else if (numStops == 0) {
+			stopStr = numStops + ' Stop';
+		} else {
+			stopStr = this.props.numStops;
+		}
         return (
             <View style={[this.props.style, {justifyContent: "center", marginTop: 30}]}>
                 <TouchableHighlight style={{}}
@@ -41,7 +49,7 @@ export default class FlightCard extends Component {
                                     <Text style={styles.time}>{this.props.aDepartDate}</Text>
                                 </View>
                                 <View style={styles.endpoint}>
-                                    <Text style={styles.time}>{this.props.numStops}</Text>
+                                    <Text style={styles.time}>{stopStr}</Text>
                                 </View>
                             </View>   
 {/*                             <View style={styles.flightRow}>

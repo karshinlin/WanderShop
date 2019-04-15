@@ -3,7 +3,8 @@ import { Button, Platform, View, Text, StyleSheet, TextInput, AsyncStorage, Scro
 import CalendarPicker from 'react-native-calendar-picker';
 import {cRed, cBlack, cWhite, cLightBlue} from "./App"
 import StandardButton from './StandardButton';
-
+import AppNavigator from './App.js';
+import moment from "moment";
 
 export default class TripOptionsScreen extends React.Component {
 	constructor(props) {
@@ -39,6 +40,12 @@ export default class TripOptionsScreen extends React.Component {
 			this.state.destCity != null) {
 				var start = this.state.selectedStartDate.format("YYYY-MM-DD");
 				var end = this.state.selectedEndDate.format("YYYY-MM-DD");
+				global.destination = this.state.destCity;
+				global.origin = this.state.originCity;
+				global.startDate = start.toString();
+				global.endDate = end.toString();
+				global.numDays = moment(end).diff(start, 'days');
+				console.log(global.numDays); 
 				this.props.navigation.navigate('TripPage', {startDate: start.toString(),
 				endDate: end.toString(), origin: this.state.originCity,
 				destination: this.state.destCity});
