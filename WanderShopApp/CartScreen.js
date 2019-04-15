@@ -236,7 +236,7 @@ class CartScreen extends Component {
                       thePrice = 4;
                     }
                     return (
-                      <RestaurantCard showCheckout={this.state.checkout} showAdd={false} name={name} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} removeAction={() => {
+                      <RestaurantCard showCheckout={this.state.checkout} onPress={this.state.checkout ? function(){Linking.openURL(url)} : function(){}} showAdd={false} name={name} phone={display_phone} address={address1 + "," + city} rating={rating} sourceURL={photos && photos.length > 0 ? photos[0] : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTOH9vW49J77rJpXQ9wDM5Pgc8b6DOt2-ZuUUVuhEb7WR5IThl"} price={thePrice} removeAction={() => {
                         this.removeFromCart(id, "food");
                         //this.addToCart({ category: "food", name, id, rating, price, display_phone, url, photos, location: {address1, city, state, postal_code}});
                       }} />

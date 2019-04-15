@@ -57,67 +57,68 @@ export default class TripOptionsScreen extends React.Component {
 	}
 
   	render() {
-		const { selectedStartDate, selectedEndDate, originCity, destCity} = this.state;
-		console.log(this.state);
-		const minDate = new Date(); // Today
-		const maxDate = new Date(2019, 12, 30);
-		const startDate  =  selectedStartDate ? selectedStartDate.toString() : '';
-		const endDate = selectedEndDate ? selectedEndDate.toString() : '';
-		const origin = originCity ? originCity.toString() : '';
-		const dest = destCity ? destCity.toString() : '';
-		const theWarning = startDate != '' && endDate != '' && origin != '' && dest != '' ? '' : 'Please complete all fields'; //Please complete all fields
-		let warnStyle = theWarning == '' ? 'none' : 'flex';
-		//let enableContinue = theWarning == '' ? 0.6 : 1;
-		return (
-			<KeyboardAvoidingView style={styles.container} enabled behavior={'position'}>
-				<View style={[{height: "auto"}, styles.titleHolder]}>
-						<Text style={styles.title}>Start your trip </Text>
-						<Text style={[styles.warning, {display: warnStyle}]}>{theWarning}</Text>
-				</View>
+			AsyncStorage.removeItem('currentCart');
+			const { selectedStartDate, selectedEndDate, originCity, destCity} = this.state;
+			console.log(this.state);
+			const minDate = new Date(); // Today
+			const maxDate = new Date(2019, 12, 30);
+			const startDate  =  selectedStartDate ? selectedStartDate.toString() : '';
+			const endDate = selectedEndDate ? selectedEndDate.toString() : '';
+			const origin = originCity ? originCity.toString() : '';
+			const dest = destCity ? destCity.toString() : '';
+			const theWarning = startDate != '' && endDate != '' && origin != '' && dest != '' ? '' : 'Please complete all fields'; //Please complete all fields
+			let warnStyle = theWarning == '' ? 'none' : 'flex';
+			//let enableContinue = theWarning == '' ? 0.6 : 1;
+			return (
+				<KeyboardAvoidingView style={styles.container} enabled behavior={'position'}>
+					<View style={[{height: "auto"}, styles.titleHolder]}>
+							<Text style={styles.title}>Start your trip </Text>
+							<Text style={[styles.warning, {display: warnStyle}]}>{theWarning}</Text>
+					</View>
 
-				
-				
-					{/* <Text style={styles.normal}>Please select your trip dates:</Text> */}
-					<View style={styles.calendarContainer}>
-						<CalendarPicker style={{}}
-						startFromMonday={true}
-						allowRangeSelection={true}
-						minDate={minDate}
-						maxDate={maxDate}
-						todayBackgroundColor="#1D71F3"
-						selectedDayColor="#FAA916"
-						selectedDayTextColor="white"
-						onDateChange={this.onDateChange}
-						width={Dimensions.get("window").width-60}
-						
-						/>
-						</View>
-				
-						<View>
-						{/* <Text>SELECTED START DATE:{ startDate }</Text> */}
-						{/* <Text>SELECTED END DATE:{ endDate }</Text> */}
-						</View>
+					
+					
+						{/* <Text style={styles.normal}>Please select your trip dates:</Text> */}
+						<View style={styles.calendarContainer}>
+							<CalendarPicker style={{}}
+							startFromMonday={true}
+							allowRangeSelection={true}
+							minDate={minDate}
+							maxDate={maxDate}
+							todayBackgroundColor="#1D71F3"
+							selectedDayColor="#FAA916"
+							selectedDayTextColor="white"
+							onDateChange={this.onDateChange}
+							width={Dimensions.get("window").width-60}
+							
+							/>
+							</View>
+					
+							<View>
+							{/* <Text>SELECTED START DATE:{ startDate }</Text> */}
+							{/* <Text>SELECTED END DATE:{ endDate }</Text> */}
+							</View>
 
-						<View style={{}}>
-							<TextInput
-								style={styles.textInput}
-								placeholder="Origin"
-								onChangeText={(city) => this.setState({originCity: city})}>
-							</TextInput>
-							<TextInput
-								style={styles.textInput}
-								placeholder="Destination"
-								onChangeText={(city) => this.setState({destCity: city})}>
-							</TextInput>
-        		</View>
+							<View style={{}}>
+								<TextInput
+									style={styles.textInput}
+									placeholder="Origin"
+									onChangeText={(city) => this.setState({originCity: city})}>
+								</TextInput>
+								<TextInput
+									style={styles.textInput}
+									placeholder="Destination"
+									onChangeText={(city) => this.setState({destCity: city})}>
+								</TextInput>
+							</View>
 
-						<StandardButton style={{opacity: theWarning == '' ? 1 : 0.6}}
-            onPress={this.onSubmitOptions}>
-              <Text style={styles.standardButton}> Continue</Text>
-          </StandardButton>
-			</KeyboardAvoidingView>
-		);
-  }
+							<StandardButton style={{opacity: theWarning == '' ? 1 : 0.6}}
+							onPress={this.onSubmitOptions}>
+								<Text style={styles.standardButton}> Continue</Text>
+						</StandardButton>
+				</KeyboardAvoidingView>
+			);
+  	}
 }
  
 const styles = StyleSheet.create({

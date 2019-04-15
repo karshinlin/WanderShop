@@ -21,26 +21,59 @@ class CartSummaryCard extends Component {
         var hotels = this.props.hotels ? this.props.hotels : [];
         var food = this.props.food ? this.props.food : [];
         var events = this.props.events ? this.props.events : [];
-        if (flights.length > 0 && hotels.length > 0) {
-          if (food.length == 0 || events.length == 0) {
+        if (flights.length == 0 && hotels.length == 0) 
+            Alert.alert("Please select a flight and a hotel.");
+        else if (flights.length > 1 && hotels.length > 1)
+            Alert.alert("Please only add 1 flight and 1 hotel.");
+        else if (flights.length != 1)
+            Alert.alert("Must have 1 flight. You currently have " + flights.length + ".");
+        else if (hotels.length != 1)
+            Alert.alert("Must have 1 hotel. You currently have " + hotels.length + ".");
+        else if (food.length == 0 || events.length == 0) {
+            var alertStr = '';
+            if (events.length == 0) {
+                alertStr += ' events ';
+                if (food.length == 0) alertStr += ' or food ';
+            } else if (food.length == 0) alertStr += ' food ';
+                
             Alert.alert(
-              'Are you sure?',
-              'Do you want to add events or food to your cart first?',
-              [
+                'Are you sure?',
+                'Do you want to add' + alertStr + 'to your cart first?',
+                [
                 {
-                  text: 'Cancel',
-                  onPress: () => console.log('Cancel Pressed'),
-                  style: 'cancel',
+                    text: 'Cancel',
+                    onPress: () => console.log('Cancel Pressed'),
+                    style: 'cancel',
                 },
                 //navigate to checkout page
                 {text: 'Continue', onPress: () => this.props.setCheckoutState()},
-              ],
+                ],
             );
-          } else {
+        }
+        else {
             // Navigate to Checkout page
             this.props.setCheckoutState();
         }
-        }
+                
+        // if (flights.length > 0 && hotels.length > 0) {
+        //   if (food.length == 0 || events.length == 0) {
+        //     Alert.alert(
+        //       'Are you sure?',
+        //       'Do you want to add events or food to your cart first?',
+        //       [
+        //         {
+        //           text: 'Cancel',
+        //           onPress: () => console.log('Cancel Pressed'),
+        //           style: 'cancel',
+        //         },
+        //         //navigate to checkout page
+        //         {text: 'Continue', onPress: () => this.props.setCheckoutState()},
+        //       ],
+        //     );
+        //   } else {
+            
+        // }
+        // }
       }
 
     render () {
