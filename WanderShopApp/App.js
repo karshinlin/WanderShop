@@ -6,6 +6,7 @@ import CartButton from "./CartButton";
 import CartScreen from "./CartScreen";
 import HomeView from "./HomeView";
 import TripOptionsScreen from './TripOptionsScreen';
+import ItineraryScreen from './ItineraryScreen';
 import './global.js';
 import EmphasisButton from './EmphasisButton';
 import StandardButton from './StandardButton';
@@ -253,8 +254,24 @@ class LogoutButton extends React.Component {
   }
 
 }
+class ItineraryButton extends React.Component {
+
+  showI() {
+    this.props.navigation.navigate('Itinerary');
+  }
+
+  render() {
+    var that = this;
+    return (
+      
+      <Text style={{color: "#FFFFFF", fontFamily: "Arial", fontSize: 19, marginRight: 30}} onPress={that.showI.bind(that)}>Itinerary</Text>
+    );
+  }
+
+}
 
 const LogoutButtonNav = withNavigation(LogoutButton);
+const ItineraryButtonNav = withNavigation(ItineraryButton);
 
 const AppNavigator = createStackNavigator({
 	Welcome: WelcomeScreen,
@@ -287,8 +304,6 @@ const AppNavigator = createStackNavigator({
       },
       headerLeftContainerStyle: {
         marginLeft: 5,
-        
-
       },
       headerTintColor: 'white',
       
@@ -297,11 +312,30 @@ const AppNavigator = createStackNavigator({
   Cart: {
     screen: CartScreen,
     navigationOptions: {
+      headerRight: (<ItineraryButtonNav />),
       headerStyle: {
         backgroundColor: cLightBlue,
         elevation: 0,
         shadowOpacity: 0,
-        paddingTop: 15
+        paddingTop: 15,
+        headerTintColor: "#FFFFFF"
+      },
+      headerLeftContainerStyle: {
+        marginLeft: 0,
+      },
+      headerTintColor: 'white',
+    },
+  },
+  Itinerary: {
+    screen: ItineraryScreen,
+    navigationOptions: {
+      title: "Your trip to Iraq",
+      headerStyle: {
+        backgroundColor: cLightBlue,
+        elevation: 0,
+        shadowOpacity: 0,
+        paddingTop: 15,
+        headerTintColor: "#FFFFFF"
       },
       headerLeftContainerStyle: {
         marginLeft: 5,
