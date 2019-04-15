@@ -52,7 +52,7 @@ with open('hotels_sample.json') as json_file:
 with open('flights_sample.json') as json_file:  
     flightData = json.load(json_file)
 
-lockAPI = True
+lockAPI = False
 
 @app.route('/')
 def hello_world():
