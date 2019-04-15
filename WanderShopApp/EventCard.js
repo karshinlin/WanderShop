@@ -23,7 +23,7 @@ export default class EventCard extends Component {
 
         if (this.props.showCheckout) {
             addButton = <BookButton  show={this.props.showCheckout} onPress={() => Linking.openURL(this.props.bookingUrl)} />
-        } else if (this.props.showRemove) {
+        } else if (!this.props.showAdd) {
             addButton = <RemoveButton onPress={this.props.showRemove == false ? function(){}: this.props.removeAction}></RemoveButton>;
         }
         return (
