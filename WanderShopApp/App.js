@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, View, Platform, Text, StyleSheet, TextInput, AsyncStorage, Image } from "react-native";
+import { Button, View, Platform, Text, StyleSheet, KeyboardAvoidingView, TextInput, AsyncStorage, Image } from "react-native";
 import { createStackNavigator, createAppContainer, NavigationActions, withNavigation } from "react-navigation";
 import TabViewPageHomeScreen from "./TabViewPage";
 import CartButton from "./CartButton";
@@ -56,7 +56,7 @@ class LoginScreen extends React.Component {
 	render() {
     const {navigate} = this.props.navigation;
 		return (
-			<View style={styles.container}>
+			<KeyboardAvoidingView style={styles.container} enabled behavior={'padding'}>
         
         <View style={[{flex: 0.2}, styles.titleHolder]}>
           <Text style={styles.title}>Sign In</Text>
@@ -82,7 +82,7 @@ class LoginScreen extends React.Component {
           <Text style={styles.buttonNote}>Forgot your password?</Text>
         </View>
 
-		  </View>
+		  </KeyboardAvoidingView>
 		);
   };
   
@@ -142,7 +142,7 @@ class CreateAccountScreen extends React.Component {
     const {navigate} = this.props.navigation;
     let inpMargin = 7;
 		return (
-			<View style={styles.container}>
+			<KeyboardAvoidingView style={styles.container} enabled behavior={'padding'}>
         <View style={[{flex: 0.2}, styles.titleHolder]}>
           <Text style={styles.title}>Create an Account</Text>
         </View>
@@ -183,7 +183,7 @@ class CreateAccountScreen extends React.Component {
           <Text style={styles.buttonNote}>Already have an account? <Text style={{color: cDarkBlue}}> LOG IN</Text></Text>
         </View>
 
-		  </View>
+		  </KeyboardAvoidingView>
 		);
   };
   
@@ -392,7 +392,7 @@ const styles = StyleSheet.create({
     padding: 40
   },
   container: {
-
+    flex: 1,
 	  backgroundColor: '#FFFFFF',
     flexDirection: 'column',
     padding: 30,

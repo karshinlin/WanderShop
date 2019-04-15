@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Platform, View, Text, StyleSheet, TextInput, AsyncStorage, ScrollView, Dimensions } from "react-native";
+import { Button, Platform, View, Text, StyleSheet, KeyboardAvoidingView, TextInput, AsyncStorage, ScrollView, Dimensions } from "react-native";
 import CalendarPicker from 'react-native-calendar-picker';
 import {cRed, cBlack, cWhite, cLightBlue} from "./App"
 import StandardButton from './StandardButton';
@@ -69,7 +69,7 @@ export default class TripOptionsScreen extends React.Component {
 		let warnStyle = theWarning == '' ? 'none' : 'flex';
 		//let enableContinue = theWarning == '' ? 0.6 : 1;
 		return (
-			<View style={styles.container}>
+			<KeyboardAvoidingView style={styles.container} enabled behavior={'position'}>
 				<View style={[{height: "auto"}, styles.titleHolder]}>
 						<Text style={styles.title}>Start your trip </Text>
 						<Text style={[styles.warning, {display: warnStyle}]}>{theWarning}</Text>
@@ -115,8 +115,7 @@ export default class TripOptionsScreen extends React.Component {
             onPress={this.onSubmitOptions}>
               <Text style={styles.standardButton}> Continue</Text>
           </StandardButton>
-					
-			</View>
+			</KeyboardAvoidingView>
 		);
   }
 }
@@ -124,8 +123,10 @@ export default class TripOptionsScreen extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 	  backgroundColor: 'white',
-    flexDirection: 'column',
-    padding: 30,
+		flexDirection: 'column',
+		flex: 1,
+		paddingLeft: 30,
+		paddingRight: 30,
 		height: '100%',
 		paddingTop: 20
 	},
