@@ -21,7 +21,7 @@ class FlightView extends Component {
   }
   //flights?origin=ATL&dest=JFK&departDate=2019-09-23
   fetchFlights(){
-    var url = global.url + 'flights?origin=' + this.params.origin + "&dest=" + this.params.destination + "&departDate=" + this.params.startDate;
+    var url = global.url + 'flights?origin=' + this.params.origin + "&dest=" + this.params.destination + "&departDate=" + this.params.startDate + '&endDate=' + this.params.endDate;
     console.log(url)
     return fetch(url)
         .then((response) => response.json())
