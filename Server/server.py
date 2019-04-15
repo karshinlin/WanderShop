@@ -177,5 +177,44 @@ def activities_handler():
     
     return json.jsonify(json_response["_embedded"])
 
+@app.route('/addTrip/', methods=['POST'])
+def add_trips_handler():
+    user_email = request.values.get('email', default="tobincolby@gmail.com", type=str)
+    user_trip = request.values.get('trip', default="MY TRIP", type=str)
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    cursor.execute('INSERT INTO trips (user_email, trip_details) VALUES ("{}","{}")'.format(user_email, user_trip))
+
+    response = {}
+    response['trip'] = user_trip
+    response['email'] = user_email
+    response['success'] = 1
+    conn.commit()
+    return json.jsonify(response)
+
+@app.route('/trips/', methods=["GET"])
+def trips_handler():
+
+    user_email = request.args.get('email', default="tobincolby@gmail.com", type=str)
+
+    conn = mysql.connect()
+    cursor =conn.cursor()
+
+    cursor.execute('SELECT * from trips WHERE user_email="{}"'.format(user_email))
+    row = cursor.fetchone()
+    trips = []
+    while row is not None:
+        trips.append(row[2])
+        row = cursor.fetchone()
+    
+    response = {}
+    response['trips'] = trips
+    response['success'] = 1
+    response['email'] = user_email
+
+    return json.jsonify(response)
+
 if __name__ == '__main__':
     app.run(debug=True)
