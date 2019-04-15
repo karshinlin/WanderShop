@@ -9,7 +9,7 @@ export default class ItineraryHotelElement extends Component {
         
         return (
             <View style={styles.wrapper}>
-                <Image source={require('./assets/img/hero_hotel.jpg')} style={{height: 50, width: 50, borderRadius: 10, }}/>
+                <Image source={{uri: this.props.hotelPic}} style={{height: 50, width: 50, borderRadius: 10, }}/>
                 <View style={styles.infoArea}>
                     <Text style={styles.title}>{"Check-in at " + this.props.name}</Text>
                     <Text style={styles.subtitle}>{this.props.address}</Text>
@@ -26,11 +26,12 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     infoArea: {
-        marginLeft: 20
+        marginLeft: 10
     },
     title: {
         fontSize: 17,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        maxWidth: 250
     },
     subtitle: {
         fontSize: 14,

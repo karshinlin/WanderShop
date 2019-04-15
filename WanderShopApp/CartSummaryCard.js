@@ -13,6 +13,10 @@ class CartSummaryCard extends Component {
     }
 
     checkoutFunction() {
+        if (this.props.displayItinerary == true) {
+            this.props.navigation.navigate('Itinerary');
+            return;
+        }
         var flights = this.props.flights ? this.props.flights : [];
         var hotels = this.props.hotels ? this.props.hotels : [];
         var food = this.props.food ? this.props.food : [];
@@ -62,7 +66,7 @@ class CartSummaryCard extends Component {
                             </View>
                             <View style={styles.footer}>
                                 <Text style={styles.price}>{'$' + this.props.price}</Text>
-								<Button title="Checkout" style={{top: 0, right: 0, marginTop: 0, marginBottom: 0, position: "relative", paddingLeft: 20}}
+								<Button title={this.props.displayItinerary==true? "View Itinerary": "Checkout" } style={{top: 0, right: 0, marginTop: 0, marginBottom: 0, position: "relative", paddingLeft: 20}}
                                     onPress={() => this.checkoutFunction()}></Button>  
                             </View>            
                         </View>

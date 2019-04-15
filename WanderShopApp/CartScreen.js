@@ -138,7 +138,7 @@ class CartScreen extends Component {
         return (
           <View style={{flex: 1}}>
             <View style={{flexDirection: 'column', flex: 0.20}}>
-              <CartSummaryCard setCheckoutState={this.setCheckoutState} price={this.state.totalCost} flights={this.state.flights} events={this.state.events} hotels={this.state.hotels} food={this.state.food}/>
+              <CartSummaryCard displayItinerary={this.state.checkout} setCheckoutState={this.setCheckoutState} price={this.state.totalCost} flights={this.state.flights} events={this.state.events} hotels={this.state.hotels} food={this.state.food}/>
             </View>
             <ScrollView style={{ flex: 0.75, backgroundColor: "white" }}>
               <FlatList

@@ -270,6 +270,10 @@ class ItineraryButton extends React.Component {
 
 }
 
+
+
+
+
 const LogoutButtonNav = withNavigation(LogoutButton);
 const ItineraryButtonNav = withNavigation(ItineraryButton);
 
@@ -312,7 +316,6 @@ const AppNavigator = createStackNavigator({
   Cart: {
     screen: CartScreen,
     navigationOptions: {
-      headerRight: (<ItineraryButtonNav />),
       headerStyle: {
         backgroundColor: cLightBlue,
         elevation: 0,
@@ -329,7 +332,7 @@ const AppNavigator = createStackNavigator({
   Itinerary: {
     screen: ItineraryScreen,
     navigationOptions: {
-      title: "Your trip to Iraq",
+      title: "Your trip to San Diego",
       headerStyle: {
         backgroundColor: cLightBlue,
         elevation: 0,
@@ -348,6 +351,9 @@ const AppNavigator = createStackNavigator({
 const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends React.Component {
+
+
+
   render() {
     return <AppContainer persistenceKey={"NavigationKey"} />;
   }

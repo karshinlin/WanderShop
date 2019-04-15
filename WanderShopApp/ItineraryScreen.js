@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Platform, Text, FlatList, Image, StyleSheet, Linking, Alert, Button, ScrollView, AsyncStorage } from "react-native";
+import { View, NavigationActions, Platform, Text, FlatList, Image, StyleSheet, Linking, Alert, Button, ScrollView, AsyncStorage } from "react-native";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
 import StarRating from 'react-native-star-rating';
 import FlightCard from "./FlightCard.js";
@@ -35,6 +35,8 @@ class ItineraryScreen extends Component {
   }
   componentDidMount() {
     this.getCurrentCart()
+
+    //navigation.setParams({title: "Your trip to "})
   }
   async getCurrentCart() {
     try {
@@ -72,7 +74,11 @@ class ItineraryScreen extends Component {
           }
         });
         await this.setState({ flights, events, food, hotels, totalCost });
-        console.log(flights)
+        console.log("here you go")
+        console.log(this.state.flights)
+        console.log(this.state.hotels)
+        console.log(this.state.food)
+        console.log(this.state.events)
         //console.log(cart);
       } else {
           ///console.log("NULLL");
@@ -84,8 +90,49 @@ class ItineraryScreen extends Component {
   }
 
   render() {
-    //console.log(this.state.flights)
+    console.log('hereee')
+    console.log(this.state.flights)
+    if (this.state.flights != null) {
+      firstFlight = this.state.flights[0].segmentsTo;
+      arriveTime = firstFlight[firstFlight.length-1].arriveTime;
+      arriveAirport = firstFlight[firstFlight.length-1].destinationAirportCode
+      
+      destCity = firstFlight[firstFlight.length-1].destinationAirportName.city
+      
+
+      arriveDate = this.state.flights[0].departDate;
+      hotelName = this.state.hotels[0].hotelName
+      hotelAddress = this.state.hotels[0].address
+      hotelPic = this.state.hotels[0].hotelPic
+
+      secondFlight = this.state.flights[0].segmentsBack;
+      leaveTime = secondFlight[secondFlight.length-1].arriveTime;
+      leaveAirport = secondFlight[secondFlight.length-1].destinationAirportCode
+      leaveDate = this.state.flights[0].returnDate;
+      
+      
+    } else {
+      return (<View></View>);
+    }
+
+    
+    console.log("not done");
+    allRestaurants = []
+    this.state.food.forEach(function(element) {
+      one = <SmallElement rating={element.rating} picUrl={element.photos[0]} title={element.name} address={element.location.address1+element.location.city}/>;
+      allRestaurants.push(one)
+    });
+
+    allEvents = []
+    this.state.events.forEach(function(element) {
+      place = element._embedded.venues[0].name
+      one = <SmallElement rating={0} picUrl={element.images[0].url} title={element.name} address={place}/>;
+      allEvents.push(one)
+    });
+
+  
     return(
+      <ScrollView style={{backgroundColor: "white"}}>
       <View style={styles.global}>
         <View style={styles.wrapper}>
           
@@ -96,19 +143,20 @@ class ItineraryScreen extends Component {
             <Text style={{fontWeight: "bold"}}>Tuesday</Text>
           </View> */}
           <View style={styles.elementHolder}>
-            <ItineraryFlightElement airport={"JFK"} time={"5:43pm"} date={"May 12"}/>
+            <ItineraryFlightElement airport={"Arrive at " + arriveAirport + " airport"} time={arriveTime} date={arriveDate}/>
             <View style={styles.connector}></View>
-            <ItineraryHotelElement hotelPic={""} name={"Trump Hotel NYC"} address={"159 5th St NW"}/>
+            <ItineraryHotelElement hotelPic={hotelPic} name={hotelName} address={hotelAddress}/>
             <View style={styles.connector}></View>
-            <ItineraryFoodElement numRestaurants={3}/>
-            <SmallElement rating={3} picUrl={""} title={"Moes Grill"} address={"159 5th St NW"}/>
-            <SmallElement rating={4} picUrl={""} title={"Moes Grill"} address={"159 5th St NW"}/>
-            <SmallElement rating={2} picUrl={""} title={"Moes Grill"} address={"159 5th St NW"}/>
-            <ItineraryEventElement numEvents={3}/>
+            <ItineraryFoodElement numRestaurants={allRestaurants.length}/>
+            {allRestaurants}
+            <ItineraryEventElement numEvents={allEvents.length}/>
+            {allEvents}
+            <ItineraryFlightElement airport={"Depart from " + leaveAirport + " airport"} time={leaveTime} date={leaveDate}/>
           </View>
           
         </View>
       </View>
+      </ScrollView>
     )
   }
   
@@ -135,7 +183,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20
   },
   elementHolder: {
-    padding: 30
+    padding: 30,
+    paddingTop: 10
   },
   connector: {
     height: 30,

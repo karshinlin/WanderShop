@@ -11,8 +11,8 @@ export default class ItineraryFlightElement extends Component {
             <View style={styles.wrapper}>
                 <Image source={require('./assets/img/plane.png')} style={{height: 30, width: 30,  marginLeft: 10, marginRight: 10 }}/>
                 <View style={styles.infoArea}>
-                    <Text style={styles.title}>{"Arrive at " + this.props.airport + " airport"}</Text>
-                    <Text style={styles.subtitle}>{this.props.date + " " + this.props.time}</Text>
+                    <Text style={styles.title}>{this.props.airport}</Text>
+                    <Text style={styles.subtitle}>{this.props.date + " " + this.props.time + "m"}</Text>
                 </View>
 
             </View>
@@ -23,10 +23,11 @@ export default class ItineraryFlightElement extends Component {
 const styles = StyleSheet.create({
     wrapper: {
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        marginTop: 20
     },
     infoArea: {
-        marginLeft: 20
+        marginLeft: 10
     },
     title: {
         fontSize: 17,

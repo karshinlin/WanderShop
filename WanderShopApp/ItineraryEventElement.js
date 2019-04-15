@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         marginTop: 14
     },
     infoArea: {
-        marginLeft: 20
+        marginLeft: 10
     },
     title: {
         fontSize: 17,

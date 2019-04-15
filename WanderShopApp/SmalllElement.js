@@ -10,7 +10,7 @@ export default class SmallElement extends Component {
         
         return (
             <View style={styles.wrapper}>
-                <Image source={require('./assets/img/hero_hotel.jpg')} style={{height: 40, width: 40,  marginLeft: 0, borderRadius: 10,  marginRight: 10 }}/>
+                <Image source={{uri: this.props.picUrl}} style={{height: 40, width: 40,  marginLeft: 0, borderRadius: 10,  marginRight: 10 }}/>
                 <View style={styles.infoArea}>
                     <View style={{flexDirection: "row"}}>
                         <Text style={styles.title}>{this.props.title}</Text>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         marginLeft: 25,
         borderLeftWidth: 1,
         paddingVertical: 7,
-        paddingLeft: 45,
+        paddingLeft: 35,
         borderColor: "#BBBBBB"
     },
     infoArea: {
@@ -43,11 +43,13 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 15,
         fontWeight: "bold",
-        marginRight: 8
+        marginRight: 8,
+        maxWidth: 130
     },
     subtitle: {
         fontSize: 13,
         opacity: 0.7,
-        marginTop: 2
+        marginTop: 2,
+        maxWidth: 200
     }
 });
