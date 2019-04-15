@@ -31,6 +31,7 @@ class CartScreen extends Component {
       if (value !== null) {
         // We have data!!
         const cart = JSON.parse(value);
+        console.log(cart);
         var flights = [];
         var events = [];
         var hotels = [];
@@ -143,7 +144,7 @@ class CartScreen extends Component {
               <FlatList
                 scrollEnabled={false}
                 data={this.state.flights}
-                renderItem={({ item: { tripId, departDate, returnDate, price, provider, segmentsTo, segmentsBack, bookingUrl } }) => {
+                renderItem={({ item: { id, departDate, returnDate, price, provider, segmentsTo, segmentsBack, bookingUrl } }) => {
                   var diff = segmentsTo[segmentsTo.length-1]["arriveTimeUnix"] - segmentsTo[0]["departTimeUnix"];
                   var hours_diff = Math.floor(diff/3600);
                   var mins_diff = Math.floor((diff % 3600)/60);
