@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, Button, View, Text, StyleSheet, TextInput, AsyncStorage, Image } from "react-native";
+import { Platform, Button, View, ScrollView, Text, StyleSheet, FlatList, TextInput, AsyncStorage, Image } from "react-native";
 import { cDarkBlue, cLightBlue, cBlack, cWhite } from "./App";
 import StandardButton from "./StandardButton"
 import NewTripButton from './NewTripButton';
@@ -25,8 +25,12 @@ export default class HomeView extends React.Component {
 				})
 			}
 			console.log()
+			let sampleTrips = [{ destination: "Seattle", startDate: "March 3", endDate: "March 6", 
+					events: [], food: [], hotels: [], flights: [], numDays: 3, totalCost: 290 },
+					{ destination: "Seattle", startDate: "March 3", endDate: "March 6", 
+					events: [], food: [], hotels: [], flights: [], numDays: 3, totalCost: 290 }];
 			return (
-				<View>
+				<ScrollView>
 				<View style={styles.container}>
 				
 					<View style={{flexDirection: "row", justifyContent: "space-between",}}>
@@ -45,30 +49,18 @@ export default class HomeView extends React.Component {
 					</View>
 				</View>
 				<View style={{paddingHorizontal: Platform.OS === 'ios' ? 0 : 0}}>
-					<TripCard></TripCard>
-					{/* <FlightCard 
-						first_dep_time={"09:05"}
-						first_dep_airport={"SFO"}
-						first_duration={"4h 25m"}
-						first_land_time={"11:07"}
-						first_land_airport={"JFK"}
-						second_dep_time={"10:20"}
-						second_dep_airport={"JFK"}
-						second_duration={"5h 05m"}
-						second_land_time={"14:07"}
-						second_land_airport={"SFO"}
-						airline={"Emirates"}
-						price={"$1,250"}
-						addAction={() => {
-							this.addToCart({category: "hotel", hotelName, hotelId, address, cost, phoneNumber, rating, website});
-							}}
-						onPress={() => {
-							this.addToCart({category: "hotel", hotelName, hotelId, address, cost, phoneNumber, rating, website});
-							}}>
-						</FlightCard> */}
+				<FlatList
+        data={sampleTrips}
+        renderItem={({ item }) => (
+          <TripCard onPress={() => this.props.navigation.navigate('Itinerary', { trip: item, showSave: false })}trip={item}></TripCard>
+        )}
+        keyExtractor={({item: id}) => id}
+				onRefresh={this.handleRefresh}
+				scrollEnabled={false}
+      />
 				</View>
 					
-				</View>
+				</ScrollView>
 			);
   }
 }

@@ -34,7 +34,13 @@ class ItineraryScreen extends Component {
     }
   }
   componentDidMount() {
-    this.getCurrentCart()
+    console.log(this.props.navigation);
+    if (!this.props.navigation.state.params || !this.props.navigation.state.params.trip) {
+      this.getCurrentCart();
+    } else {
+      let trip = this.props.navigation.state.params.trip;
+      this.setState({flights: trip.flights, events: trip.events, hotels: trip.hotels, food: trip.food, totalCost: trip.totalCost });
+    }
 
     //navigation.setParams({title: "Your trip to "})
   }
@@ -91,8 +97,7 @@ class ItineraryScreen extends Component {
 
   render() {
     console.log('hereee')
-    console.log(this.state.flights)
-    if (this.state.flights != null) {
+    if (this.state.flights != null && this.state.flights.length > 0) {
       firstFlight = this.state.flights[0].segmentsTo;
       arriveTime = firstFlight[firstFlight.length-1].arriveTime;
       arriveAirport = firstFlight[firstFlight.length-1].destinationAirportCode
@@ -136,7 +141,7 @@ class ItineraryScreen extends Component {
       <View style={styles.global}>
         <View style={styles.wrapper}>
           
-            <Text style={{color: "#1D71F3", fontWeight: "bold", fontSize: 15, paddingHorizontal: 20}}>May 12 - May 16</Text>
+            <Text style={{color: "#1D71F3", fontWeight: "bold", fontSize: 15, paddingHorizontal: 20}}>{arriveDate} - {leaveDate}</Text>
           
           
           {/* <View style={styles.dayHeader}>

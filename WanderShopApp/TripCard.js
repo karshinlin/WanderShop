@@ -5,8 +5,10 @@ import { cDarkBlue, cLightBlue, cWhite } from "./App";
 
 export default class TripCard extends Component {
     render () {
-        let {onPress, isRipple, rippleColor, children, style} = this.props;
-        
+        let {onPress, isRipple, rippleColor, children, style, trip} = this.props;
+        let { destination, startDate, endDate, events, food, hotels, flights, numDays, totalCost } = trip;
+        let eventNum = events.length;
+        let foodNum = food.length;
         return (
             <View style={{}}>
                 <TouchableHighlight style={{borderRadius: 15}}
@@ -16,14 +18,12 @@ export default class TripCard extends Component {
                     <View style={{width: "100%", alignItems: "center"}}>
                         <View style={styles.wrapper}>
                             <View style={styles.details}>
-                                <Text style={styles.city}>Seattle</Text>
-                                <Text style={styles.dates}>March 3 - March 6</Text>
-                                <Text style={styles.detail}>3 nights &middot; 1 event &middot; 2 restaurants</Text>
-                                
-
+                                <Text style={styles.city}>{destination}</Text>
+                                <Text style={styles.dates}>{startDate} - {endDate}</Text>
+                                <Text style={styles.detail}>{numDays} {numDays != 1 ? 'nights' : 'night'} &middot; {eventNum} {eventNum != 1 ? 'events' : 'event'} &middot; {foodNum} {foodNum != 1 ? 'restaurants' : 'restaurant'}</Text>
                             </View>   
                             <View style={styles.priceArea}>
-                                <Text style={styles.price}>$290</Text>
+                                <Text style={styles.price}>${totalCost}</Text>
                             </View>                  
                         </View>
                     </View>
