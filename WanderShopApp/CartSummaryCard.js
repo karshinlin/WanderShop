@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    View, Platform, TouchableHighlight, Alert, Button, Text, StyleSheet } from 'react-native';
+    View, Platform, TouchableHighlight, Alert, Button, Text, AsyncStorage, StyleSheet } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 import { cDarkBlue, cLightBlue, cWhite } from "./App";
@@ -12,11 +12,27 @@ class CartSummaryCard extends Component {
         super(props);
     }
 
-    checkoutFunction() {
-        if (this.props.displayItinerary == true) {
-            this.props.navigation.navigate('Itinerary');
-            return;
+    async checkoutFunction() {
+        try {
+            if (this.props.displayItinerary == true) {
+                const value = await AsyncStorage.getItem('currentCart');
+                if (value !== null) {
+                    // We have data!!      
+                    var jsonCart = JSON.parse(value);
+                    var finalCart = {
+                        "tripInfo": [global.origin, global.destination, global.startDate, global.endDate, this.props.price],
+                        "cart" : jsonCart
+                    };
+                    await AsyncStorage.setItem('itinerary', JSON.stringify(finalCart)); 
+                    this.props.navigation.navigate('Itinerary', {showSave: true})
+                    return;
+                }
+            }
+        } catch (error) {
+            console.log(error);
+          // Error retrieving data
         }
+        
         var flights = this.props.flights ? this.props.flights : [];
         var hotels = this.props.hotels ? this.props.hotels : [];
         var food = this.props.food ? this.props.food : [];
@@ -89,7 +105,7 @@ class CartSummaryCard extends Component {
                                     <Text style={styles.airport}>{global.origin}</Text>
                                 </View>
                                 <View style={styles.connector}>
-                                    <Text style={styles.duration}>{global.numDays + ' Days'}</Text>
+                                    <Text style={styles.duration}>{global.numDays + global.numDays == 1 ?  ' Day' : ' Days'}</Text>
                                     <View style={styles.dot}></View>
                                 </View>
                                 <View style={styles.endpoint}>

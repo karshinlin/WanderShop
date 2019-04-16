@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    View, Platform, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
+    View, Platform, TouchableHighlight, Image, Text, Linking, StyleSheet } from 'react-native';
 import { cDarkBlue, cLightBlue, cWhite } from "./App";
 import CardRating from "./CardRating"
 import AddButton from "./AddButton"
@@ -14,7 +14,7 @@ export default class RestaurantCard extends Component {
         let {onPress, isRipple, rippleColor, children, style} = this.props;
         var addButton = <AddButton show={this.props.showAdd} onPress={this.props.showAdd == false ? function(){}: this.props.addAction}></AddButton>
         if (this.props.showCheckout) {
-            addButton = <CallButton  show={this.props.showCheckout} onPress={() => Linking.openURL(`tel:${phone}`)} />
+            addButton = <CallButton  show={this.props.showCheckout} onPress={() => Linking.openURL(`tel:${this.props.phone}`)} />
         } else if (!this.props.showAdd) {
             addButton = <RemoveButton onPress={this.props.showRemove == false ? function(){}: this.props.removeAction}></RemoveButton>;
         }

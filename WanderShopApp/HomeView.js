@@ -15,6 +15,18 @@ export default class HomeView extends React.Component {
     super(props);
 		this.params = this.props.navigation.state.params || {};
 		console.log(this.params);
+		this.getSample();
+	}
+	// TODO: REPLACE WITH DATA FROM DATABASE
+	async getSample() {
+		var sample = await AsyncStorage.getItem('itinerary');
+		if (sample !== null) {
+			var sampleTrips = [JSON.parse(sample)];
+			this.setState({sample: sampleTrips});
+		} else { 
+			this.setState({sample : []})
+		}
+	
 	}
   	render() {
 			var initials = "";
@@ -24,11 +36,14 @@ export default class HomeView extends React.Component {
 					initials += word.charAt(0);
 				})
 			}
+			global.email = this.params.email;
 			console.log()
-			let sampleTrips = [{ destination: "Seattle", startDate: "March 3", endDate: "March 6", 
-					events: [], food: [], hotels: [], flights: [], numDays: 3, totalCost: 290 },
-					{ destination: "Seattle", startDate: "March 3", endDate: "March 6", 
-					events: [], food: [], hotels: [], flights: [], numDays: 3, totalCost: 290 }];
+			
+			// let sampleTrips = [{ destination: "Seattle", startDate: "March 3", endDate: "March 6", 
+			// 		events: [], food: [], hotels: [], flights: [], numDays: 3, totalCost: 290 },
+			// 		{ destination: "Seattle", startDate: "March 3", endDate: "March 6", 
+			// 		events: [], food: [], hotels: [], flights: [], numDays: 3, totalCost: 290 }];
+			
 			return (
 				<ScrollView>
 				<View style={styles.container}>
@@ -50,9 +65,9 @@ export default class HomeView extends React.Component {
 				</View>
 				<View style={{paddingHorizontal: Platform.OS === 'ios' ? 0 : 0}}>
 				<FlatList
-        data={sampleTrips}
+        data={this.state ? this.state.sample : []}
         renderItem={({ item }) => (
-          <TripCard onPress={() => this.props.navigation.navigate('Itinerary', { trip: item, showSave: false })}trip={item}></TripCard>
+          <TripCard onPress={() => this.props.navigation.navigate('Itinerary', { showSave: false })} trip={item}></TripCard>
         )}
         keyExtractor={({item: id}) => id}
 				onRefresh={this.handleRefresh}

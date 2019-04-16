@@ -2,13 +2,57 @@ import React, { Component } from 'react';
 import {
     View, Platform, TouchableHighlight, Image, Text, StyleSheet } from 'react-native';
 import { cDarkBlue, cLightBlue, cWhite } from "./App";
+import moment from "moment";
 
 export default class TripCard extends Component {
+    constructor(props) {
+        super(props);
+        this.processCart.bind(this);
+    }
+    processCart(cart) {
+        if (cart !== null) {
+            // We have data!!
+            //const cart = JSON.parse(acart);
+            console.log(cart);
+            var flights = [];
+            var events = [];
+            var hotels = [];
+            var food = [];
+            cart.forEach(element => {
+              if (element.category == "food") {
+                food.push(element);
+              }
+              if (element.category == "hotel") {
+                hotels.push(element);
+              }
+              if (element.category == "flight") {
+                flights.push(element);
+              }
+              if (element.category == "event") {
+                events.push(element);
+              }
+            });
+            var retVal = [ flights, events, food, hotels ];
+            console.log(retVal);
+            return retVal;
+          } else {
+              console.log("NULLL");
+              return null;
+          }
+    }
     render () {
+        console.log(this.props);
         let {onPress, isRipple, rippleColor, children, style, trip} = this.props;
-        let { destination, startDate, endDate, events, food, hotels, flights, numDays, totalCost } = trip;
-        let eventNum = events.length;
-        let foodNum = food.length;
+        let { tripInfo, cart } = trip;
+        // tripInfo format: [origin, destination, startDate, endDate, price]
+        let destination = tripInfo[1];
+        let totalCost = tripInfo[4];
+        let numDays = moment(tripInfo[3]).diff(tripInfo[2], 'days');
+        let details = this.processCart(cart);
+
+        //let { destination, startDate, endDate, events, food, hotels, flights, numDays, totalCost } = trip;
+        let eventNum = details[1].length;
+        let foodNum = details[2].length;
         return (
             <View style={{}}>
                 <TouchableHighlight style={{borderRadius: 15}}

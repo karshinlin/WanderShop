@@ -118,8 +118,9 @@ class LoginScreen extends React.Component {
           //   console.log(error);
           // }
           var userName = responseJSON['name'];
+          var email = responseJSON['email'];
           console.log(responseJSON);
-          this.props.navigation.navigate('HomePage', {name: userName.toString()});
+          this.props.navigation.navigate('HomePage', {name: userName.toString(), email: email.toString()});
         } else {
           console.log(responseJSON)
           console.log("Login failed");
@@ -332,7 +333,6 @@ const AppNavigator = createStackNavigator({
   Itinerary: {
     screen: ItineraryScreen,
     navigationOptions: {
-      title: "Your trip to San Diego",
       headerStyle: {
         backgroundColor: cLightBlue,
         elevation: 0,

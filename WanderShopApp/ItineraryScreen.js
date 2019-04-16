@@ -11,6 +11,8 @@ import ItineraryHotelElement from "./ItineraryHotelElement.js";
 import ItineraryFoodElement from "./ItineraryFoodElement.js";
 import SmallElement from "./SmalllElement.js";
 import ItineraryEventElement from "./ItineraryEventElement.js";
+import SaveButton from "./SaveButton";
+import moment from "moment";
 
 const cDarkBlue = "#1D71F3";
 const cLightBlue = "#3EAAFA";
@@ -31,8 +33,25 @@ class ItineraryScreen extends Component {
         events: null,
         food: null,
         totalCost: 0,
-    }
+    };
   }
+  
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Your trip to ' + global.destination,
+    headerStyle: {
+      backgroundColor: cLightBlue,
+      elevation: 0,
+      shadowOpacity: 0,
+      paddingTop: 15,
+      headerTintColor: "#FFFFFF"
+    },
+    headerRight: navigation.state.params.showSave ? (<SaveButton/>) : null,
+    headerLeftContainerStyle: {
+      marginLeft: 5,
+    },
+    headerTintColor: 'white',
+  });
+
   componentDidMount() {
     console.log(this.props.navigation);
     if (!this.props.navigation.state.params || !this.props.navigation.state.params.trip) {
@@ -46,10 +65,11 @@ class ItineraryScreen extends Component {
   }
   async getCurrentCart() {
     try {
-      const value = await AsyncStorage.getItem('currentCart');
+      const value = await AsyncStorage.getItem('itinerary');
       if (value !== null) {
         // We have data!!
-        const cart = JSON.parse(value);
+        const cart = JSON.parse(value)["cart"];
+        var info = JSON.parse(value)["tripInfo"];
         var flights = [];
         var events = [];
         var hotels = [];
@@ -79,7 +99,7 @@ class ItineraryScreen extends Component {
             }
           }
         });
-        await this.setState({ flights, events, food, hotels, totalCost });
+        await this.setState({ flights, events, food, hotels, totalCost, info });
         console.log("here you go")
         console.log(this.state.flights)
         console.log(this.state.hotels)
@@ -96,6 +116,9 @@ class ItineraryScreen extends Component {
   }
 
   render() {
+    if (global.email == '') {
+      this.props.navigation.navigate('Welcome');
+    }
     console.log('hereee')
     if (this.state.flights != null && this.state.flights.length > 0) {
       firstFlight = this.state.flights[0].segmentsTo;
@@ -141,7 +164,7 @@ class ItineraryScreen extends Component {
       <View style={styles.global}>
         <View style={styles.wrapper}>
           
-            <Text style={{color: "#1D71F3", fontWeight: "bold", fontSize: 15, paddingHorizontal: 20}}>{arriveDate} - {leaveDate}</Text>
+            <Text style={{color: "#1D71F3", fontWeight: "bold", fontSize: 15, paddingHorizontal: 20}}>{this.state.info[2] + ' to ' + this.state.info[3]}</Text>
           
           
           {/* <View style={styles.dayHeader}>
@@ -157,8 +180,7 @@ class ItineraryScreen extends Component {
             <ItineraryEventElement numEvents={allEvents.length}/>
             {allEvents}
             <ItineraryFlightElement airport={"Depart from " + leaveAirport + " airport"} time={leaveTime} date={leaveDate}/>
-          </View>
-          
+          </View>  
         </View>
       </View>
       </ScrollView>
