@@ -23,6 +23,8 @@ class WelcomeScreen extends React.Component {
     header: null
   }
   render() {
+    // TODO: UNCOMMENT TO DISABLE WARNINGS
+    // console.disableYellowBox = true;
     return (
 		<View style={styles.welcomeContainer}>
       <View>

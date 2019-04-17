@@ -57,7 +57,7 @@ class CartScreen extends Component {
           }
           if (element.category == "flight") {
             flights.push(element);
-            if (element.price && element.price != '') {
+            if (element.price && element.price != 'Not Available') {
               totalCost += parseInt(element.price.substring(1))
             }
           }
