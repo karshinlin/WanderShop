@@ -38,7 +38,7 @@ class ItineraryScreen extends Component {
   }
   
   static navigationOptions = ({ navigation }) => ({
-    title: 'Your trip to ' + global.destination,
+    title: 'Your trip to ' + (navigation.state.params && navigation.state.params['title']) ? navigation.state.params['title'] : global.destination,
     headerStyle: {
       backgroundColor: cLightBlue,
       elevation: 0,
@@ -54,7 +54,6 @@ class ItineraryScreen extends Component {
   });
 
   componentDidMount() {
-    console.log(this.props.navigation);
     this.extractCart();
   }
 
@@ -104,10 +103,6 @@ class ItineraryScreen extends Component {
         });
         await this.setState({ flights, events, food, hotels, totalCost, info });
         console.log("here you go")
-        console.log(this.state.flights)
-        console.log(this.state.hotels)
-        console.log(this.state.food)
-        console.log(this.state.events)
         this.props.navigation.setParams({title: "Your trip to " + this.state.info[1]})
         //console.log(cart);
       } else {
@@ -162,7 +157,6 @@ class ItineraryScreen extends Component {
       allEvents.push(one)
     });
 
-  
     return(
       <ScrollView style={{backgroundColor: "white"}}>
       <View style={styles.global}>
