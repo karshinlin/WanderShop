@@ -43,8 +43,8 @@ export default class TripCard extends Component {
     render () {
         console.log(this.props);
         let {onPress, isRipple, rippleColor, children, style, trip} = this.props;
-        let { tripInfo, cart } = trip;
         // tripInfo format: [origin, destination, startDate, endDate, price]
+        let {tripInfo, cart } = JSON.parse(trip.substring(1, trip.length - 1));
         let destination = tripInfo[1];
         let totalCost = tripInfo[4];
         let numDays = moment(tripInfo[3]).diff(tripInfo[2], 'days');

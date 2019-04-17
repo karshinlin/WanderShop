@@ -15,9 +15,12 @@ export default class HomeView extends React.Component {
     super(props);
 		this.params = this.props.navigation.state.params || {};
 		console.log(this.params);
-		this.getSample();
+		global.email = this.params.email;
+		this.props.navigation.addListener('didFocus', () => this.fetchTrips())
+		//this.getSample();
 	}
 	// TODO: REPLACE WITH DATA FROM DATABASE
+	/*
 	async getSample() {
 		var sample = await AsyncStorage.getItem('itinerary');
 		if (sample !== null) {
@@ -27,7 +30,37 @@ export default class HomeView extends React.Component {
 			this.setState({sample : []})
 		}
 	
+	}*/
+
+	async fetchTrips() {
+		var url = global.url + "/trips/?email=" + this.params.email;
+		console.log(url);
+		return fetch(url)
+        .then((response) => response.json())
+        .then((response) => {
+            this.setState({
+                isLoading: false,
+                error: false,
+                data: response.trips,
+                refreshing: false,
+                time: 30,
+            }, function () {
+                console.log(response);
+            });
+        })
+        .catch((error) => {
+            this.setState({
+                isLoading: false,
+                error: true
+            })
+        });
+
 	}
+
+	// componentDidMount() {
+	// 	this.fetchTrips();
+	// }
+
   	render() {
 			var initials = "";
 			if (this.params && this.params.name) {
@@ -36,7 +69,7 @@ export default class HomeView extends React.Component {
 					initials += word.charAt(0);
 				})
 			}
-			global.email = this.params.email;
+			//global.email = this.params.email;
 			console.log()
 			
 			// let sampleTrips = [{ destination: "Seattle", startDate: "March 3", endDate: "March 6", 
@@ -65,7 +98,7 @@ export default class HomeView extends React.Component {
 				</View>
 				<View style={{paddingHorizontal: Platform.OS === 'ios' ? 0 : 0}}>
 				<FlatList
-        data={this.state ? this.state.sample : []}
+        data={this.state ? this.state.data : []}
         renderItem={({ item }) => (
           <TripCard onPress={() => this.props.navigation.navigate('Itinerary', { showSave: false })} trip={item}></TripCard>
         )}
