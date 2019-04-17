@@ -34,6 +34,7 @@ class ItineraryScreen extends Component {
         food: null,
         totalCost: 0,
     };
+    this.extractCart.bind(this);
   }
   
   static navigationOptions = ({ navigation }) => ({
@@ -54,18 +55,20 @@ class ItineraryScreen extends Component {
 
   componentDidMount() {
     console.log(this.props.navigation);
-    if (!this.props.navigation.state.params || !this.props.navigation.state.params.trip) {
-      this.getCurrentCart();
-    } else {
-      let trip = this.props.navigation.state.params.trip;
-      this.setState({flights: trip.flights, events: trip.events, hotels: trip.hotels, food: trip.food, totalCost: trip.totalCost });
-    }
-
-    //navigation.setParams({title: "Your trip to "})
+    this.extractCart();
   }
-  async getCurrentCart() {
+
+  async extractCart() {
+    let value = null;
+    if (!this.props.navigation.state.params || !this.props.navigation.state.params.trip) {
+      value = await AsyncStorage.getItem('itinerary');
+    } else {
+      // tripInfo format: [origin, destination, startDate, endDate, price]
+      value = this.props.navigation.state.params.trip.substring(1, this.props.navigation.state.params.trip.length - 1);
+      // this.setState({flights: cart.flights, events: trip.events, hotels: trip.hotels, food: trip.food, totalCost: trip.totalCost });
+    }
     try {
-      const value = await AsyncStorage.getItem('itinerary');
+      
       if (value !== null) {
         // We have data!!
         const cart = JSON.parse(value)["cart"];
@@ -105,6 +108,7 @@ class ItineraryScreen extends Component {
         console.log(this.state.hotels)
         console.log(this.state.food)
         console.log(this.state.events)
+        this.props.navigation.setParams({title: "Your trip to " + this.state.info[1]})
         //console.log(cart);
       } else {
           ///console.log("NULLL");

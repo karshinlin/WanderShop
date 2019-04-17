@@ -100,7 +100,7 @@ export default class HomeView extends React.Component {
 				<FlatList
         data={this.state ? this.state.data : []}
         renderItem={({ item }) => (
-          <TripCard onPress={() => this.props.navigation.navigate('Itinerary', { showSave: false })} trip={item}></TripCard>
+          <TripCard onPress={() => this.props.navigation.navigate('Itinerary', { trip: item, showSave: false })} trip={item}></TripCard>
         )}
         keyExtractor={({item: id}) => id}
 				onRefresh={this.handleRefresh}

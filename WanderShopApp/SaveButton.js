@@ -29,7 +29,7 @@ class SaveButton extends React.Component {
       .then((responseJSON) => {
         if (responseJSON['success'] == 1) {
           console.log(responseJSON)
-          //this.props.navigation.navigate('HomePage');
+          this.props.navigation.navigate('HomePage');
         } else {
           console.log(responseJSON)
           console.log("Save trip failed");

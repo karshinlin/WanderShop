@@ -52,7 +52,7 @@ with open('hotels_sample.json') as json_file:
 with open('flights_sample.json') as json_file:  
     flightData = json.load(json_file)
 
-lockAPI = True
+lockAPI = False
 
 @app.route('/')
 def hello_world():
@@ -177,6 +177,7 @@ def activities_handler():
 
 @app.route('/addTrip/', methods=['POST'])
 def add_trips_handler():
+    cmd = ''
     try:
         if request.method == "POST":
             reqJson = request.get_json()
@@ -189,14 +190,15 @@ def add_trips_handler():
             if "email" in reqJson:
                 user_email = str(reqJson['email'])
             if "trip" in reqJson:
-                user_trip = str(json.dumps(reqJson['trip']))
+                user_trip = json.dumps(reqJson['trip'])[1:-1]
             if "startDate" in reqJson:
                 date = str(reqJson['startDate'])
             # user_email = request.values.get('email', default="tobincolby@gmail.com", type=str)
             # user_trip = request.values.get('trip', default="MY TRIP", type=str)
             conn = mysql.connect()
             cursor = conn.cursor()
-            cursor.execute("INSERT INTO trips (user_email, trip_details, start_date) VALUES ('{}','{}', '{}')".format(user_email, user_trip, date))
+            cmd = "INSERT INTO trips (user_email, trip_details, start_date) VALUES ('{}','{}', '{}')".format(user_email, user_trip, date)
+            cursor.execute(cmd)
             response = {}
             # response['trip'] = str(user_trip)
             response['email'] = user_email
@@ -207,7 +209,7 @@ def add_trips_handler():
     except Exception as e:
         #flash(e)
         print ("error: " + str(e))
-        return json.jsonify({'success':0, 'error': str(e)})
+        return json.jsonify({'success':0, 'error': str(e), 'cmd': cmd})
 
     # user_email = request.values.get('email', default="tobincolby@gmail.com", type=str)
     # user_trip = request.values.get('trip', default="MY TRIP", type=str)
