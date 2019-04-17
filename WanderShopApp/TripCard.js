@@ -13,7 +13,7 @@ export default class TripCard extends Component {
         if (cart !== null) {
             // We have data!!
             //const cart = JSON.parse(acart);
-            console.log(cart);
+            // console.log(cart);
             var flights = [];
             var events = [];
             var hotels = [];
@@ -33,7 +33,7 @@ export default class TripCard extends Component {
               }
             });
             var retVal = [ flights, events, food, hotels ];
-            console.log(retVal);
+            // console.log(retVal);
             return retVal;
           } else {
               console.log("NULLL");
@@ -44,7 +44,8 @@ export default class TripCard extends Component {
         console.log(this.props);
         let {onPress, isRipple, rippleColor, children, style, trip} = this.props;
         // tripInfo format: [origin, destination, startDate, endDate, price]
-        let {tripInfo, cart } = JSON.parse(trip.substring(1, trip.length - 1));
+        console.log(trip);
+        let {tripInfo, cart } = JSON.parse(trip);
         let destination = tripInfo[1];
         let totalCost = tripInfo[4];
         let numDays = moment(tripInfo[3]).diff(tripInfo[2], 'days');

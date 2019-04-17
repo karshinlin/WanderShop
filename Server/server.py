@@ -185,12 +185,13 @@ def add_trips_handler():
             user_trip = 'MY TRIP'
             date = datetime.date.today()
             dateObj = datetime.datetime.strptime(str(date), '%Y-%m-%d')
-            date = dateObj.strftime('%Y-%m-%dT%H:%M:%SZ')
+            date = dateObj.strftime('%Y-%m-%d')
 
             if "email" in reqJson:
                 user_email = str(reqJson['email'])
             if "trip" in reqJson:
-                user_trip = json.dumps(reqJson['trip'])[1:-1]
+                user_trip = json.dumps(reqJson['trip'])[1:-1].replace("'", "\\'")
+
             if "startDate" in reqJson:
                 date = str(reqJson['startDate'])
             # user_email = request.values.get('email', default="tobincolby@gmail.com", type=str)
@@ -233,8 +234,10 @@ def trips_handler():
 
     conn = mysql.connect()
     cursor =conn.cursor()
-
-    cursor.execute('SELECT * from trips WHERE user_email="{}"'.format(user_email))
+    date = datetime.date.today()
+    dateObj = datetime.datetime.strptime(str(date), '%Y-%m-%d')
+    date = dateObj.strftime('%Y-%m-%d')
+    cursor.execute('SELECT * from trips WHERE user_email="{}" AND start_date >= "{}"'.format(user_email, date))
     row = cursor.fetchone()
     trips = []
     while row is not None:

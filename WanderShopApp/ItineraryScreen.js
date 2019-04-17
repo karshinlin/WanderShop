@@ -64,7 +64,7 @@ class ItineraryScreen extends Component {
       value = await AsyncStorage.getItem('itinerary');
     } else {
       // tripInfo format: [origin, destination, startDate, endDate, price]
-      value = this.props.navigation.state.params.trip.substring(1, this.props.navigation.state.params.trip.length - 1);
+      value = this.props.navigation.state.params.trip;
       // this.setState({flights: cart.flights, events: trip.events, hotels: trip.hotels, food: trip.food, totalCost: trip.totalCost });
     }
     try {
