@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         justifyContent: "space-between",
         marginBottom: 15,
-        width: Platform.OS === 'ios' ? 320 : 410
+        width: Platform.OS === 'ios' ? 330 : 430
     },
     city: {
         fontFamily: "Arial",
@@ -112,8 +112,8 @@ const styles = StyleSheet.create({
         color: "#3EAAFA"
     },
     priceArea: {
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
+        justifyContent: "flex-end",
+        alignItems: "flex-end",
         
     },
     price: {
