@@ -10,7 +10,7 @@
     "expo-linear-gradient": "^4.0.0",
     "install": "^0.12.2",
     "moment": "^2.24.0",
-    "npm": "^6.9.0",
+    "npm": "^6.14.6",
     "react": "16.6.3",
     "react-native": "0.58.5",
     "react-native-calendar-picker": "^6.0.0",
